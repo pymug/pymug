@@ -1,6 +1,6 @@
 
 from jinja2 import Environment, FileSystemLoader
-
+import collections
 '''
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
@@ -78,4 +78,32 @@ def run_main_page(**kwargs):
     generate('templates', 'index.html', 'index.html',
     **kwargs)
 
-run_main_page(sections=sections)
+def run_members_basic(**kwargs):
+    basic_members = collections.OrderedDict()
+    '''
+    {
+        'appinv':{
+            'name':'...',
+            'date':''
+        }
+    }
+    '''
+    with open('data/members_basic/members.txt', 'r') as memfile:
+        infos = memfile.read().splitlines()
+        for i,info in enumerate(infos):
+            data = [x.strip() for x in info.split('/')]
+            name = data[0]
+            uname = data[1]
+            date = data[2]
+            basic_members[uname] = {
+                'index':i+1,
+                'name':name,
+                'date':date
+            }
+            print(basic_members)
+    reversed_dict = collections.OrderedDict(reversed(list(basic_members.items())))
+    generate('templates', 'menus/members_basic.html', 'menus/members_basic.html',
+    basic_members=reversed_dict)
+
+# run_main_page(sections=sections)
+run_members_basic()

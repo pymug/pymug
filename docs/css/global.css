@@ -4,6 +4,18 @@ body{
 a{
     text-decoration: none;
 }
+table{
+    width: 90%;
+    margin : 20px;
+    border-collapse: collapse; 
+}
+td, th{
+    padding-top: 10px;
+}
+tr{
+    border-bottom:5px solid orange;
+}
+
 .menu_card{
     width: 200px; height: 235px;
     margin:30px;
@@ -33,5 +45,10 @@ a{
     border-bottom-left-radius: 5px; 
     border-bottom-right-radius: 5px;
     margin-bottom: 5px;
+}
+
+.cell{
+    width: 100px;
+    overflow-x: scroll;
 }
 
