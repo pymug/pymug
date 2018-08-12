@@ -1,6 +1,9 @@
 body{
     user-select: none;
 }
+a{
+    text-decoration: none;
+}
 .menu_card{
     width: 200px; height: 235px;
     margin:30px;
