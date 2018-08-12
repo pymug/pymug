@@ -122,7 +122,7 @@ def build_pystandard():
     print('menus/pystandard built')
 
 #build_main_page()
-#build_members_basic()
+build_members_basic()
 #build_register()
 #build_about()
 # build_pystandard()
