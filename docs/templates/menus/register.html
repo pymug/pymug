@@ -28,22 +28,20 @@
 
     <!--main-->
     <main>
-        <table>
-        <tr>
-            <th>index</th>
-            <th>username</th>
-            <th>name</th> 
-            <th>date joined</th>
-        </tr>
-        {% for member in basic_members %}
-        <tr>
-            <td> {{basic_members[member].index}} </td>
-            <td>{{member}} </td>
-            <td> {{basic_members[member].name}} </td> 
-            <td>{{basic_members[member].date}} </td>
-        </tr>
-        {% endfor %}
-        </table>
+        <div>
+            register
+        </div>
+        <article>
+            <h1>register as a basic member</h1>
+            <p>
+                to register as a basic member, open an issue <a href="https://github.com/Abdur-rahmaanJ/pymug/issues">here</a> with your name and username or <br>
+                add your name <a href="https://github.com/Abdur-rahmaanJ/pymug/blob/master/docs/data/members_basic/members.txt">here</a> by submitting Pull Request. add in the format name / username / date joined
+            </p>
+            <h1>register as a detailed member</h1>
+            <p>
+                detailed members are evaluated via our <a href="pystandard.html">python certification standard</a>. coming soon ...
+            </p>
+        </article>
     </main>
 
 

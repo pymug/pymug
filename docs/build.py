@@ -32,7 +32,7 @@ sections = {
         'link':'menus/members_basic.html',
         'fa_class':'fa-angle-up'
     },
-    'registered members':{
+    'detailed members':{
         'link':'menus/members_reg.html',
         'fa_class':'fa-angle-double-up'
     },
@@ -69,18 +69,18 @@ sections = {
         'fa_class':'fa-book'
     },
     'py certif standard':{
-        'link':'menus/certifstandard.html',
+        'link':'menus/pystandard.html',
         'fa_class':'fa-file-o'
     }
 }
-def build_main_page(**kwargs):
+def build_main_page():
     #generate('templates', 'index.html', 'index.html',
     #**kwargs)
     generate('templates', 'index.html', 'index.html',
         sections=sections)
     print('main page built')
 
-def build_members_basic(**kwargs):
+def build_members_basic():
     basic_members = collections.OrderedDict()
     '''
     {
@@ -106,8 +106,12 @@ def build_members_basic(**kwargs):
     reversed_dict = collections.OrderedDict(reversed(list(basic_members.items())))
     generate('templates', 'menus/members_basic.html', 'menus/members_basic.html',
     basic_members=reversed_dict)
-    print('members_basic built')
+    print('menus/members_basic built')
 
-    
-#build_main_page()
-#build_members_basic()
+def build_register():
+    generate('templates', 'menus/register.html', 'menus/register.html')
+    print('menus/register built')
+
+# build_main_page()
+# build_members_basic()
+build_register()
