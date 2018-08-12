@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PYMUG - Python Mauritius UserGroup</title>
+    <!--cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <!--local libs-->
+    <link rel="stylesheet" type="text/css" href="../css/prototyp.css">
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <!--descriptions / meta-->
+    <meta charset="utf-8">
+    <meta name="description" content="Usergroup of the python programming language for users of  a paradise island called Mauritius">
+    <meta name="keywords" content="python, mauritius, coding, usergroup">
+    <meta name="author" content="appinv">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000"/>
+</head>
+<body class="c ">
+    <!--nav-->
+    <div>
+        {% include 'nav.html' %}
+    </div>
+
+    <!--header-->
+    <header class="c">
+        {% include 'header.html' %}
+    </header>
+
+    <!--main-->
+    <main class="f">
+        {% include 'page_info.html' %}
+        <div></div>
+        <article class="standard">
+            <h2>the need for a standard concerning the evaluation of python knowledge</h2>
+            <p>
+                how much python do you know? having a checklist enables one to know. also enables companies to assess candidates required and if candidates fit.
+            </p>
+
+<div class="std_part">
+<h1 class="std_title">core - basics</h1>
+<h3>1: Control and Evaluations (25%)</h3>
+<p>
+basic concepts: interpreting and the interpreter, compilation and the compiler, language elements, lexis, syntax and semantics, Python keywords, instructions, indenting
+literals: Boolean, integer, floating-point numbers, scientific notation, strings
+operators: unary and binary, priorities and binding<br><hr>
+numeric operators: ** * / % // + - <br><hr>
+bitwise operators: ~ & ^ | << >> <br><hr>
+string operators: * + <br><hr>
+Boolean operators: not and or <br><hr>
+relational operators ( == != > >= < <= ), building complex Boolean expressions<br><hr>
+assignments and shortcut operators<br><hr>
+accuracy of floating-point numbers<br><hr>
+basic input and output: input(), print(), int(), float(), str() functions<br><hr>
+formatting print() output with end= and sep= arguments<br><hr>
+conditional statements: if, if-else, if-elif, if-elif-else<br><hr>
+the pass instruction<br><hr>
+simple lists: constructing vectors, indexing and slicing, the len() function<br><hr>
+simple strings: constructing, assigning, indexing, slicing comparing, immutability<br><hr>
+building loops: while, for, range(), in, iterating through sequences<br><hr>
+expanding loops: while-else, for-else, nesting loops and conditional statements<br><hr>
+controlling loop execution: break, continue<br><hr>
+
+</p>
+<h3>2: Data Aggregates (25%)</h3>
+<p>
+strings in detail: ASCII, UNICODE, UTF-8, immutability, escaping using the \ character, quotes and apostrophes inside strings, multiline strings, copying vs. cloning, advanced slicing, string vs. string, string vs. non-string, basic string methods (upper(), lower(), isxxx(), capitalize(), split(), join(), etc.) and functions (len(), chr(), ord()), escape characters<br><hr>
+lists in detail: indexing, slicing, basic methods (append(), insert(), index()) and functions (len(), sorted(), etc.), del instruction, iterating lists with the for loop, initializing, in and not in operators, list comprehension, copying and cloning<br><hr>
+lists in lists: matrices and cubes<br><hr>
+tuples: indexing, slicing, building, immutability<br><hr>
+tuples vs. lists: similarities and differences, lists inside tuples and tuples inside lists<br><hr>
+dictionaries: building, indexing, adding and removing keys, iterating through dictionaries as well as their keys and values, checking key existence, keys(), items() and values() methods<br><hr>
+
+</p>
+<h3>3: Functions and Modules (25%)</h3>
+<p>
+defining and invoking your own functions and generators<br><hr>
+return and yield keywords, returning results, the None keyword, recursion<br><hr>
+parameters vs. arguments, positional keyword and mixed argument passing, default parameter values<br><hr>
+converting generator objects into lists using the list() function<br><hr>
+name scopes, name hiding (shadowing), the global keyword<br><hr>
+lambda functions, defining and using<br><hr>
+map(), filter(), reduce(), reversed(), sorted() functions and the sort() method<br><hr>
+the if operator<br><hr>
+import directives, qualifying entities with module names, initializing modules<br><hr>
+writing and using modules, the __name__ variable<br><hr>
+pyc file creation and usage<br><hr>
+constructing and distributing packages, packages vs. directories, the role of the __init__.py file<br><hr>
+hiding module entities<br><hr>
+Python hashbangs, using multiline strings as module documentation<br><hr>
+
+</p>
+<h3>4: Classes, Objects, and Exceptions (25%)</h3>
+<p>
+defining your own classes, superclasses, subclasses, inheritance, searching for missing class components, creating objects<br><hr>
+class attributes: class variables and instance variables, defining, adding and removing attributes, explicit constructor invocation<br><hr>
+class methods: defining and using, the self parameter meaning and usage<br><hr>
+inheritance and overriding, finding class/object components<br><hr>
+single inheritance vs. multiple inheritance<br><hr>
+name mangling<br><hr>
+invoking methods, passing and using the self argument/parameter<br><hr>
+the __init__ method<br><hr>
+the role of the __str__ method<br><hr>
+introspection: __dict__, __name__, __module__, __bases__ properties, examining class/object structure<br><hr>
+writing and using constructors<br><hr>
+hasattr(), type(), issubclass(), isinstance(), super() functions<br><hr>
+using predefined exceptions and defining your own ones<br><hr>
+the try-except-else-finally block, the raise statement, the except-as variant<br><hr>
+exceptions hierarchy, assigning more than one exception to one except branch<br><hr>
+adding your own exceptions to an existing hierarchy<br><hr>
+assertions<br><hr>
+the anatomy of an exception object<br><hr>
+input/output basics: opening files with the open() function, stream objects, binary vs. text files, newline character translation, reading and writing files, bytearray objects<br><hr>
+read(), readinto(), readline(), write(), close() methods<br><hr>
+</p>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">core - std lib</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">logging, debugging and testing</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">networking</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">concurrency and asynchronous programming</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">gui</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">distribution and packaging</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">virtual environment</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">python coding standards</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">design patterns</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">software engineering principles</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">data structures and algorithms</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">databases</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">mathematical notations</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">mathematical theories and concepts</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">cryptography</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">webscraping - beautifulsoup</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">requests</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">image processing</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">data science</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">machine learning</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">computer vision</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">deep learning</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">py2 and py3 differences</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+<div></div>
+<div class="std_part">
+<h1 class="std_title">web dev</h1>
+<h3>1:</h3>
+</div><!--std_part-->
+
+
+            <h1>references</h1>
+            <p>adapted core from <a href="https://pythoninstitute.org/pcap-exam-syllabus/">pythoninstitute</a></p>
+        </article>
+    </main>
+
+
+    <!--footer-->
+{% include 'globe.html' %}
+    <footer>
+        
+    </footer>
+</body>
+</html>

@@ -1,5 +1,6 @@
 body{
     user-select: none;
+    font-family: 'Titillium Web', sans-serif;
 }
 a{
     text-decoration: none;
@@ -52,3 +53,19 @@ tr{
     overflow-x: scroll;
 }
 
+.page_info{
+    width: 300px;
+    margin: 10px;
+    background-color: #2b5b84; color: #fff;
+    height: 30px; line-height: 30px;
+}
+
+.standard{
+    width: 500px;
+}
+.std_title{
+    border: 5px solid orange;
+}
+.std_part{
+    /*float: left;*/
+}

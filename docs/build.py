@@ -52,7 +52,7 @@ sections = {
         'link':'menus/business.html',
         'fa_class':'fa-certificate'
     },
-    'about us':{
+    'about':{
         'link':'menus/about.html',
         'fa_class':'fa-info'
     },
@@ -63,10 +63,6 @@ sections = {
     'sponsors':{
         'link':'menus/sponsors.html',
         'fa_class':'fa-cc-paypal'
-    },
-    'history':{
-        'link':'menus/history.html',
-        'fa_class':'fa-book'
     },
     'py certif standard':{
         'link':'menus/pystandard.html',
@@ -81,7 +77,8 @@ def build_main_page():
     print('main page built')
 
 def build_members_basic():
-    basic_members = collections.OrderedDict()
+    # basic_members = collections.OrderedDict()
+    basic_members = {}
     '''
     {
         'appinv':{
@@ -102,16 +99,30 @@ def build_members_basic():
                 'name':name,
                 'date':date
             }
-            print(basic_members)
-    reversed_dict = collections.OrderedDict(reversed(list(basic_members.items())))
+        # print(basic_members)
+    
+    # reversed_dict = collections.OrderedDict(reversed(list(basic_members.items())))
     generate('templates', 'menus/members_basic.html', 'menus/members_basic.html',
-    basic_members=reversed_dict)
+    basic_members=basic_members, page_info='basic members')
     print('menus/members_basic built')
 
 def build_register():
-    generate('templates', 'menus/register.html', 'menus/register.html')
+    generate('templates', 'menus/register.html', 'menus/register.html',
+        page_info='register')
     print('menus/register built')
 
-# build_main_page()
-# build_members_basic()
-build_register()
+def build_about():
+    generate('templates', 'menus/about.html', 'menus/about.html',
+        page_info='about')
+    print('menus/about built')
+
+def build_pystandard():
+    generate('templates', 'menus/pystandard.html', 'menus/pystandard.html',
+        page_info='certification standard')
+    print('menus/pystandard built')
+
+#build_main_page()
+#build_members_basic()
+#build_register()
+#build_about()
+# build_pystandard()
