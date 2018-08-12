@@ -12,3 +12,13 @@ an index.html in every folder, path or lib, is a brillant idea of github (really
 # quick start
 
 no need to install jinja, just activate the virtual env
+
+# add yourself as a member
+
+open an issue with your name,username,date in the format
+
+name / username / date
+
+or open a Pull Request and add your name to the bottom of the file [here](https://github.com/Abdur-rahmaanJ/pymug/blob/master/docs/data/members_basic/members.txt)
+
+
