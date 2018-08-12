@@ -1,3 +1,6 @@
+/***
+tests in progress
+***/
 body{
     user-select: none;
     font-family: 'Titillium Web', sans-serif;
@@ -19,7 +22,7 @@ tr{
 
 .menu_card{
     width: 200px; height: 235px;
-    margin:30px;
+    margin:30px; user-select: none;
 
 }
 
@@ -61,7 +64,7 @@ tr{
 }
 
 .standard{
-    max-width: 500px;
+    max-width: 300px;
 }
 .std_title{
     border: 5px solid orange;
