@@ -61,7 +61,7 @@ tr{
 }
 
 .standard{
-    width: 500px;
+    max-width: 500px;
 }
 .std_title{
     border: 5px solid orange;
