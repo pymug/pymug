@@ -21,4 +21,32 @@ name / username / date
 
 or open a Pull Request and add your name to the bottom of the file [here](https://github.com/Abdur-rahmaanJ/pymug/blob/master/docs/data/members_basic/members.txt)
 
+# python version 
+
+3.4
+
+# build
+
+run main.py
+
+# build commands
+
+~~~
+exit
+~~~
+
+exit the cli
+
+~~~
+build main
+~~~
+
+builds main page
+
+~~~
+build members_basic
+~~~
+
+updates menus/members_basic.html based on data/members_basic/members.txt
+
 
