@@ -4,9 +4,11 @@ tests in progress
 body{
     user-select: none;
     font-family: 'Titillium Web', sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 a{
-    text-decoration: none; user-select: none;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 table{
     width: 90%;
@@ -22,7 +24,7 @@ tr{
 
 .menu_card{
     width: 200px; height: 235px;
-    margin:30px; user-select: none;
+    margin:30px;
 
 }
 
