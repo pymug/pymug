@@ -1,5 +1,6 @@
 from jinja2 import Environment, FileSystemLoader
 import collections
+import datetime
 '''
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
@@ -37,7 +38,7 @@ sections = {
         'fa_class':'fa-angle-double-up'
     },
     'honorary members':{
-        'link':'menus/members_hon',
+        'link':'menus/members_hon.html',
         'fa_class':'fa-star'
     },
     'register':{
@@ -73,7 +74,7 @@ def build_main_page():
     #generate('templates', 'index.html', 'index.html',
     #**kwargs)
     generate('templates', 'index.html', 'index.html',
-        sections=sections)
+        sections=sections, year=datetime.datetime.now().year)
     print('main page built')
 
 def build_members_basic():
@@ -103,26 +104,36 @@ def build_members_basic():
     
     # reversed_dict = collections.OrderedDict(reversed(list(basic_members.items())))
     generate('templates', 'menus/members_basic.html', 'menus/members_basic.html',
-    basic_members=basic_members, page_info='basic members')
+    basic_members=basic_members, 
+    page_info='basic members', year=datetime.datetime.now().year)
     print('menus/members_basic built')
 
 def build_register():
     generate('templates', 'menus/register.html', 'menus/register.html',
-        page_info='register')
+        page_info='register', year=datetime.datetime.now().year)
     print('menus/register built')
 
 def build_about():
     generate('templates', 'menus/about.html', 'menus/about.html',
-        page_info='about')
+        page_info='about', year=datetime.datetime.now().year)
     print('menus/about built')
 
 def build_pystandard():
     generate('templates', 'menus/pystandard.html', 'menus/pystandard.html',
-        page_info='certification standard')
+        page_info='certification standard', year=datetime.datetime.now().year)
     print('menus/pystandard built')
 
-#build_main_page()
-build_members_basic()
-#build_register()
-#build_about()
-# build_pystandard()
+def build_all():
+    build_main_page()
+    build_members_basic()
+    build_register()
+    build_about()
+    build_pystandard()
+
+if __name__ == '__main__':
+    # build_main_page()
+    # build_members_basic()
+    # build_register()
+    # build_about()
+    # build_pystandard()
+    build_all()
