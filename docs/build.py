@@ -76,6 +76,10 @@ sections = {
     'social':{
         'link':'menus/social.html',
         'fa_class':'fa-paper-plane-o'
+    },
+    'modify website':{
+        'link':'https://github.com/Abdur-rahmaanJ/pymug',
+        'fa_class':'fa-github-square'
     }
 }
 def build_main_page():
