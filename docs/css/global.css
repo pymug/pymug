@@ -26,11 +26,19 @@ footer{
     padding:10px; margin-top: 100px;
     text-align: center;
 }
+nav{
+        padding: 5px;
+}
+.nav_name{
+    color: white;
+    margin:5px; 
+    min-width:100px; padding: 5px; border-radius: 5px;
+    padding-left: 10px; padding-right: 10px;
+}
 
 .menu_card{
     width: 200px; height: 235px;
     margin:30px;
-
 }
 
 .title > div{
