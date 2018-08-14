@@ -77,9 +77,9 @@ sections = {
         'link':'menus/social.html',
         'fa_class':'fa-paper-plane-o'
     },
-    'modify website':{
-        'link':'https://github.com/Abdur-rahmaanJ/pymug',
-        'fa_class':'fa-github-square'
+    'code of conduct':{
+        'link':'menus/codeoc.html',
+        'fa_class':'fa-handshake-o'
     }
 }
 def build_main_page():
@@ -198,6 +198,12 @@ def build_maintainers():
         page_info='maintainers', year=datetime.datetime.now().year)
     print('menus/maintainers built')
 
+def build_codeoc():
+    generate('templates', 'menus/codeoc.html', 'menus/codeoc.html',
+        sections=sections, 
+        page_info='code of conduct', year=datetime.datetime.now().year)
+    print('menus/codeoc built')
+
 def build_all():
     build_main_page()
     build_members_basic()
@@ -214,6 +220,7 @@ def build_all():
     build_sponsors()
     build_events()
     build_maintainers()
+    build_codeoc()
 
 if __name__ == '__main__':
     # build_main_page()
