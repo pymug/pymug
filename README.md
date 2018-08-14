@@ -38,15 +38,9 @@ exit
 exit the cli
 
 ~~~
-build main
+build all
 ~~~
 
-builds main page
-
-~~~
-build members_basic
-~~~
-
-updates menus/members_basic.html based on data/members_basic/members.txt
+builds website, all pages
 
 

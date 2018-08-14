@@ -1,13 +1,11 @@
-from build import build_main_page, build_members_basic
+from build import build_all
 
 def parse_cmd(cmd):
     words = cmd.split()
     if words[0] == 'build':
         if len(words) == 2:
-            if words[1] == 'main':
-                build_main_page()
-            elif words[1] == 'members_basic':
-                build_members_basic()
+            if words[1] == 'all':
+                build_all()
             else:
                 print('ignored ...')
 
