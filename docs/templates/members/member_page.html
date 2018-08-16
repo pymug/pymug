@@ -34,16 +34,17 @@
             <p>date joined : {{meminfo['date']}}</p>
         </div>
         <div>
+            <h2 class="std_title">skills</h2>
             {% for skill in meminfo['skills'] %}
             <div>{{skill}} : {{meminfo['skills'][skill]}}</div>
             {% endfor %}
         </div>
         <div>
-            <p>about</p>
+            <h2 class="std_title">about</h2>
             <p>{{meminfo['about']}}</p>
         </div>
         <div>
-            <p>social</p>
+            <h2 class="std_title">social</h2>
             <p>personal:{{meminfo['social'].personal}}</p>
             <p>github:{{meminfo['social'].github}}</p>
         </div>
