@@ -1,0 +1,39 @@
+{
+    "name":"Abdur-Rahmaan Janhangeer",
+    "uname":"appinv",
+    "date":"12-08-2018",
+    "skills":
+    {
+        "basics":0,
+        "std_lib":0,
+        "logdt":0,
+        "network":0,
+        "async":0,
+        "gui":0,
+        "dist":0,
+        "venv":0,
+        "conventions":0,
+        "des_patterns":0,
+        "soft_eng_principles":0,
+        "data_algo":0,
+        "maths_nota":0,
+        "maths_theory":0,
+        "cryptograpy":0,
+        "webscraping":0,
+        "requests":0,
+        "img_process":0,
+        "data_sci":0,
+        "mach_learn":0,
+        "comp_vision":0,
+        "deep_learn":0,
+        "py_diff":0,
+        "web_dev":0
+    },
+    "about":"",
+    "social":
+    {
+        "personal":"",
+        "github":"",
+        "linked_in":""
+    }
+}

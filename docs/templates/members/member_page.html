@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
     <!--local libs-->
-    <link rel="stylesheet" type="text/css" href="../css/prototyp.css">
-    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="../../css/prototyp.css">
+    <link rel="stylesheet" type="text/css" href="../../css/global.css">
     <!--descriptions / meta-->
     <meta charset="utf-8">
     <meta name="description" content="Usergroup of the python programming language for users of  a paradise island called Mauritius">
@@ -17,6 +17,7 @@
     <meta name="theme-color" content="#000"/>
 </head>
 <body class="c">
+
     <!--header-->
     <header class="c">
         {% include 'header.html' %}
@@ -26,8 +27,31 @@
     <main>
         {% include 'page_info.html' %}
         
+        <div>
+            <p>name : {{meminfo['name']}}</p>
+        </div>
+        <div>
+            <p>date joined : {{meminfo['date']}}</p>
+        </div>
+        <div>
+            {% for skill in meminfo['skills'] %}
+            <div>{{skill}} : {{meminfo['skills'][skill]}}</div>
+            {% endfor %}
+        </div>
+        <div>
+            <p>about</p>
+            <p>meminfo['about']</p>
+        </div>
+        <div>
+            <p>social</p>
+            <p>personal:{{meminfo['social'].personal}}</p>
+            <p>github:{{meminfo['social'].github}}</p>
+        </div>
     </main>
-    
+    <div>
+        <p>edit <a href="https://github.com/Abdur-rahmaanJ/pymug/tree/master/docs/members/{{meminfo['uname']}}/{{meminfo['uname']}}.json">here</a></p>
+    </div>
+
     <!--footer-->
     <footer>
         {% include 'footer.html' %}
@@ -36,6 +60,7 @@
     <div>
         {% include 'nav.html' %}
     </div>
+
 {% include 'globe.html' %}
 </body>
 </html>
