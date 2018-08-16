@@ -232,6 +232,7 @@ def build_all_members():
             build_member_page(uname, meminfo)
             # reset
             meminfo = {}
+    print('all members built')
 
 
 
