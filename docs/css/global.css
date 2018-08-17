@@ -10,6 +10,9 @@ a{
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
+a:visited { 
+    color: green;
+}
 table{
     width: 90%;
     margin : 20px;
@@ -86,4 +89,14 @@ nav{
 }
 .std_part{
     /*float: left;*/
+}
+
+.button{
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #ffb74d;
+    color: white;
+    width:50px; 
+    margin:5px;
 }
