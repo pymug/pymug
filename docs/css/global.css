@@ -93,10 +93,15 @@ nav{
 
 .button{
     text-decoration: none;
-    border-radius: 5px;
     padding: 5px;
-    background-color: #ffb74d;
+    border-bottom: 3px solid orange;
     color: white;
-    width:50px; 
-    margin:5px;
+    margin: 5px;
 }
+
+.skill_name{
+    min-width:100px; max-width:300px;
+    margin: 10px;
+    border-bottom: 3px solid orange;
+}
+

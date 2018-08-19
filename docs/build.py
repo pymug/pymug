@@ -224,8 +224,12 @@ def build_all_members():
             except OSError:
                 pass
             # create data file in folder
-            generate('templates', 'members.json', 'members/{uname}/{uname}.json'.format(uname=uname),
-            sections=sections, info={'name':name, 'date':date, 'uname':uname})
+            fpath = 'members/{uname}/{uname}.json'.format(uname=uname)
+            if os.path.isfile(fpath):
+                pass
+            else:
+                generate('templates', 'members.json', 'members/{uname}/{uname}.json'.format(uname=uname),
+                sections=sections, info={'name':name, 'date':date, 'uname':uname})
             # use data file to generate member page
             with open('members/{uname}/{uname}.json'.format(uname=uname)) as data_file:
                 meminfo = json.load(data_file)
