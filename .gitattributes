@@ -1,4 +1,4 @@
 *.bat linguist-documentation
 *.dll linguist-documentation
 *.ps1 linguist-documentation
-*.py linguist-language=Python
+docs/* linguist-documentation=false
