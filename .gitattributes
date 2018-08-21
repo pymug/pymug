@@ -1,2 +1,2 @@
-*.bat linguist-documentation
-*.dll linguist-documentation
+pymugenv/* linguist-documentation
+docs/*.py linguist-documentation=false
