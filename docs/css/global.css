@@ -97,11 +97,20 @@ nav{
     border-bottom: 3px solid orange;
     color: white;
     margin: 5px;
+    margin-bottom: 1px;
+    padding-bottom: 0px;
 }
 
 .skill_name{
     min-width:100px; max-width:300px;
     margin: 10px;
-    border-bottom: 3px solid orange;
+    border-bottom: 3px solid #ec407a;
+    text-transform: uppercase;
 }
 
+.skills_card{
+    border: 1px solid gray;
+    margin:5px;
+    border-radius: 3px;
+
+}

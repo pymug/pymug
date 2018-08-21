@@ -43,11 +43,24 @@
                 <img width="5%" heigth="5%" class="badge" src="../../assets/badges/3.svg">
                 <img width="5%" heigth="5%" class="badge" src="../../assets/badges/4.svg">
             </div>
-            {% for skill in meminfo['skills'] %}
+            <div>
+                <p class="f">edit your info <a href="https://github.com/Abdur-rahmaanJ/pymug/tree/master/docs/members/{{meminfo['uname']}}/{{meminfo['uname']}}.json">
+        <div class="button f">here</div>
+        </a></p>
+            </div>
             <hr>
-            <div class="skill_name">{{skill}}</div>
-            <img width="10%" heigth="10%" class="badge" src="../../assets/badges/{{meminfo['skills'][skill]}}.svg">
+            <div class="c">
+            {% for skill in meminfo['skills'] %}
+            {% set num = meminfo['skills'][skill] %}
+            
+                <div class="f skills_card">
+                <div class="skill_name">{{skill}}</div>
+                <div class="skill_level">level {{num}} : {{levels[num]}}</div>
+                <img width="10%" heigth="10%" class="badge" src="../../assets/badges/{{num}}.svg">
+                </div>
+            
             {% endfor %}
+            </div>
         </div>
         <div>
             <h2 class="std_title">about</h2>
@@ -59,11 +72,6 @@
             <p class="social"><a href="{{meminfo['social'].github}}">github</a></p>
         </div>
     </main>
-    <div>
-        <p class="f">edit info <a href="https://github.com/Abdur-rahmaanJ/pymug/tree/master/docs/members/{{meminfo['uname']}}/{{meminfo['uname']}}.json">
-        <div class="button f">here</div>
-        </a></p>
-    </div>
 
     <!--footer-->
     <footer>

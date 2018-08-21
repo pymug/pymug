@@ -6,34 +6,36 @@
     {
         "basics":4,
         "standard library":3,
-        "logging, debugging and testing":0,
+        "logging, debugging and testing":2,
         "networking":3,
-        "consurrency and async":0,
+        "concurrency and async":1,
         "gui":3,
-        "packaging and distribution":0,
+        "packaging and distribution":3,
         "virtual py envs":4,
         "style guides and conventions":4,
-        "design patterns":2,
+        "design patterns":1,
         "software engineering principles":2,
-        "data structures and algorithms":3,
-        "mathematical notations":3,
-        "mathematical theories and concepts":0,
+        "data structures and algorithms":2,
+        "mathematical notations":4,
+        "mathematical theories and concepts":1,
         "cryptograpy":0,
         "webscraping - beautiful soup":3,
         "requests":1,
-        "image processing":0,
+        "image processing":3,
         "data science":2,
-        "machine learning":2,
+        "machine learning":3,
         "computer vision":0,
         "deep learning":0,
         "py versions difference":3,
-        "web devlopment":2
+        "web devlopment":2,
+        "gpio":0,
+        "natural language processing":0
     },
     "about":"not yet changed",
     "social":
     {
         "personal":"",
-        "github":"https://github.com/Abdur-rahmaanJ/",
+        "github":"",
         "linked_in":""
     }
 }

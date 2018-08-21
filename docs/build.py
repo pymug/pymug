@@ -205,12 +205,21 @@ def build_codeoc():
 
 def build_all_members():
     def build_member_page(uname, meminfo):
+
+        levels = {
+            0:'beginner',
+            1:'initiate',
+            2:'path cruiser',
+            3:'sage',
+            4:'master'
+        }
         generate('templates', 'members/member_page.html', 'members/{}/index.html'.format(uname),
-            sections=sections, meminfo=meminfo,
+            sections=sections, meminfo=meminfo, levels=levels,
             page_info=uname, year=datetime.datetime.now().year)
         print('members/{} built'.format(uname))
     
     meminfo = {}
+
     with open('data/members_basic/members.txt', 'r') as memfile:
         infos = memfile.read().splitlines()
         for i,info in enumerate(infos):
