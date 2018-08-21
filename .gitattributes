@@ -1,2 +1,3 @@
 *.bat linguist-documentation
 *.dll linguist-documentation
+*.ps1 linguist-documentation
