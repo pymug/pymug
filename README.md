@@ -1,6 +1,8 @@
 # pymug
 website source of pymug.com - python mauritius user group
 
+[build in progres ...]
+
 # website
 https://pymug.github.io/pymug/ or http://www.pymug.com
 
@@ -19,7 +21,7 @@ open an issue with your name,username,date in the format
 
 name / username / date
 
-or open a Pull Request and add your name to the bottom of the file [here](https://github.com/Abdur-rahmaanJ/pymug/blob/master/docs/data/members_basic/members.txt)
+or open a Pull Request and add your name to the bottom of the file [here](https://github.com/pymug/pymug/blob/master/docs/data/members_basic/members.txt)
 
 # python version 
 
