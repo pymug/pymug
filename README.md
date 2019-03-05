@@ -13,7 +13,7 @@ an index.html in every folder, path or lib, is a brillant idea of github (really
 
 # quick start
 
-no need to install jinja, just activate the virtual env
+run build.py to build
 
 # add yourself as a member
 
