@@ -35,9 +35,24 @@
         <div class="f page_info">
             events
 </div>
-        
+        initial meeting<br>
+        <div id="map"></div>
+                <script>
+            // Initialize and add the map
+            function initMap() {
+              // -20.308199, 57.483593
+              var uluru = {lat: -20.308199, lng: 57.483593};
+              // The map, centered at Uluru
+              var map = new google.maps.Map(
+                  document.getElementById('map'), {zoom: 4, center: uluru});
+              // The marker, positioned at Uluru
+              var marker = new google.maps.Marker({position: uluru, map: map});
+            }
+                </script>
         <div>
-            
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiGr8BpLfvEHGrY75bbvHORrAmC_-M2WA&callback=initMap">
+                </script>
         </div>
     </main>
 
