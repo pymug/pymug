@@ -40,7 +40,23 @@ footer {
 }
 
 nav {
-    padding: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+/* Expands to fill the space */
+.flex_spacer { 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav_name {
