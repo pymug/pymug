@@ -1,0 +1,41 @@
+{
+    "name":"Codarren Velvindron",
+    "uname":"devildron",
+    "date":"20-08-2018",
+    "skills":
+    {
+        "basics":0,
+        "standard library":0,
+        "logging, debugging and testing":0,
+        "networking":0,
+        "concurrency and async":0,
+        "gui":0,
+        "packaging and distribution":0,
+        "virtual py envs":0,
+        "style guides and conventions":0,
+        "design patterns":0,
+        "software engineering principles":0,
+        "data structures and algorithms":0,
+        "mathematical notations":0,
+        "mathematical theories and concepts":0,
+        "cryptograpy":0,
+        "webscraping - beautiful soup":0,
+        "requests":0,
+        "image processing":0,
+        "data science":0,
+        "machine learning":0,
+        "computer vision":0,
+        "deep learning":0,
+        "py versions difference":0,
+        "web devlopment":0,
+        "gpio":0,
+        "natural language processing":0
+    },
+    "about":"not yet changed",
+    "social":
+    {
+        "personal":"",
+        "github":"",
+        "linked_in":""
+    }
+}
