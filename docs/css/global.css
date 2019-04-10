@@ -1,55 +1,96 @@
 /***
 tests in progress
 ***/
-body{
+body {
     user-select: none;
     font-family: 'Titillium Web', sans-serif;
     -webkit-tap-highlight-color: transparent;
 }
-a{
+
+a {
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 }
-a:visited { 
+
+a:visited {
     color: green;
 }
-table{
+
+table {
     width: 90%;
-    margin : 20px;
-    border-collapse: collapse; 
+    margin: 20px;
+    border-collapse: collapse;
 }
-td, th{
+
+td,
+th {
     padding-top: 10px;
 }
-tr{
-    border-bottom:5px solid orange;
+
+tr {
+    border-bottom: 5px solid orange;
 }
-footer{
-    background-color: #666; color: white;
-    padding:10px; margin-top: 100px;
+
+footer {
+    background-color: #666;
+    color: white;
+    padding: 10px;
+    margin-top: 100px;
     text-align: center;
 }
-nav{
-        padding: 5px;
-}
-.nav_name{
-    color: white;
-    margin:5px; 
-    min-width:100px; padding: 5px; border-radius: 5px;
-    padding-left: 10px; padding-right: 10px;
+
+nav {
 }
 
-.menu_card{
-    width: 200px; height: 235px;
-    margin:30px;
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.title > div{
+nav ul li {
     padding: 10px;
 }
 
-.menu_icon{
-    width: 200px; height: 200px;
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+nav ul .nav_title {
+    font-weight: bold;
+}
+
+/* Expands to fill the space */
+.flex_spacer { 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nav_name {
+    color: white;
+    margin: 5px;
+    min-width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.menu_card {
+    width: 200px;
+    height: 235px;
+    margin: 30px;
+}
+
+.title>div {
+    padding: 10px;
+}
+
+.menu_icon {
+    width: 200px;
+    height: 200px;
     /*#2b5b84 #dca900*/
     background-color: #2b5b84;
     line-height: 210px;
@@ -57,41 +98,48 @@ nav{
     border-radius: 50%;
     user-select: none;
 }
-.menu_icon > i{
+
+.menu_icon>i {
     font-size: 40px;
 }
-.menu_text{
-    width: 200px; height: 35px;
+
+.menu_text {
+    width: 200px;
+    height: 35px;
     line-height: 35px;
     background-color: #dca900;
-    border-bottom-left-radius: 5px; 
+    border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-bottom: 5px;
 }
 
-.cell{
+.cell {
     width: 100px;
     overflow-x: scroll;
 }
 
-.page_info{
+.page_info {
     width: 300px;
     margin: 10px;
-    background-color: #2b5b84; color: #fff;
-    height: 30px; line-height: 30px;
+    background-color: #2b5b84;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
 }
 
-.standard{
+.standard {
     max-width: 300px;
 }
-.std_title{
+
+.std_title {
     border: 5px solid orange;
 }
-.std_part{
+
+.std_part {
     /*float: left;*/
 }
 
-.button{
+.button {
     text-decoration: none;
     padding: 5px;
     border-bottom: 3px solid orange;
@@ -101,16 +149,17 @@ nav{
     padding-bottom: 0px;
 }
 
-.skill_name{
-    min-width:100px; max-width:300px;
+.skill_name {
+    min-width: 100px;
+    max-width: 300px;
     margin: 10px;
     border-bottom: 3px solid #ec407a;
     text-transform: uppercase;
 }
 
-.skills_card{
+.skills_card {
     border: 1px solid gray;
-    margin:5px;
+    margin: 5px;
     border-radius: 3px;
 
 }
