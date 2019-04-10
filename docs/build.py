@@ -98,13 +98,14 @@ def build_members_basic():
         }
     }
     '''
-    with open('data/members_basic/members.txt', 'r') as memfile:
-        infos = memfile.read().splitlines()
-        for i,info in enumerate(infos):
+    with open('data/members_basic/members.txt', encoding="utf-8") as memfile:
+        infos = [m for m in memfile.read().splitlines() if m]
+        for i, info in enumerate(infos):
             data = [x.strip() for x in info.split('/')]
             name = data[0]
             uname = data[1]
             date = data[2]
+            print(name)
             basic_members[uname] = {
                 'index':i+1,
                 'name':name,
@@ -220,9 +221,9 @@ def build_all_members():
     
     meminfo = {}
 
-    with open('data/members_basic/members.txt', 'r') as memfile:
-        infos = memfile.read().splitlines()
-        for i,info in enumerate(infos):
+    with open('data/members_basic/members.txt', encoding="utf-8") as memfile:
+        infos = [m for m in memfile.read().splitlines() if m]
+        for i, info in enumerate(infos):
             data = [x.strip() for x in info.split('/')]
             name = data[0]
             uname = data[1]
