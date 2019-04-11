@@ -3,6 +3,8 @@ import collections
 import datetime
 import os
 import json
+import random
+
 '''
 file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
@@ -100,6 +102,7 @@ def build_members_basic():
     '''
     with open('data/members_basic/members.txt', encoding="utf-8") as memfile:
         infos = [m for m in memfile.read().splitlines() if m]
+        random.shuffle(infos)
         for i, info in enumerate(infos):
             data = [x.strip() for x in info.split('/')]
             name = data[0]
