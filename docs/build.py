@@ -267,9 +267,11 @@ def build_sponsors():
 
     -> None
     '''
+    with open('data/sponsors/sponsors.json') as sponsorsFile:
+        sponsors = json.load(sponsorsFile)
     generate(
         'templates', 'menus/sponsors.html', 'menus/sponsors.html',
-        sections=sections,
+        sections=sections, sponsors = sponsors['sponsors'],
         page_info='sponsors', year=datetime.datetime.now().year)
     print('menus/sponsors built')
 
