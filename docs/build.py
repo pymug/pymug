@@ -82,6 +82,7 @@ sections = {
         'fa_class':'fa-handshake-o'
     }
 }
+
 def build_main_page():
     #generate('templates', 'index.html', 'index.html',
     #**kwargs)
