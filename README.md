@@ -1,8 +1,6 @@
 # pymug
 website source of pymug.com - python mauritius user group
 
-[build in progres ...]
-
 # website
 https://pymug.github.io/pymug/ or http://www.pymug.com
 
@@ -25,7 +23,7 @@ or open a Pull Request and add your name to the bottom of the file [here](https:
 
 # python version 
 
-3.4
+3.7
 
 # build
 
