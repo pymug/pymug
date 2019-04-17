@@ -4,7 +4,10 @@ import datetime
 import os
 import json
 import random
+import uuid
 
+
+build_id = str(uuid.uuid4()) # to be used
 
 def generate(template_dir, file_in_templates, outpath, **kwargs):
     '''
