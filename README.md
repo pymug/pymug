@@ -1,6 +1,8 @@
 # pymug
 website source of pymug.com - python mauritius user group
 
+NOTE: As noted on fb and linked-in, joining our groups on social media adds you as a member on our website. Joining our groups is about commitment to Python. A personal page is created for you with your skills listed. It shows at the very least the path to learn py.
+
 # website
 https://pymug.github.io/pymug/ or http://www.pymug.com
 
@@ -28,19 +30,5 @@ or open a Pull Request and add your name to the bottom of the file [here](https:
 # build
 
 run main.py
-
-# build commands
-
-~~~
-exit
-~~~
-
-exit the cli
-
-~~~
-build all
-~~~
-
-builds website, all pages
 
 
