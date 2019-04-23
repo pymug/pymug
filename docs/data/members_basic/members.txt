@@ -1,6 +1,6 @@
 Abdur-Rahmaan Janhangeer / appinv / 12-08-2018
 Yashvi Paupiah / caffeinatedstud / 12-08-2018
-Kifah Meeran / maskys / 12-08-2018
+
 Javed Mahamoodally / javed / 12-08-2018
 Irshaad Abdool / irshaad / 12-08-2018
 Tanesh Chuckowree / accelerator / 16-08-2018
@@ -25,8 +25,9 @@ Iven Vencatasawmy / Iven24 / 14-04-2019
 Avishai Poorun / AvishaiP / 14-04-2019
 Bilaal Abdel Hassan / BilaalAH / 16-04-2019
 Haidar Dargaye / haidarknightfury / 17-04-2019
-Nissaar Gopee / Nissaar / 17-04-2019
+
 Neeraj Joypaul / NeerajJ / 20-04-2019
 Nayar Joolfoo / NayarJ / 20-04-2019
 Keshav Purdaseea / KeShav / 20-04-2019
 Kherin Bundhoo / kherin / 21-04-2019
+
