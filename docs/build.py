@@ -24,7 +24,7 @@ def generate(template_dir, file_in_templates, outpath, **kwargs):
     template = env.get_template(file_in_templates)
 
     output = template.render(kwargs)
-    print(output, file=open(outpath, 'w'))
+    print(output, file=open(outpath, 'w', encoding="utf8"))
 
 
 # menus on main page
