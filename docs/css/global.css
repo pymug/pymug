@@ -89,8 +89,14 @@ nav ul .nav_title {
     padding: 10px;
 }
 
+
 .title .title_sub {
     padding: 20px;
+}
+.title a{
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    color: black;
 }
 
 .menu_icon {

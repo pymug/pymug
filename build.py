@@ -269,10 +269,15 @@ def build_resources():
 
     -> None
     '''
+    resources_md = None
+    with open('docs/data/resources.md', encoding='utf8') as f:
+        resources_md = f.read()
+    extensions = ['extra', 'smarty']
+    resources_html = markdown.markdown(resources_md, extensions=extensions, output_format='html5')
     generate(
         'templates', 'menus/resources.html', 'docs/resources.html',
         sections=sections,
-        page_info='resources', year=datetime.datetime.now().year)
+        page_info='resources', year=datetime.datetime.now().year, resources=resources_html)
     logger.info('menus/resources built')
 
 
@@ -297,7 +302,7 @@ def build_events():
 
     -> None
     '''
-    events = None
+    events_md = None
     with open('docs/data/events.md', encoding='utf8') as f:
         events_md = f.read()
     extensions = ['extra', 'smarty']
