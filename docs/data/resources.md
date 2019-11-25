@@ -13,3 +13,4 @@
 | Intermediate Python | Muhammad Yasoob Ullah Khalid | [link](https://buildmedia.readthedocs.org/media/pdf/intermediatepythongithubio/latest/intermediatepythongithubio.pdf) |
 | Think Stats | Allen Downey | [link](http://greenteapress.com/thinkstats2/thinkstats2.pdf) |
 | Natural Language Processing with Python | Steven Bird, Ewan Klein, and Edward Loper | [link](http://www.nltk.org/book/) |
+| Python for you and me | Kushal Das (core dev) | [link](https://pymbook.readthedocs.io/en/latest/) |
