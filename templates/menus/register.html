@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+{% include 'head.html' %}
+<body class="c">
+
+    <!--header-->
+    <header class="c">
+        {% include 'header.html' %}
+    </header>
+
+    <!--main-->
+    <main>
+        {% include 'page_info.html' %}
+        <article>
+            <h1>register as a basic member</h1>
+            <p>
+                to register as a basic member, open an issue <a href="https://github.com/pymug/pymug/issues">here</a> with your name and username or <br>
+                add your name <a href="https://github.com/pymug/pymug/blob/master/docs/data/members_basic/members.txt">here</a> by submitting Pull Request. add in the format name / username / date joined<br>
+                a page will be created for you at members/ ..username..
+            </p>
+        </article>
+    </main>
+
+
+    <!--footer-->
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+    <!--nav-->
+    <div>
+        {% include 'nav.html' %}
+    </div>
+{% include 'globe.html' %}
+</body>
+</html>

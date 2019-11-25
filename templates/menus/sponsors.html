@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+{% include 'head.html' %}
+<body class="c">
+
+    <!--header-->
+    <header class="c">
+        {% include 'header.html' %}
+    </header>
+
+    <!--main-->
+    <main>
+        {% include 'page_info.html' %}
+        <br>
+        <br>
+        {%for s in sponsors%}
+        <div style="border: 5px solid orange">
+            <h2>{{s['name']}}</h2><hr>
+            <a href="{{s['link']}}">
+                <img style="width:75px;height:75px;border-radius: 50%;" src="{{s['icon']}}">
+            </a><br>
+            {{s['thanks']}}
+        <div>
+        <br>
+        {%endfor%}
+    </main>
+
+
+    <!--footer-->
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+    <!--nav-->
+    <div>
+        {% include 'nav.html' %}
+    </div>
+{% include 'globe.html' %}
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+{% include 'head.html' %}
+<body class="c">
+
+    <!--header-->
+    <header class="c">
+        {% include 'header.html' %}
+    </header>
+
+    <!--main-->
+    <main>
+        {% include 'page_info.html' %}
+        <article>
+            <h1>past efforts</h1>
+            <p>
+                someone called Tan Fei started a usergroup for python in mauritius. <br>
+                was active around 2013. before we stated this one, we tried to contact the person through mail, twitter, github and linked-in but to no avail, so we went on and created this one
+            </p>
+            <h1>the need for a python user-group</h1>
+            <p>
+                better coordinate python activities. <br>
+                remote nice but meetups boost things up. if you want high-level expertise, having a dedicated structure is a must. <br>
+                general discussions serve it's purpose, so does topic specialisation.
+            </p>
+            <h1>expected</h1>
+            <p>
+                hackathons, books, trainings, opportunities
+            </p>
+        </article>
+    </main>
+
+
+    <!--footer-->
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+    <!--nav-->
+    <div>
+        {% include 'nav.html' %}
+    </div>
+{% include 'globe.html' %}
+</body>
+</html>

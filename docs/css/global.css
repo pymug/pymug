@@ -85,8 +85,12 @@ nav ul .nav_title {
     margin: 30px;
 }
 
-.title>div {
+.title .title_main {
     padding: 10px;
+}
+
+.title .title_sub {
+    padding: 20px;
 }
 
 .menu_icon {
@@ -135,6 +139,8 @@ nav ul .nav_title {
 .std_title {
     border: 5px solid orange;
 }
+
+
 
 .std_part {
     /*float: left;*/

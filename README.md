@@ -21,10 +21,22 @@ Activate (from pymug/):
 cd pymug-web/scripts/ & activate & cd ..\..
 ```
 
+or just type
+
+```
+win_vactivate
+```
+
 Deactivate:
 
 ```
 cd pymug-web/scripts/ & deactivate & cd ..\..
+```
+
+or just type
+
+```
+win_vdeactivate
 ```
 
 # Installing dependencies

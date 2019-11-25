@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+{% include 'head.html' %}
+<body class="cardbg">
+    <!--nav-->
+    <div>
+        <nav></nav>
+    </div>
+
+    <!--header-->
+    <header class="c">
+        <div class="title">
+            <div class="title_main bgblue3">
+                PYMUG
+            </div>
+            <div class="title_sub bgblue2">
+                Python Mauritius UserGroup
+            </div>
+        </div>
+    </header>
+    <div>
+        <div class="title">
+            <div class="title_sub bggreen1">
+                To subscribe to the mailing list, input mail <a class="hlink" href="https://mail.python.org/mailman3/lists/pymug.python.org/" title="">here</a> or send subscribe in the subject to pymug-join@python.org<br>
+                once mail confirmed, you can send messages to pymug@python.org
+            </div>
+            <div class="title_sub bgyellow2">
+                our github is at <a class="hlink" href="https://github.com/pymug">github.com/pymug</a>
+            </div>
+        </div>
+    </div>
+
+    <!--menus-->
+    <main>
+        <div class="c menu">
+            {% for section in sections %}
+            <div class="f menu_card">
+                <div class="menu_text">
+                    {{section}}
+                </div>
+                <a href="{{sections[section].link}}">
+                    <div class="cardsha menu_icon">
+                        <i class="fa {{sections[section].fa_class}}"></i>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div><!--menu-->
+    </main>
+
+
+    <!--footer-->
+    <footer>
+        {% include 'footer.html' %}
+    </footer>
+{% include 'globe.html' %}
+</body>
+</html>
