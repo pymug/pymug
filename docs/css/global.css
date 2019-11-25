@@ -5,6 +5,7 @@ body {
     user-select: none;
     font-family: 'Titillium Web', sans-serif;
     -webkit-tap-highlight-color: transparent;
+
 }
 
 a {
@@ -162,4 +163,13 @@ nav ul .nav_title {
     margin: 5px;
     border-radius: 3px;
 
+}
+
+.hlink{
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    padding: 3px;
+    margin: 5px;
+    border: 5px solid orange;
+    background-color: white;
 }

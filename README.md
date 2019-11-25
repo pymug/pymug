@@ -11,6 +11,28 @@ the site's structure is dictated by github pages' specifications and handling ra
 
 an index.html in every folder, path or lib, is a brillant idea of github (really)
 
+# Activating Vitual env
+
+Windows:
+
+Activate (from pymug/):
+
+```
+cd pymug-web/scripts/ & activate & cd ..\..
+```
+
+Deactivate:
+
+```
+cd pymug-web/scripts/ & deactivate & cd ..\..
+```
+
+# Installing dependencies
+
+```
+pip install -r requirements.txt
+```
+
 # quick start
 
 run build.py to build
