@@ -1,4 +1,6 @@
 
+[edit page](https://github.com/pymug/pymug/blob/master/docs/data/resources.md)
+
 # Books (Free)
 
 | Name | Author/s | link/s |
