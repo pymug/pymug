@@ -78,8 +78,8 @@ sections = {
         'link': 'maintainers.html',
         'fa_class': 'fa-anchor'
     },
-    'sponsors': {
-        'link': 'sponsors.html',
+    'partners': {
+        'link': 'partners.html',
         'fa_class': 'fa-cc-paypal'
     },
     'py certif standard': {
@@ -276,19 +276,19 @@ def build_resources():
     logger.info('menus/resources built')
 
 
-def build_sponsors():
+def build_partners():
     '''
-    builds sponsors page
+    builds partners page
 
     -> None
     '''
-    with open('docs/data/sponsors/sponsors.json') as sponsorsFile:
-        sponsors = json.load(sponsorsFile)
+    with open('docs/data/partners/partners.json') as partnersFile:
+        partners = json.load(partnersFile)
     generate(
-        'templates', 'menus/sponsors.html', 'docs/sponsors.html',
-        sections=sections, sponsors = sponsors['sponsors'],
-        page_info='sponsors', year=datetime.datetime.now().year)
-    logger.info('menus/sponsors built')
+        'templates', 'menus/partners.html', 'docs/partners.html',
+        sections=sections, partners = partners['partners'],
+        page_info='partners', year=datetime.datetime.now().year)
+    logger.info('menus/partners built')
 
 
 def build_events():
@@ -407,7 +407,7 @@ def build_all():
     build_news()
     build_social()
     build_resources()
-    build_sponsors()
+    build_partners()
     build_events()
     build_maintainers()
     build_codeoc()

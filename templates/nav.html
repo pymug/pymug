@@ -1,13 +1,13 @@
 <nav class="bggreen3">
     <div>
         
-    <a href="http://pymug.com/index.html">
+    <a href="index.html">
         <div class="f nav_name bggreen4">
         home
         </div>
     </a>
     {% for section in sections %}
-    <a href="http://pymug.com/{{sections[section].link}}">
+    <a href="{{sections[section].link}}">
         <div class="f nav_name bggreen4">{{section}}</div>
     </a>
     {% endfor %}
