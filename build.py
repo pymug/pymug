@@ -8,6 +8,7 @@ import logging
 
 
 from jinja2 import Environment, FileSystemLoader
+import markdown
 
 
 logging.basicConfig(
@@ -296,10 +297,15 @@ def build_events():
 
     -> None
     '''
+    events = None
+    with open('docs/data/events.md', encoding='utf8') as f:
+        events_md = f.read()
+    extensions = ['extra', 'smarty']
+    events_html = markdown.markdown(events_md, extensions=extensions, output_format='html5')
     generate(
         'templates', 'menus/events.html', 'docs/events.html',
         sections=sections,
-        page_info='events', year=datetime.datetime.now().year)
+        page_info='events', year=datetime.datetime.now().year, events=events_html)
     logger.info('menus/events built')
 
 
