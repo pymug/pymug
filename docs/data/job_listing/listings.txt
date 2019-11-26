@@ -1,2 +1,1 @@
 pymug | ceo | ceo for pymug | pymug | #pymug
-google | janitor | janitor at google | abc | https://google.com
