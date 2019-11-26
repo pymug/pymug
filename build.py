@@ -406,7 +406,7 @@ def build_job_board():
     '''
     builds job board
     '''
-    with open('docs/data/job_listing/listings.txt') as jobfile:
+    with open('data/job_listing/listings.txt') as jobfile:
         jobs = [j for j in jobfile.read().splitlines() if j]
         job_rows = {}
         for ix, job in enumerate(jobs):            
@@ -450,9 +450,4 @@ def build_all():
 
 
 if __name__ == '__main__':
-    # build_main_page()
-    # build_members_basic()
-    # build_register()
-    # build_about()
-    # build_pystandard()
     build_all()
