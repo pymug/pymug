@@ -128,7 +128,7 @@ def build_members_basic():
     -> None
     '''
     basic_members = {}
-    with open('docs/data/members_basic/members.txt', encoding="utf-8") as memfile:
+    with open('data/members_basic/members.txt', encoding="utf-8") as memfile:
         infos = [m for m in memfile.read().splitlines() if m]
         random.shuffle(infos)
         for i, info in enumerate(infos):
@@ -186,7 +186,7 @@ def build_pystandard():
     files = ['core_basics']
     read_files = {}
     for file in files:
-        with open('docs/data/standard/{}.txt'.format(file), 'r') as stdfile:
+        with open('data/standard/{}.txt'.format(file), 'r') as stdfile:
             read_file = stdfile.read()
             logger.info(read_file.count('\n'))
             read_file = '' + read_file.replace('\n', '<hr>')
@@ -270,7 +270,7 @@ def build_resources():
     -> None
     '''
     resources_md = None
-    with open('docs/data/resources.md', encoding='utf8') as f:
+    with open('data/resources.md', encoding='utf8') as f:
         resources_md = f.read()
     extensions = ['extra', 'smarty']
     resources_html = markdown.markdown(resources_md, extensions=extensions, output_format='html5')
@@ -287,7 +287,7 @@ def build_partners():
 
     -> None
     '''
-    with open('docs/data/partners/partners.json') as partnersFile:
+    with open('data/partners/partners.json') as partnersFile:
         partners = json.load(partnersFile)
     generate(
         'templates', 'menus/partners.html', 'docs/partners.html',
@@ -303,7 +303,7 @@ def build_events():
     -> None
     '''
     events_md = None
-    with open('docs/data/events.md', encoding='utf8') as f:
+    with open('data/events.md', encoding='utf8') as f:
         events_md = f.read()
     extensions = ['extra', 'smarty']
     events_html = markdown.markdown(events_md, extensions=extensions, output_format='html5')
@@ -369,7 +369,7 @@ def build_all_members():
 
     meminfo = {}
 
-    with open('docs/data/members_basic/members.txt', encoding="utf-8") as memfile:
+    with open('data/members_basic/members.txt', encoding="utf-8") as memfile:
         infos = [m for m in memfile.read().splitlines() if m]
         for i, info in enumerate(infos):
             data = [x.strip() for x in info.split('/')]
