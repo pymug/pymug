@@ -97,6 +97,10 @@ sections = {
     'code of conduct': {
         'link': 'codeoc.html',
         'fa_class': 'fa-handshake-o'
+    },
+    'job board': {
+        'link': 'job_board.html',
+        'fa_class': 'fa-th-list'
     }
 }
 
@@ -400,6 +404,33 @@ def build_all_members():
     logger.info('all members built')
 
 
+def build_job_board():
+    '''
+    builds job board
+    '''
+    with open('docs/data/job_listing/listings.txt') as jobfile:
+        jobs = [j for j in jobfile.read().splitlines() if j]
+        job_rows = {}
+        for ix, job in enumerate(jobs):            
+            data = [x.strip() for x in job.split('|')] # Using | since / will be used in urls
+            company = data[0]
+            title = data[1]
+            desc = data[2]
+            link_name = data[3]
+            link_url = data[4]
+            job_rows[ix] = {
+                'company': company,
+                'title': title,
+                'description': desc,
+                'link_name': link_name,
+                'link_url': link_url
+            }
+        generate(
+            'templates', 'menus/job_board.html', 'docs/job_board.html',
+            job_listings=job_rows, sections=sections,
+            page_info='job board', year=datetime.datetime.now().year)
+        logger.info('menu/job_board board built')
+
 def build_all():
     build_main_page()
     build_members_basic()
@@ -417,6 +448,7 @@ def build_all():
     build_maintainers()
     build_codeoc()
     build_all_members()
+    build_job_board()
 
 
 if __name__ == '__main__':
