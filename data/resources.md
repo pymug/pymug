@@ -1,5 +1,5 @@
 
-[edit page](https://github.com/pymug/pymug/blob/master/docs/data/resources.md)
+[edit page](https://github.com/pymug/pymug/blob/master/data/resources.md)
 
 # Books (Free)
 

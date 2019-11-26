@@ -20,25 +20,6 @@ logging.basicConfig(
 logger = logging.getLogger('pymug-website')
 build_id = str(uuid.uuid4()) # to be used
 
-
-def generate(template_dir, file_in_templates, outpath, **kwargs):
-    '''
-    function to render any page, given the right parameters
-
-    template_dir - str: the templates directory
-    file_in_templates - str: the file we are rendering
-    outpath - str: where to write file
-
-    -> None
-    '''
-    file_loader = FileSystemLoader(template_dir)
-    env = Environment(loader=file_loader)
-    template = env.get_template(file_in_templates)
-
-    output = template.render(kwargs)
-    print(output, file=open(outpath, 'w', encoding="utf8"))
-
-
 # menus on main page
 # fa_class is the font awesome class to add
 sections = {
@@ -99,6 +80,23 @@ sections = {
         'fa_class': 'fa-handshake-o'
     }
 }
+
+def generate(template_dir, file_in_templates, outpath, **kwargs):
+    '''
+    function to render any page, given the right parameters
+
+    template_dir - str: the templates directory
+    file_in_templates - str: the file we are rendering
+    outpath - str: where to write file
+
+    -> None
+    '''
+    file_loader = FileSystemLoader(template_dir)
+    env = Environment(loader=file_loader)
+    template = env.get_template(file_in_templates)
+
+    output = template.render(kwargs)
+    print(output, file=open(outpath, 'w', encoding="utf8"))
 
 
 def build_main_page():
