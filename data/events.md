@@ -1,6 +1,49 @@
 ## [November 2019](https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266575713/) @ Vacoas (Adalab's Corner)
 _Python From Scratch_ 
 
+The Python Mauritius User Group is trying to organise weekly Python sessions. This week it'll be on Thursday 28th of November 2019. We intend to cover Python from scratch with some standard library essentials.
+
+
+Needed:
+
+Your laptop
+
+Highly Recommended:
+
+Download Anaconda (Python 3.7) from
+[https://www.anaconda.com/distribution/#download-section](https://www.anaconda.com/distribution/#download-section)
+
+In case you can't find the location, please contact:
+
++230 59 12 44 17
+
+To stay updated about Python events, subscribe to our mailing list:
+[https://mail.python.org/mailman3/lists/pymug.python.org/](https://mail.python.org/mailman3/lists/pymug.python.org/)
+
+More about Pymug:
+[https://www.mscc.mu/python-mauritius-usergroup-pymug/](https://mail.python.org/mailman3/lists/pymug.python.org/)
+
+**QnA:**
+
+**Why a Thursday?**
+
+- This was ongoing for a long time, we decided to open it
+- The person conducting the session is available at that time
+- It's school holidays, students might be interested
+- Our weekends are booked for other Python events
+
+**Why at Vacoas?**
+
+- Adalabs opened their space for us, but in case over venues want to host the sessions, it's very welcomed
+
+**I already know the basics, is it still worthwhile for me?**
+
+- There are always some here and there explanations which you might benefit.
+<hr>
+
+## [November 2019](https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266575713/) @ Vacoas (Adalab's Corner)
+_Python From Scratch_ 
+
 The Python Mauritius User Group is organising weekly Python sessions. This week it'll be on Thursday 21st of November 2019. We intend to cover Python from scratch but if you already know Python, then please come, there are lots of fun activities planned.
 
 Needed:
@@ -114,9 +157,32 @@ Visit [pymug.com](pymug.com) for more info.
 
 
 
-## May 2019 @ Curepipe (Home of Excellence)
+## [May 2019](https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/261346454/) @ La Turbine
 
-We don't remember the presentations
+Meeting of Python Mauritius UserGroup
+
+The Python Mauritius UserGroup (Pymug) organises monthly meetups revolving around everything Python. You can expect talks, live coding/debugging sessions, projects walkthroughs and initiations to programming.
+
+We aim to promote Python as a language for everybody and foster it's adoption by businesses. Stay tuned for our Open Courses announcements.
+
+Psst. to present something, mail to arj dot python at gmail dot com
+
+This Month's menu:
+
+
+| **Topic** | **Speaker** |
+|---|---|
+| Django Presentation | Dominique Theodore |
+| Computer Vision demo | Kherin Bundhoo |
+| Walkthrough of the Honeybot IRC project | Abdur-Rahmaan Janhangeer |
+
+
+For Python-related issues, you can use our mailing list:
+https://mail.python.org/mailman3/lists/pymug.python.org/
+
+More info:
+
+[pymug.com](pymug.com)
 
 <hr>
 
