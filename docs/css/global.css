@@ -185,3 +185,8 @@ nav ul .nav_title {
     border: 5px solid orange;
     background-color: white;
 }
+
+main{
+    padding-left:10%;
+    padding-right:10%;
+}
