@@ -10,6 +10,14 @@ import logging
 from jinja2 import Environment, FileSystemLoader
 import markdown
 
+def mdtohtml(mdfile_path):
+    with open(mdfile_path, encoding='utf8') as f:
+        md_content = f.read()
+    extensions = ['extra', 'smarty']
+    html_content = markdown.markdown(md_content, extensions=extensions, output_format='html5')
+
+    return html_content
+
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -18,7 +26,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger('pymug-website')
-build_id = str(uuid.uuid4()) # to be used
+
 
 # menus on main page
 # fa_class is the font awesome class to add
@@ -99,7 +107,10 @@ def generate(template_dir, file_in_templates, outpath, **kwargs):
     env = Environment(loader=file_loader)
     template = env.get_template(file_in_templates)
 
-    output = template.render(kwargs)
+    build_id = str(uuid.uuid4()) # to be used
+
+    output = template.render(kwargs, year=datetime.datetime.now().year,
+        build_id=build_id)
     print(output, file=open(outpath, 'w', encoding="utf8"))
 
 
@@ -149,7 +160,7 @@ def build_members_basic():
     generate(
         'templates', 'menus/members_basic.html', 'docs/members_basic.html',
         basic_members=basic_members, sections=sections,
-        page_info='basic members', year=datetime.datetime.now().year)
+        page_info='basic members', )
     logger.info('menus/members_basic built')
 
 
@@ -162,7 +173,7 @@ def build_register():
     generate(
         'templates', 'menus/register.html', 'docs/register.html',
         sections=sections,
-        page_info='register', year=datetime.datetime.now().year)
+        page_info='register' )
     logger.info('menus/register built')
 
 
@@ -175,7 +186,7 @@ def build_about():
     generate(
         'templates', 'menus/about.html', 'docs/about.html',
         sections=sections,
-        page_info='about', year=datetime.datetime.now().year)
+        page_info='about' )
     logger.info('menus/about built')
 
 
@@ -196,7 +207,7 @@ def build_pystandard():
     generate(
         'templates', 'menus/pystandard.html', 'docs/pystandard.html',
         sections=sections, read_files=read_files,
-        page_info='certification standard', year=datetime.datetime.now().year)
+        page_info='certification standard' )
     logger.info('menus/pystandard built')
 
 
@@ -209,7 +220,7 @@ def build_blog():
     generate(
         'templates', 'menus/blog.html', 'docs/blog.html',
         sections=sections,
-        page_info='blog', year=datetime.datetime.now().year)
+        page_info='blog' )
     logger.info('menus/blog built')
 
 
@@ -222,7 +233,7 @@ def build_business():
     generate(
         'templates', 'menus/business.html', 'docs/business.html',
         sections=sections,
-        page_info='business', year=datetime.datetime.now().year)
+        page_info='business' )
     logger.info('menus/business built')
 
 
@@ -235,7 +246,7 @@ def build_members_hon():
     generate(
         'templates', 'menus/members_hon.html', 'docs/members_hon.html',
         sections=sections,
-        page_info='honorary members', year=datetime.datetime.now().year)
+        page_info='honorary members' )
     logger.info('menus/members_hon built')
 
 
@@ -248,7 +259,7 @@ def build_news():
     generate(
         'templates', 'menus/news.html', 'docs/news.html',
         sections=sections,
-        page_info='news', year=datetime.datetime.now().year)
+        page_info='news' )
     logger.info('menus/news built')
 
 
@@ -261,7 +272,7 @@ def build_social():
     generate(
         'templates', 'menus/social.html', 'docs/social.html',
         sections=sections,
-        page_info='social', year=datetime.datetime.now().year)
+        page_info='social' )
     logger.info('menus/social built')
 
 
@@ -279,7 +290,7 @@ def build_resources():
     generate(
         'templates', 'menus/resources.html', 'docs/resources.html',
         sections=sections,
-        page_info='resources', year=datetime.datetime.now().year, resources=resources_html)
+        page_info='resources' , resources=resources_html)
     logger.info('menus/resources built')
 
 
@@ -294,7 +305,7 @@ def build_partners():
     generate(
         'templates', 'menus/partners.html', 'docs/partners.html',
         sections=sections, partners = partners['partners'],
-        page_info='partners', year=datetime.datetime.now().year)
+        page_info='partners' )
     logger.info('menus/partners built')
 
 
@@ -304,15 +315,11 @@ def build_events():
 
     -> None
     '''
-    events_md = None
-    with open('data/events.md', encoding='utf8') as f:
-        events_md = f.read()
-    extensions = ['extra', 'smarty']
-    events_html = markdown.markdown(events_md, extensions=extensions, output_format='html5')
+    events_html = mdtohtml('data/events.md')
     generate(
         'templates', 'menus/events.html', 'docs/events.html',
         sections=sections,
-        page_info='events', year=datetime.datetime.now().year, events=events_html)
+        page_info='events' , events=events_html)
     logger.info('menus/events built')
 
 
@@ -325,7 +332,7 @@ def build_maintainers():
     generate(
         'templates', 'menus/maintainers.html', 'docs/maintainers.html',
         sections=sections,
-        page_info='maintainers', year=datetime.datetime.now().year)
+        page_info='maintainers' )
     logger.info('menus/maintainers built')
 
 
@@ -338,7 +345,7 @@ def build_codeoc():
     generate(
         'templates', 'menus/codeoc.html', 'docs/codeoc.html',
         sections=sections,
-        page_info='code of conduct', year=datetime.datetime.now().year)
+        page_info='code of conduct' )
     logger.info('menus/codeoc built')
 
 
@@ -366,7 +373,7 @@ def build_all_members():
         generate(
             'templates', 'members/member_page.html', 'docs/members/{}/index.html'.format(uname),
             sections=sections, meminfo=meminfo, levels=levels,
-            page_info=uname, year=datetime.datetime.now().year)
+            page_info=uname )
         logger.info('members/{} built'.format(uname))
 
     meminfo = {}
@@ -426,7 +433,7 @@ def build_job_board():
         generate(
             'templates', 'menus/job_board.html', 'docs/job_board.html',
             job_listings=job_rows, sections=sections,
-            page_info='job board', year=datetime.datetime.now().year)
+            page_info='job board' )
         logger.info('menu/job_board board built')
 
 def build_all():
