@@ -93,7 +93,7 @@ sections = {
     }
 }
 
-def generate(template_dir, file_in_templates, outpath, **kwargs):
+def generate(file_in_templates, outpath, template_dir='templates', **kwargs):
     '''
     function to render any page, given the right parameters
 
@@ -110,7 +110,7 @@ def generate(template_dir, file_in_templates, outpath, **kwargs):
     build_id = str(uuid.uuid4()) # to be used
 
     output = template.render(kwargs, year=datetime.datetime.now().year,
-        build_id=build_id)
+        build_id=build_id, sections=sections)
     print(output, file=open(outpath, 'w', encoding="utf8"))
 
 
@@ -120,8 +120,7 @@ def build_main_page():
 
     -> None
     '''
-    generate(
-        'templates', 'index.html', 'docs/index.html', sections=sections,
+    generate('index.html', 'docs/index.html',
         year=datetime.datetime.now().year)
     logger.info('main page built')
 
@@ -157,10 +156,9 @@ def build_members_basic():
             }
         # logger.info(basic_members)
     # reversed_dict = collections.OrderedDict(reversed(list(basic_members.items())))
-    generate(
-        'templates', 'menus/members_basic.html', 'docs/members_basic.html',
-        basic_members=basic_members, sections=sections,
-        page_info='basic members', )
+    generate('menus/members_basic.html', 'docs/members_basic.html',
+        basic_members=basic_members,
+        page_info='basic members')
     logger.info('menus/members_basic built')
 
 
@@ -170,9 +168,7 @@ def build_register():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/register.html', 'docs/register.html',
-        sections=sections,
+    generate('menus/register.html', 'docs/register.html',
         page_info='register' )
     logger.info('menus/register built')
 
@@ -183,9 +179,7 @@ def build_about():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/about.html', 'docs/about.html',
-        sections=sections,
+    generate('menus/about.html', 'docs/about.html',
         page_info='about' )
     logger.info('menus/about built')
 
@@ -204,10 +198,8 @@ def build_pystandard():
             logger.info(read_file.count('\n'))
             read_file = '' + read_file.replace('\n', '<hr>')
             read_files[file] = read_file
-    generate(
-        'templates', 'menus/pystandard.html', 'docs/pystandard.html',
-        sections=sections, read_files=read_files,
-        page_info='certification standard' )
+    generate('menus/pystandard.html', 'docs/pystandard.html',
+        read_files=read_files, page_info='certification standard' )
     logger.info('menus/pystandard built')
 
 
@@ -217,10 +209,9 @@ def build_blog():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/blog.html', 'docs/blog.html',
-        sections=sections,
-        page_info='blog' )
+    content=None
+    generate('menus/blog.html', 'docs/blog.html',
+        page_info='blog', content=content)
     logger.info('menus/blog built')
 
 
@@ -230,9 +221,7 @@ def build_business():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/business.html', 'docs/business.html',
-        sections=sections,
+    generate('menus/business.html', 'docs/business.html',
         page_info='business' )
     logger.info('menus/business built')
 
@@ -243,9 +232,7 @@ def build_members_hon():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/members_hon.html', 'docs/members_hon.html',
-        sections=sections,
+    generate( 'menus/members_hon.html', 'docs/members_hon.html',
         page_info='honorary members' )
     logger.info('menus/members_hon built')
 
@@ -256,9 +243,7 @@ def build_news():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/news.html', 'docs/news.html',
-        sections=sections,
+    generate( 'menus/news.html', 'docs/news.html',
         page_info='news' )
     logger.info('menus/news built')
 
@@ -269,9 +254,7 @@ def build_social():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/social.html', 'docs/social.html',
-        sections=sections,
+    generate( 'menus/social.html', 'docs/social.html',
         page_info='social' )
     logger.info('menus/social built')
 
@@ -282,14 +265,8 @@ def build_resources():
 
     -> None
     '''
-    resources_md = None
-    with open('data/resources.md', encoding='utf8') as f:
-        resources_md = f.read()
-    extensions = ['extra', 'smarty']
-    resources_html = markdown.markdown(resources_md, extensions=extensions, output_format='html5')
-    generate(
-        'templates', 'menus/resources.html', 'docs/resources.html',
-        sections=sections,
+    resources_html = mdtohtml('data/resources.md')
+    generate( 'menus/resources.html', 'docs/resources.html',
         page_info='resources' , resources=resources_html)
     logger.info('menus/resources built')
 
@@ -302,9 +279,8 @@ def build_partners():
     '''
     with open('data/partners/partners.json') as partnersFile:
         partners = json.load(partnersFile)
-    generate(
-        'templates', 'menus/partners.html', 'docs/partners.html',
-        sections=sections, partners = partners['partners'],
+    generate( 'menus/partners.html', 'docs/partners.html',
+        partners = partners['partners'],
         page_info='partners' )
     logger.info('menus/partners built')
 
@@ -316,9 +292,7 @@ def build_events():
     -> None
     '''
     events_html = mdtohtml('data/events.md')
-    generate(
-        'templates', 'menus/events.html', 'docs/events.html',
-        sections=sections,
+    generate( 'menus/events.html', 'docs/events.html',
         page_info='events' , events=events_html)
     logger.info('menus/events built')
 
@@ -329,9 +303,7 @@ def build_maintainers():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/maintainers.html', 'docs/maintainers.html',
-        sections=sections,
+    generate( 'menus/maintainers.html', 'docs/maintainers.html',
         page_info='maintainers' )
     logger.info('menus/maintainers built')
 
@@ -342,9 +314,7 @@ def build_codeoc():
 
     -> None
     '''
-    generate(
-        'templates', 'menus/codeoc.html', 'docs/codeoc.html',
-        sections=sections,
+    generate( 'menus/codeoc.html', 'docs/codeoc.html',
         page_info='code of conduct' )
     logger.info('menus/codeoc built')
 
@@ -370,9 +340,8 @@ def build_all_members():
             3: 'sage',
             4: 'master'
         }
-        generate(
-            'templates', 'members/member_page.html', 'docs/members/{}/index.html'.format(uname),
-            sections=sections, meminfo=meminfo, levels=levels,
+        generate('members/member_page.html', 'docs/members/{}/index.html'.format(uname),
+            meminfo=meminfo, levels=levels,
             page_info=uname )
         logger.info('members/{} built'.format(uname))
 
@@ -395,10 +364,8 @@ def build_all_members():
             if os.path.isfile(fpath):
                 pass
             else:
-                generate(
-                    'templates', 'members.json',
+                generate('members.json',
                     'docs/members/{uname}/{uname}.json'.format(uname=uname),
-                    sections=sections,
                     info={'name': name, 'date': date, 'uname': uname})
             # use data file to generate member page
             with open('docs/members/{uname}/{uname}.json'.format(uname=uname)) as data_file:
@@ -430,9 +397,8 @@ def build_job_board():
                 'link_name': link_name,
                 'link_url': link_url
             }
-        generate(
-            'templates', 'menus/job_board.html', 'docs/job_board.html',
-            job_listings=job_rows, sections=sections,
+        generate('menus/job_board.html', 'docs/job_board.html',
+            job_listings=job_rows,
             page_info='job board' )
         logger.info('menu/job_board board built')
 
