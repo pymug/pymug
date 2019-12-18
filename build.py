@@ -16,6 +16,13 @@ import markdown
 def mdtohtml(mdfile_path):
     with open(mdfile_path, encoding='utf8') as f:
         md_content = f.read()
+        
+    extensions = ['extra', 'smarty']
+    html_content = markdown.markdown(md_content, extensions=extensions, output_format='html5')
+
+    return html_content
+
+def puremdtohtml(md_content):
     extensions = ['extra', 'smarty']
     html_content = markdown.markdown(md_content, extensions=extensions, output_format='html5')
 
@@ -25,6 +32,21 @@ def get_files(dir_path):
     onlyfiles = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
 
     return onlyfiles
+
+
+def get_post_data(filepath):
+    with open(filepath) as p:
+        post_source = p.read()
+        raw_info = post_source.split('++++')[0]
+        #print(raw_info)
+        infos = {}
+        for line in [i for i in raw_info.split('\n') if i]:
+            #print(line)
+            parts = line.strip().split(':')
+            attr = parts[0]
+            value = parts[1]
+            infos[attr] = value
+    return infos
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -152,8 +174,8 @@ def build_members_basic():
         random.shuffle(infos)
         for i, info in enumerate(infos):
             data = [x.strip() for x in info.split('/')]
-            name = data[0]
-            uname = data[1]
+            name = data[0].strip()
+            uname = data[1].strip()
             date = data[2]
             logger.info(name)
             basic_members[uname] = {
@@ -216,11 +238,13 @@ def build_blog():
 
     -> None
     '''
-    content=''
+    mdcontent = '| title | author | time |\n|---:|---:|---:|\n'
     for f in get_files('data/blog_posts'):
-        content += '<br>' + mdtohtml('data/blog_posts/'+f)
+        infos = get_post_data('data/blog_posts/'+f)
+        mdcontent += '''| {} | {} | {} |\n'''.format(infos['title'], infos['author'], infos['time'])
+    html_content = puremdtohtml(mdcontent)
     generate('menus/blog.html', 'docs/blog.html',
-        page_info='blog', content=content)
+        page_info='blog', content=html_content)
     logger.info('menus/blog built')
 
 
