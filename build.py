@@ -6,6 +6,9 @@ import random
 import uuid
 import logging
 
+from os import listdir
+from os.path import isfile, join
+
 
 from jinja2 import Environment, FileSystemLoader
 import markdown
@@ -18,6 +21,10 @@ def mdtohtml(mdfile_path):
 
     return html_content
 
+def get_files(dir_path):
+    onlyfiles = [f for f in listdir(dir_path) if isfile(join(dir_path, f))]
+
+    return onlyfiles
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -209,7 +216,9 @@ def build_blog():
 
     -> None
     '''
-    content=None
+    content=''
+    for f in get_files('data/blog_posts'):
+        content += '<br>' + mdtohtml('data/blog_posts/'+f)
     generate('menus/blog.html', 'docs/blog.html',
         page_info='blog', content=content)
     logger.info('menus/blog built')
