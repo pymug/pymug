@@ -1,42 +1,23 @@
-<!DOCTYPE html>
-<html>
-{% include 'head.html' %}
-<body class="c">
-    <!--header-->
-    <header class="c">
-        {% include 'header.html' %}
-    </header>
+{% extends "base.html" %}
 
-    <!--main-->
-    <main>
-        {% include 'page_info.html' %}
-        <table>
-        <tr>
-            <th>company</th>
-            <th>job title</th> 
-            <th>description</th>
-            <th>apply</th>
-        </tr>
-        {% for job in job_listings %}
-        <tr>
-            <td>{{job_listings[job].company}}</td>
-            <td>{{job_listings[job].title}}</td>
-            <td>{{job_listings[job].description}}</td>
-            <td><a href="{{job_listings[job].link_url}}">{{job_listings[job].link_name}}</a></td>
-        </tr>
-        {% endfor %}
-        </table>
-    </main>
+{% block content %}
 
+<table>
+<tr>
+    <th>company</th>
+    <th>job title</th> 
+    <th>description</th>
+    <th>apply</th>
+</tr>
+{% for job in job_listings %}
+    <tr>
+        <td>{{job_listings[job].company}}</td>
+        <td>{{job_listings[job].title}}</td>
+        <td>{{job_listings[job].description}}</td>
+        <td><a href="{{job_listings[job].link_url}}">{{job_listings[job].link_name}}</a></td>
+    </tr>
+{% endfor %}
+</table>
 
-    <!--footer-->
-    <footer>
-        {% include 'footer.html' %}
-    </footer>
-    <!--nav-->
-    <div>
-        {% include 'nav.html' %}
-    </div>
-{% include 'globe.html' %}
-</body>
-</html>
+{% endblock %}
+

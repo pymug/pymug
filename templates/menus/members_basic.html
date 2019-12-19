@@ -1,47 +1,48 @@
-<!DOCTYPE html>
-<html>
-{% include 'head.html' %}
-<body class="c">
-    <!--header-->
-    <header class="c">
-        {% include 'header.html' %}
-    </header>
+{% extends "base.html" %}
 
-    <!--main-->
-    <main>
-        {% include 'page_info.html' %}
+{% block content %}
 
-        <br><br>
-        We don't have memberships as such, those are people who joined our groups across
-        social media. It is done with the vision that if people are looking for Python talents, 
-        they can see them here. It is also a motivation to learn Python and update your data
-        <table>
-        <tr>
-            <!--<th>index</th>-->
-            <th>username</th>
-            <th>name</th> 
-            <th>date joined</th>
-        </tr>
-        {% for member in basic_members %}
-        <tr>
-            <!--<td> {{basic_members[member].index}} </td>-->
-            <td><a href="../members/{{member}}">{{member}} </a></td>
-            <td> {{basic_members[member].name}} </td> 
-            <td>{{basic_members[member].date}} </td>
-        </tr>
-        {% endfor %}
-        </table>
-    </main>
+<br><br>
 
+We don't have memberships as such, those are people who joined our groups across
+social media. It is done with the vision that if people are looking for Python talents, 
+they can see them here. It is also a motivation to learn Python and update your data
+<table>
+<tr>
+    <!--<th>index</th>-->
+    <th>username</th>
+    <th>name</th> 
+    <th>date joined</th>
+</tr>
+{% for member in basic_members %}
+<tr>
+    <!--<td> {{basic_members[member].index}} </td>-->
+    <td><a href="../members/{{member}}">{{member}} </a></td>
+    <td> {{basic_members[member].name}} </td> 
+    <td>{{basic_members[member].date}} </td>
+</tr>
+{% endfor %}
+</table>
 
-    <!--footer-->
-    <footer>
-        {% include 'footer.html' %}
-    </footer>
-    <!--nav-->
-    <div>
-        {% include 'nav.html' %}
-    </div>
-{% include 'globe.html' %}
-</body>
-</html>
+{% endblock %}
+
+<br><br>
+We don't have memberships as such, those are people who joined our groups across
+social media. It is done with the vision that if people are looking for Python talents, 
+they can see them here. It is also a motivation to learn Python and update your data
+<table>
+<tr>
+    <!--<th>index</th>-->
+    <th>username</th>
+    <th>name</th> 
+    <th>date joined</th>
+</tr>
+{% for member in basic_members %}
+<tr>
+    <!--<td> {{basic_members[member].index}} </td>-->
+    <td><a href="../members/{{member}}">{{member}} </a></td>
+    <td> {{basic_members[member].name}} </td> 
+    <td>{{basic_members[member].date}} </td>
+</tr>
+{% endfor %}
+</table>

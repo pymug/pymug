@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html>
-{% include 'head.html' %}
-<body class="c">
 
-    <!--header-->
-    <header class="c">
-        {% include 'header.html' %}
-    </header>
+{% extends "base.html" %}
 
-    <!--main-->
-    <main class="pad_content">
-        {% include 'page_info.html' %}
+{% block content %}
 
-        <br>
+    {{events}}
 
-        {{events}}
-        <p><a href=""></a><br>
-
-        </p>
-    </main>
-
-
-    <!--footer-->
-    <footer>
-        {% include 'footer.html' %}
-    </footer>
-    <!--nav-->
-    <div>
-        {% include 'nav.html' %}
-    </div>
-{% include 'globe.html' %}
-</body>
-</html>
+{% endblock %}

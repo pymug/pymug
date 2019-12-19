@@ -71,12 +71,7 @@ nav ul .nav_title {
 
 .nav_name {
     color: white;
-    margin: 5px;
-    min-width: 100px;
-    padding: 5px;
-    border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    font-size: 12px;
 }
 
 .menu_card {

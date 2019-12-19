@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-{% include 'head.html' %}
-<body class="c ">
+{% extends "base.html" %}
 
-    <!--header-->
-    <header class="c">
-        {% include 'header.html' %}
-    </header>
+{% block content %}
 
-    <!--main-->
-    <main class="f">
-        {% include 'page_info.html' %}
-        <div></div>
+<div></div>
         <article class="standard">
             <h2>the need for a standard concerning the evaluation of python knowledge</h2>
             <p>
@@ -171,17 +162,5 @@
             <h1>references</h1>
             <p>adapted core from <a href="https://pythoninstitute.org/pcap-exam-syllabus/">pythoninstitute</a></p>
         </article>
-    </main>
-
-
-    <!--footer-->
-    <footer>
-        {% include 'footer.html' %}
-    </footer>
-    <!--nav-->
-    <div>
-        {% include 'nav.html' %}
-    </div>
-{% include 'globe.html' %}
-</body>
-</html>
+{% endblock %}
+        

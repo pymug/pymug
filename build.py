@@ -65,6 +65,10 @@ sections = {
         'link': 'events.html',
         'fa_class': 'fa-calendar'
     },
+    'blog': {
+        'link': 'blog/',
+        'fa_class': 'fa-pencil'
+    },
     'news': {
         'link': 'news.html',
         'fa_class': 'fa-newspaper-o'
@@ -104,10 +108,6 @@ sections = {
     'py certif standard': {
         'link': 'pystandard.html',
         'fa_class': 'fa-file-o'
-    },
-    'blog': {
-        'link': 'blog/',
-        'fa_class': 'fa-pencil'
     },
     'social': {
         'link': 'social.html',
@@ -150,8 +150,7 @@ def build_main_page():
 
     -> None
     '''
-    generate('index.html', 'docs/index.html',
-        year=datetime.datetime.now().year)
+    generate('index.html', 'docs/index.html', page_info='Welcome')
     logger.info('main page built')
 
 
@@ -397,7 +396,7 @@ def build_all_members():
         }
         generate('members/member_page.html', 'docs/members/{}/index.html'.format(uname),
             meminfo=meminfo, levels=levels,
-            page_info=uname )
+            page_info=uname,  assets_path_append='../../')
         logger.info('members/{} built'.format(uname))
 
     meminfo = {}
