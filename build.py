@@ -37,14 +37,15 @@ def get_files(dir_path):
 def get_post_data(filepath):
     with open(filepath) as p:
         post_source = p.read()
-        raw_info = post_source.split('++++')[0]
+        raw = post_source.split('++++')
+        raw_info = raw[0]
         #print(raw_info)
-        infos = {}
+        infos = {'mdcontent': raw[1]}
         for line in [i for i in raw_info.split('\n') if i]:
             #print(line)
-            parts = line.strip().split(':')
-            attr = parts[0]
-            value = parts[1]
+            parts = line.strip().split('=')
+            attr = parts[0].strip()
+            value = parts[1].strip()
             infos[attr] = value
     return infos
 
@@ -122,7 +123,7 @@ sections = {
     }
 }
 
-def generate(file_in_templates, outpath, template_dir='templates', **kwargs):
+def generate(file_in_templates, outpath, template_dir='templates', assets_path_append='', **kwargs):
     '''
     function to render any page, given the right parameters
 
@@ -139,7 +140,7 @@ def generate(file_in_templates, outpath, template_dir='templates', **kwargs):
     build_id = str(uuid.uuid4()) # to be used
 
     output = template.render(kwargs, year=datetime.datetime.now().year,
-        build_id=build_id, sections=sections)
+        build_id=build_id, sections=sections, assets_path_append=assets_path_append)
     print(output, file=open(outpath, 'w', encoding="utf8"))
 
 
@@ -238,14 +239,31 @@ def build_blog():
 
     -> None
     '''
-    mdcontent = '| title | author | time |\n|---:|---:|---:|\n'
+    try:
+        os.mkdir('docs/blog')
+    except OSError:
+        pass
+
+    # blog menu page
+    mdcontent = '| title | author | time |\n|:---|:---|:---|\n'
     for f in get_files('data/blog_posts'):
-        infos = get_post_data('data/blog_posts/'+f)
-        mdcontent += '''| {} | {} | {} |\n'''.format(infos['title'], infos['author'], infos['time'])
+        info = get_post_data('data/blog_posts/'+f)
+        mdcontent += '| [{}](blog/{}.html) | {} | {} |\n'.format(
+            info['title'], info['slug'], info['author'], info['time'])
     html_content = puremdtohtml(mdcontent)
     generate('menus/blog.html', 'docs/blog.html',
         page_info='blog', content=html_content)
     logger.info('menus/blog built')
+
+    # individual blog posts
+    for f in get_files('data/blog_posts'):
+        info = get_post_data('data/blog_posts/'+f)
+        postinfo_md_content = '#{}\n\n_by {}_\n'.format(info['title'], info['author'])
+        html_content = puremdtohtml(postinfo_md_content + info['mdcontent'])
+        generate('menus/blog_post.html', 'docs/blog/{}.html'.format(info['slug']),
+            page_info='blog post', content=html_content, assets_path_append='../')
+
+
 
 
 def build_business():

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PYMUG - Python Mauritius UserGroup</title>
+	<!--cdn-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+	<!--local libs-->
+	<link rel="stylesheet" type="text/css" href="css/prototyp.css">
+	<link rel="stylesheet" type="text/css" href="css/global.css">
+
+	<!--descriptions / meta-->
+	<meta charset="utf-8">
+	<meta name="description" content="Mauritius Usergroup of the Python programming language. The mauritian ug aims at promoting python and coding literacy beyond syntax, upgrade skills as well as sniffing job opportunities for members">
+	<meta name="keywords" content="python,mauritius,coding,usergroup,learn,programming">
+	<meta name="author" content="appinv">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#000"/>
+
+	<!--icon-->
+	<link rel="shortcut icon" href="assets/pymug_new.png">
+</head>
+<body>
+	<!--header-->
+	<header class="title">
+		<a href="/">
+			<div class="title_main bgorange3">
+				PYMUG
+			</div>
+			<div class="title_sub bgorange2">
+				Python Mauritius UserGroup
+			</div>
+		</a>
+	</header>
+
+	<main>
+		<div class="f page_info">
+					{{page_info}}
+		</div>
+		{%block content%}
+
+		{%endblock%}
+	</main>
+
+	<!--footer-->
+	<footer>
+		powered by python and prototyp.css<br>
+		copyright {{year}}<br>
+		build id: {{build_id}}
+	</footer>
+
+	<!--nav-->
+	<nav class="bggreen3">
+		<div>
+			
+		<a href="index.html">
+			<div class="f nav_name bggreen4">
+			home
+			</div>
+		</a>
+		{% for section in sections %}
+		<a href="{{sections[section].link}}">
+			<div class="f nav_name bggreen4">{{section}}</div>
+		</a>
+		{% endfor %}
+		</div>
+	</nav>
+	<div>
+		<script type="text/javascript" src="//ra.revolvermaps.com/0/0/6.js?i=0nk7h49njoa&amp;m=7&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=0&amp;bv=60" async="async"></script>
+	</div>
+</body>
+</html>

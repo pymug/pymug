@@ -1,6 +1,7 @@
-title: why erger ger
-author: dong
-time: 14-08-2019 05_10
+title = why erger ger
+slug = why-erger-ger
+author = dong
+time = 14-08-2019 05:10
 
 ++++
 

@@ -1,7 +1,8 @@
 
-title: why open source matters
-author: dong
-time: 12-07-2019 05_10
+title = why open source matters
+slug = why-open-source-matters
+author = dong
+time = 12-07-2019 05:10
 
 ++++
 
