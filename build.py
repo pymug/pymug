@@ -5,13 +5,13 @@ import json
 import random
 import uuid
 import logging
-
 from os import listdir
 from os.path import isfile, join
-
+import argparse
 
 from jinja2 import Environment, FileSystemLoader
 import markdown
+
 
 def mdtohtml(mdfile_path):
     with open(mdfile_path, encoding='utf8') as f:
@@ -265,6 +265,7 @@ def build_blog():
             pass
         generate('menus/blog_post.html', 'docs/blog/{}/index.html'.format(info['slug']),
             page_info='blog post', content=html_content, assets_path_append='../../')
+        logger.info('blog/{} built'.format(info['slug']))
 
 
 
@@ -459,6 +460,7 @@ def build_job_board():
 def build_all():
     build_main_page()
     build_members_basic()
+    build_all_members()
     build_register()
     build_about()
     build_pystandard()
@@ -472,9 +474,36 @@ def build_all():
     build_events()
     build_maintainers()
     build_codeoc()
-    build_all_members()
     build_job_board()
 
 
 if __name__ == '__main__':
-    build_all()
+    build_args = {
+        'main-page': build_main_page,
+        'members-basic': build_members_basic,
+        'all': build_all,
+        'register': build_register,
+        'about': build_about,
+        'standard': build_pystandard,
+        'blog': build_blog,
+        'business': build_business,
+        'members-hon': build_members_hon,
+        'news': build_news,
+        'social': build_social,
+        'resources': build_resources,
+        'partners': build_partners,
+        'events': build_events,
+        'maintainers': build_maintainers,
+        'coc': build_codeoc,
+        'job-board': build_job_board
+    }
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("section", help="Choose argument from :\n" + ', '.join([arg for arg in build_args]))
+    args = parser.parse_args()
+
+    try:
+        build = build_args[args.section]
+        build()
+    except KeyError:
+        print('section does not exist ...')

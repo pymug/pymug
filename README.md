@@ -47,7 +47,21 @@ pip install -r requirements.txt
 
 # Quick start
 
-run build.py to build
+```
+python build.py all
+```
+
+to build all
+
+else choose what section to build from:
+
+```
+ section     Choose argument from : main-page, members-basic, all, register,
+             about, standard, blog, business, members-hon, news, social,
+             resources, partners, events, maintainers, coc, job-board
+```
+
+e.g `python build.py blog`
 
 # Add yourself as a member
 
