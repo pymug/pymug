@@ -106,7 +106,7 @@ sections = {
         'fa_class': 'fa-file-o'
     },
     'blog': {
-        'link': 'blog.html',
+        'link': 'blog/',
         'fa_class': 'fa-pencil'
     },
     'social': {
@@ -248,11 +248,11 @@ def build_blog():
     mdcontent = '| title | author | time |\n|:---|:---|:---|\n'
     for f in get_files('data/blog_posts'):
         info = get_post_data('data/blog_posts/'+f)
-        mdcontent += '| [{}](blog/{}.html) | {} | {} |\n'.format(
+        mdcontent += '| [{}]({}/) | {} | {} |\n'.format(
             info['title'], info['slug'], info['author'], info['time'])
     html_content = puremdtohtml(mdcontent)
-    generate('menus/blog.html', 'docs/blog.html',
-        page_info='blog', content=html_content)
+    generate('menus/blog.html', 'docs/blog/index.html',
+        page_info='blog', content=html_content, assets_path_append='../')
     logger.info('menus/blog built')
 
     # individual blog posts
@@ -260,8 +260,12 @@ def build_blog():
         info = get_post_data('data/blog_posts/'+f)
         postinfo_md_content = '#{}\n\n_by {}_\n'.format(info['title'], info['author'])
         html_content = puremdtohtml(postinfo_md_content + info['mdcontent'])
-        generate('menus/blog_post.html', 'docs/blog/{}.html'.format(info['slug']),
-            page_info='blog post', content=html_content, assets_path_append='../')
+        try:
+            os.mkdir('docs/blog/{}'.format(info['slug']))
+        except OSError:
+            pass
+        generate('menus/blog_post.html', 'docs/blog/{}/index.html'.format(info['slug']),
+            page_info='blog post', content=html_content, assets_path_append='../../')
 
 
 
