@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+            <p>name : {{meminfo['name']}}</p>
+        </div>
+        <div>
+            <p>date joined : {{meminfo['date']}}</p>
+        </div>
+        <div>
+            <h2 class="std_title">skills</h2>
+            <div>
+                badges levels : 0-1-2-3-4 / beginner - expert | evaluate yourself according to <a href="../../pystandard.html">this standard</a><br><br>
+                <img width="5%" heigth="5%" class="badge" src="../../assets/badges/0.svg">
+                <img width="5%" heigth="5%" class="badge" src="../../assets/badges/1.svg">
+                <img width="5%" heigth="5%" class="badge" src="../../assets/badges/2.svg">
+                <img width="5%" heigth="5%" class="badge" src="../../assets/badges/3.svg">
+                <img width="5%" heigth="5%" class="badge" src="../../assets/badges/4.svg">
+            </div>
+            <div>
+                <p class="f">edit your info <a href="https://github.com/pymug/pymug/tree/master/docs/members/{{meminfo['uname']}}/{{meminfo['uname']}}.json">
+        <div class="button f">here</div>
+        </a></p>
+            </div>
+            <hr>
+            <div class="c">
+            {% for skill in meminfo['skills'] %}
+            {% set num = meminfo['skills'][skill] %}
+            
+                <div class="f skills_card">
+                <div class="skill_name">{{skill}}</div>
+                <div class="skill_level">level {{num}}</div>
+                <img width="10%" heigth="10%" class="badge" src="../../assets/badges/{{num}}.svg">
+                </div>
+            
+            {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2 class="std_title">about</h2>
+            <p>{{meminfo['about']}}</p>
+        </div>
+        <div class="c">
+            <h2 class="std_title">social</h2>
+            <p class="social"><a href="{{meminfo['social'].personal}}">personal website</a></p>
+            <p class="social"><a href="{{meminfo['social'].github}}">github</a></p>
+        </div>
+
+{% endblock %}

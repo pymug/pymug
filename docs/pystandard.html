@@ -36,7 +36,7 @@
 
 	<main>
 		<div class="f page_info">
-					certification standard
+					py standard
 		</div>
 		
 
@@ -49,7 +49,195 @@
 
 <div class="std_part">
 <h1 class="std_title">core - basics</h1>
-1: Control and Evaluations (25%)<hr><hr>basic concepts: interpreting and the interpreter, compilation and the compiler, language elements, lexis, syntax and semantics, Python keywords, instructions, indenting<hr>literals: Boolean, integer, floating-point numbers, scientific notation, strings<hr>operators: unary and binary, priorities and binding<hr>numeric operators: ** * / % // + - <hr>bitwise operators: ~ & ^ | << >> <hr>string operators: * + <hr>Boolean operators: not and or <hr>relational operators ( == != > >= < <= ), building complex Boolean expressions<hr>assignments and shortcut operators<hr>accuracy of floating-point numbers<hr>basic input and output: input(), print(), int(), float(), str() functions<hr>formatting print() output with end= and sep= arguments<hr>conditional statements: if, if-else, if-elif, if-elif-else<hr>the pass instruction<hr>simple lists: constructing vectors, indexing and slicing, the len() function<hr>simple strings: constructing, assigning, indexing, slicing comparing, immutability<hr>building loops: while, for, range(), in, iterating through sequences<hr>expanding loops: while-else, for-else, nesting loops and conditional statements<hr>controlling loop execution: break, continue<hr><hr><hr>2: Data Aggregates (25%)<hr><hr>strings in detail: ASCII, UNICODE, UTF-8, immutability, escaping using the \ character, quotes and apostrophes inside strings, multiline strings, copying vs. cloning, advanced slicing, string vs. string, string vs. non-string, basic string methods (upper(), lower(), isxxx(), capitalize(), split(), join(), etc.) and functions (len(), chr(), ord()), escape characters<hr>lists in detail: indexing, slicing, basic methods (append(), insert(), index()) and functions (len(), sorted(), etc.), del instruction, iterating lists with the for loop, initializing, in and not in operators, list comprehension, copying and cloning<hr>lists in lists: matrices and cubes<hr>tuples: indexing, slicing, building, immutability<hr>tuples vs. lists: similarities and differences, lists inside tuples and tuples inside lists<hr>dictionaries: building, indexing, adding and removing keys, iterating through dictionaries as well as their keys and values, checking key existence, keys(), items() and values() methods<hr><hr><hr>3: Functions and Modules (25%)<hr><hr>defining and invoking your own functions and generators<hr>return and yield keywords, returning results, the None keyword, recursion<hr>parameters vs. arguments, positional keyword and mixed argument passing, default parameter values<hr>converting generator objects into lists using the list() function<hr>name scopes, name hiding (shadowing), the global keyword<hr>lambda functions, defining and using<hr>map(), filter(), reduce(), reversed(), sorted() functions and the sort() method<hr>the if operator<hr>import directives, qualifying entities with module names, initializing modules<hr>writing and using modules, the __name__ variable<hr>pyc file creation and usage<hr>constructing and distributing packages, packages vs. directories, the role of the __init__.py file<hr>hiding module entities<hr>Python hashbangs, using multiline strings as module documentation<hr><hr><hr>4: Classes, Objects, and Exceptions (25%)<hr><hr>defining your own classes, superclasses, subclasses, inheritance, searching for missing class components, creating objects<hr>class attributes: class variables and instance variables, defining, adding and removing attributes, explicit constructor invocation<hr>class methods: defining and using, the self parameter meaning and usage<hr>inheritance and overriding, finding class/object components<hr>single inheritance vs. multiple inheritance<hr>name mangling<hr>invoking methods, passing and using the self argument/parameter<hr>the __init__ method<hr>the role of the __str__ method<hr>introspection: __dict__, __name__, __module__, __bases__ properties, examining class/object structure<hr>writing and using constructors<hr>hasattr(), type(), issubclass(), isinstance(), super() functions<hr>using predefined exceptions and defining your own ones<hr>the try-except-else-finally block, the raise statement, the except-as variant<hr>exceptions hierarchy, assigning more than one exception to one except branch<hr>adding your own exceptions to an existing hierarchy<hr>assertions<hr>the anatomy of an exception object<hr>input/output basics: opening files with the open() function, stream objects, binary vs. text files, newline character translation, reading and writing files, bytearray objects<hr>read(), readinto(), readline(), write(), close() methods<hr>
+<h2>1: Control and Evaluations (25%)</h2>
+<ul>
+<li>
+<p>basic concepts: interpreting and the interpreter, compilation and the compiler, language elements, lexis, syntax and semantics, Python keywords, instructions, indenting</p>
+</li>
+<li>
+<p>literals: Boolean, integer, floating-point numbers, scientific notation, strings</p>
+</li>
+<li>
+<p>operators: unary and binary, priorities and binding</p>
+</li>
+<li>
+<p>numeric operators: ** * / % // + - </p>
+</li>
+<li>
+<p>bitwise operators: ~ &amp; ^ | &lt;&lt; &gt;&gt; </p>
+</li>
+<li>
+<p>string operators: * + </p>
+</li>
+<li>
+<p>Boolean operators: not and or </p>
+</li>
+<li>
+<p>relational operators ( == != &gt; &gt;= &lt; &lt;= ), building complex Boolean expressions</p>
+</li>
+<li>
+<p>assignments and shortcut operators</p>
+</li>
+<li>
+<p>accuracy of floating-point numbers</p>
+</li>
+<li>
+<p>basic input and output: input(), print(), int(), float(), str() functions</p>
+</li>
+<li>
+<p>formatting print() output with end= and sep= arguments</p>
+</li>
+<li>
+<p>conditional statements: if, if-else, if-elif, if-elif-else</p>
+</li>
+<li>
+<p>the pass instruction</p>
+</li>
+<li>
+<p>simple lists: constructing vectors, indexing and slicing, the len() function</p>
+</li>
+<li>
+<p>simple strings: constructing, assigning, indexing, slicing comparing, immutability</p>
+</li>
+<li>
+<p>building loops: while, for, range(), in, iterating through sequences</p>
+</li>
+<li>
+<p>expanding loops: while-else, for-else, nesting loops and conditional statements</p>
+</li>
+<li>
+<p>controlling loop execution: break, continue</p>
+</li>
+</ul>
+<h2>2: Data Aggregates (25%)</h2>
+<ul>
+<li>
+<p>strings in detail: ASCII, UNICODE, UTF-8, immutability, escaping using the \ character, quotes and apostrophes inside strings, multiline strings, copying vs. cloning, advanced slicing, string vs. string, string vs. non-string, basic string methods (upper(), lower(), isxxx(), capitalize(), split(), join(), etc.) and functions (len(), chr(), ord()), escape characters</p>
+</li>
+<li>
+<p>lists in detail: indexing, slicing, basic methods (append(), insert(), index()) and functions (len(), sorted(), etc.), del instruction, iterating lists with the for loop, initializing, in and not in operators, list comprehension, copying and cloning</p>
+</li>
+<li>
+<p>lists in lists: matrices and cubes</p>
+</li>
+<li>
+<p>tuples: indexing, slicing, building, immutability</p>
+</li>
+<li>
+<p>tuples vs. lists: similarities and differences, lists inside tuples and tuples inside lists</p>
+</li>
+<li>
+<p>dictionaries: building, indexing, adding and removing keys, iterating through dictionaries as well as their keys and values, checking key existence, keys(), items() and values() methods</p>
+</li>
+</ul>
+<h2>3: Functions and Modules (25%)</h2>
+<ul>
+<li>
+<p>defining and invoking your own functions and generators</p>
+</li>
+<li>
+<p>return and yield keywords, returning results, the None keyword, recursion</p>
+</li>
+<li>
+<p>parameters vs. arguments, positional keyword and mixed argument passing, default parameter values</p>
+</li>
+<li>
+<p>converting generator objects into lists using the list() function</p>
+</li>
+<li>
+<p>name scopes, name hiding (shadowing), the global keyword</p>
+</li>
+<li>
+<p>lambda functions, defining and using</p>
+</li>
+<li>
+<p>map(), filter(), reduce(), reversed(), sorted() functions and the sort() method</p>
+</li>
+<li>
+<p>the if operator</p>
+</li>
+<li>
+<p>import directives, qualifying entities with module names, initializing modules</p>
+</li>
+<li>
+<p>writing and using modules, the <strong>name</strong> variable</p>
+</li>
+<li>
+<p>pyc file creation and usage</p>
+</li>
+<li>
+<p>constructing and distributing packages, packages vs. directories, the role of the <strong>init</strong>.py file</p>
+</li>
+<li>
+<p>hiding module entities</p>
+</li>
+<li>
+<p>Python hashbangs, using multiline strings as module documentation</p>
+</li>
+</ul>
+<h2>4: Classes, Objects, and Exceptions (25%)</h2>
+<ul>
+<li>
+<p>defining your own classes, superclasses, subclasses, inheritance, searching for missing class components, creating objects</p>
+</li>
+<li>
+<p>class attributes: class variables and instance variables, defining, adding and removing attributes, explicit constructor invocation</p>
+</li>
+<li>
+<p>class methods: defining and using, the self parameter meaning and usage</p>
+</li>
+<li>
+<p>inheritance and overriding, finding class/object components</p>
+</li>
+<li>
+<p>single inheritance vs. multiple inheritance</p>
+</li>
+<li>
+<p>name mangling</p>
+</li>
+<li>
+<p>invoking methods, passing and using the self argument/parameter</p>
+</li>
+<li>
+<p>the <strong>init</strong> method</p>
+</li>
+<li>
+<p>the role of the <strong>str</strong> method</p>
+</li>
+<li>
+<p>introspection: <strong>dict</strong>, <strong>name</strong>, <strong>module</strong>, <strong>bases</strong> properties, examining class/object structure</p>
+</li>
+<li>
+<p>writing and using constructors</p>
+</li>
+<li>
+<p>hasattr(), type(), issubclass(), isinstance(), super() functions</p>
+</li>
+<li>
+<p>using predefined exceptions and defining your own ones</p>
+</li>
+<li>
+<p>the try-except-else-finally block, the raise statement, the except-as variant</p>
+</li>
+<li>
+<p>exceptions hierarchy, assigning more than one exception to one except branch</p>
+</li>
+<li>
+<p>adding your own exceptions to an existing hierarchy</p>
+</li>
+<li>
+<p>assertions</p>
+</li>
+<li>
+<p>the anatomy of an exception object</p>
+</li>
+<li>
+<p>input/output basics: opening files with the open() function, stream objects, binary vs. text files, newline character translation, reading and writing files, bytearray objects</p>
+</li>
+<li>
+<p>read(), readinto(), readline(), write(), close() methods</p>
+</li>
+</ul>
 </div><!--std_part-->
 
 <div></div>
@@ -208,7 +396,7 @@
 		<footer>
 			powered by python and prototyp.css<br>
 			copyright 2019<br>
-			build id: 289b15f8-12e4-4cf1-8746-5f9aa614d734
+			build id: 07710259-7aaf-456d-8a08-960ea78ed611
 		</footer>
 	
 
@@ -230,44 +418,28 @@
 				</div>
 			</a>
 			
-			<a href="events.html">
-				<div class="f nav_name">events</div>
-			</a>
-			
 			<a href="blog/">
 				<div class="f nav_name">blog</div>
 			</a>
 			
-			<a href="news.html">
-				<div class="f nav_name">news</div>
-			</a>
-			
-			<a href="members_basic.html">
-				<div class="f nav_name">members</div>
-			</a>
-			
-			<a href="members_hon.html">
-				<div class="f nav_name">honorary members</div>
-			</a>
-			
-			<a href="register.html">
-				<div class="f nav_name">register</div>
-			</a>
-			
-			<a href="resources.html">
-				<div class="f nav_name">resources</div>
-			</a>
-			
 			<a href="business.html">
-				<div class="f nav_name">mauritius py businesses</div>
+				<div class="f nav_name">business</div>
 			</a>
 			
-			<a href="about.html">
-				<div class="f nav_name">about</div>
+			<a href="codeoc.html">
+				<div class="f nav_name">coc</div>
 			</a>
 			
-			<a href="maintainers.html">
-				<div class="f nav_name">maintainers</div>
+			<a href="events.html">
+				<div class="f nav_name">events</div>
+			</a>
+			
+			<a href="job_board.html">
+				<div class="f nav_name">job board</div>
+			</a>
+			
+			<a href="members/">
+				<div class="f nav_name">members</div>
 			</a>
 			
 			<a href="partners.html">
@@ -275,19 +447,11 @@
 			</a>
 			
 			<a href="pystandard.html">
-				<div class="f nav_name">py certif standard</div>
+				<div class="f nav_name">pystandard</div>
 			</a>
 			
-			<a href="social.html">
-				<div class="f nav_name">social</div>
-			</a>
-			
-			<a href="codeoc.html">
-				<div class="f nav_name">code of conduct</div>
-			</a>
-			
-			<a href="job_board.html">
-				<div class="f nav_name">job board</div>
+			<a href="resources.html">
+				<div class="f nav_name">resources</div>
 			</a>
 			
 			</div>

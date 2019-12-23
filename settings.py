@@ -1,0 +1,4 @@
+
+
+
+OUTPUT_FOLDER = 'docs'

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br><br>
+
+We don't have memberships as such, those are people who joined our groups across
+social media. It is done with the vision that if people are looking for Python talents, 
+they can see them here. It is also a motivation to learn Python and update your data
+<table>
+<tr>
+    <!--<th>index</th>-->
+    <th>username</th>
+    <th>name</th> 
+    <th>date joined</th>
+</tr>
+{% for member in members %}
+<tr>
+    <!--<td> {{members[member].index}} </td>-->
+    <td><a href="../members/{{member}}">{{member}} </a></td>
+    <td> {{members[member].name}} </td> 
+    <td>{{members[member].date}} </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}
