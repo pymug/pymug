@@ -1,5 +1,3 @@
-import os
-from shutil import copyfile
 
 
 def build(info, site_api):

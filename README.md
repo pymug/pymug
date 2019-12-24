@@ -71,7 +71,6 @@ or open a Pull Request and add your name to the bottom of the file [here](https:
 
 # Tutorial
 
-The website has two folders the `templates/` folder and the output folder, here `docs/`. `data/` folder is used to store data used by `build.py`. 
 
 ### Settings
 
@@ -100,6 +99,109 @@ included_modules = [
 ```
 
 In `modules/` there can be as many modules as you like but they won't all be built. Only those defined in this list will be built
+
+### Modules development
+
+A module has the following structure. Let's take the events module:
+
+```
+events/
+    data/
+        events.md
+    templates/
+        events.html
+    __init__.py
+    info.json
+    logic.py
+```
+
+- `data/` is used to store data files.
+
+- `templates/` used to store templates
+
+- `info.json` is used to hold infomations such as 
+
+```
+{
+    "title": "events",
+    "fa_class": "fa-calendar",
+    "link": "events.html"
+}
+```
+
+`fa_class` is the font awesome7 class used in the index.html to define this section
+
+`link` is the link in index.html
+
+- `logic.py` is used to render and write the pages.
+
+- 'templates/events.html'
+
+The events.html is a simple file
+
+
+```
+{% extends "base.html" %}
+
+{% block content %}
+
+    {{content}}
+
+{% endblock %}
+```
+
+
+which extends base.html in our root directory
+
+- `templates/events.md` contains what we'll render `` above
+
+- `logic.py`
+
+```python
+def build(info, site_api):
+    settings = site_api.get_settings()
+    
+    html = site_api.mdtohtml('modules/{}/data/events.md'.format(info['module_name']))
+    site_api.create_file(info, 'events.html', '{}/events.html'.format(settings['output_folder']),
+        content=html)
+```
+
+## Logic.py
+
+As seen above, the function
+
+```
+def build(info, site_api):
+```
+
+is mandatory. info contains 
+
+```
+{
+    "title": "events",
+    "fa_class": "fa-calendar",
+    "link": "events.html",
+    "module_name": "events"
+}
+```
+
+and site_api is just the site_api module
+
+```
+settings = site_api.get_settings()
+```
+
+gets the settings we defined in settings.py
+
+```
+    html = site_api.mdtohtml('modules/{}/data/events.md'.format(info['module_name']))
+    site_api.create_file(info, 'events.html', '{}/events.html'.format(settings['output_folder']),
+        content=html)
+```
+
+First we get the events.md file in html format
+
+then we create a file, replacing the content in the template by the generated html
 
 ### API
 
@@ -211,7 +313,7 @@ returns html content given markdown content
 ```
 
 
-### Modules development
+
 
 
 
