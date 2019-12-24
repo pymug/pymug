@@ -11,7 +11,7 @@ the site's structure is dictated by github pages' specifications and handling ra
 
 an index.html in every folder, path or lib, is a brillant idea of github (really). See tutorial section below
 
-# Activating Vitual env
+# Activating Vitual env (Optional)
 
 **Windows:**
 
@@ -39,7 +39,7 @@ or just type
 win_vdeactivate
 ```
 
-# Installing dependencies
+# Installing dependencies (If not using venv)
 
 ```
 pip install -r requirements.txt
@@ -53,13 +53,7 @@ python build.py all
 
 to build all
 
-else choose what section to build from:
-
-```
- section     Choose argument from : main-page, members-basic, all, register,
-             about, standard, blog, business, members-hon, news, social,
-             resources, partners, events, maintainers, coc, job-board
-```
+else choose what section to build from: the modules folder
 
 e.g `python build.py blog`
 
@@ -79,55 +73,9 @@ or open a Pull Request and add your name to the bottom of the file [here](https:
 
 The website has two folders the `templates/` folder and the output folder, here `docs/`. `data/` folder is used to store data used by `build.py`. 
 
-### Building `index.html` (main page)
-
-The story begins with the `sections` variable in `build.py`:
-
-```python
-sections = {
-    'events': {
-        'link': 'events.html',
-        'fa_class': 'fa-calendar'
-    },
-    'news': {
-        'link': 'news.html',
-        'fa_class': 'fa-newspaper-o'
-    },
-    'members': {
-        'link': 'members_basic.html',
-        'fa_class': 'fa-angle-up'
-    }, ...
-}
-```
-
-This is used to generate the different sections icons. `link` specifies where on clicking they should go and `fa_class` is the FontAwesome (4.7) class used. FontAwesome is an icon library which includes icons by specifying the appropriate class.
-
-### The build process
-
-Towards the end of `build.py` you'll see
-
-```python
-def build_all():
-    build_main_page()
-    build_members_basic()
-    build_register()
-    build_about()
-    build_pystandard()
-    build_blog()
-    build_business()
-    build_members_hon()
-    build_news()
-    build_social()
-    build_resources()
-    build_partners()
-    build_events()
-    build_maintainers()
-    build_codeoc()
-    build_all_members()
+### Modules development
 
 
-if __name__ == '__main__':
-    build_all()
-```
 
-where each function in `build_all()` builds a section. `build_events()` for example builds `pymug.com/events.html`
+### API
+
