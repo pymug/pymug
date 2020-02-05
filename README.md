@@ -153,7 +153,7 @@ The events.html is a simple file
 
 which extends base.html in our root directory
 
-- `templates/events.md` contains what we'll render `` above
+- `templates/events.md` contains what we'll render above
 
 - `logic.py`
 
