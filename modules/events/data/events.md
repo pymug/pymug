@@ -1,3 +1,33 @@
+## [1st Feb 2020](https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/267968462/) @ Vacoas (Adalab's Corner)
+_Python 2020 First Meetup - special: Mr Logan_ 
+
+
+Thanks for reading. Python-side we begin the year with a regular meetup on diverse topics. Special this time we'll have Mr Logan from cyberstorm.mu presenting on what they've been working on. In a bid to broaden programmers' vision we decided to invite a team that has been doing awesome work. Domain-specific knowledge sure helps.
+
+We have:
+
+🎉 Work Done
+Loganaden Velvindron, Jeremie Daniel
+
+🎉 Recommender systems using Annoy Python
+Kherin Bundhoo
+
+🎉 Real-time data streams
+Dominique Theodore
+
+🎉 Waddling through the Scrapy codebase
+Abdur-Rahmaan Janhangeer
+
+🎉 TO B CONFIRMED
+stay tuned
+
+To bring: Your laptop. Contact +230 59 12 44 17 in case you are lost.
+
+More info: https://www.pymug.com
+Stay updated: https://mail.python.org/mailman3/lists/pymug.python.org/
+
+The Python Mauritius UserGroup aims at enhancing the Python skills of everybody. There are much opportunities available once you specialise in Python. It's a learning journey, together.
+
 ## [November 2019](https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266575713/) @ Vacoas (Adalab's Corner)
 _Python From Scratch_ 
 
