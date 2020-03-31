@@ -1,1 +1,0 @@
-cd pymug-web/scripts/ & activate & cd ..\..
