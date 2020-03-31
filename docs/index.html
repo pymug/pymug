@@ -126,6 +126,15 @@
 
 <div class="section">
     <div class="container has-text-centered" >
+        <div class="notification is-warning">
+          <button class="delete"></button>
+          Under construction
+        </div>
+        <div class="notification is-success">
+          <button class="delete"></button>
+          You can access our mailing list <a href="https://mail.python.org/mailman3/lists/pymug.python.org/">here</a> and view our yearly report: <a href="https://www.pymug.com/assets/pymug_2019_report.pdf">pymug_2019_report.pdf</a>. You can also find us on <a href="https://github.com/pymug"><i class="fab fa-github-square"></i></a>
+        </div>
+        <br>
         <div class="">
             <div class="columns">
                 <div class="column is-1 tweet-left is-vertical-center">
@@ -277,6 +286,11 @@ $(document).ready(function() {
       currentTweet -= 1;
     }
   });
+
+  $( ".delete" ).click(function() {
+    $(this).closest(".notification").remove();
+  });
+
 }); // end
 </script>
 
