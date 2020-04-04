@@ -1,19 +1,143 @@
-
 .hero.has-background {
     position: relative;
     overflow: hidden;
-    }
-    .hero-background {
+}
+
+.hero-background {
     position: absolute;
-    object-fit:cover;
+    object-fit: cover;
     object-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
     width: 100%;
-    }
+}
 
-    .hero img{
+.hero img {
     height: 100%;
-    }
+}
 
-    .hero-background.is-transparent {
+.hero-background.is-transparent {
     opacity: 0.3;
-    }
+}
+
+.header-title {
+    font-size: 60px;
+}
+
+.github-fork-ribbon {
+    color: #4B8BBE;
+}
+
+.tweet-left:hover, .tweet-right:hover {
+    background-color: #4B8BBE;
+}
+
+.tweet-right {
+    transition: 1s ease;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+.tweet-left {
+    transition: 1s ease;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+
+.tweet-center {}
+
+.tweet-elem {}
+
+twitter-widget {
+    display: inline-block !important;
+}
+
+twitter-widget::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+.tweet-icon-left {
+    font-size: 30px;
+    margin-left: 50%;
+}
+
+.tweet-icon-right {
+    font-size: 30px;
+    margin-right: 50%;
+}
+
+.tweet-icon-left:active {
+    border-color: black !important;
+}
+
+.tweet-icon-right:active {
+    border-color: black !important;
+}
+
+.is-vertical-center {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.show {
+    display: inline-block !important;
+}
+
+.tweeet {}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.card-custom {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.menu {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: #F2F3F4;
+    padding-top: 50px;
+    margin: 15px;
+}
+
+.menu:hover {
+    background-color: #F8F9F9;
+}
+
+.menu-i {
+    font-size: 60px !important;
+}
+
+.menu-i:hover {
+    color: #5499C7;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+}
