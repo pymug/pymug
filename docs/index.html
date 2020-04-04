@@ -1,371 +1,230 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>PYMUG - Python Mauritius UserGroup</title>
-    <!--cdn-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    
-    <script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>
+  <title>PYMUG - Python Mauritius UserGroup</title>
+  <!--cdn-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
 
-    <!--descriptions / meta-->
-    <meta charset="utf-8">
-    <meta name="description" content="Mauritius Usergroup of the Python programming language. The mauritian ug aims at promoting python and coding literacy beyond syntax, upgrade skills as well as sniffing job opportunities for members">
-    <meta name="keywords" content="python,mauritius,coding,usergroup,learn,programming">
-    <meta name="author" content="appinv">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000"/>
 
-    <!--icon-->
-    <link rel="shortcut icon" href="assets/pymug_new.png">
+  <!--descriptions / meta-->
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Mauritius Usergroup of the Python programming language. The mauritian ug aims at promoting python and coding literacy beyond syntax, upgrade skills as well as sniffing job opportunities for members">
+  <meta name="keywords" content="python,mauritius,coding,usergroup,learn,programming">
+  <meta name="author" content="appinv">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000" />
 
-    <!--local libs-->
-    <link rel="stylesheet" type="text/css" href="css/global.css">
+  <!--icon-->
+  <link rel="shortcut icon" href="assets/pymug_new.png">
 
-    <style type="text/css">
-        .tweet-left{
-            border: 2px solid #C0C0C0; 
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-
-        }
-
-        .tweet-right{
-            border: 2px solid #C0C0C0; 
-            border-top-right-radius: 5px;
-            border-bottom-right-radius: 5px;
-        }
-        .tweet-center{
-
-        }
-        .tweet-elem{
-
-        }
-        twitter-widget{
-            display: inline-block !important;
-        }
-        twitter-widget::-webkit-scrollbar {
-            width: 0px;  /* Remove scrollbar space */
-            background: transparent;  /* Optional: just make scrollbar invisible */
-        }
-        .tweet-icon-left{
-            font-size: 30px;
-            margin-left: 50%;
-        }
-        .tweet-icon-right{
-            font-size: 30px;
-            margin-right: 50%;
-        }
-        .tweet-icon-left:active{
-            border-color:black !important;
-        }
-        .tweet-icon-right:active{
-            border-color:black !important;
-        }
-        .is-vertical-center {
-          display: flex;
-          align-items: center;
-          text-align: center;
-        }
-        .hidden{
-            display: none !important;
-        }
-        .show{
-          display: inline-block !important;
-        }
-        .tweeet{
-          
-        }
-        .noselect {
-          -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none; /* Safari */
-             -khtml-user-select: none; /* Konqueror HTML */
-               -moz-user-select: none; /* Firefox */
-                -ms-user-select: none; /* Internet Explorer/Edge */
-                    user-select: none; /* Non-prefixed version, currently
-                                          supported by Chrome and Opera */
-        }
-        .card-custom {
-          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        }
-        .menu{
-          width: 200px;
-          height: 200px;
-          border-radius: 5px;
-          background-color: #F2F3F4 ;
-          padding-top: 50px;
-          margin: 15px;
-        }
-        .menu:hover{
-          background-color: #F8F9F9;
-        }
-        .menu-i{
-          font-size: 60px !important;
-        }
-        .menu-i:hover{
-          color: #5499C7;
-        }
-        a{
-          text-decoration: inherit;
-          color: inherit;
-        }
-    </style>
+  <!--local libs-->
+  <link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
+
 <body>
+  <a class="github-fork-ribbon" href="https://github.com/pymug/pymug" target="_blank" data-ribbon="Fork me on GitHub"
+    title="Fork me on GitHub">Fork me on GitHub</a>
 
 
-<div class="hero is-medium is-info has-background">
-  <img alt="" class="hero-background is-transparent" src="/assets/header.jpg" />
-  
-  <nav class="navbar is-info">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="" style="background-color: rgba(255, 255, 255, 0.3);">
-        <img src="assets/pymug_new.svg" alt="Bulma: a modern CSS framework based on Flexbox" width="" height="28">
-      </a>
-      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="">
-        Home
-      </a>
-      <a class="navbar-item" href="https://github.com/pymug/pymug">
-        Edit on github
-      </a>
+  <div class="hero is-medium is-info has-background">
+    <img alt="" class="hero-background is-transparent" src="/assets/header.jpg" />
+
+    <nav class="navbar is-info">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="" style="background-color: rgba(255, 255, 255, 0.3);">
+          <img src="assets/pymug_new.svg" alt="Bulma: a modern CSS framework based on Flexbox" width="" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-start">
+            <a class="navbar-item" href="">
+              Home
+            </a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title header-title">
+          <span class="letter-pymug">P</span>
+          <span class="letter-pymug">Y</span>
+          <span class="letter-pymug">M</span>
+          <span class="letter-pymug">U</span>
+          <span class="letter-pymug">G</span>
+        </h1>
+        <h3 class="subtitle subheader-title">
+          Python Mauritius User Group
+        </h3>
       </div>
     </div>
-  </nav>
 
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">
-        PYMUG
-      </h1>
-      <h3 class="subtitle">
-        Python Mauritius User Group
-      </h3>
-    </div>
   </div>
 
-</div>
-
-<div class="section">
-    <div class="container has-text-centered" >
-        <!--<div class="notification is-warning">
+  <div class="section">
+    <div class="container has-text-centered">
+      <!--<div class="notification is-warning">
           <button class="delete"></button>
           Under construction
         </div>-->
-        
-        <div class="title">
-          Python Mauritius User Group
+
+      <div class="title">
+        Python Mauritius User Group
+      </div>
+      <br>
+      <div class="columns">
+
+        <div class="column is-1 tweet-left is-vertical-center">
+          <i class="fa fa-chevron-circle-left tweet-icon-left"></i>
         </div>
-        <br>
-        <div class="">
-            <div class="columns">
-                <div class="column is-1 tweet-left is-vertical-center">
-                    <i class="fa fa-chevron-circle-left tweet-icon-left"></i>
-                </div>
 
-                <div class="column is-10 tweet-center" style="">
-                    <div class="columns">
-                        <div class="column is-12">
-                            <p class="subtitle">Tweets</p>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div 
-                          class="column is-8" style=" overflow-y: scroll; height: 500px; "
-                          id="tweets-display">
-                            <div class="tweeet" id="tweet-1">
-                              <blockquote id="twitter-tweet-0" class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Python is everywhere: there is an active Python user group organizing frequently meetups in the Mauritius island! <a href="https://t.co/Eo9V9XVPjI">https://t.co/Eo9V9XVPjI</a> <a href="https://t.co/jk1HjOPg7j">pic.twitter.com/jk1HjOPg7j</a></p>&mdash; Victor Stinner 🐍 (@VictorStinner) <a href="https://twitter.com/VictorStinner/status/1199414861014405121?ref_src=twsrc%5Etfw">November 26, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                            </div>
-                            <div class="tweeet hidden" id="tweet-2">
-                              <blockquote id="twitter-tweet-1" class="hidden twitter-tweet"><p lang="fr" dir="ltr">Nous avons complété nos 3 sessions d&#39;intelligence artificielle avec Python. Ce fut une excellente experience pour nous en tant que UG Python et pour un start à 08 30am, nous remercions les etudiants de la faculté informatique pour leur sériosité. Voici ce qu&#39;on a couvert:</p>&mdash; Python Mauritius UserGroup (@pymugdotcom) <a href="https://twitter.com/pymugdotcom/status/1206635754333425665?ref_src=twsrc%5Etfw">December 16, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                            </div>
-                        </div>
-                        <div class="column is-4" id='tweets-info'>
-                          <div id="tweet-info-1 noselect">
-                            Mr Victor Stinner is a Python core dev from France who supports our initiatives as a french speaking UG.
-                          </div>
-                          <div id="tweet-info-2 noselect" class="hidden">
-                            We did some Ai sessions at UoM last year. The tweet's is a thread with all info.
-                          </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column is-1 tweet-right is-vertical-center">
-                    <i class="fa fa-chevron-circle-right tweet-icon-right"></i>
-                </div>
+        <div class="column is-10 tweet-center">
+          <div class="columns">
+            <div class="column is-12">
+              <p class="subtitle">Tweets</p>
             </div>
+          </div>
+          <div class="column" style=" overflow-y: scroll; height: 500px; " id="tweets-display">
+            <div class="tweeet" id="tweet-1">
+              <blockquote id="twitter-tweet-0" class="twitter-tweet" data-dnt="true">
+                <p lang="en" dir="ltr">
+                  Python is everywhere: there is an active Python user group organizing
+                  frequently meetups in the Mauritius island! <a
+                    href="https://t.co/Eo9V9XVPjI">https://t.co/Eo9V9XVPjI</a><a
+                    href="https://t.co/jk1HjOPg7j">pic.twitter.com/jk1HjOPg7j</a>
+                </p>
+                &mdash; Victor Stinner 🐍 (@VictorStinner) <a
+                  href="https://twitter.com/VictorStinner/status/1199414861014405121?ref_src=twsrc%5Etfw">November 26,
+                  2019</a>
+              </blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+            <div class="tweeet hidden" id="tweet-2">
+              <blockquote id="twitter-tweet-1" class="twitter-tweet">
+                <p lang="fr" dir="ltr">Nous avons complété nos 3 sessions d&#39;intelligence artificielle avec
+                  Python. Ce fut une excellente experience pour nous en tant que UG Python et pour un start à 08
+                  30am, nous remercions les etudiants de la faculté informatique pour leur sériosité. Voici ce
+                  qu&#39;on a couvert:</p>&mdash; Python Mauritius UserGroup (@pymugdotcom) <a
+                  href="https://twitter.com/pymugdotcom/status/1206635754333425665?ref_src=twsrc%5Etfw">December 16,
+                  2019</a>
+              </blockquote>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+          </div>
+          <!-- <div class="column is-4" id='tweets-info'>
+            <div id="tweet-info-1 noselect">
+              Mr Victor Stinner is a Python core dev from France who supports our initiatives as a french speaking
+              UG.
+            </div>
+            <div id="tweet-info-2 noselect" class="hidden">
+              We did some Ai sessions at UoM last year. The tweet's is a thread with all info.
+            </div>
+          </div> -->
         </div>
-    </div>
-</div>
 
-<div class="section"> <!--menu-->
-<div class="container has-text-centered" >
-  <h1 class="title">Resources</h1>
-  <div class="columns">
-    <div class="column">
-      <a href="events.html">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fa fa-calendar-alt menu-i"></i><br><br>
-          <span>Events</span>
+        <div class="column is-1 tweet-right is-vertical-center">
+          <i class="fa fa-chevron-circle-right tweet-icon-right"></i>
         </div>
-      </a>
-      <a href="https://mail.python.org/mailman3/lists/pymug.python.org/">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fa fa-envelope-open-text menu-i"></i><br><br>
-          <span>Mailing List</span>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="section">
+    <!--menu-->
+    <div class="container has-text-centered">
+      <h1 class="title">Resources</h1>
+      <div class="columns">
+        <div class="column">
+          <a href="events.html">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-calendar-alt menu-i"></i><br><br>
+              <span>Events</span>
+            </div>
+          </a>
+          <a href="https://mail.python.org/mailman3/lists/pymug.python.org/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-envelope-open-text menu-i"></i><br><br>
+              <span>Mailing List</span>
+            </div>
+          </a>
+          <a href="https://twitter.com/pymugdotcom">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-twitter menu-i"></i><br><br>
+              <span>Twitter</span>
+            </div>
+          </a>
+          <a href="https://github.com/pymug">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-github-square menu-i"></i><br><br>
+              <span>Github</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/company/pymug/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-linkedin menu-i"></i><br><br>
+              <span>LinkedIn</span>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/groups/318161658897893/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-facebook menu-i"></i><br><br>
+              <span>Facebook</span>
+            </div>
+          </a>
+          <a href="reports.html">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-chart-bar menu-i"></i><br><br>
+              <span>Reports</span>
+            </div>
+          </a>
+          <a href="">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-leaf menu-i"></i><br><br>
+              <span>Members</span>
+            </div>
+          </a>
+          <a href="https://www.pythonmembers.club/2020/01/29/legally-free-python-books-list/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-thumbs-up menu-i"></i><br><br>
+              <span>Free Books</span>
+            </div>
+          </a>
+          <a href="https://pymug.github.io/website-AV19-AV20/index.html">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-oil-can menu-i"></i><br><br>
+              <span>Old Website</span>
+            </div>
+          </a>
         </div>
-      </a>
-      <a href="https://twitter.com/pymugdotcom">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fab fa-twitter menu-i"></i><br><br>
-          <span>Twitter</span>
-        </div>
-      </a>
-      <a href="https://github.com/pymug">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fab fa-github-square menu-i"></i><br><br>
-          <span>Github</span>
-        </div>
-      </a>
-      <a href="https://www.linkedin.com/company/pymug/">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fab fa-linkedin menu-i"></i><br><br>
-          <span>LinkedIn</span>
-        </div>
-      </a>
-      <a href="https://www.facebook.com/groups/318161658897893/">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fab fa-facebook menu-i"></i><br><br>
-          <span>Facebook</span>
-        </div>
-      </a>
-      <a href="reports.html">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fa fa-chart-bar menu-i"></i><br><br>
-          <span>Reports</span>
-        </div>
-      </a>
-      <a href="">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fa fa-leaf menu-i"></i><br><br>
-          <span>Members</span>
-        </div>
-      </a>
-      <a href="https://www.pythonmembers.club/2020/01/29/legally-free-python-books-list/">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fa fa-thumbs-up menu-i"></i><br><br>
-          <span>Free Books</span>
-        </div>
-      </a>
-      <a href="https://pymug.github.io/website-AV19-AV20/index.html">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fa fa-oil-can menu-i"></i><br><br>
-          <span>Old Website</span>
-        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section">
+    <!--partners-->
+    <div class="container has-text-centered">
+      <h1 class="title">Partner Contents</h1>
+      <a href="https://www.oreilly.com/pub/cpc/313497">
+        <img src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" />
       </a>
     </div>
   </div>
-</div>
-</div>
-
-<div class="section"><!--partners-->
-<div class="container has-text-centered">
-    <h1 class="title">Partner Contents</h1>
-  <a href="https://www.oreilly.com/pub/cpc/313497">
-    <img src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" />
-  </a>
-</div>
-</div>
-<script type="text/javascript">
-$(document).ready(function() {
-  /*
-    >>> print('a', 'b', 'c');
-    a b c
-  */
-  function print(){
-    var sep = ' ';
-    var toprint = '';
-    for (var i = arguments.length - 1; i >= 0; i--) {
-      arg = arguments[arguments.length-i-1];
-      if (typeof arg === 'string' || arg instanceof String)
-      {
-        
-      }else{
-        arg = arg.toString();
-      }
-      toprint += arg + sep;
-    }
-    console.log(toprint);
-  }
-
-
-  // Check for click events on the navbar burger icon
-  $(".navbar-burger").click(function() {
-
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-
-  });
-  var currentTweet = 1;
-  var totalTweets = 2;
-
-  $( ".tweet-right" ).click(function() {
-    // print('clicked');
-    // print('current tweet:', currentTweet);
-    for(var i=1; i < totalTweets+1; i++){
-      // print('i', i);
-      if(i === currentTweet){
-        $('#tweet-'+i.toString()).addClass("show").removeClass("hidden");
-        $('#tweet-info-'+i.toString()).addClass("show").removeClass("hidden");
-      }else if(i != currentTweet+1){
-        $('#tweet-'+i.toString()).addClass("hidden").removeClass("show");
-        $('#tweet-info-'+i.toString()).addClass("hidden").removeClass("show");
-      }
-    }
-    if(currentTweet === totalTweets){
-      currentTweet = 1;
-    }else{
-      currentTweet += 1;
-    }
-  });
-  $( ".tweet-left" ).click(function() {
-    // print('clicked');
-    // print('current tweet:', currentTweet);
-    for(var i=1; i < totalTweets+1; i++){
-      // print('i', i);
-      if(i === currentTweet){
-        $('#tweet-'+i.toString()).addClass("show").removeClass("hidden");
-        $('#tweet-info-'+i.toString()).addClass("show").removeClass("hidden");
-      }else if(i != currentTweet+1){
-        $('#tweet-'+i.toString()).addClass("hidden").removeClass("show");
-        $('#tweet-info-'+i.toString()).addClass("hidden").removeClass("show");
-      }
-    }
-    if(currentTweet === 1){
-      currentTweet = totalTweets;
-    }else{
-      currentTweet -= 1;
-    }
-  });
-
-  $( ".delete" ).click(function() {
-    $(this).closest(".notification").remove();
-  });
-
-}); // end
-</script>
-
+  <script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/gsap-animations.js"></script>
 </body>
+
 </html>
