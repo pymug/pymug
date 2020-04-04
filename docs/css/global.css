@@ -1,0 +1,19 @@
+
+.hero.has-background {
+    position: relative;
+    overflow: hidden;
+    }
+    .hero-background {
+    position: absolute;
+    object-fit:cover;
+    object-position: center center;
+    width: 100%;
+    }
+
+    .hero img{
+    height: 100%;
+    }
+
+    .hero-background.is-transparent {
+    opacity: 0.3;
+    }
