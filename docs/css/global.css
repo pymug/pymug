@@ -1,3 +1,4 @@
+/* ============= HERO HEADER ====================== */
 .hero.has-background {
     position: relative;
     overflow: hidden;
@@ -7,8 +8,6 @@
     position: absolute;
     object-fit: cover;
     object-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
     width: 100%;
 }
 
@@ -28,6 +27,7 @@
     color: #4B8BBE;
 }
 
+/* ================== CAROUSEL ====================== */
 .tweet-left:hover, .tweet-right:hover {
     background-color: #4B8BBE;
 }
@@ -71,12 +71,12 @@ twitter-widget::-webkit-scrollbar {
     margin-right: 50%;
 }
 
-.tweet-icon-left:active {
-    border-color: black !important;
+.tweet-left:hover{
+    color: white !important;
 }
 
-.tweet-icon-right:active {
-    border-color: black !important;
+.tweet-right:hover{
+    color: white !important;
 }
 
 .is-vertical-center {
@@ -140,4 +140,16 @@ twitter-widget::-webkit-scrollbar {
 a {
     text-decoration: inherit;
     color: inherit;
+}
+
+
+/* ================== RESOURCES ==================== */
+.card-custom:hover{
+    color: blue;
+}
+
+.navbar{
+    position: fixed;
+    opacity: 0.8;
+    width: 100%;
 }
