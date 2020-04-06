@@ -16,6 +16,6 @@ with socketserver.TCPServer(('', PORT), Handler) as httpd:
     print('serving on:')
     link = 'http://{}:{}'.format(IP, PORT)
     print(link)
-    webbrowser.open(link)
+    # webbrowser.open(link)
     httpd.serve_forever()
 

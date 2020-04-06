@@ -30,44 +30,59 @@ $(document).ready(function () {
     var currentTweet = 1;
     var totalTweets = 2;
 
+    for (var i = 1; i < totalTweets + 1; i++) {
+            
+        if (i === 1) {
+
+        } else{
+            $('#tweet-' + i.toString()).hide();
+            $('#tweet-info-' + i.toString()).hide();
+            //$('#tweet-info-' + i.toString()).toggle();
+        }
+    }
     $(".tweet-right").click(function () {
         // print('clicked');
         // print('current tweet:', currentTweet);
-        for (var i = 1; i < totalTweets + 1; i++) {
-            print('i', i);
-            if (i === currentTweet) {
-                console.log(currentTweet);
-                $('#tweet-' + i.toString()).addClass("show").removeClass("hidden");
-                $('#tweet-info-' + i.toString()).addClass("show").removeClass("hidden");
-            } else if (i != currentTweet + 1) {
-                console.log(currentTweet);
-                $('#tweet-' + i.toString()).addClass("hidden").removeClass("show");
-                $('#tweet-info-' + i.toString()).addClass("hidden").removeClass("show");
-            }
-        }
-        if (currentTweet === totalTweets) {
+        currentTweet += 1;
+
+        if (currentTweet > totalTweets) {
             currentTweet = 1;
-        } else {
-            currentTweet += 1;
+        }
+        for (var i = 1; i < totalTweets + 1; i++) {
+            if (i === currentTweet) {
+                //print('currentTweet', i.toString())
+                $('#tweet-' + i.toString()).show();
+                $('#tweet-info-' + i.toString()).show();
+                //$('#tweet-info-' + i.toString()).toggle();
+                //print('i', i, 'currentTweet', currentTweet, '#tweet-info-' + i.toString());
+            } else if (i != currentTweet) {
+                $('#tweet-' + i.toString()).hide();
+                $('#tweet-info-' + i.toString()).hide();
+                //$('#tweet-info-' + i.toString()).toggle();
+            }
         }
     });
     $(".tweet-left").click(function () {
         // print('clicked');
         // print('current tweet:', currentTweet);
-        for (var i = 1; i < totalTweets + 1; i++) {
-            // print('i', i);
-            if (i === currentTweet) {
-                $('#tweet-' + i.toString()).addClass("show").removeClass("hidden");
-                $('#tweet-info-' + i.toString()).addClass("show").removeClass("hidden");
-            } else if (i != currentTweet + 1) {
-                $('#tweet-' + i.toString()).addClass("hidden").removeClass("show");
-                $('#tweet-info-' + i.toString()).addClass("hidden").removeClass("show");
-            }
-        }
-        if (currentTweet === 1) {
+        currentTweet -= 1;
+
+        if (currentTweet < 1) {
             currentTweet = totalTweets;
-        } else {
-            currentTweet -= 1;
+        }
+        for (var i = 1; i < totalTweets + 1; i++) {
+            
+            if (i === currentTweet) {
+                //print('currentTweet', i.toString())
+                $('#tweet-' + i.toString()).show();
+                $('#tweet-info-' + i.toString()).show();
+                //$('#tweet-info-' + i.toString()).toggle();
+                //print('i', i, 'currentTweet', currentTweet, '#tweet-info-' + i.toString());
+            } else if (i != currentTweet) {
+                $('#tweet-' + i.toString()).hide();
+                $('#tweet-info-' + i.toString()).hide();
+                //$('#tweet-info-' + i.toString()).toggle();
+            }
         }
     });
 

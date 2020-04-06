@@ -30,6 +30,8 @@
 /* ================== CAROUSEL ====================== */
 .tweet-left:hover, .tweet-right:hover {
     background-color: #4B8BBE;
+    color: white;
+    border-color: #4B8BBE !important;
 }
 
 .tweet-right {
@@ -71,26 +73,11 @@ twitter-widget::-webkit-scrollbar {
     margin-right: 50%;
 }
 
-.tweet-left:hover{
-    color: white !important;
-}
-
-.tweet-right:hover{
-    color: white !important;
-}
 
 .is-vertical-center {
     display: flex;
     align-items: center;
     text-align: center;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.show {
-    display: inline-block !important;
 }
 
 .tweeet {}
@@ -123,10 +110,12 @@ twitter-widget::-webkit-scrollbar {
     background-color: #F2F3F4;
     padding-top: 50px;
     margin: 15px;
+    color: #2E4053 ;
 }
 
 .menu:hover {
     background-color: #F8F9F9;
+    color: #5499C7 !important;
 }
 
 .menu-i {
@@ -135,11 +124,6 @@ twitter-widget::-webkit-scrollbar {
 
 .menu-i:hover {
     color: #5499C7;
-}
-
-a {
-    text-decoration: inherit;
-    color: inherit;
 }
 
 
@@ -153,3 +137,14 @@ a {
     opacity: 0.8;
     width: 100%;
 }
+
+a {
+    text-decoration: none !important;
+    color: none !important;
+}
+a:hover{
+    text-decoration: none !important;
+    color: none !important;
+}
+
+
