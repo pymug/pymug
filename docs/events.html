@@ -1,206 +1,139 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>PYMUG - Python Mauritius UserGroup</title>
-    <!--cdn-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-    
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"></script>
+  <title>PYMUG - Python Mauritius UserGroup</title>
+  <!--cdn-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 
-    <!--descriptions / meta-->
-    <meta charset="utf-8">
-    <meta name="description" content="Mauritius Usergroup of the Python programming language. The mauritian ug aims at promoting python and coding literacy beyond syntax, upgrade skills as well as sniffing job opportunities for members">
-    <meta name="keywords" content="python,mauritius,coding,usergroup,learn,programming">
-    <meta name="author" content="appinv">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000"/>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    <!--icon-->
-    <link rel="shortcut icon" href="assets/pymug_new.png">
+  <!--descriptions / meta-->
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Mauritius Usergroup of the Python programming language. The mauritian ug aims at promoting python and coding literacy beyond syntax, upgrade skills as well as sniffing job opportunities for members">
+  <meta name="keywords" content="python,mauritius,coding,usergroup,learn,programming">
+  <meta name="author" content="appinv">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000" />
 
-    <!--local libs-->
-    <link rel="stylesheet" type="text/css" href="css/global.css">
+  <!--icon-->
+  <link rel="shortcut icon" href="assets/pymug_new.png">
 
-    <style type="text/css">
-        .noselect {
-          -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-select: none; /* Safari */
-             -khtml-user-select: none; /* Konqueror HTML */
-               -moz-user-select: none; /* Firefox */
-                -ms-user-select: none; /* Internet Explorer/Edge */
-                    user-select: none; /* Non-prefixed version, currently
+  <!--local libs-->
+  <link rel="stylesheet" type="text/css" href="css/global.css">
+
+  <style type="text/css">
+    .noselect {
+      -webkit-touch-callout: none;
+      /* iOS Safari */
+      -webkit-user-select: none;
+      /* Safari */
+      -khtml-user-select: none;
+      /* Konqueror HTML */
+      -moz-user-select: none;
+      /* Firefox */
+      -ms-user-select: none;
+      /* Internet Explorer/Edge */
+      user-select: none;
+      /* Non-prefixed version, currently
                                           supported by Chrome and Opera */
-        }
-        .card-custom {
-          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-          transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        }
+    }
 
-        .menu{
-          width: 200px;
-          height: 200px;
-          border-radius: 5px;
-          background-color: #F2F3F4 ;
-          padding-top: 50px;
-          margin: 15px;
-        }
-        .menu:hover{
-          background-color: #F8F9F9;
-        }
-        .event-menu{
-          /*height: 200px;*/
-          max-width: 800px;
-          border-radius: 5px;
-          background-color: #F2F3F4 ;
-          padding-top: 20px;
-          padding-bottom: 20px;
-          margin: 15px;
-        }
-        .event-menu:hover{
-          background-color: #F8F9F9;
-        }
-        .menu-i{
-          font-size: 60px !important;
-        }
-        .menu-i:hover{
-          color: #5499C7;
-        }
-    </style>
+    .card-custom {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    }
+
+    .menu {
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      background-color: #F2F3F4;
+      padding-top: 50px;
+      margin: 15px;
+    }
+
+    .menu:hover {
+      background-color: #F8F9F9;
+    }
+
+    .event-menu {
+      /*height: 200px;*/
+      max-width: 800px;
+      border-radius: 5px;
+      background-color: #F2F3F4;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin: 15px;
+    }
+
+    .event-menu:hover {
+      background-color: #F8F9F9;
+    }
+
+    .menu-i {
+      font-size: 60px !important;
+    }
+
+    .menu-i:hover {
+      color: #5499C7;
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="navbar is-info">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="" style="background-color: rgba(255, 255, 255, 0.3);">
-      <img src="assets/pymug_new.svg" alt="Bulma: a modern CSS framework based on Flexbox" width="" height="28">
-    </a>
-    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-      <span></span>
-      <span></span>
-      <span></span>
+  <nav class="navbar is-info">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="" style="background-color: rgba(255, 255, 255, 0.3);">
+        <img src="assets/pymug_new.svg" alt="Bulma: a modern CSS framework based on Flexbox" width="" height="28">
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/">
+          Home
+        </a>
+        <a class="navbar-item" href="https://github.com/pymug/pymug">
+          Edit on github
+        </a>
+      </div>
+
+
+    </div>
+  </nav>
+  <br><br><br>
+  <div class="section">
+    <!--menu-->
+    <div class="container has-text-centered">
+      <h1>Our Events!</h1>
+      <div class="columns">
+        <div class="column">
+          <a href="https://www.linkedin.com/feed/update/urn:li:activity:6612386432768188416">
+            <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+              <p class="subtitle">Sessions At The University Of Mauritius</p>
+              <img src="assets/pymug_ai_uom.png"><br>
+            </div>
+          </a>
+
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="/">
-        Home
-      </a>
-      <a class="navbar-item" href="https://github.com/pymug/pymug">
-        Edit on github
-      </a>
-    </div>
-
-
-  </div>
-</nav>
-<br><br><br>
-<div class="section"> <!--menu-->
-<div class="container has-text-centered" >
-  <div class="columns">
-    <div class="column">
-      <a href="events.html">
-        <div class="card-custom menu  has-text-centered" style="display: inline-block;">
-          <i class="fa fa-calendar-alt menu-i"></i><br><br>
-          <span>Events</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="section"> <!--menu-->
-<div class="container has-text-centered" >
-  <div class="columns">
-    <div class="column">
-
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/269598174/">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">March 2020</p>
-          <img src="https://secure.meetupstatic.com/photos/event/9/3/3/4/highres_489877684.jpeg"><br>
-          <span>
-            First Meetup Online due to Covid
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/268501581/">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Meetup Feb 2020</p>
-          <img src="https://secure.meetupstatic.com/photos/event/4/e/e/1/highres_488780193.jpeg"><br>
-          <span>
-            
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/267968462/">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">First Meetup of 2020</p>
-          <img src="https://secure.meetupstatic.com/photos/event/b/4/7/1/highres_488206193.jpeg"><br>
-          <span>
-            
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/267056736/">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Python From Scratch</p>
-          <img src="https://secure.meetupstatic.com/photos/event/1/c/a/6/highres_487267334.jpeg"><br>
-          <span>
-            
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266917699/">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Python From Scratch</p>
-          <img src="https://secure.meetupstatic.com/photos/event/9/7/5/e/highres_487118750.jpeg"><br>
-          <span>
-            
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266748735/">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Python From Scratch</p>
-          <img src="https://secure.meetupstatic.com/photos/event/1/d/b/highres_486960475.jpeg"><br>
-          <span>
-            
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266575713/">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Python From Scratch</p>
-          <img src="https://secure.meetupstatic.com/photos/event/e/7/4/b/highres_486779211.jpeg"><br>
-          <span>
-            
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.linkedin.com/feed/update/urn:li:activity:6612386432768188416">
-        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Sessions At The University Of Mauritius</p>
-          <img src="assets/pymug_ai_uom.png"><br>
-          <span>
-            
-          </span>
-        </div>
-      </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/263309563/">
+  <div class="row">
+    <div class="col">
+      <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/263309563/">
         <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
           <p class="subtitle">Meetup August 2019</p>
           <img src="https://secure.meetupstatic.com/photos/event/9/2/2/d/highres_483277421.jpeg"><br>
@@ -209,8 +142,9 @@
           </span>
         </div>
       </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/262900833/">
+    </div>
+    <div class="col">
+      <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/262900833/">
         <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
           <p class="subtitle">Meetup July 2019</p>
           <img src="https://secure.meetupstatic.com/photos/event/9/8/7/8/highres_482859032.jpeg"><br>
@@ -219,8 +153,9 @@
           </span>
         </div>
       </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/262206827/">
+    </div>
+    <div class="col">
+      <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/262206827/">
         <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
           <p class="subtitle">Meetup June 2019</p>
           <img src="https://secure.meetupstatic.com/photos/event/8/5/5/2/highres_482134130.jpeg"><br>
@@ -229,120 +164,215 @@
           </span>
         </div>
       </a>
-      <a 
-        href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/261346454/">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/269598174/">
         <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Meetup May 2019</p>
-          <img src="https://secure.meetupstatic.com/photos/event/c/4/9/0/highres_481190320.jpeg"><br>
+          <p class="subtitle">March 2020</p>
+          <img src="https://secure.meetupstatic.com/photos/event/9/3/3/4/highres_489877684.jpeg"><br>
           <span>
-            
+            First Meetup Online due to Covid
           </span>
         </div>
       </a>
-      <br>
-      <a 
-        href="#">
+    </div>
+    <div class="col">
+      <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/268501581/">
         <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
-          <p class="subtitle">Meetup April 2019</p>
-          <!--<img src="https://secure.meetupstatic.com/photos/event/c/4/9/0/highres_481190320.jpeg"><br>
+          <p class="subtitle">Meetup Feb 2020</p>
+          <img src="https://secure.meetupstatic.com/photos/event/4/e/e/1/highres_488780193.jpeg"><br>
           <span>
-            
-          </span>-->
+
+          </span>
         </div>
       </a>
-
     </div>
-  </div>
-</div>
-</div>
+    <div class="col">
+      <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/267968462/">
+        <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+          <p class="subtitle">First Meetup of 2020</p>
+          <img src="https://secure.meetupstatic.com/photos/event/b/4/7/1/highres_488206193.jpeg"><br>
+          <span>
 
-<div class="section"><!--partners-->
-<div class="container has-text-centered">
-    <h1 class="title">Partner Contents</h1>
-  <a href="https://www.oreilly.com/pub/cpc/313497">
-    <img src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" />
-  </a>
-</div>
-</div>
-<script type="text/javascript">
-$(document).ready(function() {
-  /*
-    >>> print('a', 'b', 'c');
-    a b c
-  */
-  function print(){
-    var sep = ' ';
-    var toprint = '';
-    for (var i = arguments.length - 1; i >= 0; i--) {
-      arg = arguments[arguments.length-i-1];
-      if (typeof arg === 'string' || arg instanceof String)
-      {
+          </span>
+        </div>
+      </a>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/267056736/">
+          <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+            <p class="subtitle">Python From Scratch</p>
+            <img src="https://secure.meetupstatic.com/photos/event/1/c/a/6/highres_487267334.jpeg"><br>
+            <span>
+
+            </span>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266917699/">
+          <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+            <p class="subtitle">Python From Scratch</p>
+            <img src="https://secure.meetupstatic.com/photos/event/9/7/5/e/highres_487118750.jpeg"><br>
+            <span>
+
+            </span>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266748735/">
+          <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+            <p class="subtitle">Python From Scratch</p>
+            <img src="https://secure.meetupstatic.com/photos/event/1/d/b/highres_486960475.jpeg"><br>
+            <span>
+
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266748735/">
+          <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+            <p class="subtitle">Python From Scratch</p>
+            <img src="https://secure.meetupstatic.com/photos/event/1/d/b/highres_486960475.jpeg"><br>
+            <span>
+
+            </span>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/266575713/">
+          <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+            <p class="subtitle">Python From Scratch</p>
+            <img src="https://secure.meetupstatic.com/photos/event/e/7/4/b/highres_486779211.jpeg"><br>
+            <span>
+
+            </span>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="https://www.meetup.com/MauritiusSoftwareCraftsmanshipCommunity/events/261346454/">
+          <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+            <p class="subtitle">Meetup May 2019</p>
+            <img src="https://secure.meetupstatic.com/photos/event/c/4/9/0/highres_481190320.jpeg"><br>
+            <span>
+
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <a href="#">
+          <div class="card-custom event-menu  has-text-centered" style="display: inline-block;">
+            <p class="subtitle">Meetup April 2019</p>
+            <!--<img src="https://secure.meetupstatic.com/photos/event/c/4/9/0/highres_481190320.jpeg"><br>
+      <span>
         
-      }else{
-        arg = arg.toString();
-      }
-      toprint += arg + sep;
-    }
-    console.log(toprint);
-  }
+      </span>-->
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="section">
+      <!--partners-->
+      <div class="container has-text-centered">
+        <h1 class="title">Partner Contents</h1>
+        <a href="https://www.oreilly.com/pub/cpc/313497">
+          <img src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" />
+        </a>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        /*
+          >>> print('a', 'b', 'c');
+          a b c
+        */
+        function print() {
+          var sep = ' ';
+          var toprint = '';
+          for (var i = arguments.length - 1; i >= 0; i--) {
+            arg = arguments[arguments.length - i - 1];
+            if (typeof arg === 'string' || arg instanceof String) {
+
+            } else {
+              arg = arg.toString();
+            }
+            toprint += arg + sep;
+          }
+          console.log(toprint);
+        }
 
 
-  // Check for click events on the navbar burger icon
-  $(".navbar-burger").click(function() {
+        // Check for click events on the navbar burger icon
+        $(".navbar-burger").click(function () {
 
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
+          // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+          $(".navbar-burger").toggleClass("is-active");
+          $(".navbar-menu").toggleClass("is-active");
 
-  });
-  var currentTweet = 1;
-  var totalTweets = 2;
+        });
+        var currentTweet = 1;
+        var totalTweets = 2;
 
-  $( ".tweet-right" ).click(function() {
-    // print('clicked');
-    // print('current tweet:', currentTweet);
-    for(var i=1; i < totalTweets+1; i++){
-      // print('i', i);
-      if(i === currentTweet){
-        $('#tweet-'+i.toString()).addClass("show").removeClass("hidden");
-        $('#tweet-info-'+i.toString()).addClass("show").removeClass("hidden");
-      }else if(i != currentTweet+1){
-        $('#tweet-'+i.toString()).addClass("hidden").removeClass("show");
-        $('#tweet-info-'+i.toString()).addClass("hidden").removeClass("show");
-      }
-    }
-    if(currentTweet === totalTweets){
-      currentTweet = 1;
-    }else{
-      currentTweet += 1;
-    }
-  });
-  $( ".tweet-left" ).click(function() {
-    // print('clicked');
-    // print('current tweet:', currentTweet);
-    for(var i=1; i < totalTweets+1; i++){
-      // print('i', i);
-      if(i === currentTweet){
-        $('#tweet-'+i.toString()).addClass("show").removeClass("hidden");
-        $('#tweet-info-'+i.toString()).addClass("show").removeClass("hidden");
-      }else if(i != currentTweet+1){
-        $('#tweet-'+i.toString()).addClass("hidden").removeClass("show");
-        $('#tweet-info-'+i.toString()).addClass("hidden").removeClass("show");
-      }
-    }
-    if(currentTweet === 1){
-      currentTweet = totalTweets;
-    }else{
-      currentTweet -= 1;
-    }
-  });
+        $(".tweet-right").click(function () {
+          // print('clicked');
+          // print('current tweet:', currentTweet);
+          for (var i = 1; i < totalTweets + 1; i++) {
+            // print('i', i);
+            if (i === currentTweet) {
+              $('#tweet-' + i.toString()).addClass("show").removeClass("hidden");
+              $('#tweet-info-' + i.toString()).addClass("show").removeClass("hidden");
+            } else if (i != currentTweet + 1) {
+              $('#tweet-' + i.toString()).addClass("hidden").removeClass("show");
+              $('#tweet-info-' + i.toString()).addClass("hidden").removeClass("show");
+            }
+          }
+          if (currentTweet === totalTweets) {
+            currentTweet = 1;
+          } else {
+            currentTweet += 1;
+          }
+        });
+        $(".tweet-left").click(function () {
+          // print('clicked');
+          // print('current tweet:', currentTweet);
+          for (var i = 1; i < totalTweets + 1; i++) {
+            // print('i', i);
+            if (i === currentTweet) {
+              $('#tweet-' + i.toString()).addClass("show").removeClass("hidden");
+              $('#tweet-info-' + i.toString()).addClass("show").removeClass("hidden");
+            } else if (i != currentTweet + 1) {
+              $('#tweet-' + i.toString()).addClass("hidden").removeClass("show");
+              $('#tweet-info-' + i.toString()).addClass("hidden").removeClass("show");
+            }
+          }
+          if (currentTweet === 1) {
+            currentTweet = totalTweets;
+          } else {
+            currentTweet -= 1;
+          }
+        });
 
-  $( ".delete" ).click(function() {
-    $(this).closest(".notification").remove();
-  });
+        $(".delete").click(function () {
+          $(this).closest(".notification").remove();
+        });
 
-}); // end
-</script>
+      }); // end
+    </script>
 
 </body>
+
 </html>
