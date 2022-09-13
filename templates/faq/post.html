@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% set section = 'faq' %}
+{% block head %}
+    <title>{{ faq['title'] }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+{% endblock %}
+{% block body %}
+<br>
+<h3 style="font-size: 27px;">{{ faq['title'] }}</h3>
+<div style="font-size: 13px;">
+    <span class="lab"><i class="im im-tags"></i> </span>
+    {% set tags = faq['tags'] %}
+    {% for tag in  tags %}
+        <a class="tag label" href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %}{% endif %}
+    {% endfor %}
+</div>
+<div class="sep"></div>
+<div class="container post-content">
+    {{ faq['content'] }}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

@@ -1,0 +1,214 @@
+<!--
+TODO:
+
+Sometimes the URLs in the links
+menu overlay over link name label
+-->
+
+{% extends 'base.html' %}
+{% set section = 'members' %}
+{% set contrib_sessions = user_sessions(info['events'], github_username) %}
+{% block head %}
+    <title>{{ data['meta']['name'] }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+{% endblock %}
+{% block body %}
+    <script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
+    <style>
+    .avatar.avatar-xl {
+        height: 5rem;
+        width: 5rem;
+        margin-bottom: 15px;
+    }
+    .links-column .menu {
+        border: None;
+        box-shadow: None;
+        background: None;
+    }
+    .menu-badge,
+    .url {
+        cursor: pointer;
+    }
+    .info-title {
+        font-weight: bold;
+    }
+    .url,
+    .info-value {
+        color: #bcc3ce;
+    }
+    .main-cols > .column {
+        padding: .4rem;
+    }
+    .links-column {
+        /* UGLY FIX - FORCE VERTICAL COLUMN SPACING */
+        margin-top: .8rem;
+    }
+    .extra-info .divider {
+        margin-top: .7rem;
+        margin-bottom: .7rem;
+    }
+    .container {
+        margin-top: 8px;
+        margin-bottom: 50px;
+    }
+
+    .main-card{
+        /* PANEL OF PICTURE AND BIO  */
+        padding-top: 15px;
+    }
+    #bio {
+        margin-top: 10px;
+    }
+    .chip-coordinator {
+        /* BADGE OF COORDINATORS OF TRANSLATION REPOS  */
+        background-color: gold;
+        color: black;
+    }
+    .chip-member-transl {
+        /* BADGE OF MEMBERS OF TRANSLATION REPOS  */
+        background-color: skyblue;
+        color: white;
+    }
+    .chip-active {
+        /* BADGE OF ACTIVE MEMBERS  */
+        background-color: seagreen;
+        color: white;
+    }
+    .chip-retired {
+        /* BADGE OF RETIRED MEMBERS  */
+        background-color: darkred;
+        color: white;
+    }
+    .avatar-founder {
+        /* ADD GOLD BORDER TO FOUNDERS PROFILE PICTURE  */
+        border:5px solid gold;
+        -webkit-border-radius: 500px;
+        -moz-border-radius: 500px;
+        background: transparent;
+    }
+    .main-cols-container {
+        /* DIV OF THREE PANELS  */
+        background-color: #e2e8f0;
+        border-radius: 4px;
+        padding: 15px;
+    }
+    .main-cols-container .panel {
+        transition: .8s;
+        background-color: white;
+        box-shadow: 0 .05rem .2rem rgba(48,55,66,.2);
+    }
+
+    .link-name {
+        /* SOCIAL LINK NAME  */
+        font-weight: bold;
+    }
+    </style>
+    <h2 class="text-center titles">User profile</h2>
+    <div class="container main-cols-container">
+        <div class="columns main-cols">
+            <div class="column col-5 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- MAIN CARD -->
+                <div class="columns">
+                    <div class="column col-12">
+                        <div class="panel main-card">
+                            <div class="panel-header text-center">
+                                    <figure class="avatar avatar-xl {% if data['meta']['founder'] == 'y' %}avatar-founder{% endif %}">
+                                    <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}">
+                                </figure>
+                                <div class="panel-title h5 mt-10">
+                                    <b>{{ data['meta']['name'] }}</b> <br>
+                                    <!-- badges -->
+                                    {% if data['meta']['organiser'] == 'y' %}
+                                        <span title="Organiser"><i style="color: #5cd150; font-size: 16px;" class="fa fa-shield-alt"></i></span> 
+                                    {% endif %}
+                                    {% if len(contrib_sessions) %}
+                                        <span title="Speaker"><i style="color: #5cd150; font-size: 16px;" class="fa fa-comment"></i></span>
+                                    {%endif%}
+                                    {% if data['meta']['honorary'] == 'y' %}
+                                        <span title="Honorary member"><i style="color: #5cd150; font-size: 16px;" class="fa fa-award"></i></span> Honorary
+                                    {% endif %}
+                                </div>
+                                <div class="panel-subtitle" id="bio">
+                                    {% if len(info['profiles'][github_username]['html']) %}
+                                        {{ info['profiles'][github_username]['html'] }}
+                                    {% else %}
+                                        {{ github_username }} prefers not to say too much
+                                    {% endif %}
+                                </div>
+                                <div class="panel-footer">
+                                    {% if info['profiles'][github_username]['founder'] == 'y' %}
+                                        <span class="chip chip-coordinator">
+                                            Founder
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if data['meta']['links'] %}
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu">
+                                    {% for social in data['meta']['links'] %}
+                                        {% set url = data['meta']['links'][social] %}
+                                        <li class="menu-item">
+                                            <a href="{{ url }}">
+                                                <div class="link-name">
+                                                    <i class="icon icon-link"></i>&nbsp;
+                                                    {{ social }}
+                                                </div>
+                                                <div class="menu-badge url">
+
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% else %}
+                    <!-- GITHUB PROFILE AS DEFAULT LINK -->
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu">
+                                    <li class="menu-item" style="padding-bottom: 8px;">
+                                        <a href="https://github.com/{{ github_username }}">
+                                            <div class="link-name">
+                                                <i class="fa-brands fa-github"></i>&nbsp;
+                                                Github
+                                            </div>
+                                            <div class="menu-badge url" style="padding-bottom: 8px;">
+                                                https://github.com/{{ github_username }}
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel extra-info">
+                    <div class="panel-header">
+                        <div class="panel-title" align="center"><h4>Contributions</h4></div>
+                    </div>
+                    <div class="panel-body">
+                        {% for session in contrib_sessions %}
+                            {% for sess in session['sessions']%}
+                                <a href="/event/{{session['slug']}}"><b>{{sess['title']}}</b></a>
+
+                                {% if sess['presented'] %}<i class="fa fa-check" style="color: #00e155" title="presented"></i>{% else %} <i class="fa fa-times" style="color: #e10025" title="not presented"></i> {%endif%}
+                                {% if sess['remote'] %}<i class="fa fa-wifi" title="remote"></i>{% endif %}
+                            {% endfor %}
+                        {% endfor %}
+
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

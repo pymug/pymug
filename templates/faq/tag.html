@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% set section = 'faq' %}
+{% block head %}
+    <title>FaQ</title>
+{% endblock %}
+{% block body %}
+<br>
+<h3>FaQs for tag: {{ tag_name }}</h3>
+{% for faq in faqs %}
+<a href="/faq/{{ faq['slug'] }}" class="panel post-link">
+    <div class="tile tile-centered">
+        <div class="tile-icon">
+            <div class="example-tile-icon">
+                <i class="icon icon-file centered"></i>
+            </div>
+        </div>
+        <div class="tile-content">
+            <div class="tile-title">{{ faq['title'] }}</div>
+            <small class="tile-subtitle text-gray">
+                {% set tags = faq['tags'] %}
+                {% for tag in  tags %}
+                    {{ tag }}{% if (not loop.index == len(tags)) %},{% endif %}
+                {% endfor %}
+            </small>
+        </div>
+    </div>
+</a>
+{% endfor %}
+{% endblock %}

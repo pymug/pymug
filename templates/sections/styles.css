@@ -1,0 +1,134 @@
+@import url(https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap);
+hr.style-two {
+    width: 300px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(toright, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.active-page {
+    font-weight: bolder;
+}
+
+#footer {
+    margin-top: 1.2rem;
+    border-top: 1px solid #eaeaea;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.navbar-section>a {
+    border-bottom: 2px transparent solid;
+}
+
+.navbar-section>a:hover,
+.navbar-section>.dropdown:hover {
+    border-bottom-color: #111;
+}
+
+.first-letter {
+    float: left;
+    font-size: 55px;
+    line-height: 1;
+    font-weight: 700;
+    margin-right: 9px;
+    font-family: 'EB Garamond', serif;
+}
+
+.titles {
+    color: #111;
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'EB Garamond', serif;
+}
+
+.off-canvas .off-canvas-toggle {
+    left: 15px;
+    top: 15px;
+    z-index: 1;
+}
+
+#navbar-items {
+    justify-content: center;
+    padding: 10px;
+}
+
+#body-container {
+    padding-top: 20px;
+}
+
+a.tag.label:hover {
+    color: #111;
+    background-color: #B0E0E6;
+}
+
+.sep {
+    border-bottom-style: solid!important;
+    border-bottom-width: 1px!important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-color: #e4e6e8!important;
+}
+
+.sep2 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.sep3 {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.lab {
+    color: #6a737c;
+}
+
+.val {
+    color: #242729;
+}
+
+.im {
+    font-size: 14px;
+}
+
+.post-content {
+    color: #747474;
+}
+
+.post-link {
+    margin-bottom: 10px;
+}
+
+.post-link:hover {
+    border-color: grey;
+}
+
+a.card {
+    transition-timing-function: ease-in;
+    transition: .2s;
+}
+
+a.card img {
+    opacity: 0.5;
+    border-bottom: 1px #F2F2F2 solid;
+}
+
+a.card:hover {
+    transition-timing-function: ease-out;
+    transition: .25s;
+    box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -webkit-box-shadow: -3px 6px 33px -5px rgba(0, 0, 0, 0.32);
+    -moz-box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
+    transform: translateY(-0.15em);
+}
+
+a.card:hover img {
+    opacity: 1;
+}
+
+a.tag,
+a.post-link,
+a.card {
+    text-decoration: none;
+}
