@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% set section = 'event' %}
+{% block head %}
+    <title>{{event['title']}}</title>
+{% endblock %}
+{% block body %}
+<div id='posts'>
+    
+    <div class="panel">
+  <div class="panel-header">
+    <div class="panel-title"><h3>{{ event['title'] }}</h3> <span class="chip">{{ event['date'] }}</span>
+        <a href="{{event['register']}}" target="_blank">
+            <button class="btn btn-primary">Register</button>
+        </a>
+    </div>
+  </div>
+  <div class="panel-nav">
+    <!-- navigation components: tabs, breadcrumbs or pagination -->
+  </div>
+  <div class="panel-body">
+    <!-- contents -->
+    <hr>
+    <div>
+        {% for session in event['sessions'] %}
+            <h5>{{ session['title'] }} 
+                {% if session['presented'] %}<i class="fa fa-check" style="color: #00e155" title="presented"></i>{% else %} <i class="fa fa-times" style="color: #e10025" title="not presented"></i> {%endif%}
+                {% if session['remote'] %}<i class="fa fa-wifi" title="remote"></i>{% endif %}
+            </h5>
+            <p> 
+                {{ session['info'] }}<br>
+                <i class="fa fa-comment-alt"></i> {% for speaker in session['speaker/s'] %} <a href="/u/{{speaker}}">{{ speaker }}</a> {% endfor %}
+            </p>
+        {% endfor %}
+    </div>
+  </div>
+  <div class="panel-footer">
+    <!-- buttons or inputs -->
+  </div>
+</div>
+
+    {{event['raw_html']}}
+</div> 
+{% endblock %}

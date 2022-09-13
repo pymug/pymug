@@ -7,6 +7,7 @@ menu overlay over link name label
 
 {% extends 'base.html' %}
 {% set section = 'members' %}
+{% set contrib_sessions = user_sessions(info['events'], github_username) %}
 {% block head %}
     <title>{{ data['meta']['name'] }}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
@@ -115,7 +116,17 @@ menu overlay over link name label
                                     <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}">
                                 </figure>
                                 <div class="panel-title h5 mt-10">
-                                    <b>{{ data['meta']['name'] }}</b>
+                                    <b>{{ data['meta']['name'] }}</b> <br>
+                                    <!-- badges -->
+                                    {% if data['meta']['organiser'] == 'y' %}
+                                        <span title="Organiser"><i style="color: #5cd150; font-size: 16px;" class="fa fa-shield-alt"></i></span> 
+                                    {% endif %}
+                                    {% if len(contrib_sessions) %}
+                                        <span title="Speaker"><i style="color: #5cd150; font-size: 16px;" class="fa fa-comment"></i></span>
+                                    {%endif%}
+                                    {% if data['meta']['honorary'] == 'y' %}
+                                        <span title="Honorary member"><i style="color: #5cd150; font-size: 16px;" class="fa fa-award"></i></span> Honorary
+                                    {% endif %}
                                 </div>
                                 <div class="panel-subtitle" id="bio">
                                     {% if len(info['profiles'][github_username]['html']) %}
@@ -182,10 +193,19 @@ menu overlay over link name label
             <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="panel extra-info">
                     <div class="panel-header">
-                        <div class="panel-title" align="center"><h4>Volunteer</h4></div>
+                        <div class="panel-title" align="center"><h4>Contributions</h4></div>
                     </div>
                     <div class="panel-body">
+                        {% for session in contrib_sessions %}
+                            {% for sess in session['sessions']%}
+                                <a href="/event/{{session['slug']}}"><b>{{sess['title']}}</b></a>
 
+                                {% if sess['presented'] %}<i class="fa fa-check" style="color: #00e155" title="presented"></i>{% else %} <i class="fa fa-times" style="color: #e10025" title="not presented"></i> {%endif%}
+                                {% if sess['remote'] %}<i class="fa fa-wifi" title="remote"></i>{% endif %}
+                            {% endfor %}
+                        {% endfor %}
+
+                        <br><br>
                     </div>
                 </div>
             </div>

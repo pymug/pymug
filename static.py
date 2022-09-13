@@ -181,6 +181,40 @@ def validate_slug(slug, filepath):
     if not is_valid_slug(slug):
         raise InvalidSlug(slug, filepath)
 
+def generate_events():
+    logging.info("Start Generating events ...")
+    ensure_output_folder("event")
+
+    events = settings.info['events']
+    info = settings.info
+    path = '../' 
+    context = base_context()
+    context.update(locals())
+    
+    # for event in events
+
+    generate(
+            "event/index.html",
+            join(settings.OUTPUT_FOLDER, "event", "index.html"),
+            **context,
+        )
+
+    for event_slug in events:
+        context.update({
+            'slug': event_slug,
+            'event': events[event_slug],
+            'path': '../../'
+            })
+
+        ensure_output_folder(f"event/{event_slug}") 
+
+        logging.info(f"Generating event {event_slug}")
+        generate(
+            "event/post.html",
+            join(settings.OUTPUT_FOLDER, "event", event_slug, "index.html"),
+            **context,
+        )
+
 
 def generate_profiles():
     logging.info("Start Generating profiles ...")
@@ -194,6 +228,7 @@ def generate_profiles():
                 "data": settings.info['profiles'][github_username],
                 "path": "../" * 2,
                 "volunteers": settings.VOLUNTEERS_DESCS,
+                'user_sessions': settings.user_sessions
             }
         )
 
@@ -501,6 +536,7 @@ def generate_menu_pages(args):
     ensure_output_folder("members")
 
     logging.info("Generating members.html...")
+    context.update({'user_sessions': settings.user_sessions})
     generate(
         "members.html", join(settings.OUTPUT_FOLDER, "members", "index.html"), **context
     )
@@ -520,6 +556,7 @@ def main(args):
         generate_profiles()
         generate_blog_posts()
         # generate_resources()
+        generate_events()
         generate_faq()
         logging.info(f"generated folders: {folder_count} files: {file_count}")
 
@@ -537,7 +574,7 @@ def main(args):
         # run a function
 
         server.watch(".", gen, delay=5)
-        server.watch("*.py")
+        server.watch("*.py", gen, delay=5)
 
         # output stdout into a file
         # server.watch('style.less', shell('lessc style.less', output='style.css'))

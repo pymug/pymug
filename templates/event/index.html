@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% set section = 'event' %}
+{% block head %}
+    <title>Event</title>
+{% endblock %}
+{% block body %}
+<div id='posts'>
+    <h2 class="text-center titles">Events</h2>
+    {% for event in events %}
+    <a href="/event/{{event}}" class="panel post-link">
+        <div class="tile tile-centered">
+            <div class="tile-icon">
+                <div class="example-tile-icon">
+                    <i class="icon icon-file centered"></i>
+                </div>
+            </div>
+            <div class="tile-content">
+                <div class="tile-title">{{ events[event]['title'] }}</div>
+                <small class="tile-subtitle text-gray">
+
+                </small>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
