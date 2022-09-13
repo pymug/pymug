@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>PYMUG - Python Mauritius UserGroup</title>
+  <!--cdn-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+
+
+  <!--descriptions / meta-->
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Mauritius Usergroup of the Python programming language. The mauritian ug aims at promoting python and coding literacy beyond syntax, upgrade skills as well as sniffing job opportunities for members">
+  <meta name="keywords" content="python,mauritius,coding,usergroup,learn,programming">
+  <meta name="author" content="appinv">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000" />
+
+  <!--icon-->
+  <link rel="shortcut icon" href="assets/pymug_new.png">
+
+  <!--local libs-->
+  <link rel="stylesheet" type="text/css" href="css/global.css">
+</head>
+
+<body>
+  <a class="github-fork-ribbon left-bottom fixed" href="https://github.com/pymug/pymug" target="_blank"
+    data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+
+  <nav class="navbar is-info">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="">
+        <img src="assets/pymug_new.svg" alt="Bulma: a modern CSS framework based on Flexbox" width="" height="28">
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="">
+            Home
+          </a>
+        </div>
+      </div>
+  </nav>
+  <div class="hero is-medium is-info has-background">
+    <img alt="" class="hero-background is-transparent" src="/assets/header.jpg" />
+
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title header-title">
+          <span class="letter-pymug">P</span>
+          <span class="letter-pymug">Y</span>
+          <span class="letter-pymug">M</span>
+          <span class="letter-pymug">U</span>
+          <span class="letter-pymug">G</span>
+        </h1>
+        <h3 class="subtitle subheader-title">
+          Python Mauritius User Group
+        </h3>
+      </div>
+    </div>
+
+  </div>
+
+<div class="section">
+    <div class="container has-text-centered" >
+        <!--<div class="notification is-warning">
+          <button class="delete"></button>
+          Under construction
+        </div>-->
+        
+        <div class="title">
+          Python Mauritius User Group
+        </div>
+        <br>
+        <div class="">
+            <div class="columns">
+                <div class="column is-1 tweet-left is-vertical-center"
+                  style="border: 1px solid #CCD1D1">
+                    <i class="fa fa-chevron-circle-left tweet-icon-left"></i>
+                </div>
+
+                <div class="column is-10 tweet-center" style="">
+                    <div class="columns">
+                        <div class="column is-12">
+                            <p class="subtitle">Tweets</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div 
+                          class="column is-8" style=" overflow-y: scroll; height: 500px; "
+                          id="tweets-display">
+                            <div class="tweeet" id="tweet-1">
+                              <blockquote id="twitter-tweet-0" class="twitter-tweet" data-dnt="true"><p lang="en" dir="ltr">Python is everywhere: there is an active Python user group organizing frequently meetups in the Mauritius island! <a href="https://t.co/Eo9V9XVPjI">https://t.co/Eo9V9XVPjI</a> <a href="https://t.co/jk1HjOPg7j">pic.twitter.com/jk1HjOPg7j</a></p>&mdash; Victor Stinner 🐍 (@VictorStinner) <a href="https://twitter.com/VictorStinner/status/1199414861014405121?ref_src=twsrc%5Etfw">November 26, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
+                            <div class="tweeet" id="tweet-2">
+                              <blockquote id="twitter-tweet-1" class="hidden twitter-tweet"><p lang="fr" dir="ltr">Nous avons complété nos 3 sessions d&#39;intelligence artificielle avec Python. Ce fut une excellente experience pour nous en tant que UG Python et pour un start à 08 30am, nous remercions les etudiants de la faculté informatique pour leur sériosité. Voici ce qu&#39;on a couvert:</p>&mdash; Python Mauritius UserGroup (@pymugdotcom) <a href="https://twitter.com/pymugdotcom/status/1206635754333425665?ref_src=twsrc%5Etfw">December 16, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                            </div>
+                        </div>
+                        <div class="column is-4" id='tweets-info'>
+                          <div id="tweet-info-1" class="noselect">
+                            Mr Victor Stinner is a Python core Python dev!
+                          </div>
+                          <div id="tweet-info-2" class="noselect">
+                            We did some Ai sessions at UoM last year. The tweet's is a thread with all info.
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-1 tweet-right is-vertical-center"
+                  style="border: 1px solid #CCD1D1">
+                    <i class="fa fa-chevron-circle-right tweet-icon-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <div class="section">
+    <!--menu-->
+    <div class="container has-text-centered">
+      <h1 class="title">Resources</h1>
+      <div class="columns">
+        <div class="column">
+          <a href="events.html">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-calendar-alt menu-i"></i><br><br>
+              <span>Events</span>
+            </div>
+          </a>
+          <a href="https://mail.python.org/mailman3/lists/pymug.python.org/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-envelope-open-text menu-i"></i><br><br>
+              <span>Mailing List</span>
+            </div>
+          </a>
+          <a href="https://twitter.com/pymugdotcom">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-twitter menu-i"></i><br><br>
+              <span>Twitter</span>
+            </div>
+          </a>
+          <a href="https://github.com/pymug">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-github-square menu-i"></i><br><br>
+              <span>Github</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/company/pymug/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-linkedin menu-i"></i><br><br>
+              <span>LinkedIn</span>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/groups/318161658897893/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fab fa-facebook menu-i"></i><br><br>
+              <span>Facebook</span>
+            </div>
+          </a>
+          <a href="/assets/pymug_2019_report.pdf">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-chart-bar menu-i"></i><br><br>
+              <span>Report 2019</span>
+            </div>
+          </a>
+          <a href="/assets/pymug_end_of_year_2020_v2.pdf">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-chart-bar menu-i"></i><br><br>
+              <span>Report 2020</span>
+            </div>
+          </a>
+          <a href="">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-leaf menu-i"></i><br><br>
+              <span>Members</span>
+            </div>
+          </a>
+          <a href="https://www.pythonkitchen.com/legally-free-python-books-list/">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-thumbs-up menu-i"></i><br><br>
+              <span>Free Books</span>
+            </div>
+          </a>
+          <a href="https://pymug.github.io/website-AV19-AV20/index.html">
+            <div class="card-custom menu  has-text-centered" style="display: inline-block;">
+              <i class="fa fa-oil-can menu-i"></i><br><br>
+              <span>Old Website</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section">
+    <!--partners-->
+    <div class="container has-text-centered">
+      <h1 class="title">Partner Contents</h1>
+      <a href="https://www.oreilly.com/pub/cpc/313497">
+        <img src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" />
+      </a>
+    </div>
+  </div>
+  <script defer src="https://use.fontawesome.com/releases/v5.4.1/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/gsap-animations.js"></script>
+</body>
+
+</html>

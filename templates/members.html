@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% set section = 'members' %}
+
+{% block head %}
+  <title>Members</title>
+{% endblock %}
+
+{% block body %}
+<style>
+    .table-dots .docs-dot {
+        border-radius: 50%;
+        display: inline-block;
+        height: .5rem;
+        padding: 0;
+        width: .5rem;
+    }
+</style>
+
+<div id="members" class="column col-12">
+    <h2 class="text-center titles">Members</h2>
+    <div class="column col-12 col-mx-auto">
+        <table class="table table-dots table-striped text-center">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Event</th>
+                    <th>Education</th>
+                    <th>Translation</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for github_username in info['profiles'] %}
+                    {% set data = info['profiles'][github_username] %}
+                    <tr>
+                        <!--NAME TD-->
+                        <td class="text-left">
+                            <a href="/u/{{ github_username }}">{{ data['meta']['name'] }}</a>
+
+                            {% if data['meta']['organiser'] == 'y' %}
+                            <span title="Organiser"><i style="color: #95d5a5; font-size: 16px;" class="fa fa-shield-alt"></i></span>
+                            {% endif %}
+                        </td>
+
+                        <!--CODE TD-->
+                        <td>
+                           
+                        </td>
+                        
+                        <!--EVENT TD-->
+                        <td>
+                            
+                        </td>
+                        
+                        <!--EDUCATION TD-->
+                        <td>
+                            
+                        </td>
+
+                        <!--TRANSLATION TD-->
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

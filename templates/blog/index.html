@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% set section = 'blog' %}
+{% block head %}
+    <title>Blog</title>
+{% endblock %}
+{% block body %}
+<div id='posts'>
+    <h2 class="text-center titles">Blog posts</h2>
+    {% for blog_post in posts %}
+    <a href="/b/{{ blog_post['slug'] }}" class="panel post-link">
+        <div class="tile tile-centered">
+            <div class="tile-icon">
+                <div class="example-tile-icon">
+                    <i class="icon icon-file centered"></i>
+                </div>
+            </div>
+            <div class="tile-content">
+                <div class="tile-title">{{ blog_post['title'] }}</div>
+                <small class="tile-subtitle text-gray">
+                    {{ blog_post['date'] }}
+                </small>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

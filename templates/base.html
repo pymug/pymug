@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include 'sections/head.html' %}
+            <link href='/static/logo/pymug_new.svg' rel='icon' />
+        {% block head %}{% endblock %}
+        <!--<link rel="stylesheet" href="/static/css/styles.css">-->
+        <style>
+            {% include 'sections/styles.css' %}
+        </style>
+    </head>
+    <body id="body-container">
+        <div class="off-canvas">
+            <!-- off-screen toggle button -->
+            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
+                <i class="icon icon-menu"></i>
+            </a>
+            {% include 'sections/sidebar.html' %}
+            <a class="off-canvas-overlay" href="#close"></a>
+            <div class="off-canvas-content container">
+                <!-- off-screen content -->
+                <div class="columns" id="banner">
+                    <a class="col-4 col-mx-auto"href="{{path}}">
+                        <img src="/static/logo/pymug_new.svg" class="img-responsive hide-sx hide-sm" alt="Pymug-banner" width="100px">
+                    </a>
+                </div>
+                <div class="columns">
+                    <header class="navbar col-8 col-mx-auto hide-sx hide-sm">
+                        <section id="navbar-items" class="navbar-section">
+                            <a href="{{path}}" class="navbar-brand mr-2" style="font-weight:bolder;">About</a>
+                            <a class="btn btn-link {{'active-page' if section == 'members'}}" href="{{path}}members"> Members </a>
+                            <!-- <a class="btn btn-link {{'active-page' if section == 'resources'}}" href="{{path}}resources"> Curated Resources</a> -->
+<!--                             <a class="btn btn-link {{'active-page' if section == 'translations'}}" href="{{path}}translations">Translation</a> -->
+                            <a class="btn btn-link {{'active-page' if section == 'blog'}}" href="{{path}}blog">Blog</a>
+                            <a class="btn btn-link {{'active-page' if section == 'faq'}}" href="{{path}}faq">FAQs</a>
+                            <!-- menu component -->
+                            <div class="dropdown">
+                                <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
+                                    About Project <i class="icon icon-caret"></i>
+                                </a>
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="{{path}}">The Why</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{path}}aim">The Aim</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{path}}pallets-eco">Pallets-Eco</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </header>
+                </div>
+                <div id="main-content-container" class="columns">
+                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                        {% block body %}
+                        {% endblock %}
+                    </div>
+                </div>
+                <div class="columns">
+                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
+                        {% include 'sections/footer.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
