@@ -519,18 +519,18 @@ def generate_menu_pages(args):
     # )
     # logging.info("Generating translations.html...")
 
-    ensure_output_folder("pallets-eco")
-    logging.info("Generating pallets-eco.html...")
-    generate(
-        "pallets-eco.html",
-        join(settings.OUTPUT_FOLDER, "pallets-eco", "index.html"),
-        **context,
-    )
+    # ensure_output_folder("pallets-eco")
+    # logging.info("Generating pallets-eco.html...")
+    # generate(
+    #     "pallets-eco.html",
+    #     join(settings.OUTPUT_FOLDER, "pallets-eco", "index.html"),
+    #     **context,
+    # )
     
 
-    ensure_output_folder("join")
-    logging.info("Generating join.html...")
-    generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
+    # ensure_output_folder("join")
+    # logging.info("Generating join.html...")
+    # generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
     
 
     ensure_output_folder("members")
@@ -542,9 +542,9 @@ def generate_menu_pages(args):
     )
     
 
-    ensure_output_folder("aim")
-    generate("aim.html", join(settings.OUTPUT_FOLDER, "aim", "index.html"), **context)
-    logging.info("Generating aim.html...")
+    # ensure_output_folder("aim")
+    # generate("aim.html", join(settings.OUTPUT_FOLDER, "aim", "index.html"), **context)
+    # logging.info("Generating aim.html...")
 
     logging.info("Generating menu pages done")
 
