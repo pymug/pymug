@@ -228,7 +228,8 @@ def generate_profiles():
                 "data": settings.info['profiles'][github_username],
                 "path": "../" * 2,
                 "volunteers": settings.VOLUNTEERS_DESCS,
-                'user_sessions': settings.user_sessions
+                'user_sessions': settings.user_sessions,
+                'parse_skill': settings.parse_skill
             }
         )
 

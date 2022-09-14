@@ -28,6 +28,20 @@ def user_sessions(events, username):
     return user_sessions, is_speaker
 
 
+def parse_skill(skill):
+    s = skill.split(':')
+    level = s[1]
+    skill = s[0]
+
+    level_map = {
+        '0': 'used it once',
+        '1': 'usage proficiency',
+        '2': 'professional experience',
+        '3': 'expert'
+    }
+
+    return skill, level_map[level]
+
 github_usernames = [m[:-3] for m in os.listdir('./data/members')]
 profiles = {}
 for github_username in github_usernames:

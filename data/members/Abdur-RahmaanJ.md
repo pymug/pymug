@@ -11,7 +11,7 @@ skills: py2to3:2
     pyqt:2
 links:
     twitter: https://twitter.com/osdotsystem
-    github: https://twitter.com/Abdur-RahmaanJ
+    github: https://github.com/Abdur-RahmaanJ
 
 
 Sample bio

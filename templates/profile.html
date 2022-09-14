@@ -186,10 +186,36 @@ menu overlay over link name label
                                     </li>
                                 </ul>
                             </div>
+                        </div> 
+                    {% endif %}
+
+                    {% if data['meta']['skills'] %}
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu" style="padding: 15px">
+                                    <h3>Skills</h3>
+                                    <table>
+                                        <tbody>
+                                            
+                                        
+                                    {% for skill in data['meta']['skills'] %}
+                                        <tr>
+                                            <td>
+                                                <a href="#">{{ parse_skill(skill)[0] }}</a>
+                                            </td>
+                                            <td>
+                                                {{ parse_skill(skill)[1] }}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                    </table>
+                                </ul>
+                            </div>
                         </div>
                     {% endif %}
                 </div>
-            </div>
+            </div> 
             <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="panel extra-info">
                     <div class="panel-header">
