@@ -108,3 +108,4 @@ secret-dir/
 docs/*
 !docs/serve.py
 !docs/static/
+!docs/CNAME
