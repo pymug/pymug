@@ -3,8 +3,7 @@ founder: n
 organiser: y
 honorary: n
 links:
-	twitter: https://twitter.com/osdotsystem
-    github: https://twitter.com/zuoike
+    github: https://github.com/nam4dev
 
 
 Sample bio

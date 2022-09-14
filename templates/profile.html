@@ -125,7 +125,7 @@ menu overlay over link name label
                                         <span title="Speaker"><i style="color: #5cd150; font-size: 16px;" class="fa fa-comment"></i></span>
                                     {%endif%}
                                     {% if data['meta']['honorary'] == 'y' %}
-                                        <span title="Honorary member"><i style="color: #5cd150; font-size: 16px;" class="fa fa-award"></i></span> Honorary
+                                        <span title="Honorary member"><i style="color: #5cd150; font-size: 16px;" class="fa fa-award"></i></span>
                                     {% endif %}
                                 </div>
                                 <div class="panel-subtitle" id="bio">
@@ -201,7 +201,11 @@ menu overlay over link name label
                                 <a href="/event/{{session['slug']}}"><b>{{sess['title']}}</b></a>
 
                                 {% if sess['presented'] %}<i class="fa fa-check" style="color: #00e155" title="presented"></i>{% else %} <i class="fa fa-times" style="color: #e10025" title="not presented"></i> {%endif%}
+
+
                                 {% if sess['remote'] %}<i class="fa fa-wifi" title="remote"></i>{% endif %}
+
+                                <br>
                             {% endfor %}
                         {% endfor %}
 

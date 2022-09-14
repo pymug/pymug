@@ -4,7 +4,7 @@ organiser: n
 honorary: y
 links:
 	twitter: https://twitter.com/zuoike
-    github: https://twitter.com/ichux
+    github: https://github.com/ichux
 
 
 Sample bio
