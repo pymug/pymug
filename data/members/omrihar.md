@@ -1,4 +1,4 @@
-name: Dr. Omri Har
+name: Dr. Omri Har-Shemesh
 founder: n
 organiser: n
 honorary: y

@@ -17,13 +17,15 @@ VOLUNTEERS_DESCS = {
 
 def user_sessions(events, username):
     user_sessions = []
+    is_speaker = False
     for event_slug in events:
         data = {'slug': event_slug, 'sessions': []}
         for session in events[event_slug]['sessions']:
             if username in session['speaker/s']:
+                is_speaker = True
                 data['sessions'].append(session)
         user_sessions.append(data)
-    return user_sessions
+    return user_sessions, is_speaker
 
 
 github_usernames = [m[:-3] for m in os.listdir('./data/members')]
@@ -42,6 +44,10 @@ for github_username in github_usernames:
     ds = [{l.split()[0].strip(":"): l.split()[1]} for l in metadata['links'] if l.strip()]
     metadata['links'] = dict(ChainMap(*ds))
 
+    try:
+        metadata['skills'] = [s for s in metadata['skills'] if s.strip()]
+    except KeyError:
+        metadata['skills'] = []
     profiles[github_username] = {'html': html, 'meta': metadata}
 
 
@@ -167,6 +173,23 @@ events = {
         }, 
         ], 
     },
+    "ug-summit-2021": {
+        "title": "Your Programming Language is Great, Python is Greater",
+        "venue": "Middlesex, Flic-en-Flac",
+        'date': 'March 1, 2021',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'sessions': [ 
+        {
+            'title': 'Your Programming Language is Great, Python is Greater',
+            'info': '',
+            'speaker/s': ['josiah-nyangaga'],
+            'presented': 0,
+            'remote': 0
+        },
+        ], 
+    },
     "feb-2021": {
         "title": "Python Meetup Februrary 2021",
         "venue": "La Turbine, Moka",
@@ -264,7 +287,7 @@ events = {
         {
             'title': ' Python basics, turtle and exercises',
             'info': '',
-            'speaker/s': ['zyaad-jaunoo'],
+            'speaker/s': ['mjzyaad'],
             'presented': 1,
             'remote': 1
         },
@@ -275,6 +298,23 @@ events = {
             'presented': 1,
             'remote': 1
         },
+        ], 
+    },
+    "data-sci-covid19": {
+        "title": "Intro to Data Science by Tracking Covid-19 Progression using Python.",
+        "venue": "University of Mauritius",
+        'date': 'June 23, 2020',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'sessions': [ 
+        {
+            'title': 'Intro to Data Science by Tracking Covid-19 Progression using Python.',
+            'info': '',
+            'speaker/s': ['dominiquetheodore'],
+            'presented': 1,
+            'remote': 1
+        }
         ], 
     },
     "may-2020": {
@@ -298,6 +338,108 @@ events = {
             'speaker/s': ['Abdur-RahmaanJ'],
             'presented': 1,
             'remote': 1
+        },
+        ], 
+    },
+    "uni-uom-web-scraping": {
+        "title": "University of Mauritius - Web Scraping",
+        "venue": "Online",
+        'date': 'May 3, 2020',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'resources':{
+            'video': 'https://www.facebook.com/UOMOracleClub/videos/686768432073371/'
+        },
+        'sessions': [ 
+        {
+            'title': 'Movies Collector',
+            'info': '',
+            'speaker/s': ['satveerbhantoo'],
+            'presented': 1,
+            'remote': 1
+        },
+        {
+            'title': 'News And Deals',
+            'info': '',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 1
+        },
+        ], 
+    },
+    "uni-uom-web-dev-2": {
+        "title": "University of Mauritius - Web Dev 2",
+        "venue": "Online",
+        'date': 'April 26, 2020',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'sessions': [ 
+        {
+            'title': 'Learn How To Build Your Own Blog',
+            'info': '',
+            'speaker/s': ['nam4dev'],
+            'presented': 1,
+            'remote': 1,
+            'resources':{
+                'code': 'https://github.com/pymug/django-blog-demonstration'
+            }
+        },
+        ], 
+    },
+    "uni-uom-web-dev-1": {
+        "title": "University of Mauritius - Web Dev 2",
+        "venue": "Online",
+        'date': 'April 19, 2020',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'sessions': [ 
+        {
+            'title': 'Python Intermediate Part 2',
+            'info': '',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 1,
+        },
+        {
+            'title': 'Web Dev With Flask',
+            'info': '',
+            'speaker/s': ['RajaAjmal'],
+            'presented': 1,
+            'remote': 1,
+        },
+        {
+            'title': 'Flask Heroku Deployment',
+            'info': '',
+            'speaker/s': ['kouul'],
+            'presented': 1,
+            'remote': 1,
+        },
+        ], 
+    },
+    "python-basics": {
+        "title": "University of Mauritius - Python Basics",
+        "venue": "Online",
+        'date': 'April 19, 2020',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'sessions': [ 
+        {
+            'title': 'Python Intermediate',
+            'info': '',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 1,
+        },
+        {
+            'title': 'Python Basics',
+            'info': '',
+            'speaker/s': ['RajaAjmal'],
+            'presented': 1,
+            'remote': 1,
         },
         ], 
     },

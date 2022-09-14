@@ -3,7 +3,7 @@ founder: n
 organiser: y
 honorary: n
 links:
-    github: https://github.com/ZyaadJaunoo
+    github: https://github.com/mjzyaad
 
 
 Sample bio

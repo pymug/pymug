@@ -121,7 +121,7 @@ menu overlay over link name label
                                     {% if data['meta']['organiser'] == 'y' %}
                                         <span title="Organiser"><i style="color: #5cd150; font-size: 16px;" class="fa fa-shield-alt"></i></span> 
                                     {% endif %}
-                                    {% if len(contrib_sessions) %}
+                                    {% if contrib_sessions[1] %}
                                         <span title="Speaker"><i style="color: #5cd150; font-size: 16px;" class="fa fa-comment"></i></span>
                                     {%endif%}
                                     {% if data['meta']['honorary'] == 'y' %}
@@ -196,7 +196,7 @@ menu overlay over link name label
                         <div class="panel-title" align="center"><h4>Contributions</h4></div>
                     </div>
                     <div class="panel-body">
-                        {% for session in contrib_sessions %}
+                        {% for session in contrib_sessions[0] %}
                             {% for sess in session['sessions']%}
                                 <a href="/event/{{session['slug']}}"><b>{{sess['title']}}</b></a>
 

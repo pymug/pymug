@@ -48,7 +48,7 @@
                         
                         <!--SPEAKER TD-->
                         <td>
-                            {% if len(user_sessions(info['events'], github_username)) %}
+                            {% if user_sessions(info['events'], github_username)[1] %}
                                 <span title="Speaker"><i style="color: #5cd150; font-size: 16px;" class="fa fa-comment"></i></span>
                             {%endif%}
                         </td>
