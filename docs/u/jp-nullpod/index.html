@@ -1,3 +1,10 @@
+<!--
+TODO:
+
+Sometimes the URLs in the links
+menu overlay over link name label
+-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -22,7 +29,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             <link href='/static/logo/pymug_new.svg' rel='icon' />
         
-    <title>University of Mauritius Oct 2020</title>
+    <title>Jean Paul Fortuno</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
 
         <!--<link rel="stylesheet" href="/static/css/styles.css">-->
         <style>
@@ -220,10 +228,10 @@ a.card {
                     <header class="navbar col-8 col-mx-auto hide-sx hide-sm">
                         <section id="navbar-items" class="navbar-section">
                             <a href="../../" class="navbar-brand mr-2" style="font-weight:bolder;">About</a>
-                            <a class="btn btn-link " href="../../members"> Members </a>
+                            <a class="btn btn-link active-page" href="../../members"> Members </a>
                             <!-- <a class="btn btn-link " href="../../resources"> Curated Resources</a> -->
 <!--                             <a class="btn btn-link " href="../../translations">Translation</a> -->
-                            <a class="btn btn-link active-page" href="../../event">Events</a>
+                            <a class="btn btn-link " href="../../event">Events</a>
                             <a class="btn btn-link " href="../../blog">Blog</a>
                             <a class="btn btn-link " href="../../faq">FAQs</a>
                             <!-- menu component -->
@@ -243,51 +251,228 @@ a.card {
                 <div id="main-content-container" class="columns">
                     <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
                         
-<div id='posts'>
-    
-    <div class="panel">
-  <div class="panel-header">
-    <div class="panel-title"><h3>University of Mauritius Oct 2020</h3> <span class="chip">October 1 2020</span>
-        <a href="#" target="_blank">
-            <button class="btn btn-primary">Register</button>
-        </a>
-    </div>
-  </div>
-  <div class="panel-nav">
-    <!-- navigation components: tabs, breadcrumbs or pagination -->
-  </div>
-  <div class="panel-body">
-    <!-- contents -->
-    <hr>
-    <div>
-        
-            <h5> Python basics, turtle and exercises 
-                <i class="fa fa-check" style="color: #00e155" title="presented"></i>
-                <i class="fa fa-wifi" title="remote"></i>
-            </h5>
-            <p> 
-                <br>
-                <i class="fa fa-comment-alt"></i>  <a href="/u/mjzyaad">mjzyaad</a> 
-            </p>
-        
-            <h5>Functions, recursions and files 
-                <i class="fa fa-check" style="color: #00e155" title="presented"></i>
-                <i class="fa fa-wifi" title="remote"></i>
-            </h5>
-            <p> 
-                <br>
-                <i class="fa fa-comment-alt"></i>  <a href="/u/Abdur-RahmaanJ">Abdur-RahmaanJ</a> 
-            </p>
-        
-    </div>
-  </div>
-  <div class="panel-footer">
-    <!-- buttons or inputs -->
-  </div>
-</div>
+    <script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
+    <style>
+    .avatar.avatar-xl {
+        height: 5rem;
+        width: 5rem;
+        margin-bottom: 15px;
+    }
+    .links-column .menu {
+        border: None;
+        box-shadow: None;
+        background: None;
+    }
+    .menu-badge,
+    .url {
+        cursor: pointer;
+    }
+    .info-title {
+        font-weight: bold;
+    }
+    .url,
+    .info-value {
+        color: #bcc3ce;
+    }
+    .main-cols > .column {
+        padding: .4rem;
+    }
+    .links-column {
+        /* UGLY FIX - FORCE VERTICAL COLUMN SPACING */
+        margin-top: .8rem;
+    }
+    .extra-info .divider {
+        margin-top: .7rem;
+        margin-bottom: .7rem;
+    }
+    .container {
+        margin-top: 8px;
+        margin-bottom: 50px;
+    }
 
-    
-</div> 
+    .main-card{
+        /* PANEL OF PICTURE AND BIO  */
+        padding-top: 15px;
+    }
+    #bio {
+        margin-top: 10px;
+    }
+    .chip-coordinator {
+        /* BADGE OF COORDINATORS OF TRANSLATION REPOS  */
+        background-color: gold;
+        color: black;
+    }
+    .chip-member-transl {
+        /* BADGE OF MEMBERS OF TRANSLATION REPOS  */
+        background-color: skyblue;
+        color: white;
+    }
+    .chip-active {
+        /* BADGE OF ACTIVE MEMBERS  */
+        background-color: seagreen;
+        color: white;
+    }
+    .chip-retired {
+        /* BADGE OF RETIRED MEMBERS  */
+        background-color: darkred;
+        color: white;
+    }
+    .avatar-founder {
+        /* ADD GOLD BORDER TO FOUNDERS PROFILE PICTURE  */
+        border:5px solid gold;
+        -webkit-border-radius: 500px;
+        -moz-border-radius: 500px;
+        background: transparent;
+    }
+    .main-cols-container {
+        /* DIV OF THREE PANELS  */
+        background-color: #e2e8f0;
+        border-radius: 4px;
+        padding: 15px;
+    }
+    .main-cols-container .panel {
+        transition: .8s;
+        background-color: white;
+        box-shadow: 0 .05rem .2rem rgba(48,55,66,.2);
+    }
+
+    .link-name {
+        /* SOCIAL LINK NAME  */
+        font-weight: bold;
+    }
+    </style>
+    <h2 class="text-center titles">User profile</h2>
+    <div class="container main-cols-container">
+        <div class="columns main-cols">
+            <div class="column col-5 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <!-- MAIN CARD -->
+                <div class="columns">
+                    <div class="column col-12">
+                        <div class="panel main-card">
+                            <div class="panel-header text-center">
+                                    <figure class="avatar avatar-xl ">
+                                    <img class="s-circle" src="https://avatars.githubusercontent.com/jp-nullpod">
+                                </figure>
+                                <div class="panel-title h5 mt-10">
+                                    <b>Jean Paul Fortuno</b> <br>
+                                    <!-- badges -->
+                                    
+                                        <span title="Organiser"><i style="color: #5cd150; font-size: 16px;" class="fa fa-shield-alt"></i></span> 
+                                    
+                                    
+                                    
+                                </div>
+                                <div class="panel-subtitle" id="bio">
+                                    
+                                        <p>Sample bio</p>
+                                    
+                                </div>
+                                <div class="panel-footer">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        <div class="column col-12 links-column">
+                            <div class="panel">
+                                <ul class="menu">
+                                    
+                                        
+                                        <li class="menu-item">
+                                            <a href="https://github.com/jp-nullpod">
+                                                <div class="link-name">
+                                                    <i class="icon icon-link"></i>&nbsp;
+                                                    github
+                                                </div>
+                                                <div class="menu-badge url">
+
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="panel extra-info">
+                    <div class="panel-header">
+                        <div class="panel-title" align="center"><h4>Contributions</h4></div>
+                    </div>
+                    <div class="panel-body">
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
                     </div>
                 </div>
