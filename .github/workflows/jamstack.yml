@@ -30,3 +30,4 @@ jobs:
         with:
           branch: docs-build # The branch the action should deploy to.
           folder: docs # The folder the action should deploy.
+          target-folder: docs
