@@ -2,18 +2,19 @@
 {% set section = 'why' %}
 {% block head %}
 <title>Python Mauritius Usergroup</title>
-<link href='https://fonts.googleapis.com/css?family=Noto+Color+Emoji' rel='stylesheet' type='text/css'>
+<link async rel="preload" as="font" href='https://fonts.googleapis.com/css?family=Noto+Color+Emoji' rel='stylesheet' type='text/css'>
 <style type="">
 	.emoji-font{
 		font-family: 'Noto Color Emoji';
+		font-display: swap;
 	}
 </style>
 {% endblock %}
 {% block body %}
 <div id="why">
-    <h2 class="text-center titles">About</h2>
+    <h2 class="text-center">About</h2>
     <p>
-        <span class="first-letter">T</span>he Python Mauritius User Group (pymug) is the local Python user group of Mauritius. Our aim is to provide opportunities to everybody to upskill their level of Python and to ease industry-adoption of Python-related technologies. A nice overview of the User Group can be found on the MSCC blog <a href="https://www.mscc.mu/python-mauritius-usergroup-pymug/">here</a>. To sum it up, we care about Python education.
+        <span class="first-letter">T</span>he Python Mauritius User Group (pymug) is the local Python user group of Mauritius. Our aim is to provide opportunities to everybody to upskill their level of Python and to ease industry-adoption of Python-related technologies. Read a <a href="https://www.mscc.mu/python-mauritius-usergroup-pymug/">nice overview</a> of the User Group on the MSCC blog. To sum it up, we care about Python education.
     </p>
     <p>
         The Pymug organises year-round events, topic days, meetups, from scratch sessions as well as university topic coverage. Have a look at our <a href="https://www.pymug.com/static/reports/pymug_2019_report.pdf">2019</a> or <a href="https://www.pymug.com/static/reports/pymug_end_of_year_2020_v2.pdf">2020</a> end of year reports. Looking forward to meet you <span class="emoji-font">🪼</span>.
@@ -22,17 +23,22 @@
     	Any Python question, you are welcome to post it on our <a href="https://mail.python.org/mailman3/lists/pymug.python.org/">mailing list</a>. You can read some <a href="https://www.pythonkitchen.com/legally-free-python-books-list/">free books</a> in the meanwhile!
     </p>
     <p>
-    	<a href="https://github.com/pymug"><button class="btn btn-action s-circle"><i class="fab fa-github"></i></button></a>
-    	<a href="https://twitter.com/pymugdotcom"><button class="btn btn-action s-circle"><i class="fab fa-twitter"></i></button></a>
-    	<a href="https://www.linkedin.com/company/pymug/"><button class="btn btn-action s-circle"><i class="fab fa-linkedin"></i></button></a>
-    	<a href="https://www.meetup.com/pymauritius/"><button class="btn btn-action s-circle"><i class="fab fa-meetup"></i></button></a>
-    	<a href="https://www.facebook.com/pymug/"><button class="btn btn-action s-circle"><i class="fab fa-facebook-f"></i></button></a>
+    	<a aria-label="github-logo-link" href="https://github.com/pymug">
+    		<button aria-label="github-button-link" class="btn btn-action s-circle"><i class="fab fa-github"></i></button></a>
+    	<a aria-label="twitter-logo-link" href="https://twitter.com/pymugdotcom">
+    		<button aria-label="twitter-button-link" class="btn btn-action s-circle"><i class="fab fa-twitter"></i></button></a>
+    	<a aria-label="linkedin-logo-link" href="https://www.linkedin.com/company/pymug/">
+    		<button aria-label="linkedin-button-link" class="btn btn-action s-circle"><i class="fab fa-linkedin"></i></button></a>
+    	<a aria-label="mettup.com-logo-link" href="https://www.meetup.com/pymauritius/">
+    		<button aria-label="meetup.com-button-link" class="btn btn-action s-circle"><i class="fab fa-meetup"></i></button></a>
+    	<a aria-label="facebook-logo-link" href="https://www.facebook.com/pymug/">
+    		<button aria-label="facebook-button-link" class="btn btn-action s-circle"><i class="fab fa-facebook-f"></i></button></a>
     </p>
-    <h6 class="">Partner Contents</h6>
+    <h2 class="">Partner Contents</h2>
     <p>
-        <div class="">
+        <div class=""> 
             <a href="https://www.oreilly.com/pub/cpc/313497">
-                <img src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" />
+                <img async alt="oreilly affiliate content" src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" style="width:120px; height: 240px;" />
             </a>
         </div>
     </p>

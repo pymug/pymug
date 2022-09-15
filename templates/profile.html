@@ -10,7 +10,9 @@ menu overlay over link name label
 {% set contrib_sessions = user_sessions(info['events'], github_username) %}
 {% block head %}
     <title>{{ data['meta']['name'] }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+    <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+    <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 {% endblock %}
 {% block body %}
     <script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
