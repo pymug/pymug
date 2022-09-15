@@ -8,25 +8,23 @@
 <meta name="keywords" content="python, mauritius, community">
 <meta name="author" content="Python Community">
 <meta name="theme-color" content="#111" />
-<link rel="icon" href="">
+<link async rel="icon" href="/static/logo/pymug_new.svg">
 <!--
 <script type="text/javascript" src="js/script.js"></script>
 -->
 
-<link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+
 <!--https://iconmonstr.com-->
-<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-<link rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css">
-<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-            <link href='/static/logo/pymug_new.svg' rel='icon' />
+<link async rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link async rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<link async rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
         
 <title>Python Mauritius Usergroup</title>
-<link href='https://fonts.googleapis.com/css?family=Noto+Color+Emoji' rel='stylesheet' type='text/css'>
+<link async rel="preload" as="font" href='https://fonts.googleapis.com/css?family=Noto+Color+Emoji' rel='stylesheet' type='text/css'>
 <style type="">
 	.emoji-font{
 		font-family: 'Noto Color Emoji';
+		font-display: swap;
 	}
 </style>
 
@@ -171,7 +169,7 @@ a.card {
     <body id="body-container" >
         <div class="off-canvas">
             <!-- off-screen toggle button -->
-            <a class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
+            <a aria-label="hamburger-link" class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
                 <i class="icon icon-menu"></i>
             </a>
             <div id="sidebar-id" class="off-canvas-sidebar">
@@ -214,12 +212,12 @@ a.card {
     -->
   </ul>
 </div>
-            <a class="off-canvas-overlay" href="#close"></a>
+            <a aria-label="sidebar-link" class="off-canvas-overlay" href="#close"></a>
             <div class="off-canvas-content container">
                 <!-- off-screen content -->
                 <div class="columns" id="banner">
-                    <a class="col-4 col-mx-auto"href="/">
-                        <img src="/static/logo/pymug_new.svg" class="img-responsive hide-sx hide-sm" alt="Pymug-banner" width="100px">
+                    <a aria-label="image-link-homepage" class="col-4 col-mx-auto"href="/">
+                        <img async src="/static/logo/pymug_new.svg" class="img-responsive hide-sx hide-sm" alt="Pymug-banner" style="width:100px;height: 100px;">
                     </a>
                 </div>
                 <div class="columns">
@@ -250,9 +248,9 @@ a.card {
                     <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
                         
 <div id="why">
-    <h2 class="text-center titles">About</h2>
+    <h2 class="text-center">About</h2>
     <p>
-        <span class="first-letter">T</span>he Python Mauritius User Group (pymug) is the local Python user group of Mauritius. Our aim is to provide opportunities to everybody to upskill their level of Python and to ease industry-adoption of Python-related technologies. A nice overview of the User Group can be found on the MSCC blog <a href="https://www.mscc.mu/python-mauritius-usergroup-pymug/">here</a>. To sum it up, we care about Python education.
+        <span class="first-letter">T</span>he Python Mauritius User Group (pymug) is the local Python user group of Mauritius. Our aim is to provide opportunities to everybody to upskill their level of Python and to ease industry-adoption of Python-related technologies. Read a <a href="https://www.mscc.mu/python-mauritius-usergroup-pymug/">nice overview</a> of the User Group on the MSCC blog. To sum it up, we care about Python education.
     </p>
     <p>
         The Pymug organises year-round events, topic days, meetups, from scratch sessions as well as university topic coverage. Have a look at our <a href="https://www.pymug.com/static/reports/pymug_2019_report.pdf">2019</a> or <a href="https://www.pymug.com/static/reports/pymug_end_of_year_2020_v2.pdf">2020</a> end of year reports. Looking forward to meet you <span class="emoji-font">🪼</span>.
@@ -261,17 +259,22 @@ a.card {
     	Any Python question, you are welcome to post it on our <a href="https://mail.python.org/mailman3/lists/pymug.python.org/">mailing list</a>. You can read some <a href="https://www.pythonkitchen.com/legally-free-python-books-list/">free books</a> in the meanwhile!
     </p>
     <p>
-    	<a href="https://github.com/pymug"><button class="btn btn-action s-circle"><i class="fab fa-github"></i></button></a>
-    	<a href="https://twitter.com/pymugdotcom"><button class="btn btn-action s-circle"><i class="fab fa-twitter"></i></button></a>
-    	<a href="https://www.linkedin.com/company/pymug/"><button class="btn btn-action s-circle"><i class="fab fa-linkedin"></i></button></a>
-    	<a href="https://www.meetup.com/pymauritius/"><button class="btn btn-action s-circle"><i class="fab fa-meetup"></i></button></a>
-    	<a href="https://www.facebook.com/pymug/"><button class="btn btn-action s-circle"><i class="fab fa-facebook-f"></i></button></a>
+    	<a aria-label="github-logo-link" href="https://github.com/pymug">
+    		<button aria-label="github-button-link" class="btn btn-action s-circle"><i class="fab fa-github"></i></button></a>
+    	<a aria-label="twitter-logo-link" href="https://twitter.com/pymugdotcom">
+    		<button aria-label="twitter-button-link" class="btn btn-action s-circle"><i class="fab fa-twitter"></i></button></a>
+    	<a aria-label="linkedin-logo-link" href="https://www.linkedin.com/company/pymug/">
+    		<button aria-label="linkedin-button-link" class="btn btn-action s-circle"><i class="fab fa-linkedin"></i></button></a>
+    	<a aria-label="mettup.com-logo-link" href="https://www.meetup.com/pymauritius/">
+    		<button aria-label="meetup.com-button-link" class="btn btn-action s-circle"><i class="fab fa-meetup"></i></button></a>
+    	<a aria-label="facebook-logo-link" href="https://www.facebook.com/pymug/">
+    		<button aria-label="facebook-button-link" class="btn btn-action s-circle"><i class="fab fa-facebook-f"></i></button></a>
     </p>
-    <h6 class="">Partner Contents</h6>
+    <h2 class="">Partner Contents</h2>
     <p>
-        <div class="">
+        <div class=""> 
             <a href="https://www.oreilly.com/pub/cpc/313497">
-                <img src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" />
+                <img async alt="oreilly affiliate content" src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" style="width:120px; height: 240px;" />
             </a>
         </div>
     </p>
