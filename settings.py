@@ -67,6 +67,37 @@ for github_username in github_usernames:
 
 
 events = {
+    "oct-2022": {
+        "title": "Python Meetup Oct 2022",
+        "venue": "Nayar Space, Flic-en-flac",
+        'date': 'October 8, 2022',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': 'https://www.meetup.com/pymauritius/events/288602832/',
+        'sessions': [ 
+        {
+            'title': "Python's Bytecode",
+            'info': 'An overview of how Python works behind the scene.',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': 'Performing Explanatory Data Analysis With OpenData Mauritius',
+            'info': '---',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0 
+        },
+        {
+            'title': 'Hands-on OpenSource contributions',
+            'info': 'Workshop on the complete lifecycle of contributions',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0 
+        }
+        ], 
+    },
     "sept-2022": {
         "title": "Python Meetup Sept 2022",
         "venue": "MakerSpace, Vacoas",
