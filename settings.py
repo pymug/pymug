@@ -71,7 +71,7 @@ events = {
         "title": "Python Meetup Oct 2022",
         "venue": "Nayar Space, Flic-en-flac",
         'date': 'October 8, 2022',
-        'raw_html': '',
+        'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRMMkNHm0jSzmy-C_ijwIpbXxBibbmy_bPiRFpQuEil7hhRgRY3-IBhIfOSd6C0e3PsxKBZPkV-OL_E/pub?embedded=true" style="width: 100%; height: 500px;"></iframe>',
         "attendees": {'reg': None, 'came':None},
         'register': 'https://www.meetup.com/pymauritius/events/288602832/',
         'sessions': [ 
