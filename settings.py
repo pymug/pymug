@@ -88,7 +88,8 @@ events = {
             'speaker/s': ['nirmal-k-r'],
             'presented': 1,
             'remote': 0
-        },
+        }],
+    },
     "oct-2022": {
         "title": "Python Meetup Oct 2022",
         "venue": "Nayar Space, Flic-en-flac",
@@ -118,7 +119,6 @@ events = {
             'presented': 1,
             'remote': 0 
         }
->>>>>>> 7640f02bcc665acb107ba2624e150cca4c4850d8
         ], 
     },
     "sept-2022": {
