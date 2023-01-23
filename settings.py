@@ -67,7 +67,7 @@ for github_username in github_usernames:
 
 
 events = {
-"jan-2023": {
+    "jan-2023": {
         "title": "Python Meetup Jan 2023",
         "venue": "Developers Institute Cassis",
         'date': 'January 21, 2023',
@@ -89,6 +89,36 @@ events = {
             'presented': 1,
             'remote': 0
         },
+    "oct-2022": {
+        "title": "Python Meetup Oct 2022",
+        "venue": "Nayar Space, Flic-en-flac",
+        'date': 'October 8, 2022',
+        'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vRMMkNHm0jSzmy-C_ijwIpbXxBibbmy_bPiRFpQuEil7hhRgRY3-IBhIfOSd6C0e3PsxKBZPkV-OL_E/pub?embedded=true" style="width: 100%; height: 500px;"></iframe>',
+        "attendees": {'reg': None, 'came':None},
+        'register': 'https://www.meetup.com/pymauritius/events/288602832/',
+        'sessions': [ 
+        {
+            'title': "Python's Bytecode",
+            'info': 'An overview of how Python works behind the scene.',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': 'Performing Explanatory Data Analysis With OpenData Mauritius',
+            'info': '---',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0 
+        },
+        {
+            'title': 'Hands-on OpenSource contributions',
+            'info': 'Workshop on the complete lifecycle of contributions',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0 
+        }
+>>>>>>> 7640f02bcc665acb107ba2624e150cca4c4850d8
         ], 
     },
     "sept-2022": {
