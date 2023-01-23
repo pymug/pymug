@@ -67,6 +67,30 @@ for github_username in github_usernames:
 
 
 events = {
+"jan-2023": {
+        "title": "Python Meetup Jan 2023",
+        "venue": "Developers Institute Cassis",
+        'date': 'January 21, 2023',
+        'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vTDXPLtjIXz8UTGxOgWA5xJ4n3Puv7F5cQnFVBRvLCRoChoiYpuFkmlfK5ktO6qVoXhftOYVc_xYiZv/pub?embedded=true" style="width: 100%; height: 500px;"></iframe>',
+        "attendees": {'reg': 13, 'came':12},
+        'register': 'https://www.meetup.com/pymauritius/events/290824540/',
+        'sessions': [ 
+        {
+            'title': 'Journey Of A Data Engineer',
+            'info': 'The Python journey of a data eng',
+            'speaker/s': ['Sid-Bisram'],
+            'presented': 1,
+            'remote': 0
+        }, 
+        {
+            'title': 'Text Analysis With Spacy',
+            'info': 'Introductory session on NLP with Spacy',
+            'speaker/s': ['nirmal-k-r'],
+            'presented': 1,
+            'remote': 0
+        },
+        ], 
+    },
     "sept-2022": {
         "title": "Python Meetup Sept 2022",
         "venue": "MakerSpace, Vacoas",
