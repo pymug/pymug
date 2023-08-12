@@ -67,6 +67,68 @@ for github_username in github_usernames:
 
 
 events = {
+    "aug-2023": {
+        "title": "Python Meetup August 2023",
+        "venue": "TBD",
+        'date': 'August 26, 2023',
+        'raw_html': '',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/295189116/',
+        'sessions': [ 
+        {
+            'title': 'Django channels',
+            'info': '...',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0
+        }, 
+        {
+            'title': "Alive mauritius: Streamlit",
+            'info': '...',
+            'speaker/s': ['gael-latouche'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "The state of NLP in production",
+            'info': 'The difference between NLP for toy projects and production',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        }
+        ],
+    },
+    "apr-2023": {
+        "title": "Python Meetup April 2023",
+        "venue": "Objectivity Software Services, Ebene",
+        'date': 'April 15, 2023',
+        'raw_html': '',
+        "attendees": {'reg': 12, 'came':8},
+        'register': 'https://www.meetup.com/pymauritius/events/290824540/',
+        'sessions': [ 
+        {
+            'title': 'Process Simulation using Python',
+            'info': 'Simulations using Sympy',
+            'speaker/s': ['dominiquetheodore'],
+            'presented': 1,
+            'remote': 0
+        }, 
+        {
+            'title': "Data Exploration: Harnessing the power of python's hidden libraries",
+            'info': 'A cocktail of cool, lesser-known Python libraries for data viz',
+            'speaker/s': ['nirmal-k-r'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Flet: Flutter in Python",
+            'info': 'Use Flet to build Flutter apps in Python',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        }
+        ],
+    },
     "jan-2023": {
         "title": "Python Meetup Jan 2023",
         "venue": "Developers Institute Cassis",
