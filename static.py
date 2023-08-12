@@ -112,6 +112,7 @@ context.update(
         "path": "/",
         "profile_url": profile_url,
         "info_to_html": info_to_html,
+        "settings": settings
     }
 )
 

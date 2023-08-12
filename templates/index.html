@@ -36,6 +36,11 @@
     	<a aria-label="facebook-logo-link" href="https://www.facebook.com/pymug/">
     		<button aria-label="facebook-button-link" class="btn btn-action s-circle"><i class="fab fa-facebook-f"></i></button></a>
     </p>
+    <h2 class="">Latest event</h2>
+    <p>
+        {%set latest_event = list(settings.events.keys())[0]%}
+        <a href="{{path}}event/{{latest_event}}">{{settings.events[latest_event]["title"]}}</a>
+    </p>
     <h2 class="">Partner Contents</h2>
     <p>
         <div class=""> 
