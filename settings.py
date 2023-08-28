@@ -71,24 +71,10 @@ events = {
         "title": "Python Meetup August 2023",
         "venue": "TBD",
         'date': 'August 26, 2023',
-        'raw_html': '',
+        'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQLfu2ETblQ6i0uajwx-5exB2hyius2NeSkLv6TQ-DR7XKhWtBwJdIszltXd1Fst8ip2ySlGfRuMxjK/pub?embedded=true"></iframe>',
         "attendees": {'reg': 0, 'came':0},
         'register': 'https://www.meetup.com/pymauritius/events/295189116/',
         'sessions': [ 
-        {
-            'title': 'Django channels',
-            'info': '...',
-            'speaker/s': ['kherin'],
-            'presented': 1,
-            'remote': 0
-        }, 
-        {
-            'title': "Alive mauritius: Streamlit",
-            'info': '...',
-            'speaker/s': ['gael-latouche'],
-            'presented': 1,
-            'remote': 0
-        },
         {
             'title': "The state of NLP in production",
             'info': 'The difference between NLP for toy projects and production',
