@@ -67,9 +67,40 @@ for github_username in github_usernames:
 
 
 events = {
+    "sep-2023": {
+        "title": "Python Meetup September 2023",
+        "venue": "TBD",
+        'date': 'September 30, 2023',
+        'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQLfu2ETblQ6i0uajwx-5exB2hyius2NeSkLv6TQ-DR7XKhWtBwJdIszltXd1Fst8ip2ySlGfRuMxjK/pub?embedded=true"></iframe>',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/295189116/',
+        'sessions': [ 
+        {
+            'title': "Streamlit for voters data",
+            'info': 'Streamlit demo for visualizing voters',
+            'speaker/s': ['gael-latouche'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Django channels",
+            'info': 'Realtime Django communication',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "NLP live cooking",
+            'info': 'Coding some NLP apps',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        }
+        ],
+    },
     "aug-2023": {
         "title": "Python Meetup August 2023",
-        "venue": "TBD",
+        "venue": "Developers Institute",
         'date': 'August 26, 2023',
         'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQLfu2ETblQ6i0uajwx-5exB2hyius2NeSkLv6TQ-DR7XKhWtBwJdIszltXd1Fst8ip2ySlGfRuMxjK/pub?embedded=true" style="width: 100%; height: 500px;"></iframe>',
         "attendees": {'reg': 0, 'came':0},
