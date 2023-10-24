@@ -69,7 +69,7 @@ for github_username in github_usernames:
 events = {
     "sep-2023": {
         "title": "Python Meetup September 2023",
-        "venue": "TBD",
+        "venue": "Developers Institute",
         'date': 'September 30, 2023',
         'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQLfu2ETblQ6i0uajwx-5exB2hyius2NeSkLv6TQ-DR7XKhWtBwJdIszltXd1Fst8ip2ySlGfRuMxjK/pub?embedded=true"></iframe>',
         "attendees": {'reg': 0, 'came':0},
@@ -86,13 +86,6 @@ events = {
             'title': "Django channels",
             'info': 'Realtime Django communication',
             'speaker/s': ['kherin'],
-            'presented': 1,
-            'remote': 0
-        },
-        {
-            'title': "NLP live cooking",
-            'info': 'Coding some NLP apps',
-            'speaker/s': ['Abdur-RahmaanJ'],
             'presented': 1,
             'remote': 0
         }
