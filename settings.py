@@ -67,6 +67,37 @@ for github_username in github_usernames:
 
 
 events = {
+    "oct-2023": {
+        "title": "Python October 2023 OSS Fest",
+        "venue": "Developers Institute",
+        'date': 'October 28, 2023',
+        'raw_html': '',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/296727761/',
+        'sessions': [ 
+        {
+            'title': "Intro to OpenSource",
+            'info': '',
+            'speaker/s': ['nam4dev'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Intro to Git, Github and the contribution cycle",
+            'info': '',
+            'speaker/s': ['dominiquetheodore'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Guided contribution sessions",
+            'info': '',
+            'speaker/s': [''],
+            'presented': 1,
+            'remote': 0
+        }
+        ],
+    },
     "sep-2023": {
         "title": "Python Meetup September 2023",
         "venue": "Developers Institute",
