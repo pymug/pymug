@@ -538,6 +538,7 @@ def generate_menu_pages(args):
     ensure_output_folder("members")
 
     logging.info("Generating members.html...")
+
     context.update({'user_sessions': settings.user_sessions})
     generate(
         "members.html", join(settings.OUTPUT_FOLDER, "members", "index.html"), **context
