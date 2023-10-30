@@ -76,9 +76,23 @@ events = {
         'register': 'https://www.meetup.com/pymauritius/events/295189116/',
         'sessions': [ 
         {
-            'title': 'Django channels',
-            'info': '...',
-            'speaker/s': ['kherin'],
+            'title': "Intro to OpenSource",
+            'info': '',
+            'speaker/s': ['nam4dev'],
+            'presented': 0,
+            'remote': 0
+        },
+        {
+            'title': "Intro to Git, Github and the contribution cycle",
+            'info': '',
+            'speaker/s': ['dominiquetheodore'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Guided contribution sessions",
+            'info': '',
+            'speaker/s': [''],
             'presented': 1,
             'remote': 0
         }, 
@@ -645,28 +659,14 @@ events = {
         },
         ], 
     },
-    "uni-uom-ai-2019": {
-        "title": "University of Mauritius - Ai Crash Course 2019",
+    "uni-uom-ai-2019-3": {
+        "title": "University of Mauritius - Ai Crash Course 2019 Week 3",
         "venue": "University of Mauritius",
         'date': 'December 19, 2019',
         'raw_html': '',
         "attendees": {'reg': None, 'came':None},
         'register': '#',
         'sessions': [ 
-        {
-            'title': 'Image training via an online tool + Scikit and Tensorflow intro',
-            'info': '',
-            'speaker/s': ['kherin'],
-            'presented': 1,
-            'remote': 0
-        },
-        {
-            'title': 'Data Visualisations',
-            'info': '',
-            'speaker/s': ['dominiquetheodore'],
-            'presented': 1,
-            'remote': 0
-        },
         {
             'title': 'Natural language processing',
             'info': '',
@@ -676,6 +676,47 @@ events = {
         },
         {
             'title': 'Intro to Computer Vision',
+            'info': '',
+            'speaker/s': ['dominiquetheodore'],
+            'presented': 1,
+            'remote': 0
+        },
+        ], 
+    },
+    "uni-uom-ai-2019-2": {
+        "title": "University of Mauritius - Ai Crash Course 2019 Week 2",
+        "venue": "University of Mauritius",
+        'date': 'December 19, 2019',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'sessions': [ 
+        {
+            'title': 'Image training via an online tool',
+            'info': '',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': 'Scikit and Tensorflow intro',
+            'info': '',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0
+        },
+        ], 
+    },
+    "uni-uom-ai-2019-1": {
+        "title": "University of Mauritius - Ai Crash Course 2019 Week 1",
+        "venue": "University of Mauritius",
+        'date': 'December 19, 2019',
+        'raw_html': '',
+        "attendees": {'reg': None, 'came':None},
+        'register': '#',
+        'sessions': [ 
+        {
+            'title': 'Data Visualisations',
             'info': '',
             'speaker/s': ['dominiquetheodore'],
             'presented': 1,

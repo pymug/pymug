@@ -1,23 +1,33 @@
-{% extends 'base.html' %}
-{% set section = 'members' %}
+{% extends 'base.html' %} {% set section = 'members' %} {% block head %}
+<title>Members</title>
+<link
+    async
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
 
-{% block head %}
-  <title>Members</title>
-  <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-{% endblock %}
-
-{% block body %}
+{% endblock %} {% block body %}
 <style>
-    .table-dots .docs-dot {
-        border-radius: 50%;
-        display: inline-block;
-        height: .5rem;
-        padding: 0;
-        width: .5rem;
-    }
+  .table-dots .docs-dot {
+    border-radius: 50%;
+    display: inline-block;
+    height: 0.5rem;
+    padding: 0;
+    width: 0.5rem;
+  }
 </style>
-
+{% set speakers = namespace(value=0) %}
+{% for github_username in
+info['profiles'] %}
+{% set data = info['profiles'][github_username] %}
+{% if
+user_sessions(info['events'], github_username)[1] %}
+{% set speakers.value =
+speakers.value + 1 %}
+{%endif%}
+{% endfor %}
 <div id="members" class="column col-12">
     <h2 class="text-center titles">Members</h2>
     <div class="column col-12 col-mx-auto">
@@ -26,47 +36,50 @@
                 <tr>
                     <th>Name</th>
                     <th>Admin</th>
-                    <th>Speaker</th>
+                    <th>Speaker ({{speakers.value}})</th>
                     <th>Honorary</th>
                 </tr>
             </thead>
             <tbody>
-                {% for github_username in info['profiles'] %}
-                    {% set data = info['profiles'][github_username] %}
-                    <tr>
-                        <!--NAME TD-->
-                        <td class="text-left">
-                            <a href="/u/{{ github_username }}">{{ data['meta']['name'] }}</a>
+                {% for github_username in info['profiles'] %} {% set data =
+                info['profiles'][github_username] %}
+                <tr>
+                    <!--NAME TD-->
+                    <td class="text-left">
+                        <a href="/u/{{ github_username }}">{{ data['meta']['name']
+                            }}</a>
+                    </td>
 
-                            
-                        </td>
+                    <!--ADMIN TD-->
+                    <td>
+                        {% if data['meta']['organiser'] == 'y' %}
+                        <span title="Organiser"><i
+                                style="color: #5cd150; font-size: 16px"
+                                class="fa fa-shield-alt"></i></span>
+                        {% endif %}
+                    </td>
 
-                        <!--ADMIN TD-->
-                        <td>
-                           {% if data['meta']['organiser'] == 'y' %}
-                            <span title="Organiser"><i style="color: #5cd150; font-size: 16px;" class="fa fa-shield-alt"></i></span>
-                            {% endif %}
-                        </td>
-                        
-                        <!--SPEAKER TD-->
-                        <td>
-                            {% if user_sessions(info['events'], github_username)[1] %}
-                                <span title="Speaker"><i style="color: #5cd150; font-size: 16px;" class="fa fa-comment"></i></span>
-                            {%endif%}
-                        </td>
-                        
-                        <!--HONORARY TD-->
-                        <td>
-                            {% if data['meta']['honorary'] == 'y' %}
-                            <span title="Honorary member"><i style="color: #5cd150; font-size: 16px;" class="fa fa-award"></i></span>
-                            {% endif %}
+                    <!--SPEAKER TD-->
+                    <td>
+                        {% if user_sessions(info['events'], github_username)[1]
+                        %}
+                        <span title="Speaker"><i
+                                style="color: #5cd150; font-size: 16px"
+                                class="fa fa-comment"></i></span>
+                        {% set speakers.value = speakers.value + 1 %} {%endif%}
+                    </td>
 
-                        </td>
+                    <!--HONORARY TD-->
+                    <td>
+                        {% if data['meta']['honorary'] == 'y' %}
+                        <span title="Honorary member"><i
+                                style="color: #5cd150; font-size: 16px"
+                                class="fa fa-award"></i></span>
+                        {% endif %}
+                    </td>
 
-                        <td>
-
-                        </td>
-                    </tr>
+                    <td></td>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>

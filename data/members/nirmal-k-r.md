@@ -1,4 +1,4 @@
-name: Namgyal Brisson
+name: Nirmal Rampersand
 founder: n
 organiser: y
 honorary: n
