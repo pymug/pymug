@@ -6,13 +6,20 @@
 {% block body %}
 
 {%set sess_count = namespace(value=0) %}
+{%set sess_count_2 = namespace(value=0) %}
 {%set sess_len = namespace(value=0) %}
 {% for event in events %}
-    {% set sess_len.value = len(events[event]['sessions']) %}
-    {% set sess_count.value = sess_count.value + sess_len.value %}
+    
+    {% for sess in events[event]['sessions'] %}
+    {%if sess['presented'] %}
+        {% set sess_count.value = sess_count.value + 1 %}
+    {%endif%}
+    
+    {%endfor%}
+    {% set sess_count_2.value = sess_count_2.value + len(events[event]['sessions']) %}
 {%endfor%}
 <div id='posts'>
-    <h2 class="text-center titles">Events ({{ len(events) }}) | Sessions ({{ sess_count.value }})</h2>
+    <h2 class="text-center titles">Events ({{ len(events) }}) | Sessions ({{ sess_count.value }} / {{sess_count_2.value}})</h2>
     {% for event in events %}
     <a href="/event/{{event}}" class="panel post-link">
         <div class="tile tile-centered">

@@ -67,13 +67,13 @@ for github_username in github_usernames:
 
 
 events = {
-    "aug-2023": {
-        "title": "Python Meetup August 2023",
-        "venue": "TBD",
-        'date': 'August 26, 2023',
+    "oct-2023": {
+        "title": "Python October 2023 OSS Fest",
+        "venue": "Developers Institute",
+        'date': 'October 28, 2023',
         'raw_html': '',
         "attendees": {'reg': 0, 'came':0},
-        'register': 'https://www.meetup.com/pymauritius/events/295189116/',
+        'register': 'https://www.meetup.com/pymauritius/events/296727761/',
         'sessions': [ 
         {
             'title': "Intro to OpenSource",
@@ -95,14 +95,48 @@ events = {
             'speaker/s': [''],
             'presented': 1,
             'remote': 0
-        }, 
+        }
+        ],
+    },
+    "sep-2023": {
+        "title": "Python Meetup September 2023",
+        "venue": "Developers Institute",
+        'date': 'September 30, 2023',
+        'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQLfu2ETblQ6i0uajwx-5exB2hyius2NeSkLv6TQ-DR7XKhWtBwJdIszltXd1Fst8ip2ySlGfRuMxjK/pub?embedded=true"></iframe>',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/295189116/',
+        'sessions': [ 
         {
-            'title': "Alive mauritius: Streamlit",
-            'info': '...',
+            'title': "Streamlit for voters data",
+            'info': 'Streamlit demo for visualizing voters',
             'speaker/s': ['gael-latouche'],
             'presented': 1,
             'remote': 0
         },
+        {
+            'title': "Django channels",
+            'info': 'Realtime Django communication',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "NLP live cooking",
+            'info': 'Coding some NLP apps',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        }
+        ],
+    },
+    "aug-2023": {
+        "title": "Python Meetup August 2023",
+        "venue": "Developers Institute",
+        'date': 'August 26, 2023',
+        'raw_html': '<iframe src="https://docs.google.com/document/d/e/2PACX-1vQLfu2ETblQ6i0uajwx-5exB2hyius2NeSkLv6TQ-DR7XKhWtBwJdIszltXd1Fst8ip2ySlGfRuMxjK/pub?embedded=true" style="width: 100%; height: 500px;"></iframe>',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/295189116/',
+        'sessions': [ 
         {
             'title': "The state of NLP in production",
             'info': 'The difference between NLP for toy projects and production',
