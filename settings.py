@@ -67,6 +67,58 @@ for github_username in github_usernames:
 
 
 events = {
+    "nov-2023": {
+        "title": "[Hands-on] Building A Whatsapp Clone From Scratch",
+        "venue": "Developers Institute",
+        'date': 'November, 2023',
+        'raw_html': '',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/297094976/',
+        'sessions': [ 
+        {
+            'title': "Whatsapp features considered",
+            'info': '',
+            'speaker/s': [],
+            'presented': 0,
+            'remote': 0
+        },
+        {
+            'title': "Planning of project",
+            'info': '',
+            'speaker/s': [''],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Explanation of components",
+            'info': '',
+            'speaker/s': [''],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Front-end coding",
+            'info': '',
+            'speaker/s': [''],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Backend planning",
+            'info': '',
+            'speaker/s': [''],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Backend coding",
+            'info': '',
+            'speaker/s': [''],
+            'presented': 1,
+            'remote': 0
+        }
+        ],
+    },
     "oct-2023": {
         "title": "Python October 2023 OSS Fest",
         "venue": "Developers Institute",
