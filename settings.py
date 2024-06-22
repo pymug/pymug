@@ -67,6 +67,92 @@ for github_username in github_usernames:
 
 
 events = {
+        "jun-2024": {
+        "title": "Python Meetup June 2024",
+        "venue": "Swan Building",
+        'date': 'June, 2024',
+        'raw_html': '',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/301595986',
+        'sessions': [ 
+        {
+            'title': "Quickly Securing React Packages with Semgrep",
+            'info': '',
+            'speaker/s': ['kherin'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Reflex: Python to React compiler",
+            'info': '',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Structuring Travel Grants",
+            'info': '',
+            'speaker/s': ['dominiquetheodore'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "Silicon Valley Py Landscape",
+            'info': '',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 1,
+            'remote': 0
+        },
+        {
+            'title': "The future of Pymug",
+            'info': '',
+            'speaker/s': [''],
+            'presented': 1,
+            'remote': 0
+        },
+        ],
+    },
+    "feb-2024": {
+        "title": "FEB 2024 - PEPs that hit the front page & others",
+        "venue": "Online",
+        'date': 'Febrary, 2024',
+        'raw_html': '',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/297696628/',
+        'sessions': [ 
+        {
+            'title': "PEPs that hit the front page",
+            'info': '',
+            'speaker/s': ['Abdur-RahmaanJ'],
+            'presented': 0,
+            'remote': 0
+        },
+        ],
+    },
+    "dec-2023": {
+        "title": "Pymug x MSCC (Data)",
+        "venue": "Middlesex University",
+        'date': 'December, 2023',
+        'raw_html': '',
+        "attendees": {'reg': 0, 'came':0},
+        'register': 'https://www.meetup.com/pymauritius/events/297696628/',
+        'sessions': [ 
+        {
+            'title': "Data-driven maritime supply chain analytics",
+            'info': '',
+            'speaker/s': ['nirmal-k-r'],
+            'presented': 0,
+            'remote': 0
+        },
+        {
+            'title': "Building a recommender system with PySpark",
+            'info': '',
+            'speaker/s': ['dominiquetheodore'],
+            'presented': 1,
+            'remote': 0
+        },
+        ],
+    },
     "nov-2023": {
         "title": "[Hands-on] Building A Whatsapp Clone From Scratch",
         "venue": "Developers Institute",
