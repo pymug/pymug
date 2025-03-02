@@ -67,49 +67,73 @@ for github_username in github_usernames:
 
 
 events = {
+        "feb-2025": {
+            "title": "Python Meetup February 2025",
+            "venue": "Coderfaculty, Curepipe",
+            'date': 'June, 2024',
+            'raw_html': '',
+            "attendees": {'reg': 0, 'came':0},
+            'register': 'https://www.meetup.com/pymauritius/events/305915253/',
+            'sessions': [ 
+                {
+                    'title': "UV: A tool worth knowing about",
+                    'info': '',
+                    'speaker/s': ['Abdur-RahmaanJ'],
+                    'presented': 1,
+                    'remote': 0
+                },
+                {
+                    'title': "Python January challenge discussion",
+                    'info': '',
+                    'speaker/s': ['Abdur-RahmaanJ'],
+                    'presented': 1,
+                    'remote': 0
+                }
+            ],
+        },
         "jun-2024": {
-        "title": "Python Meetup June 2024",
-        "venue": "Swan Building",
-        'date': 'June, 2024',
-        'raw_html': '',
-        "attendees": {'reg': 0, 'came':0},
-        'register': 'https://www.meetup.com/pymauritius/events/301595986',
-        'sessions': [ 
-        {
-            'title': "Quickly Securing React Packages with Semgrep",
-            'info': '',
-            'speaker/s': ['kherin'],
-            'presented': 1,
-            'remote': 0
-        },
-        {
-            'title': "Reflex: Python to React compiler",
-            'info': '',
-            'speaker/s': ['Abdur-RahmaanJ'],
-            'presented': 1,
-            'remote': 0
-        },
-        {
-            'title': "Structuring Travel Grants",
-            'info': '',
-            'speaker/s': ['dominiquetheodore'],
-            'presented': 1,
-            'remote': 0
-        },
-        {
-            'title': "Silicon Valley Py Landscape",
-            'info': '',
-            'speaker/s': ['Abdur-RahmaanJ'],
-            'presented': 1,
-            'remote': 0
-        },
-        {
-            'title': "The future of Pymug",
-            'info': '',
-            'speaker/s': [''],
-            'presented': 1,
-            'remote': 0
-        },
+            "title": "Python Meetup June 2024",
+            "venue": "Swan Building",
+            'date': 'June, 2024',
+            'raw_html': '',
+            "attendees": {'reg': 0, 'came':0},
+            'register': 'https://www.meetup.com/pymauritius/events/301595986',
+            'sessions': [ 
+            {
+                'title': "Quickly Securing React Packages with Semgrep",
+                'info': '',
+                'speaker/s': ['kherin'],
+                'presented': 1,
+                'remote': 0
+            },
+            {
+                'title': "Reflex: Python to React compiler",
+                'info': '',
+                'speaker/s': ['Abdur-RahmaanJ'],
+                'presented': 1,
+                'remote': 0
+            },
+            {
+                'title': "Structuring Travel Grants",
+                'info': '',
+                'speaker/s': ['dominiquetheodore'],
+                'presented': 1,
+                'remote': 0
+            },
+            {
+                'title': "Silicon Valley Py Landscape",
+                'info': '',
+                'speaker/s': ['Abdur-RahmaanJ'],
+                'presented': 1,
+                'remote': 0
+            },
+            {
+                'title': "The future of Pymug",
+                'info': '',
+                'speaker/s': [''],
+                'presented': 1,
+                'remote': 0
+            },
         ],
     },
     "feb-2024": {
