@@ -1,23 +1,42 @@
 {% extends 'base.html' %}
 {% set section = 'faq' %}
 {% block head %}
-    <title>{{ faq['title'] }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+  <title>{{ faq['title'] }} | PyMUG FAQ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
 {% endblock %}
 {% block body %}
-<br>
-<h3 style="font-size: 27px;">{{ faq['title'] }}</h3>
-<div style="font-size: 13px;">
-    <span class="lab"><i class="im im-tags"></i> </span>
-    {% set tags = faq['tags'] %}
-    {% for tag in  tags %}
-        <a class="tag label" href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %}{% endif %}
-    {% endfor %}
-</div>
-<div class="sep"></div>
-<div class="container post-content">
-    {{ faq['content'] }}
-</div>
+<article class="max-w-3xl mx-auto px-gutter pt-lg pb-2xl">
+  <nav class="flex items-center gap-xs mb-md text-on-surface-variant overflow-x-auto hide-scrollbar whitespace-nowrap">
+    <a href="{{ path }}" class="font-body-sm hover:text-primary">Home</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <a href="{{ path }}faq" class="font-body-sm hover:text-primary">FAQs</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <span class="font-body-sm font-bold text-primary truncate">{{ faq['title'] }}</span>
+  </nav>
+
+  <header class="mb-xl">
+    <span class="inline-block px-md py-xs rounded-full bg-tertiary-container/10 text-tertiary font-label-caps uppercase mb-md">FAQ</span>
+    <h1 class="font-h1 text-h3 md:text-h2 text-primary">{{ faq['title'] }}</h1>
+    {% if faq['tags'] %}
+    <div class="flex flex-wrap gap-xs mt-md">
+      {% for tag in faq['tags'] %}
+        <a href="{{ path }}faq/tag/{{ tag }}" class="px-sm py-xs rounded-full bg-surface-container-high text-on-surface-variant text-[11px] font-medium hover:bg-primary hover:text-on-primary transition-colors">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="prose max-w-none">
+    {{ faq['content'] | safe }}
+  </div>
+
+  <nav class="mt-2xl pt-lg border-t border-outline-variant">
+    <a href="{{ path }}faq" class="inline-flex items-center gap-sm text-primary font-bold hover:gap-md transition-all">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Back to all FAQs
+    </a>
+  </nav>
+</article>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>

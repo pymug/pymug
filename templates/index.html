@@ -1,102 +1,264 @@
 {% extends 'base.html' %}
-{% set section = 'why' %}
+{% set section = 'about' %}
 {% block head %}
-<title>Python Mauritius Usergroup</title>
-<link async href='https://fonts.googleapis.com\css?family=Noto+Color+Emoji' rel='stylesheet' type='text/css'>
-<link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/brands.min.css" integrity="sha512-+oRH6u1nDGSm3hH8poU85YFIVTdSnS2f+texdPGrURaJh8hzmhMiZrQth6l56P4ZQmxeZzd2DqVEMqQoJ8J89A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css" integrity="sha512-RvQxwf+3zJuNwl4e0sZjQeX7kUa3o82bDETpgVCH2RiwYSZVDdFJ7N/woNigN/ldyOOoKw8584jM4plQdt8bhA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<style type="">
-	.emoji-font{
-		font-family: 'Noto Color Emoji';
-		font-display: swap;
-	}
-</style> 
+  <title>Python Mauritius Usergroup</title>
 {% endblock %}
 {% block body %}
-<div id="why">
-    <h2 class="text-center">About</h2>
-    <p>
-        <span class="first-letter">T</span>he Python Mauritius User Group (pymug) is the local Python user group of Mauritius. Our aim is to provide opportunities to everybody to upskill their level of Python and to ease industry-adoption of Python-related technologies. Read a <a href="https://www.mscc.mu/python-mauritius-usergroup-pymug/">nice overview</a> of the User Group on the MSCC blog. To sum it up, we care about Python education.
-    </p>
-    <p>
-        The Pymug organises year-round events, topic days, meetups, from scratch sessions as well as university topic coverage. Have a look at our <a href="https://www.pymug.com/static/reports/pymug_2019_report.pdf">2019</a> or <a href="https://www.pymug.com/static/reports/pymug_end_of_year_2020_v2.pdf">2020</a> end of year reports. Looking forward to meet you <span class="emoji-font">🪼</span>.
-    </p>
-    <p>
-    	Any Python question, you are welcome to post it on our <a href="https://mail.python.org/mailman3/lists/pymug.python.org/">mailing list</a>. You can read some <a href="https://www.pythonkitchen.com/legally-free-python-books-list/">free books</a> in the meanwhile!
-    </p>
-    <p>
-    	<a aria-label="github-logo-link" href="https://github.com/pymug">
-    		<button aria-label="github-button-link" class="btn btn-action s-circle"><i class="fab fa-github"></i></button></a>
-    	<a aria-label="twitter-logo-link" href="https://twitter.com/pymugdotcom">
-    		<button aria-label="twitter-button-link" class="btn btn-action s-circle"><i class="fab fa-twitter"></i></button></a>
-    	<a aria-label="linkedin-logo-link" href="https://www.linkedin.com/company/pymug/">
-    		<button aria-label="linkedin-button-link" class="btn btn-action s-circle"><i class="fab fa-linkedin"></i></button></a>
-    	<a aria-label="mettup.com-logo-link" href="https://www.meetup.com/pymauritius/">
-    		<button aria-label="meetup.com-button-link" class="btn btn-action s-circle"><i class="fab fa-meetup"></i></button></a>
-    	<a aria-label="facebook-logo-link" href="https://www.facebook.com/pymug/">
-    		<button aria-label="facebook-button-link" class="btn btn-action s-circle"><i class="fab fa-facebook-f"></i></button></a>
-    </p>
-    <h2 class="">Latest event</h2>
-    <p>
-        {%set latest_event = list(settings.events.keys())[0]%}
-        <a href="{{path}}event/{{latest_event}}">{{settings.events[latest_event]["title"]}}</a>
-    </p>
-    <h2>Challenges</h2>
+{% set latest_event_slug = list(settings.events.keys())[0] %}
+{% set latest_event = settings.events[latest_event_slug] %}
 
-    <ul class="tab tab-block">
-      <li class="tab-item active">
-        <a href="#">2025</a>
-      </li>
-    </ul>
-    <!-- Tab Content -->
-<div class="tab-content">
-  <!-- Content for Tab 1 (active) -->
-  <div class="tab-pane active" id="tab-2025">
+<!-- Hero -->
+<section class="relative overflow-hidden bg-gradient-to-b from-surface-container-low to-surface">
+  <div class="max-w-container-max mx-auto px-gutter py-xl md:py-2xl grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+    <div class="space-y-lg">
+      <span class="inline-block px-md py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-caps uppercase tracking-wider">Community First</span>
+      <h1 class="font-h1 text-[40px] md:text-[56px] lg:text-h1 leading-tight text-primary">
+        Python, made in <span class="text-secondary">Mauritius</span> 🇲🇺
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+        The Python Mauritius User Group (pymug) is the local Python user group of Mauritius. Our aim is to provide opportunities to everybody to upskill their level of Python and to ease industry-adoption of Python-related technologies.
+      </p>
+      <p class="font-body-md text-on-surface-variant max-w-xl">
+        Read a <a href="https://www.mscc.mu/python-mauritius-usergroup-pymug/" class="text-primary underline hover:text-primary-container">nice overview</a> of the User Group on the MSCC blog. To sum it up, we care about Python education.
+      </p>
+      <div class="flex flex-wrap gap-md">
+        <a href="{{ path }}event" class="inline-flex items-center gap-sm bg-primary text-on-primary px-lg py-md rounded-lg font-bold text-body-md hover:shadow-lg active:scale-95 transition-all">
+          Browse Events <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </a>
+        <a href="https://www.meetup.com/pymauritius/" target="_blank" rel="noopener" class="inline-flex items-center gap-sm border-[1.5px] border-primary text-primary px-lg py-md rounded-lg font-bold text-body-md hover:bg-primary/5 active:scale-95 transition-all">
+          Join Meetup
+        </a>
+      </div>
+    </div>
+    <div class="hidden lg:flex justify-center">
+      <div class="relative">
+        <div class="absolute inset-0 bg-secondary-container/30 rounded-full blur-3xl"></div>
+        <div class="relative bg-surface-container-lowest border border-outline-variant rounded-2xl p-lg shadow-xl">
+          <div class="flex gap-2 mb-md">
+            <div class="w-3 h-3 rounded-full bg-error"></div>
+            <div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+            <div class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></div>
+          </div>
+          <pre class="font-code text-code text-on-surface leading-relaxed"><span class="text-tertiary">def</span> <span class="text-primary font-bold">community_growth</span>():
+  <span class="text-tertiary">while</span> True:
+    connect(people)
+    share(knowledge)
+    learn()
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th>Challenges</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="active">
-          <td>January</td>
-          <td>Build a JSON parser 
-                <a href="https://codingchallenges.fyi/challenges/challenge-json-parser">link</a>
-          </td>
-        </tr>
-        <tr>
-          <td>February</td>
-          <td>Merge two sorted list
-                <a href="https://leetcode.com/problems/merge-two-sorted-lists/description/?envType=problem-list-v2&envId=linked-list">link</a>
-          </td>
-        </tr>
-        <tr>
-          <td>March</td>
-          <td>Build your own load balancer
-                <a href="https://codingchallenges.fyi/challenges/challenge-load-balancer">link</a>
-          </td>
-        </tr>
-        <tr>
-          <td>April</td>
-          <td>Online Judge 572: Oil Deposits (Hint: Floodfill)
-                <a href="https://onlinejudge.org/external/5/572.pdf">link</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-</div><br><br>
-    <h2 class="">Partner Contents</h2>
-    <p>
-        <div class=""> 
-            <a href="https://www.oreilly.com/pub/cpc/313497">
-                <img async alt="oreilly affiliate content" src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" style="width:120px; height: 240px;" />
-            </a>
+<span class="text-tertiary">import</span> pymug
+pymug.organize_meetup()</pre>
         </div>
-    </p>
-</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Strip -->
+<section class="bg-primary text-on-primary py-lg">
+  <div class="max-w-container-max mx-auto px-gutter grid grid-cols-2 md:grid-cols-4 gap-md text-center">
+    {% set sess_total = namespace(value=0) %}
+    {% set sess_done = namespace(value=0) %}
+    {% for ev_slug in settings.events %}
+      {% for s in settings.events[ev_slug]['sessions'] %}
+        {% set sess_total.value = sess_total.value + 1 %}
+        {% if s['presented'] %}{% set sess_done.value = sess_done.value + 1 %}{% endif %}
+      {% endfor %}
+    {% endfor %}
+    <div>
+      <div class="font-h3 text-h3 text-secondary-container">{{ len(settings.events) }}</div>
+      <div class="font-label-caps text-label-caps opacity-80 uppercase mt-xs">Events</div>
+    </div>
+    <div>
+      <div class="font-h3 text-h3 text-secondary-container">{{ sess_total.value }}</div>
+      <div class="font-label-caps text-label-caps opacity-80 uppercase mt-xs">Sessions</div>
+    </div>
+    <div>
+      <div class="font-h3 text-h3 text-secondary-container">{{ len(info['profiles']) }}</div>
+      <div class="font-label-caps text-label-caps opacity-80 uppercase mt-xs">Members</div>
+    </div>
+    <div>
+      <div class="font-h3 text-h3 text-secondary-container">2019</div>
+      <div class="font-label-caps text-label-caps opacity-80 uppercase mt-xs">Since</div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest Event -->
+<section class="py-xl md:py-2xl max-w-container-max mx-auto px-gutter">
+  <div class="flex justify-between items-end mb-lg">
+    <h2 class="font-h2 text-h3 md:text-h2 text-primary">Latest Event</h2>
+    <a href="{{ path }}event" class="text-primary font-body-sm font-bold inline-flex items-center gap-xs hover:gap-sm transition-all">
+      View all <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
+  </div>
+  <a href="{{ path }}event/{{ latest_event_slug }}" class="block bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 group">
+    <div class="grid grid-cols-1 md:grid-cols-5">
+      <div class="md:col-span-2 bg-gradient-to-br from-primary to-primary-container relative p-xl flex items-center justify-center min-h-[200px]">
+        <span class="absolute top-md left-md bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-caps">LATEST</span>
+        <span class="material-symbols-outlined text-on-primary text-[96px] opacity-90" style="font-variation-settings: 'FILL' 1;">event</span>
+      </div>
+      <div class="md:col-span-3 p-lg md:p-xl flex flex-col justify-center gap-md">
+        <div class="text-tertiary font-bold text-label-caps inline-flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+          {{ latest_event['date'] }}
+        </div>
+        <h3 class="font-h3 text-h4 md:text-h3 text-primary group-hover:text-primary-container transition-colors">{{ latest_event['title'] }}</h3>
+        {% if latest_event['sessions'] %}
+        <p class="text-on-surface-variant font-body-md">
+          {{ len(latest_event['sessions']) }} session{{ 's' if len(latest_event['sessions']) != 1 }} including
+          {% for s in latest_event['sessions'][:2] %}<span class="font-medium text-on-surface">{{ s['title'] }}</span>{% if not loop.last %}, {% endif %}{% endfor %}{% if len(latest_event['sessions']) > 2 %}, and more{% endif %}.
+        </p>
+        {% endif %}
+        <span class="mt-sm self-start inline-flex items-center gap-xs text-primary font-bold">
+          View event <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+        </span>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- Monthly Challenges -->
+<section class="py-xl md:py-2xl bg-surface-container-low">
+  <div class="max-w-container-max mx-auto px-gutter">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+      <div>
+        <h2 class="font-h2 text-h3 md:text-h2 text-primary">Monthly Challenges</h2>
+        <p class="text-on-surface-variant font-body-md mt-xs">Coding challenges to sharpen your Python craft.</p>
+      </div>
+      <div class="flex gap-xs bg-surface-container-high p-xs rounded-lg self-start md:self-auto">
+        <button class="px-md py-sm bg-surface rounded-md font-bold text-body-sm text-primary shadow-sm">2025</button>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+      {% set challenges = [
+        ('January', 'Build a JSON parser', 'https://codingchallenges.fyi/challenges/challenge-json-parser', 'data_object'),
+        ('February', 'Merge two sorted list', 'https://leetcode.com/problems/merge-two-sorted-lists/description/?envType=problem-list-v2&envId=linked-list', 'merge'),
+        ('March', 'Build your own load balancer', 'https://codingchallenges.fyi/challenges/challenge-load-balancer', 'hub'),
+        ('April', 'Online Judge 572: Oil Deposits (Hint: Floodfill)', 'https://onlinejudge.org/external/5/572.pdf', 'water_drop')
+      ] %}
+      {% for month, title, link, icon in challenges %}
+      <a href="{{ link }}" target="_blank" rel="noopener" class="bg-surface-container-lowest p-md rounded-xl border border-outline-variant flex items-center gap-md hover:shadow-md hover:border-primary/30 transition-all group">
+        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
+          <span class="material-symbols-outlined">{{ icon }}</span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="text-label-caps font-bold text-tertiary uppercase">{{ month }}</div>
+          <div class="font-bold text-primary truncate">{{ title }}</div>
+        </div>
+        <span class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 group-hover:text-primary transition-all">open_in_new</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- About / Mailing list -->
+<section class="py-xl md:py-2xl max-w-container-max mx-auto px-gutter">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+    <div class="lg:col-span-2 space-y-md">
+      <h2 class="font-h2 text-h3 md:text-h2 text-primary">Our Community</h2>
+      <p class="font-body-lg text-on-surface-variant">
+        The Pymug organises year-round events, topic days, meetups, from-scratch sessions as well as university topic coverage.
+      </p>
+      <p class="font-body-md text-on-surface-variant">
+        Have a look at our <a href="https://www.pymug.com/static/reports/pymug_2019_report.pdf" class="text-primary underline">2019</a> or <a href="https://www.pymug.com/static/reports/pymug_end_of_year_2020_v2.pdf" class="text-primary underline">2020</a> end of year reports. Looking forward to meet you 🪼.
+      </p>
+      <p class="font-body-md text-on-surface-variant">
+        Any Python question, you are welcome to post it on our <a href="https://mail.python.org/mailman3/lists/pymug.python.org/" class="text-primary underline">mailing list</a>. You can read some <a href="https://www.pythonkitchen.com/legally-free-python-books-list/" class="text-primary underline">free books</a> in the meanwhile!
+      </p>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-sm pt-sm">
+        <li class="flex items-center gap-sm">
+          <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          <span class="font-body-md text-on-surface font-medium">Year-round technical events</span>
+        </li>
+        <li class="flex items-center gap-sm">
+          <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          <span class="font-body-md text-on-surface font-medium">From-scratch coding sessions</span>
+        </li>
+        <li class="flex items-center gap-sm">
+          <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          <span class="font-body-md text-on-surface font-medium">University topic coverage</span>
+        </li>
+        <li class="flex items-center gap-sm">
+          <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+          <span class="font-body-md text-on-surface font-medium">Active GitHub presence</span>
+        </li>
+      </ul>
+      <div class="flex flex-wrap gap-sm pt-md">
+        <a href="https://github.com/pymug" aria-label="GitHub" class="w-11 h-11 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">code</span>
+        </a>
+        <a href="https://twitter.com/pymugdotcom" aria-label="Twitter" class="w-11 h-11 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">alternate_email</span>
+        </a>
+        <a href="https://www.linkedin.com/company/pymug/" aria-label="LinkedIn" class="w-11 h-11 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">groups</span>
+        </a>
+        <a href="https://www.meetup.com/pymauritius/" aria-label="Meetup" class="w-11 h-11 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">event</span>
+        </a>
+        <a href="https://www.facebook.com/pymug/" aria-label="Facebook" class="w-11 h-11 rounded-full border border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">public</span>
+        </a>
+      </div>
+    </div>
+    <aside class="space-y-md">
+      <div class="bg-primary text-on-primary p-lg rounded-xl shadow-lg">
+        <span class="material-symbols-outlined text-secondary-container text-[40px]">picture_as_pdf</span>
+        <h3 class="font-h4 text-h4 mt-sm">End of Year Reports</h3>
+        <p class="text-body-sm opacity-80 mt-xs">Insights into our growth and top sessions.</p>
+        <div class="flex flex-col gap-sm mt-md">
+          <a href="https://www.pymug.com/static/reports/pymug_2019_report.pdf" class="bg-on-primary text-primary py-sm px-md rounded-lg font-bold text-body-sm text-center hover:bg-primary-fixed transition-colors">Download 2019</a>
+          <a href="https://www.pymug.com/static/reports/pymug_end_of_year_2020_v2.pdf" class="bg-on-primary text-primary py-sm px-md rounded-lg font-bold text-body-sm text-center hover:bg-primary-fixed transition-colors">Download 2020</a>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant">
+        <h3 class="font-bold text-primary">Partner Content</h3>
+        <p class="text-body-sm text-on-surface-variant mt-xs mb-md">Recommended Python resources from our partners.</p>
+        <a href="https://www.oreilly.com/pub/cpc/313497" target="_blank" rel="noopener" class="block">
+          <img alt="O'Reilly affiliate content" src="https://www.oreilly.com/partner_file/ba-affiliates-python-120x240.jpg" class="w-full max-w-[160px] mx-auto rounded-lg border border-outline-variant">
+        </a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- Sponsors -->
+<section class="py-xl md:py-2xl bg-surface-container-low border-t border-outline-variant">
+  <div class="max-w-container-max mx-auto px-gutter">
+    {# Populate this list when sponsors are confirmed: each item = (name, logo_url, link) #}
+    {% set sponsors = [] %}
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+      <div>
+        <p class="font-label-caps text-on-surface-variant uppercase tracking-widest mb-sm">Backed by the community</p>
+        <h2 class="font-h2 text-h3 md:text-h2 text-primary">Our Sponsors</h2>
+        <p class="font-body-md text-on-surface-variant mt-xs max-w-xl">PyMUG is supported by individuals and organisations that share our love for Python and Mauritius.</p>
+      </div>
+      <a href="mailto:pymug@python.org?subject=Sponsorship%20Enquiry" class="self-start md:self-auto inline-flex items-center gap-sm bg-secondary-container text-on-secondary-container px-lg py-md rounded-lg font-bold hover:scale-95 active:scale-90 transition-transform">
+        Become a Sponsor
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+    </div>
+
+    {% if sponsors|length %}
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-md">
+        {% for name, logo, link in sponsors %}
+          <a href="{{ link }}" target="_blank" rel="noopener" title="{{ name }}" class="bg-surface-container-lowest border border-outline-variant rounded-xl h-24 flex items-center justify-center p-md grayscale hover:grayscale-0 hover:border-primary transition-all">
+            <img src="{{ logo }}" alt="{{ name }}" class="max-h-full max-w-full opacity-70 hover:opacity-100 transition-opacity">
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="bg-surface-container-lowest border border-dashed border-outline-variant rounded-xl p-xl text-center">
+        <span class="material-symbols-outlined text-primary text-[40px]">handshake</span>
+        <h3 class="font-h4 text-h4 text-on-surface mt-sm mb-xs">This space is for you</h3>
+        <p class="font-body-md text-on-surface-variant max-w-xl mx-auto">We're opening sponsorship slots for organisations that want to support Python education in Mauritius. Get your logo seen by Mauritius' Python community.</p>
+        <div class="flex flex-wrap justify-center gap-md mt-md">
+          <a href="mailto:pymug@python.org?subject=Sponsorship%20Enquiry" class="bg-primary text-on-primary px-lg py-sm rounded-lg font-bold hover:shadow-md transition-all">Get in touch</a>
+          <a href="https://github.com/pymug" target="_blank" rel="noopener" class="border border-primary text-primary px-lg py-sm rounded-lg font-bold hover:bg-primary/5 transition-all">View on GitHub</a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
 {% endblock %}

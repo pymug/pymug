@@ -1,29 +1,46 @@
 {% extends 'base.html' %}
 {% set section = 'resources' %}
 {% block head %}
-  <title>Resources</title>
+  <title>#{{ tag }} | PyMUG Resources</title>
 {% endblock %}
 {% block body %}
-<h3>Resource/s for tag: {{ tag }}</h3>
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Info</th>
-      <th>Tags</th>
-    </tr>
-  </thead>
-  <tbody>
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+  <nav class="flex items-center gap-xs mb-md text-on-surface-variant overflow-x-auto hide-scrollbar whitespace-nowrap">
+    <a href="{{ path }}" class="font-body-sm hover:text-primary">Home</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <a href="{{ path }}resources" class="font-body-sm hover:text-primary">Resources</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <span class="font-body-sm font-bold text-primary">#{{ tag }}</span>
+  </nav>
+  <span class="inline-block px-md py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-caps uppercase mb-sm">Tag</span>
+  <h1 class="font-h1 text-h3 md:text-h2 text-primary">Resources tagged #{{ tag }}</h1>
+  <p class="font-body-md text-on-surface-variant mt-xs">{{ len(projects) }} resource{{ 's' if len(projects) != 1 }}</p>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter pb-2xl">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
     {% for project in projects %}
-    <tr>
-      <td><a href="{{ project['link'] }}">{{ project['name'] }}</a></td>
-      <td>{{ info_to_html(project['info']) }}</td>
-      <td>{% set tags = project['tags'] %}
-            {% for tag in  tags %}
-                <a href="/resources/tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %},{% endif %}
-            {% endfor %}</td>
-    </tr>
+    <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md hover:border-primary/30 transition-all flex flex-col gap-md">
+      <div class="flex items-start justify-between gap-md">
+        <h3 class="font-h4 text-h4 text-on-surface flex-1">
+          <a href="{{ project['link'] }}" target="_blank" rel="noopener" class="hover:text-primary transition-colors">{{ project['name'] }}</a>
+        </h3>
+        <a href="{{ project['link'] }}" target="_blank" rel="noopener" class="shrink-0 w-9 h-9 rounded-lg bg-surface-container-high text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" aria-label="Open">
+          <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+        </a>
+      </div>
+      {% if project['info'] %}
+      <p class="font-body-sm text-on-surface-variant">{{ info_to_html(project['info']) | safe }}</p>
+      {% endif %}
+      {% if project['tags'] %}
+      <div class="flex flex-wrap gap-xs pt-sm border-t border-outline-variant/30">
+        {% for t in project['tags'] %}
+          <a href="{{ path }}resources/tag/{{ t }}" class="px-sm py-xs rounded-full bg-surface-container text-on-surface-variant text-[11px] font-medium hover:bg-primary hover:text-on-primary transition-colors">#{{ t }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </article>
     {% endfor %}
-  </tbody>
-</table>
+  </div>
+</section>
 {% endblock %}

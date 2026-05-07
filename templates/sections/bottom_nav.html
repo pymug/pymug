@@ -1,0 +1,18 @@
+{% set bnav_items = [
+  ('about', 'Home', 'home', path),
+  ('event', 'Events', 'calendar_month', path ~ 'event'),
+  ('members', 'Members', 'groups', path ~ 'members'),
+  ('blog', 'Blog', 'article', path ~ 'blog'),
+  ('faq', 'FAQs', 'help', path ~ 'faq')
+] %}
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-t border-outline-variant shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+  <div class="flex justify-around items-center h-16 px-md">
+    {% for key, label, icon, url in bnav_items %}
+      {% set is_active = (section == key) or (key == 'about' and section in ['why', 'about', 'aim', 'join', 'translations']) %}
+      <a href="{{ url }}" class="flex flex-col items-center justify-center gap-1 {% if is_active %}text-primary font-bold{% else %}text-on-surface-variant font-medium{% endif %} transition-colors">
+        <span class="material-symbols-outlined" {% if is_active %}style="font-variation-settings: 'FILL' 1;"{% endif %}>{{ icon }}</span>
+        <span class="text-[10px] font-label-caps">{{ label }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</nav>

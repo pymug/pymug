@@ -1,39 +1,41 @@
 {% extends 'base.html' %}
 {% set section = 'resources' %}
 {% block head %}
-    <title>Resources</title>
+  <title>Resources | PyMUG</title>
 {% endblock %}
 {% block body %}
-    <br> <!--(br)TEMPORAL SOLUTION-->
-    <h2 class="text-center titles">Curated resources</h2>
-    <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam molestiae, repellat, minus, molestias voluptates odit, veniam commodi ullam nesciunt esse alias placeat eaque harum voluptate hic expedita maxime cupiditate amet!
-    </p>
-
-    <div class="container">
-        <div class="columns">
-            {% for category in info['resources'] %}
-                {% set description = info['resources'][category]['description'] %}
-                {% set posts_count = len(info['resources'][category]['posts']) %}
-                <div class="column col-4 col-xs-12 col-sm-12 col-md-6" style="margin-bottom: 30px">
-                    <a class="card" href="/resources/c/{{ category }}/" target="_blank">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="../static/curated_resources_images/{{ category }}.png" class="img-responsive">
-                            </div>
-                            <div class="card-header">
-                                <div class="card-title h6">{{ category.replace('_', ' ').capitalize() }}</div>
-                                <div class="card-subtitle text-gray">{{ description }}</div>
-                            </div>
-                            <!--
-                            <div class="card-body">
-                                {{ description }}
-                            </div>
-                            -->
-                        </div>
-                     </a>
-                </div>
-            {% endfor %}
-        </div>
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+  <div class="bg-primary text-on-primary rounded-2xl p-xl md:p-2xl relative overflow-hidden">
+    <div class="absolute -top-10 -left-10 w-64 h-64 bg-tertiary/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-secondary/20 rounded-full blur-3xl"></div>
+    <div class="relative max-w-2xl">
+      <span class="inline-block px-md py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-caps uppercase mb-md">Curated</span>
+      <h1 class="font-h1 text-h3 md:text-h2 lg:text-h1 mb-md">Resources</h1>
+      <p class="font-body-md md:font-body-lg text-primary-fixed">A curated collection of community-shared links and learning paths for Python developers in Mauritius.</p>
     </div>
+  </div>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter pb-2xl">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+    {% for category in info['resources'] %}
+      {% set description = info['resources'][category]['description'] %}
+      {% set posts_count = len(info['resources'][category]['posts']) %}
+      <a href="{{ path }}resources/c/{{ category }}/" class="group bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="aspect-[16/9] bg-surface-container-high relative overflow-hidden">
+          <img src="{{ path }}static/curated_resources_images/{{ category }}.png" alt="{{ category|replace('_',' ') }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.style.display='none'">
+          <div class="absolute inset-0 bg-gradient-to-t from-on-background/40 to-transparent"></div>
+          <span class="absolute top-md right-md bg-surface/90 backdrop-blur px-sm py-xs rounded-full font-label-caps text-on-surface">{{ posts_count }} item{{ 's' if posts_count != 1 }}</span>
+        </div>
+        <div class="p-lg">
+          <h3 class="font-h4 text-h4 text-on-surface group-hover:text-primary transition-colors capitalize">{{ category|replace('_', ' ') }}</h3>
+          <p class="font-body-sm text-on-surface-variant mt-xs line-clamp-2">{{ description }}</p>
+          <span class="mt-md inline-flex items-center gap-xs text-primary font-bold text-body-sm">
+            Explore <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}

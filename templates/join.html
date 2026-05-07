@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 {% set section = 'join' %}
 {% block head %}
-  <title>Join</title>
+  <title>Join | PyMUG</title>
 {% endblock %}
 {% block body %}
-<div id='join'>
-    <h2 class="text-center titles">Join the WG</h2>
-    See how to join the WG <a href="https://github.com/flaskcwg/join-requests/blob/main/README.md">here</a>
-</div>
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-2xl">
+  <div class="bg-primary text-on-primary rounded-2xl p-xl md:p-2xl text-center max-w-3xl mx-auto">
+    <span class="material-symbols-outlined text-secondary-container text-[48px]">groups</span>
+    <h1 class="font-h1 text-h3 md:text-h2 mt-md mb-md">Join the WG</h1>
+    <p class="font-body-md md:font-body-lg text-primary-fixed mb-lg max-w-xl mx-auto">See how to become part of the Python Mauritius User Group.</p>
+    <a href="https://github.com/flaskcwg/join-requests/blob/main/README.md" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-secondary-container text-on-secondary-container px-lg py-md rounded-lg font-bold hover:scale-105 transition-transform">
+      How to join
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+</section>
 {% endblock %}

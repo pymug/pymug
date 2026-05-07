@@ -1,0 +1,54 @@
+{% set nav_items = [
+  ('about', 'About', path),
+  ('event', 'Events', path ~ 'event'),
+  ('members', 'Members', path ~ 'members'),
+  ('blog', 'Blog', path ~ 'blog'),
+  ('resources', 'Resources', path ~ 'resources'),
+  ('faq', 'FAQs', path ~ 'faq')
+] %}
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm">
+  <nav class="flex justify-between items-center h-16 max-w-container-max mx-auto px-gutter">
+    <a href="{{ path }}" class="flex items-center gap-sm">
+      <img src="/static/logo/pymug_new.svg" alt="PyMUG logo" class="w-8 h-8">
+      <span class="font-h4 text-h4 font-bold text-primary">PyMUG</span>
+    </a>
+    <div class="hidden md:flex items-center gap-lg">
+      {% for key, label, url in nav_items %}
+        {% if section == key or (key == 'about' and section in ['why', 'about', 'aim', 'join', 'translations']) %}
+          <a href="{{ url }}" class="font-body-sm text-body-sm text-primary font-bold border-b-2 border-primary pb-1 transition-colors">{{ label }}</a>
+        {% else %}
+          <a href="{{ url }}" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">{{ label }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="flex items-center gap-sm">
+      <a href="https://www.meetup.com/pymauritius/" target="_blank" rel="noopener" class="hidden md:inline-flex bg-secondary-container text-on-secondary-container px-md py-sm rounded-lg font-bold text-body-sm hover:scale-95 active:scale-90 transition-transform duration-150">Join Meetup</a>
+      <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+    <div class="px-gutter py-md flex flex-col gap-xs">
+      {% for key, label, url in nav_items %}
+        {% if section == key or (key == 'about' and section in ['why', 'about', 'aim', 'join', 'translations']) %}
+          <a href="{{ url }}" class="px-md py-sm rounded-lg bg-primary-container text-on-primary font-bold text-body-md">{{ label }}</a>
+        {% else %}
+          <a href="{{ url }}" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">{{ label }}</a>
+        {% endif %}
+      {% endfor %}
+      <a href="https://www.meetup.com/pymauritius/" target="_blank" rel="noopener" class="mt-sm bg-secondary-container text-on-secondary-container text-center px-md py-sm rounded-lg font-bold text-body-md">Join Meetup</a>
+    </div>
+  </div>
+</header>
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', function () {
+        menu.classList.toggle('hidden');
+      });
+    }
+  })();
+</script>

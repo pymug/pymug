@@ -1,89 +1,75 @@
-{% extends 'base.html' %} {% set section = 'members' %} {% block head %}
-<title>Members</title>
-<link
-    async
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
-
-{% endblock %} {% block body %}
-<style>
-  .table-dots .docs-dot {
-    border-radius: 50%;
-    display: inline-block;
-    height: 0.5rem;
-    padding: 0;
-    width: 0.5rem;
-  }
-</style>
+{% extends 'base.html' %}
+{% set section = 'members' %}
+{% block head %}
+  <title>Members | PyMUG</title>
+{% endblock %}
+{% block body %}
 {% set speakers = namespace(value=0) %}
-{% for github_username in
-info['profiles'] %}
-{% set data = info['profiles'][github_username] %}
-{% if
-user_sessions(info['events'], github_username)[1] %}
-{% set speakers.value =
-speakers.value + 1 %}
-{%endif%}
+{% set organisers = namespace(value=0) %}
+{% set honoraries = namespace(value=0) %}
+{% for github_username in info['profiles'] %}
+  {% set data = info['profiles'][github_username] %}
+  {% if user_sessions(info['events'], github_username)[1] %}{% set speakers.value = speakers.value + 1 %}{% endif %}
+  {% if data['meta']['organiser'] == 'y' %}{% set organisers.value = organisers.value + 1 %}{% endif %}
+  {% if data['meta']['honorary'] == 'y' %}{% set honoraries.value = honoraries.value + 1 %}{% endif %}
 {% endfor %}
-<div id="members" class="column col-12">
-    <h2 class="text-center titles">Members</h2>
-    <div class="column col-12 col-mx-auto">
-        <table class="table table-dots table-striped text-center">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Admin</th>
-                    <th>Speaker ({{speakers.value}})</th>
-                    <th>Honorary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for github_username in info['profiles'] %} {% set data =
-                info['profiles'][github_username] %}
-                <tr>
-                    <!--NAME TD-->
-                    <td class="text-left">
-                        <a href="/u/{{ github_username }}">{{ data['meta']['name']
-                            }}</a>
-                    </td>
 
-                    <!--ADMIN TD-->
-                    <td>
-                        {% if data['meta']['organiser'] == 'y' %}
-                        <span title="Organiser"><i
-                                style="color: #5cd150; font-size: 16px"
-                                class="fa fa-shield-alt"></i></span>
-                        {% endif %}
-                    </td>
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+  <h1 class="font-h1 text-h3 md:text-h2 text-primary mb-sm">Community Members</h1>
+  <p class="font-body-md md:font-body-lg text-on-surface-variant max-w-2xl">Meet the developers, organisers and contributors of the Python Mauritius User Group.</p>
 
-                    <!--SPEAKER TD-->
-                    <td>
-                        {% if user_sessions(info['events'], github_username)[1]
-                        %}
-                        <span title="Speaker"><i
-                                style="color: #5cd150; font-size: 16px"
-                                class="fa fa-comment"></i></span>
-                        {% set speakers.value = speakers.value + 1 %} {%endif%}
-                    </td>
-
-                    <!--HONORARY TD-->
-                    <td>
-                        {% if data['meta']['honorary'] == 'y' %}
-                        <span title="Honorary member"><i
-                                style="color: #5cd150; font-size: 16px"
-                                class="fa fa-award"></i></span>
-                        {% endif %}
-                    </td>
-
-                    <td></td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-md mt-lg">
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-md">
+      <div class="font-h3 text-h4 md:text-h3 text-primary font-bold">{{ len(info['profiles']) }}</div>
+      <div class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs">Members</div>
     </div>
-</div>
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-md">
+      <div class="font-h3 text-h4 md:text-h3 text-primary font-bold">{{ speakers.value }}</div>
+      <div class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs">Speakers</div>
+    </div>
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-md">
+      <div class="font-h3 text-h4 md:text-h3 text-primary font-bold">{{ organisers.value }}</div>
+      <div class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs">Organisers</div>
+    </div>
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-md">
+      <div class="font-h3 text-h4 md:text-h3 text-primary font-bold">{{ honoraries.value }}</div>
+      <div class="font-label-caps text-label-caps text-on-surface-variant uppercase mt-xs">Honorary</div>
+    </div>
+  </div>
+</section>
 
+<section class="max-w-container-max mx-auto px-gutter pb-2xl">
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-md">
+    {% for github_username in info['profiles'] %}
+      {% set data = info['profiles'][github_username] %}
+      {% set is_speaker = user_sessions(info['events'], github_username)[1] %}
+      {% set is_organiser = data['meta']['organiser'] == 'y' %}
+      {% set is_honorary = data['meta']['honorary'] == 'y' %}
+      {% set is_founder = data['meta']['founder'] == 'y' %}
+      <a href="{{ path }}u/{{ github_username }}" class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-md shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
+        <div class="relative mb-md">
+          <img alt="{{ data['meta']['name'] }}" src="https://avatars.githubusercontent.com/{{ github_username }}" class="w-full aspect-square object-cover rounded-lg {% if is_founder %}ring-4 ring-secondary-container{% endif %}">
+          {% if is_organiser %}
+          <span class="absolute -bottom-2 -right-2 w-7 h-7 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center border-2 border-surface-container-lowest" title="Organiser">
+            <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">shield</span>
+          </span>
+          {% endif %}
+        </div>
+        <h3 class="font-h4 text-body-md font-bold text-on-surface group-hover:text-primary transition-colors truncate">{{ data['meta']['name'] }}</h3>
+        <p class="font-code text-[11px] text-on-surface-variant truncate">@{{ github_username }}</p>
+        <div class="flex flex-wrap gap-xs mt-sm">
+          {% if is_founder %}
+            <span class="px-xs py-[2px] bg-secondary-container text-on-secondary-container rounded text-[9px] font-bold uppercase tracking-wider">Founder</span>
+          {% endif %}
+          {% if is_speaker %}
+            <span class="px-xs py-[2px] bg-tertiary-container/10 text-tertiary rounded text-[9px] font-bold uppercase tracking-wider">Speaker</span>
+          {% endif %}
+          {% if is_honorary %}
+            <span class="px-xs py-[2px] bg-primary-container/10 text-primary rounded text-[9px] font-bold uppercase tracking-wider">Honorary</span>
+          {% endif %}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}

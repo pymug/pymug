@@ -1,44 +1,39 @@
 {% extends 'base.html' %}
 {% set section = 'blog' %}
 {% block head %}
-  <title>Posts for {{ category }}</title>
+  <title>{{ category|capitalize }} | PyMUG Blog</title>
 {% endblock %}
 {% block body %}
-<div id='posts'>
-    <h3>Blog Posts For Category: {{ category }}</h3>
-    <div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Author/s</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-                {% for blog_post in posts %}
-                    <tr>
-                        <td>
-                            <a href="{{path}}b/{{ blog_post['slug'] }}">{{ blog_post['title'] }}</a>
-                        </td>
-                        <td>
-                            {{ blog_post['date'] }}
-                        </td>
-                        <td>
-                            {% set authors = blog_post['authors'] %}
-                            {% for author in authors %}
-                                <a href="{{path}}u/{{ author }}">{{ author }}</a>{% if (not loop.index == len(authors)) %},{% endif %}
-                            {% endfor %}
-                        </td>
-                    </tr>
-                {% endfor %}
-                
-            </tbody>
-        </table>
-    </div>
-    <p>
-        
-    </p>
-</div>
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+  <nav class="flex items-center gap-xs mb-md text-on-surface-variant overflow-x-auto hide-scrollbar whitespace-nowrap">
+    <a href="{{ path }}" class="font-body-sm hover:text-primary">Home</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <a href="{{ path }}blog" class="font-body-sm hover:text-primary">Blog</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <span class="font-body-sm font-bold text-primary capitalize">{{ category }}</span>
+  </nav>
+  <span class="inline-block px-md py-xs rounded-full bg-tertiary-container/10 text-tertiary font-label-caps uppercase mb-sm">Category</span>
+  <h1 class="font-h1 text-h3 md:text-h2 text-primary capitalize">{{ category }}</h1>
+  <p class="font-body-md text-on-surface-variant mt-xs">{{ len(posts) }} post{{ 's' if len(posts) != 1 }}</p>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter pb-2xl">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+    {% for blog_post in posts %}
+    <a href="{{ path }}b/{{ blog_post['slug'] }}" class="group bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-lg hover:-translate-y-0.5 transition-all">
+      <div class="flex items-center gap-xs mb-sm">
+        <span class="font-body-sm text-on-surface-variant">{{ blog_post['date'] }}</span>
+      </div>
+      <h2 class="font-h4 text-h4 text-on-surface mb-md group-hover:text-primary transition-colors">{{ blog_post['title'] }}</h2>
+      <div class="flex items-center justify-between pt-md border-t border-outline-variant/30">
+        <span class="font-body-sm text-on-surface-variant">
+          {% set authors = blog_post['authors'] %}
+          {% for author in authors %}{{ author }}{% if not loop.last %}, {% endif %}{% endfor %}
+        </span>
+        <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}

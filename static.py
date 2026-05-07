@@ -499,9 +499,14 @@ def generate_menu_pages(args):
     logging.info("Start Generating menu pages...")
 
     generate("index.html", join(settings.OUTPUT_FOLDER, "index.html"), **context)
-    context.update({"path": "../"})
-
     logging.info("Generating index.html...")
+
+    # 404 page lives at site root so GitHub Pages / static hosts can serve it for any unknown URL.
+    # Path stays "/" so its nav links resolve absolutely from whatever URL the user landed on.
+    generate("404.html", join(settings.OUTPUT_FOLDER, "404.html"), **context)
+    logging.info("Generating 404.html...")
+
+    context.update({"path": "../"})
 
     # ensure_output_folder("translations")
 

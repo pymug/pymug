@@ -1,39 +1,70 @@
 {% extends 'base.html' %}
 {% set section = 'blog' %}
 {% block head %}
-    <title>{{ post['title'] }}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
+  <title>{{ post['title'] }} | PyMUG Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
 {% endblock %}
 {% block body %}
-<br>
-<h3 style="font-size: 27px;">{{ post['title'] }}</h3>
-<div style="font-size: 13px;">
-    <span class="lab"><i class="im im-user-circle"></i> </span>
-    {% set authors = post['authors'] %}
-    {% for author in  authors %}
-        <a class="label-secondary" href="{{ profile_url(path, author) }}">{{ author }}</a>{% if (not loop.index == len(authors)) %}, {% endif %}
-    {% endfor %}
-    <span class="sep2"></span>
+<article class="max-w-3xl mx-auto px-gutter pt-lg pb-2xl">
+  <nav class="flex items-center gap-xs mb-md text-on-surface-variant overflow-x-auto hide-scrollbar whitespace-nowrap">
+    <a href="{{ path }}" class="font-body-sm hover:text-primary">Home</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <a href="{{ path }}blog" class="font-body-sm hover:text-primary">Blog</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    {% if post['category'] %}
+      <a href="{{ path }}category/{{ post['category'] }}" class="font-body-sm hover:text-primary capitalize">{{ post['category'] }}</a>
+      <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    {% endif %}
+    <span class="font-body-sm font-bold text-primary truncate">{{ post['title'] }}</span>
+  </nav>
 
-    <span class="lab"><i class="im im-calendar"></i> </span><span class="val">{{ post['date'] }}</span>
-    
-    <span class="sep2"></span>
-    
-    <span class="lab"><i class="im im-folder-open"></i></span>
-    <a class="label-secondary" href="{{ path }}category/{{ post['category'] }}">{{ post['category'] }}</a>
-</div>
-<div class="sep3"></div>
-<div style="font-size: 13px;">
-    <span class="lab"><i class="im im-tags"></i> </span>
-    {% set tags = post['tags'] %}
-    {% for tag in  tags %}
-        <a class="tag label" href="{{ path }}tag/{{ tag }}">{{ tag }}</a>{% if (not loop.index == len(tags)) %}{% endif %}
-    {% endfor %}
-</div>
-<div class="sep"></div>
-<div class="container post-content">
-    {{ post['content'] }}
-</div>
+  <header class="mb-xl">
+    {% if post['category'] %}
+    <a href="{{ path }}category/{{ post['category'] }}" class="inline-block px-md py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-caps mb-md uppercase">{{ post['category'] }}</a>
+    {% endif %}
+    <h1 class="font-h1 text-[32px] md:text-[44px] leading-tight mb-md text-primary">{{ post['title'] }}</h1>
+    <div class="flex flex-wrap items-center gap-md text-on-surface-variant">
+      <div class="flex items-center gap-sm">
+        {% set authors = post['authors'] %}
+        <div class="flex -space-x-2">
+          {% for author in authors[:3] %}
+            <img src="https://avatars.githubusercontent.com/{{ author }}" alt="{{ author }}" class="w-8 h-8 rounded-full border-2 border-surface">
+          {% endfor %}
+        </div>
+        <div>
+          <div class="font-body-sm font-bold text-on-surface">
+            {% for author in authors %}<a href="{{ profile_url(path, author) }}" class="hover:text-primary">{{ author }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+          </div>
+          <div class="font-body-sm text-on-surface-variant">{{ post['date'] }}</div>
+        </div>
+      </div>
+    </div>
+    {% if post['tags'] %}
+    <div class="flex flex-wrap gap-xs mt-md">
+      {% for tag in post['tags'] %}
+        <a href="{{ path }}tag/{{ tag }}" class="px-sm py-xs rounded-full bg-surface-container-high text-on-surface-variant text-[11px] font-medium hover:bg-primary hover:text-on-primary transition-colors">#{{ tag }}</a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+
+  <div class="prose max-w-none">
+    {{ post['content'] | safe }}
+  </div>
+
+  <nav class="mt-2xl pt-lg border-t border-outline-variant flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-md">
+    <a href="{{ path }}blog" class="inline-flex items-center gap-sm text-primary font-bold hover:gap-md transition-all">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Back to all posts
+    </a>
+    {% if post['category'] %}
+    <a href="{{ path }}category/{{ post['category'] }}" class="inline-flex items-center gap-sm text-on-surface-variant hover:text-primary font-medium">
+      More in <span class="font-bold capitalize">{{ post['category'] }}</span>
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+    {% endif %}
+  </nav>
+</article>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>

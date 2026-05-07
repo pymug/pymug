@@ -1,43 +1,141 @@
 {% extends 'base.html' %}
 {% set section = 'event' %}
 {% block head %}
-    <title>{{event['title']}}</title>
+  <title>{{ event['title'] }} | PyMUG</title>
 {% endblock %}
 {% block body %}
-<div id='posts'>
-    
-    <div class="panel">
-  <div class="panel-header">
-    <div class="panel-title"><h3>{{ event['title'] }}</h3> <span class="chip">{{ event['date'] }}</span>
-        <a href="{{event['register']}}" target="_blank">
-            <button class="btn btn-primary">Register</button>
-        </a>
-    </div>
-  </div>
-  <div class="panel-nav">
-    <!-- navigation components: tabs, breadcrumbs or pagination -->
-  </div>
-  <div class="panel-body">
-    <!-- contents -->
-    <hr>
-    <div>
-        {% for session in event['sessions'] %}
-            <h5>{{ session['title'] }} 
-                {% if session['presented'] %}<i class="fa fa-check" style="color: #00e155" title="presented"></i>{% else %} <i class="fa fa-times" style="color: #e10025" title="not presented"></i> {%endif%}
-                {% if session['remote'] %}<i class="fa fa-wifi" title="remote"></i>{% endif %}
-            </h5>
-            <p> 
-                {{ session['info'] }}<br>
-                <i class="fa fa-comment-alt"></i> {% for speaker in session['speaker/s'] %} <a href="/u/{{speaker}}">{{ speaker }}</a> {% endfor %}
-            </p>
-        {% endfor %}
-    </div>
-  </div>
-  <div class="panel-footer">
-    <!-- buttons or inputs -->
-  </div>
-</div>
+<section class="max-w-container-max mx-auto px-gutter pt-lg">
+  <nav class="flex items-center gap-xs mb-md text-on-surface-variant overflow-x-auto hide-scrollbar whitespace-nowrap">
+    <a href="{{ path }}" class="font-body-sm hover:text-primary">Home</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <a href="{{ path }}event" class="font-body-sm hover:text-primary">Events</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <span class="font-body-sm font-bold text-primary truncate">{{ event['title'] }}</span>
+  </nav>
 
-    {{event['raw_html']}}
-</div> 
+  <header class="relative rounded-2xl overflow-hidden mb-xl bg-gradient-to-br from-primary to-primary-container">
+    <div class="absolute inset-0 bg-[url('/static/logo/pymug_new.svg')] bg-no-repeat bg-right-bottom bg-contain opacity-10"></div>
+    <div class="relative p-lg md:p-xl text-on-primary">
+      <div class="flex flex-wrap gap-md items-center mb-md">
+        <span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-caps">EVENT</span>
+        {% if event['date'] %}
+        <div class="flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-secondary-container">calendar_today</span>
+          <span class="font-body-sm">{{ event['date'] }}</span>
+        </div>
+        {% endif %}
+      </div>
+      <h1 class="font-h2 text-h3 md:text-h2 mb-lg leading-tight max-w-3xl">{{ event['title'] }}</h1>
+      {% if event['register'] %}
+      <a href="{{ event['register'] }}" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-secondary-container text-on-secondary-container font-bold px-lg py-md rounded-lg hover:scale-105 active:scale-95 transition-transform">
+        Register
+        <span class="material-symbols-outlined">arrow_forward</span>
+      </a>
+      {% endif %}
+    </div>
+  </header>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter pb-2xl grid grid-cols-1 lg:grid-cols-12 gap-lg">
+  <div class="lg:col-span-8 space-y-lg">
+    {% if event['sessions'] %}
+    <div>
+      <div class="flex items-end justify-between mb-md">
+        <h2 class="font-h3 text-h4 md:text-h3 text-primary">Event Sessions</h2>
+        <span class="font-body-sm text-on-surface-variant">{{ len(event['sessions']) }} session{{ 's' if len(event['sessions']) != 1 }}</span>
+      </div>
+      <div class="space-y-md">
+        {% for session in event['sessions'] %}
+        <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md transition-shadow border-l-4 {% if session['presented'] %}border-l-tertiary{% else %}border-l-outline-variant{% endif %}">
+          <div class="flex justify-between items-start gap-md mb-sm flex-wrap">
+            <h3 class="font-h4 text-h4 text-on-surface flex-1">{{ session['title'] }}</h3>
+            <div class="flex items-center gap-xs">
+              {% if session['presented'] %}
+                <span class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-tertiary-container/10 text-tertiary font-label-caps uppercase">
+                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Presented
+                </span>
+              {% else %}
+                <span class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-error-container text-on-error-container font-label-caps uppercase">
+                  <span class="material-symbols-outlined text-[14px]">schedule</span>
+                  Pending
+                </span>
+              {% endif %}
+              {% if session['remote'] %}
+                <span class="inline-flex items-center px-md py-xs rounded-full bg-primary-container/10 text-primary font-label-caps uppercase" title="Remote">
+                  <span class="material-symbols-outlined text-[14px]">wifi</span>
+                </span>
+              {% endif %}
+            </div>
+          </div>
+          {% if session['info'] %}
+          <p class="font-body-md text-on-surface-variant mb-md">{{ session['info'] }}</p>
+          {% endif %}
+          {% if session['speaker/s'] %}
+          <div class="flex flex-wrap items-center gap-sm pt-sm border-t border-outline-variant/30">
+            <span class="font-label-caps text-on-surface-variant uppercase">Speaker{{ 's' if len(session['speaker/s']) != 1 }}</span>
+            {% for speaker in session['speaker/s'] %}
+              <a href="{{ path }}u/{{ speaker }}" class="inline-flex items-center gap-xs bg-surface-container rounded-full pr-md py-xs pl-xs border border-outline-variant/30 hover:border-primary transition-colors">
+                <img src="https://avatars.githubusercontent.com/{{ speaker }}" alt="{{ speaker }}" class="w-6 h-6 rounded-full object-cover">
+                <span class="font-code text-[12px] text-on-surface">@{{ speaker }}</span>
+              </a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    {% if event['raw_html'] %}
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-lg">
+      <h2 class="font-h3 text-h4 text-primary mb-md">Details</h2>
+      <div class="prose event-content max-w-none">
+        {{ event['raw_html'] | safe }}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <aside class="lg:col-span-4 space-y-md">
+    <div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant/50">
+      <h4 class="font-h4 text-h4 mb-md">Event Info</h4>
+      <div class="space-y-sm">
+        {% if event['date'] %}
+        <div class="flex items-start gap-sm">
+          <span class="material-symbols-outlined text-primary mt-[2px]">calendar_today</span>
+          <div>
+            <div class="font-label-caps text-on-surface-variant uppercase">Date</div>
+            <div class="font-body-md text-on-surface font-medium">{{ event['date'] }}</div>
+          </div>
+        </div>
+        {% endif %}
+        <div class="flex items-start gap-sm">
+          <span class="material-symbols-outlined text-primary mt-[2px]">groups</span>
+          <div>
+            <div class="font-label-caps text-on-surface-variant uppercase">Sessions</div>
+            <div class="font-body-md text-on-surface font-medium">{{ len(event['sessions']) }}</div>
+          </div>
+        </div>
+      </div>
+      {% if event['register'] %}
+      <a href="{{ event['register'] }}" target="_blank" rel="noopener" class="mt-md w-full inline-flex items-center justify-center gap-sm bg-primary text-on-primary font-bold py-md rounded-lg hover:shadow-md transition-all active:scale-95">
+        Register
+        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      </a>
+      {% endif %}
+    </div>
+
+    <a href="{{ path }}event" class="block bg-surface-container-lowest p-lg rounded-xl border border-outline-variant/50 hover:border-primary transition-colors group">
+      <div class="flex items-center gap-sm">
+        <span class="material-symbols-outlined text-primary">arrow_back</span>
+        <div>
+          <div class="font-label-caps text-on-surface-variant uppercase">Browse</div>
+          <div class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">All events</div>
+        </div>
+      </div>
+    </a>
+  </aside>
+</section>
 {% endblock %}
