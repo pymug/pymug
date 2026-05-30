@@ -26,8 +26,8 @@
         {% endif %}
       </div>
       <div class="flex-1 pb-base">
-        <h1 class="font-h2 text-h3 md:text-h2 text-on-surface mb-xs">{{ data['meta']['name'] }}</h1>
-        <p class="font-code text-code text-primary font-medium">@{{ github_username }}</p>
+        <h1 class="font-h2 text-h3 md:text-h2 text-white mb-xs">{{ data['meta']['name'] }}</h1>
+        <p class="font-code text-code text-white/70 font-medium">@{{ github_username }}</p>
         <div class="flex flex-wrap items-center gap-xs mt-md">
           {% if is_founder %}
             <span class="px-md py-xs bg-secondary-container text-on-secondary-container rounded-full font-label-caps uppercase">Founder</span>
@@ -42,6 +42,10 @@
             <span class="px-md py-xs bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label-caps uppercase">Honorary</span>
           {% endif %}
         </div>
+        <a href="https://github.com/pymug/pymug/tree/master/data/members/{{ github_username }}.md" target="_blank" rel="noopener" class="self-start mt-md inline-flex items-center gap-[3px] px-sm py-[3px] rounded-md border border-outline-variant text-on-surface-variant font-medium text-[11px] hover:bg-surface-container-high hover:text-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-[13px]">edit</span>
+          Edit
+        </a>
       </div>
     </div>
   </div>

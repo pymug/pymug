@@ -32,7 +32,7 @@
         {% set ev_total.value = ev_total.value + 1 %}
         {% if s['presented'] %}{% set ev_done.value = ev_done.value + 1 %}{% endif %}
       {% endfor %}
-      {% set is_upcoming = ev_done.value < ev_total.value %}
+      {% set is_upcoming = ev_slug in upcoming_slugs %}
       <a href="{{ path }}event/{{ ev_slug }}" class="group bg-surface-container-low border border-outline-variant rounded-xl p-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
         <div>
           <div class="flex justify-between items-start mb-md">
@@ -50,6 +50,12 @@
             <p class="text-on-surface-variant text-body-sm mt-sm flex items-center gap-xs">
               <span class="material-symbols-outlined text-[16px]">calendar_today</span>
               {{ ev['date'] }}
+            </p>
+          {% endif %}
+          {% if ev['venue'] %}
+            <p class="text-on-surface-variant text-body-sm flex items-center gap-xs">
+              <span class="material-symbols-outlined text-[16px]">location_on</span>
+              {{ ev['venue'] }}
             </p>
           {% endif %}
         </div>

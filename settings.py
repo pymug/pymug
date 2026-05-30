@@ -67,6 +67,108 @@ for github_username in github_usernames:
 
 
 events = {
+        "jun-2026": {
+            "title": "Python Meetup June 2026",
+            "venue": "TBD",
+            'date': 'June 20, 2026',
+            'raw_html': '',
+            "attendees": {'reg': 0, 'came':0},
+            'register': 'https://www.meetup.com/pymauritius/events/',
+            'sessions': [],
+        },
+        "mar-2026": {
+            "title": "Python Meetup March 2026",
+            "venue": "Coders Faculty, Curepipe",
+            'date': 'March 15, 2026',
+            'raw_html': '',
+            "attendees": {'reg': 0, 'came':0},
+            'register': 'https://www.meetup.com/pymauritius/events/',
+            'sessions': [
+                {
+                    'title': "RAG systems (types of rag) + rag vs mcp",
+                    'info': '',
+                    'speaker/s': ['urusha-jeetun'],
+                    'presented': 1,
+                    'remote': 0
+                },
+                {
+                    'title': "ZVec: Inside Alibaba's Newest Drop",
+                    'info': '',
+                    'speaker/s': ['Abdur-RahmaanJ'],
+                    'presented': 1,
+                    'remote': 0
+                },
+            ],
+        },
+        "jan-2026": {
+            "title": "Python Meetup January 2026",
+            "venue": "Coder Faculty, Curepipe",
+            'date': 'January 25, 2026',
+            'raw_html': '',
+            "attendees": {'reg': 0, 'came':0},
+            'register': 'https://www.meetup.com/pymauritius/events/',
+            'sessions': [
+                {
+                    'title': "Gemini, My Washing Machine and Me: A journey into LLM Context Windows",
+                    'info': '',
+                    'speaker/s': ['kherin'],
+                    'presented': 1,
+                    'remote': 0
+                },
+                {
+                    'title': "Taking the plunge into Delta Lake",
+                    'info': '',
+                    'speaker/s': ['nythiennzo-madooray'],
+                    'presented': 1,
+                    'remote': 0
+                },
+                {
+                    'title': "Testing the Boring Stuff with Pytest",
+                    'info': '',
+                    'speaker/s': ['dominiquetheodore'],
+                    'presented': 1,
+                    'remote': 0
+                },
+                {
+                    'title': "Talk TBD",
+                    'info': '',
+                    'speaker/s': ['nirmal-k-r'],
+                    'presented': 1,
+                    'remote': 0
+                },
+            ],
+        },
+        "may-2025": {
+            "title": "Python Meetup May 2025",
+            "venue": "Developers Institute, Nouvelle Usine, Mangalkhan, Floreal",
+            'date': 'May 24, 2025',
+            'raw_html': '',
+            "attendees": {'reg': 0, 'came':0},
+            'register': '#',
+            'sessions': [
+                {
+                    'title': "From Prototype to Production: Best Practices for Machine Learning at Scale",
+                    'info': '',
+                    'speaker/s': ['prashant-ramhit', 'rayhaan-dustagheer'],
+                    'presented': 1,
+                    'remote': 0
+                },
+                {
+                    'title': "Marimo: Not Your Grandma's Notebook",
+                    'info': '',
+                    'speaker/s': ['kherin'],
+                    'presented': 1,
+                    'remote': 0
+                },
+                {
+                    'title': "Designing Practical AI Agents",
+                    'info': '',
+                    'speaker/s': ['urusha-jeetun'],
+                    'presented': 1,
+                    'remote': 0
+                },
+            ],
+        },
         "feb-2025": {
             "title": "Python Meetup February 2025",
             "venue": "Coderfaculty, Curepipe",

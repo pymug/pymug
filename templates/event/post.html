@@ -24,12 +24,18 @@
           <span class="font-body-sm">{{ event['date'] }}</span>
         </div>
         {% endif %}
+        {% if event['venue'] %}
+        <div class="flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-secondary-container">location_on</span>
+          <span class="font-body-sm">{{ event['venue'] }}</span>
+        </div>
+        {% endif %}
       </div>
       <h1 class="font-h2 text-h3 md:text-h2 mb-lg leading-tight max-w-3xl">{{ event['title'] }}</h1>
       {% if event['register'] %}
-      <a href="{{ event['register'] }}" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-secondary-container text-on-secondary-container font-bold px-lg py-md rounded-lg hover:scale-105 active:scale-95 transition-transform">
-        Register
-        <span class="material-symbols-outlined">arrow_forward</span>
+      <a href="{% if slug in upcoming_slugs %}{{ event['register'] }}{% else %}#{% endif %}" {% if slug in upcoming_slugs %}target="_blank" rel="noopener"{% endif %} class="inline-flex items-center gap-sm font-bold px-lg py-md rounded-lg transition-transform {% if slug in upcoming_slugs %}bg-secondary-container text-on-secondary-container hover:scale-105 active:scale-95{% else %}bg-surface-container text-on-surface-variant opacity-50 cursor-not-allowed{% endif %}">
+        {% if slug in upcoming_slugs %}Register{% else %}Past Event{% endif %}
+        <span class="material-symbols-outlined">{% if slug in upcoming_slugs %}arrow_forward{% else %}block{% endif %}</span>
       </a>
       {% endif %}
     </div>
@@ -111,6 +117,15 @@
           </div>
         </div>
         {% endif %}
+        {% if event['venue'] %}
+        <div class="flex items-start gap-sm">
+          <span class="material-symbols-outlined text-primary mt-[2px]">location_on</span>
+          <div>
+            <div class="font-label-caps text-on-surface-variant uppercase">Venue</div>
+            <div class="font-body-md text-on-surface font-medium">{{ event['venue'] }}</div>
+          </div>
+        </div>
+        {% endif %}
         <div class="flex items-start gap-sm">
           <span class="material-symbols-outlined text-primary mt-[2px]">groups</span>
           <div>
@@ -120,9 +135,9 @@
         </div>
       </div>
       {% if event['register'] %}
-      <a href="{{ event['register'] }}" target="_blank" rel="noopener" class="mt-md w-full inline-flex items-center justify-center gap-sm bg-primary text-on-primary font-bold py-md rounded-lg hover:shadow-md transition-all active:scale-95">
-        Register
-        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+      <a href="{% if slug in upcoming_slugs %}{{ event['register'] }}{% else %}#{% endif %}" {% if slug in upcoming_slugs %}target="_blank" rel="noopener"{% endif %} class="mt-md w-full inline-flex items-center justify-center gap-sm font-bold py-md rounded-lg transition-all {% if slug in upcoming_slugs %}bg-primary text-on-primary hover:shadow-md active:scale-95{% else %}bg-surface-container text-on-surface-variant opacity-50 cursor-not-allowed{% endif %}">
+        {% if slug in upcoming_slugs %}Register{% else %}Past Event{% endif %}
+        <span class="material-symbols-outlined text-[18px]">{% if slug in upcoming_slugs %}arrow_forward{% else %}block{% endif %}</span>
       </a>
       {% endif %}
     </div>

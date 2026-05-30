@@ -188,9 +188,24 @@ def generate_events():
 
     events = settings.info['events']
     info = settings.info
-    path = '../' 
+    path = '../'
     context = base_context()
     context.update(locals())
+
+    today = datetime.date.today()
+    upcoming_slugs = set()
+    for slug, ev in events.items():
+        d = ev['date']
+        try:
+            dt = datetime.datetime.strptime(d, '%B %d, %Y')
+        except ValueError:
+            try:
+                dt = datetime.datetime.strptime(d, '%B, %Y')
+            except ValueError:
+                continue
+        if dt.date() > today:
+            upcoming_slugs.add(slug)
+    context['upcoming_slugs'] = upcoming_slugs
     
     # for event in events
 
