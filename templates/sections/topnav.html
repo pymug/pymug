@@ -1,10 +1,11 @@
 {% set nav_items = [
   ('about', 'About', path),
   ('event', 'Events', path ~ 'event'),
-  ('members', 'Members', path ~ 'members'),
+  ('speakers', 'Speakers', path ~ 'speakers'),
   ('blog', 'Blog', path ~ 'blog'),
   ('resources', 'Resources', path ~ 'resources'),
-  ('faq', 'FAQs', path ~ 'faq')
+  ('faq', 'FAQs', path ~ 'faq'),
+  ('join', 'Join', path ~ 'join')
 ] %}
 <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm">
   <nav class="flex justify-between items-center h-16 max-w-container-max mx-auto px-gutter">
@@ -14,7 +15,7 @@
     </a>
     <div class="hidden md:flex items-center gap-lg">
       {% for key, label, url in nav_items %}
-        {% if section == key or (key == 'about' and section in ['why', 'about', 'aim', 'join', 'translations']) %}
+        {% if section == key or (key == 'about' and section in ['why', 'about', 'aim', 'translations']) %}
           <a href="{{ url }}" class="font-body-sm text-body-sm text-primary font-bold border-b-2 border-primary pb-1 transition-colors">{{ label }}</a>
         {% else %}
           <a href="{{ url }}" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">{{ label }}</a>
@@ -31,7 +32,7 @@
   <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
     <div class="px-gutter py-md flex flex-col gap-xs">
       {% for key, label, url in nav_items %}
-        {% if section == key or (key == 'about' and section in ['why', 'about', 'aim', 'join', 'translations']) %}
+        {% if section == key or (key == 'about' and section in ['why', 'about', 'aim', 'translations']) %}
           <a href="{{ url }}" class="px-md py-sm rounded-lg bg-primary-container text-on-primary font-bold text-body-md">{{ label }}</a>
         {% else %}
           <a href="{{ url }}" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">{{ label }}</a>

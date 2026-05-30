@@ -535,18 +535,18 @@ def generate_menu_pages(args):
     # )
     
 
-    # ensure_output_folder("join")
-    # logging.info("Generating join.html...")
-    # generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
+    ensure_output_folder("join")
+    logging.info("Generating join.html...")
+    generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
     
 
-    ensure_output_folder("members")
+    ensure_output_folder("speakers")
 
-    logging.info("Generating members.html...")
+    logging.info("Generating speakers page...")
 
     context.update({'user_sessions': settings.user_sessions})
     generate(
-        "members.html", join(settings.OUTPUT_FOLDER, "members", "index.html"), **context
+        "members.html", join(settings.OUTPUT_FOLDER, "speakers", "index.html"), **context
     )
     
 
