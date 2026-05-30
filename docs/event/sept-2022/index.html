@@ -1,338 +1,672 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="utf-8">
 <meta name="description" content="Python events in Mauritius">
 <meta name="keywords" content="python, mauritius, community">
 <meta name="author" content="Python Community">
-<meta name="theme-color" content="#111" />
-<link async rel="icon" href="/static/logo/pymug_new.svg">
-<!--
-<script type="text/javascript" src="js/script.js"></script>
--->
+<meta name="theme-color" content="#111">
+<link rel="icon" href="/static/logo/pymug_new.svg">
 
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-<!--https://iconmonstr.com-->
-<link async rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-<link async rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-<!-- <link async rel="stylesheet" href="https://picturepan2.github.io/spectre/dist/docs.min.css"> -->
-<link async rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
-        
-    <title>Python Meetup Sept 2022</title>
-
-        <!--<link rel="stylesheet" href="/static/css/styles.css">-->
-        <style>
-            @import url(https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap);
-hr.style-two {
-    width: 300px;
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(toright, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-error-container": "#93000a",
+          "secondary-fixed-dim": "#ecc228",
+          "on-secondary-fixed": "#231b00",
+          "surface-variant": "#dae3f1",
+          "on-secondary-container": "#715b00",
+          "on-background": "#131c26",
+          "tertiary-fixed-dim": "#4fdbc8",
+          "surface-dim": "#d2dbe9",
+          "secondary-fixed": "#ffe082",
+          "inverse-surface": "#28313c",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-fixed": "#00201c",
+          "primary-container": "#1e5180",
+          "on-primary": "#ffffff",
+          "secondary-container": "#fed33a",
+          "error": "#ba1a1a",
+          "on-primary-fixed": "#001d36",
+          "on-tertiary-fixed-variant": "#005048",
+          "tertiary-container": "#005950",
+          "on-secondary-fixed-variant": "#564500",
+          "surface-container": "#e6eefd",
+          "surface": "#f8f9ff",
+          "on-surface": "#131c26",
+          "outline": "#727780",
+          "tertiary": "#004038",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-container": "#48d5c2",
+          "primary-fixed": "#d1e4ff",
+          "primary": "#003a64",
+          "surface-container-low": "#eef4ff",
+          "primary-fixed-dim": "#9ecaff",
+          "tertiary-fixed": "#71f8e4",
+          "inverse-on-surface": "#e9f1ff",
+          "on-surface-variant": "#42474f",
+          "on-primary-container": "#97c4fa",
+          "background": "#f8f9ff",
+          "outline-variant": "#c2c7d0",
+          "secondary": "#725c00",
+          "surface-container-high": "#e0e9f7",
+          "surface-bright": "#f8f9ff",
+          "inverse-primary": "#9ecaff",
+          "on-primary-fixed-variant": "#124978",
+          "error-container": "#ffdad6",
+          "surface-tint": "#316191",
+          "on-secondary": "#ffffff",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#dae3f1"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        spacing: {
+          "base": "4px",
+          "xs": "4px",
+          "sm": "8px",
+          "md": "16px",
+          "lg": "24px",
+          "xl": "48px",
+          "2xl": "64px",
+          "gutter": "24px",
+          "container-max": "1280px"
+        },
+        fontFamily: {
+          "body-lg": ["Inter"],
+          "body-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "h1": ["Space Grotesk"],
+          "h2": ["Space Grotesk"],
+          "h3": ["Space Grotesk"],
+          "h4": ["Space Grotesk"],
+          "label-caps": ["Space Grotesk"],
+          "code": ["JetBrains Mono"]
+        },
+        fontSize: {
+          "h1": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "h2": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "h3": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+          "h4": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+          "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+          "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+          "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+          "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+          "code": ["14px", { "lineHeight": "1.7", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
 }
 
-.active-page {
-    font-weight: bolder;
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Markdown content styling for blog/faq posts */
+.prose {
+  color: #131c26;
+  line-height: 1.7;
+}
+.prose p { margin-bottom: 1em; }
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #003a64;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+.prose h2 { font-size: 28px; }
+.prose h3 { font-size: 22px; }
+.prose h4 { font-size: 18px; }
+.prose ul, .prose ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+.prose ul { list-style-type: disc; }
+.prose ol { list-style-type: decimal; }
+.prose li { margin-bottom: 0.4em; }
+.prose a {
+  color: #003a64;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose a:hover { color: #1e5180; }
+.prose blockquote {
+  border-left: 4px solid #1e5180;
+  padding: 12px 20px;
+  margin: 1.2em 0;
+  background-color: #eef4ff;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #42474f;
+}
+.prose code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  background-color: #e0e9f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #003a64;
+}
+.prose pre {
+  background-color: #131c26;
+  color: #d1e4ff;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 1.2em 0;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.prose pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.prose img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 1em 0;
+  border: 1px solid #c2c7d0;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid #c2c7d0;
+  margin: 2em 0;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+.prose th, .prose td {
+  border: 1px solid #c2c7d0;
+  padding: 8px 12px;
+  text-align: left;
+}
+.prose th {
+  background-color: #e6eefd;
+  font-weight: 600;
 }
 
-#footer {
-    margin-top: 1.2rem;
-    border-top: 1px solid #eaeaea;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+/* Footnote tweaks for raw_html event content */
+.event-content { color: #42474f; }
+.event-content a { color: #003a64; text-decoration: underline; }
+.event-content h1, .event-content h2, .event-content h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #003a64;
+  margin: 1em 0 0.5em;
 }
 
-.navbar-section>a {
-    border-bottom: 2px transparent solid;
-}
-
-.navbar-section>a:hover,
-.navbar-section>.dropdown:hover {
-    border-bottom-color: #111;
-}
-
-.first-letter {
-    float: left;
-    font-size: 55px;
-    line-height: 1;
-    font-weight: 700;
-    margin-right: 9px;
-    font-family: 'EB Garamond', serif;
-}
-
-.titles {
-    color: #111;
-    font-size: 40px;
-    font-weight: 400;
-    font-family: 'EB Garamond', serif;
-}
-
-.off-canvas .off-canvas-toggle {
-    left: 15px;
-    top: 15px;
-    z-index: 1;
-}
-
-#navbar-items {
-    justify-content: center;
-    padding: 10px;
-}
-
-#body-container {
-    padding-top: 20px;
-}
-
-a.tag.label:hover {
-    color: #111;
-    background-color: #B0E0E6;
-}
-
-.sep {
-    border-bottom-style: solid!important;
-    border-bottom-width: 1px!important;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-color: #e4e6e8!important;
-}
-
-.sep2 {
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.sep3 {
-    margin-top: 8px;
-    margin-bottom: 8px;
-}
-
-.lab {
-    color: #6a737c;
-}
-
-.val {
-    color: #242729;
-}
-
-.im {
-    font-size: 14px;
-}
-
-.post-content {
-    color: #747474;
-}
-
-.post-link {
-    margin-bottom: 10px;
-}
-
-.post-link:hover {
-    border-color: grey;
-}
-
-a.card {
-    transition-timing-function: ease-in;
-    transition: .2s;
-}
-
-a.card img {
-    opacity: 0.5;
-    border-bottom: 1px #F2F2F2 solid;
-}
-
-a.card:hover {
-    transition-timing-function: ease-out;
-    transition: .25s;
-    box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
-    -webkit-box-shadow: -3px 6px 33px -5px rgba(0, 0, 0, 0.32);
-    -moz-box-shadow: 0 6px 33px -5px rgba(0, 0, 0, 0.32);
-    transform: translateY(-0.15em);
-}
-
-a.card:hover img {
-    opacity: 1;
-}
-
-a.tag,
-a.post-link,
-a.card {
-    text-decoration: none;
-}
-        </style>
-    </head>
-    <body id="body-container" >
-        <div class="off-canvas">
-            <!-- off-screen toggle button -->
-            <a aria-label="hamburger-link" class="off-canvas-toggle btn btn-primary bg-dark btn-action show-xs show-sm" href="#sidebar-id">
-                <i class="icon icon-menu"></i>
-            </a>
-            <div id="sidebar-id" class="off-canvas-sidebar">
-  <!-- off-screen sidebar -->
-  <ul class="nav">
-    <li>
-      <a href="../../resources">Resources</a>
-    </li>
-
-    <li class="nav-item">
-      <a href="../../blog">Blog</a>
-    </li>
-    <li class="nav-item">
-      <a href="../../event">Events</a>
-    </li>
-    <li class="nav-item">
-      <a href="../../members">Members</a>
-    </li>
-    <li class="nav-item">
-      <a href="../../faq">FAQs</a>
-    </li>
-    <!--
-    <li class="nav-item active">
-      <a href="#">Layout</a>
-      <ul class="nav">
-        <li class="nav-item">
-          <a href="#">Flexbox grid</a>
-        </li>
-        <li class="nav-item">
-          <a href="#">Responsive</a>
-        </li>
-        <li class="nav-item">
-          <a href="#">Navbar</a>
-        </li>
-        <li class="nav-item">
-          <a href="#">Empty states</a>
-        </li>
-      </ul>
-    </li>
-    -->
-  </ul>
-</div>
-            <a aria-label="sidebar-link" class="off-canvas-overlay" href="#close"></a>
-            <div class="off-canvas-content container">
-                <!-- off-screen content -->
-                <div class="columns" id="banner">
-                    <a aria-label="image-link-homepage" class="col-4 col-mx-auto"href="../../">
-                        <img async src="/static/logo/pymug_new.svg" class="img-responsive hide-sx hide-sm" alt="Pymug-banner" style="width:100px;height: 100px;">
-                    </a>
-                </div>
-                <div class="columns">
-                    <header class="navbar col-8 col-mx-auto hide-sx hide-sm">
-                        <section id="navbar-items" class="navbar-section">
-                            <a href="../../" class="navbar-brand mr-2" style="font-weight:bolder;">About</a>
-                            <a class="btn btn-link " href="../../members"> Members </a>
-                            <!-- <a class="btn btn-link " href="../../resources"> Curated Resources</a> -->
-<!--                             <a class="btn btn-link " href="../../translations">Translation</a> -->
-                            <a class="btn btn-link active-page" href="../../event">Events</a>
-                            <a class="btn btn-link " href="../../blog">Blog</a>
-                            <a class="btn btn-link " href="../../faq">FAQs</a>
-                            <!-- menu component -->
-                            <div class="dropdown">
-                                <a href="#" class="btn btn-link dropdown-toggle" tabindex="0">
-                                    More <i class="icon icon-caret"></i>
-                                </a>
-                                <ul class="menu">
-                                    <li class="menu-item">
-                                        <a href="../../resources">Resources</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </section>
-                    </header>
-                </div>
-                <div id="main-content-container" class="columns">
-                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
-                        
-<div id='posts'>
+/* Smooth scroll padding for sticky topnav */
+html { scroll-padding-top: 80px; }
+</style>
     
-    <div class="panel">
-  <div class="panel-header">
-    <div class="panel-title"><h3>Python Meetup Sept 2022</h3> <span class="chip">September 10, 2022</span>
-        <a href="https://www.meetup.com/pymauritius/events/287733145/" target="_blank">
-            <button class="btn btn-primary">Register</button>
-        </a>
+  <title>Python Meetup Sept 2022 | PyMUG</title>
+
+  </head>
+  <body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container">
+    
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm">
+  <nav class="flex justify-between items-center h-16 max-w-container-max mx-auto px-gutter">
+    <a href="../../" class="flex items-center gap-sm">
+      <img src="/static/logo/pymug_new.svg" alt="PyMUG logo" class="w-8 h-8">
+      <span class="font-h4 text-h4 font-bold text-primary">PyMUG</span>
+    </a>
+    <div class="hidden md:flex items-center gap-lg">
+      
+        
+          <a href="../../" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">About</a>
+        
+      
+        
+          <a href="../../event" class="font-body-sm text-body-sm text-primary font-bold border-b-2 border-primary pb-1 transition-colors">Events</a>
+        
+      
+        
+          <a href="../../speakers" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Speakers</a>
+        
+      
+        
+          <a href="../../blog" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Blog</a>
+        
+      
+        
+          <a href="../../resources" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Resources</a>
+        
+      
+        
+          <a href="../../faq" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">FAQs</a>
+        
+      
+        
+          <a href="../../join" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Join</a>
+        
+      
+    </div>
+    <div class="flex items-center gap-sm">
+      <a href="https://www.meetup.com/pymauritius/" target="_blank" rel="noopener" class="hidden md:inline-flex bg-secondary-container text-on-secondary-container px-md py-sm rounded-lg font-bold text-body-sm hover:scale-95 active:scale-90 transition-transform duration-150">Join Meetup</a>
+      <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+    <div class="px-gutter py-md flex flex-col gap-xs">
+      
+        
+          <a href="../../" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">About</a>
+        
+      
+        
+          <a href="../../event" class="px-md py-sm rounded-lg bg-primary-container text-on-primary font-bold text-body-md">Events</a>
+        
+      
+        
+          <a href="../../speakers" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Speakers</a>
+        
+      
+        
+          <a href="../../blog" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Blog</a>
+        
+      
+        
+          <a href="../../resources" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Resources</a>
+        
+      
+        
+          <a href="../../faq" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">FAQs</a>
+        
+      
+        
+          <a href="../../join" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Join</a>
+        
+      
+      <a href="https://www.meetup.com/pymauritius/" target="_blank" rel="noopener" class="mt-sm bg-secondary-container text-on-secondary-container text-center px-md py-sm rounded-lg font-bold text-body-md">Join Meetup</a>
     </div>
   </div>
-  <div class="panel-nav">
-    <!-- navigation components: tabs, breadcrumbs or pagination -->
-  </div>
-  <div class="panel-body">
-    <!-- contents -->
-    <hr>
+</header>
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', function () {
+        menu.classList.toggle('hidden');
+      });
+    }
+  })();
+</script>
+    <main class="flex-1 pt-16 pb-24 md:pb-0">
+      
+<section class="max-w-container-max mx-auto px-gutter pt-lg">
+  <nav class="flex items-center gap-xs mb-md text-on-surface-variant overflow-x-auto hide-scrollbar whitespace-nowrap">
+    <a href="../../" class="font-body-sm hover:text-primary">Home</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <a href="../../event" class="font-body-sm hover:text-primary">Events</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <span class="font-body-sm font-bold text-primary truncate">Python Meetup Sept 2022</span>
+  </nav>
+
+  <header class="relative rounded-2xl overflow-hidden mb-xl bg-gradient-to-br from-primary to-primary-container">
+    <div class="absolute inset-0 bg-[url('/static/logo/pymug_new.svg')] bg-no-repeat bg-right-bottom bg-contain opacity-10"></div>
+    <div class="relative p-lg md:p-xl text-on-primary">
+      <div class="flex flex-wrap gap-md items-center mb-md">
+        <span class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-caps">EVENT</span>
+        
+        <div class="flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-secondary-container">calendar_today</span>
+          <span class="font-body-sm">September 10, 2022</span>
+        </div>
+        
+        
+        <div class="flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-secondary-container">location_on</span>
+          <span class="font-body-sm">MakerSpace, Vacoas</span>
+        </div>
+        
+      </div>
+      <h1 class="font-h2 text-h3 md:text-h2 mb-lg leading-tight max-w-3xl">Python Meetup Sept 2022</h1>
+      
+      <a href="#"  class="inline-flex items-center gap-sm font-bold px-lg py-md rounded-lg transition-transform bg-surface-container text-on-surface-variant opacity-50 cursor-not-allowed">
+        Past Event
+        <span class="material-symbols-outlined">block</span>
+      </a>
+      
+    </div>
+  </header>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter pb-2xl grid grid-cols-1 lg:grid-cols-12 gap-lg">
+  <div class="lg:col-span-8 space-y-lg">
+    
     <div>
+      <div class="flex items-end justify-between mb-md">
+        <h2 class="font-h3 text-h4 md:text-h3 text-primary">Event Sessions</h2>
+        <span class="font-body-sm text-on-surface-variant">5 sessions</span>
+      </div>
+      <div class="space-y-md">
         
-            <h5>Create Machine Learning projects/demos with Python 
-                <i class="fa fa-check" style="color: #00e155" title="presented"></i>
-                
-            </h5>
-            <p> 
-                Show how to create simple ML projects/demos using open-source models on HuggingFace and Gradio as interface.<br>
-                <i class="fa fa-comment-alt"></i>  <a href="/u/azezezaaa">azezezaaa</a> 
-            </p>
-        
-            <h5>Generating Unique & Distinct Sortable IDs for Your Use 
-                <i class="fa fa-check" style="color: #00e155" title="presented"></i>
-                <i class="fa fa-wifi" title="remote"></i>
-            </h5>
-            <p> 
-                With this, one can generate unique sortable integer ID. These IDs will not clash once the conditions are right. Learn how to achieve same.<br>
-                <i class="fa fa-comment-alt"></i>  <a href="/u/ichux">ichux</a> 
-            </p>
-        
-            <h5>Maths via Creative Coding with Python 
-                <i class="fa fa-check" style="color: #00e155" title="presented"></i>
-                
-            </h5>
-            <p> 
-                I tutor kids in maths via creative coding, using Python and drawing libraries, and I would like to share about it in a short talk.<br>
-                <i class="fa fa-comment-alt"></i>  <a href="/u/AkashaRojee">AkashaRojee</a> 
-            </p>
-        
-            <h5>Deep Regex With Python 
-                <i class="fa fa-check" style="color: #00e155" title="presented"></i>
-                
-            </h5>
-            <p> 
-                Extracts from my regex engine works<br>
-                <i class="fa fa-comment-alt"></i>  <a href="/u/Abdur-RahmaanJ">Abdur-RahmaanJ</a> 
-            </p>
-        
-            <h5>Useful GUIs 
-                 <i class="fa fa-times" style="color: #e10025" title="not presented"></i> 
-                
-            </h5>
-            <p> 
-                How Gui dev can help<br>
-                <i class="fa fa-comment-alt"></i>  <a href="/u/nam4dev">nam4dev</a> 
-            </p>
-        
-    </div>
-  </div>
-  <div class="panel-footer">
-    <!-- buttons or inputs -->
-  </div>
-</div>
-
-    <iframe src="https://docs.google.com/document/d/e/2PACX-1vQOVrBNTE3_B1nXySeUT4fxUSumldjmjadp5Zd0mq5JuuBTPN5sJ3YQ6qSbeMSyxvE4c963iJxx1GBl/pub?embedded=true" style="width: 100%; height: 500px;"></iframe>
-</div> 
-
-                    </div>
-                </div>
-                <div class="columns">
-                    <div id="main-content" class="column col-8 col-sm-10 col-mx-auto">
-                        <div id="footer">
-    <div class="columns">
-        <div class="column col-xs-8">
-            <div class="float-left"><a href="https://github.com/flaskcwg/flaskcwg.github.io">Edit on GitHub</a> | Email: pymug at python.org | pythonmug at gmail.com</div>
-        </div>
-        <div class="column col-xs-4">
-             <div class="float-right">Built using pypi's <a href="https://pypi.org/project/jamstack/">jamstack</a></div>
-        </div>
-    </div>
-
-
-</div>
-                    </div>
-                </div>
+        <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md transition-shadow border-l-4 border-l-tertiary">
+          <div class="flex justify-between items-start gap-md mb-sm flex-wrap">
+            <h3 class="font-h4 text-h4 text-on-surface flex-1">Create Machine Learning projects/demos with Python</h3>
+            <div class="flex items-center gap-xs">
+              
+                <span class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-tertiary-container/10 text-tertiary font-label-caps uppercase">
+                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Presented
+                </span>
+              
+              
             </div>
+          </div>
+          
+          <p class="font-body-md text-on-surface-variant mb-md">Show how to create simple ML projects/demos using open-source models on HuggingFace and Gradio as interface.</p>
+          
+          
+          <div class="flex flex-wrap items-center gap-sm pt-sm border-t border-outline-variant/30">
+            <span class="font-label-caps text-on-surface-variant uppercase">Speaker</span>
+            
+              <a href="../../u/azezezaaa" class="inline-flex items-center gap-xs bg-surface-container rounded-full pr-md py-xs pl-xs border border-outline-variant/30 hover:border-primary transition-colors">
+                <img src="https://avatars.githubusercontent.com/azezezaaa" alt="azezezaaa" class="w-6 h-6 rounded-full object-cover">
+                <span class="font-code text-[12px] text-on-surface">@azezezaaa</span>
+              </a>
+            
+          </div>
+          
+        </article>
+        
+        <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md transition-shadow border-l-4 border-l-tertiary">
+          <div class="flex justify-between items-start gap-md mb-sm flex-wrap">
+            <h3 class="font-h4 text-h4 text-on-surface flex-1">Generating Unique & Distinct Sortable IDs for Your Use</h3>
+            <div class="flex items-center gap-xs">
+              
+                <span class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-tertiary-container/10 text-tertiary font-label-caps uppercase">
+                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Presented
+                </span>
+              
+              
+                <span class="inline-flex items-center px-md py-xs rounded-full bg-primary-container/10 text-primary font-label-caps uppercase" title="Remote">
+                  <span class="material-symbols-outlined text-[14px]">wifi</span>
+                </span>
+              
+            </div>
+          </div>
+          
+          <p class="font-body-md text-on-surface-variant mb-md">With this, one can generate unique sortable integer ID. These IDs will not clash once the conditions are right. Learn how to achieve same.</p>
+          
+          
+          <div class="flex flex-wrap items-center gap-sm pt-sm border-t border-outline-variant/30">
+            <span class="font-label-caps text-on-surface-variant uppercase">Speaker</span>
+            
+              <a href="../../u/ichux" class="inline-flex items-center gap-xs bg-surface-container rounded-full pr-md py-xs pl-xs border border-outline-variant/30 hover:border-primary transition-colors">
+                <img src="https://avatars.githubusercontent.com/ichux" alt="ichux" class="w-6 h-6 rounded-full object-cover">
+                <span class="font-code text-[12px] text-on-surface">@ichux</span>
+              </a>
+            
+          </div>
+          
+        </article>
+        
+        <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md transition-shadow border-l-4 border-l-tertiary">
+          <div class="flex justify-between items-start gap-md mb-sm flex-wrap">
+            <h3 class="font-h4 text-h4 text-on-surface flex-1">Maths via Creative Coding with Python</h3>
+            <div class="flex items-center gap-xs">
+              
+                <span class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-tertiary-container/10 text-tertiary font-label-caps uppercase">
+                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Presented
+                </span>
+              
+              
+            </div>
+          </div>
+          
+          <p class="font-body-md text-on-surface-variant mb-md">I tutor kids in maths via creative coding, using Python and drawing libraries, and I would like to share about it in a short talk.</p>
+          
+          
+          <div class="flex flex-wrap items-center gap-sm pt-sm border-t border-outline-variant/30">
+            <span class="font-label-caps text-on-surface-variant uppercase">Speaker</span>
+            
+              <a href="../../u/AkashaRojee" class="inline-flex items-center gap-xs bg-surface-container rounded-full pr-md py-xs pl-xs border border-outline-variant/30 hover:border-primary transition-colors">
+                <img src="https://avatars.githubusercontent.com/AkashaRojee" alt="AkashaRojee" class="w-6 h-6 rounded-full object-cover">
+                <span class="font-code text-[12px] text-on-surface">@AkashaRojee</span>
+              </a>
+            
+          </div>
+          
+        </article>
+        
+        <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md transition-shadow border-l-4 border-l-tertiary">
+          <div class="flex justify-between items-start gap-md mb-sm flex-wrap">
+            <h3 class="font-h4 text-h4 text-on-surface flex-1">Deep Regex With Python</h3>
+            <div class="flex items-center gap-xs">
+              
+                <span class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-tertiary-container/10 text-tertiary font-label-caps uppercase">
+                  <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Presented
+                </span>
+              
+              
+            </div>
+          </div>
+          
+          <p class="font-body-md text-on-surface-variant mb-md">Extracts from my regex engine works</p>
+          
+          
+          <div class="flex flex-wrap items-center gap-sm pt-sm border-t border-outline-variant/30">
+            <span class="font-label-caps text-on-surface-variant uppercase">Speaker</span>
+            
+              <a href="../../u/Abdur-RahmaanJ" class="inline-flex items-center gap-xs bg-surface-container rounded-full pr-md py-xs pl-xs border border-outline-variant/30 hover:border-primary transition-colors">
+                <img src="https://avatars.githubusercontent.com/Abdur-RahmaanJ" alt="Abdur-RahmaanJ" class="w-6 h-6 rounded-full object-cover">
+                <span class="font-code text-[12px] text-on-surface">@Abdur-RahmaanJ</span>
+              </a>
+            
+          </div>
+          
+        </article>
+        
+        <article class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md transition-shadow border-l-4 border-l-outline-variant">
+          <div class="flex justify-between items-start gap-md mb-sm flex-wrap">
+            <h3 class="font-h4 text-h4 text-on-surface flex-1">Useful GUIs</h3>
+            <div class="flex items-center gap-xs">
+              
+                <span class="inline-flex items-center gap-xs px-md py-xs rounded-full bg-error-container text-on-error-container font-label-caps uppercase">
+                  <span class="material-symbols-outlined text-[14px]">schedule</span>
+                  Pending
+                </span>
+              
+              
+            </div>
+          </div>
+          
+          <p class="font-body-md text-on-surface-variant mb-md">How Gui dev can help</p>
+          
+          
+          <div class="flex flex-wrap items-center gap-sm pt-sm border-t border-outline-variant/30">
+            <span class="font-label-caps text-on-surface-variant uppercase">Speaker</span>
+            
+              <a href="../../u/nam4dev" class="inline-flex items-center gap-xs bg-surface-container rounded-full pr-md py-xs pl-xs border border-outline-variant/30 hover:border-primary transition-colors">
+                <img src="https://avatars.githubusercontent.com/nam4dev" alt="nam4dev" class="w-6 h-6 rounded-full object-cover">
+                <span class="font-code text-[12px] text-on-surface">@nam4dev</span>
+              </a>
+            
+          </div>
+          
+        </article>
+        
+      </div>
+    </div>
+    
+
+    
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-lg">
+      <h2 class="font-h3 text-h4 text-primary mb-md">Details</h2>
+      <div class="prose event-content max-w-none">
+        <iframe src="https://docs.google.com/document/d/e/2PACX-1vQOVrBNTE3_B1nXySeUT4fxUSumldjmjadp5Zd0mq5JuuBTPN5sJ3YQ6qSbeMSyxvE4c963iJxx1GBl/pub?embedded=true" style="width: 100%; height: 500px;"></iframe>
+      </div>
+    </div>
+    
+  </div>
+
+  <aside class="lg:col-span-4 space-y-md">
+    <div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant/50">
+      <h4 class="font-h4 text-h4 mb-md">Event Info</h4>
+      <div class="space-y-sm">
+        
+        <div class="flex items-start gap-sm">
+          <span class="material-symbols-outlined text-primary mt-[2px]">calendar_today</span>
+          <div>
+            <div class="font-label-caps text-on-surface-variant uppercase">Date</div>
+            <div class="font-body-md text-on-surface font-medium">September 10, 2022</div>
+          </div>
         </div>
-    </body>
+        
+        
+        <div class="flex items-start gap-sm">
+          <span class="material-symbols-outlined text-primary mt-[2px]">location_on</span>
+          <div>
+            <div class="font-label-caps text-on-surface-variant uppercase">Venue</div>
+            <div class="font-body-md text-on-surface font-medium">MakerSpace, Vacoas</div>
+          </div>
+        </div>
+        
+        <div class="flex items-start gap-sm">
+          <span class="material-symbols-outlined text-primary mt-[2px]">groups</span>
+          <div>
+            <div class="font-label-caps text-on-surface-variant uppercase">Sessions</div>
+            <div class="font-body-md text-on-surface font-medium">5</div>
+          </div>
+        </div>
+      </div>
+      
+      <a href="#"  class="mt-md w-full inline-flex items-center justify-center gap-sm font-bold py-md rounded-lg transition-all bg-surface-container text-on-surface-variant opacity-50 cursor-not-allowed">
+        Past Event
+        <span class="material-symbols-outlined text-[18px]">block</span>
+      </a>
+      
+    </div>
+
+    <a href="../../event" class="block bg-surface-container-lowest p-lg rounded-xl border border-outline-variant/50 hover:border-primary transition-colors group">
+      <div class="flex items-center gap-sm">
+        <span class="material-symbols-outlined text-primary">arrow_back</span>
+        <div>
+          <div class="font-label-caps text-on-surface-variant uppercase">Browse</div>
+          <div class="font-body-md font-bold text-on-surface group-hover:text-primary transition-colors">All events</div>
+        </div>
+      </div>
+    </a>
+  </aside>
+</section>
+
+    </main>
+    <footer class="bg-surface-container-high w-full py-xl border-t border-outline-variant">
+  <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <div class="space-y-md">
+      <div class="flex items-center gap-sm">
+        <img src="/static/logo/pymug_new.svg" alt="PyMUG logo" class="w-8 h-8">
+        <span class="font-h4 text-h4 font-bold text-primary">PyMUG</span>
+      </div>
+      <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+        The Python Mauritius User Group is the local Python user group of Mauritius — providing opportunities to upskill in Python and ease industry adoption of Python-related technologies.
+      </p>
+      <div class="flex gap-md pt-xs">
+        <a href="https://github.com/pymug" aria-label="GitHub" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">code</span>
+        </a>
+        <a href="https://twitter.com/pymugdotcom" aria-label="Twitter" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">alternate_email</span>
+        </a>
+        <a href="https://www.linkedin.com/company/pymug/" aria-label="LinkedIn" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">groups</span>
+        </a>
+        <a href="https://www.meetup.com/pymauritius/" aria-label="Meetup" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">event</span>
+        </a>
+        <a href="https://www.facebook.com/pymug/" aria-label="Facebook" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">public</span>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-md md:justify-items-end">
+      <div class="flex flex-col gap-sm">
+        <h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-xs">Community</h4>
+        <a href="https://github.com/pymug" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">Edit on GitHub</a>
+        <a href="https://mail.python.org/mailman3/lists/pymug.python.org/" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">Mailing List</a>
+        <a href="mailto:pymug@python.org" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">pymug@python.org</a>
+      </div>
+      <div class="flex flex-col gap-sm">
+        <h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-xs">Reports</h4>
+        <a href="/static/reports/pymug_2019_report.pdf" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">2019 Report</a>
+        <a href="/static/reports/pymug_end_of_year_2020_v2.pdf" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">2020 Report</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto px-gutter mt-xl pt-md border-t border-outline-variant/50 flex flex-col md:flex-row justify-between gap-sm">
+    <p class="font-body-sm text-body-sm text-on-surface-variant">© Python Mauritius User Group (PyMUG)</p>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Built using <a href="https://pypi.org/project/jamstack/" class="hover:text-primary underline">jamstack</a></p>
+  </div>
+</footer>
+    
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-t border-outline-variant shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+  <div class="flex justify-around items-center h-16 px-md">
+    
+      
+      <a href="../../" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >home</span>
+        <span class="text-[10px] font-label-caps">Home</span>
+      </a>
+    
+      
+      <a href="../../event" class="flex flex-col items-center justify-center gap-1 text-primary font-bold transition-colors">
+        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+        <span class="text-[10px] font-label-caps">Events</span>
+      </a>
+    
+      
+      <a href="../../speakers" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >groups</span>
+        <span class="text-[10px] font-label-caps">Speakers</span>
+      </a>
+    
+      
+      <a href="../../blog" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >article</span>
+        <span class="text-[10px] font-label-caps">Blog</span>
+      </a>
+    
+      
+      <a href="../../faq" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >help</span>
+        <span class="text-[10px] font-label-caps">FAQs</span>
+      </a>
+    
+      
+      <a href="../../join" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >group_add</span>
+        <span class="text-[10px] font-label-caps">Join</span>
+      </a>
+    
+  </div>
+</nav>
+  </body>
 </html>
