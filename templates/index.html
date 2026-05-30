@@ -226,8 +226,8 @@ pymug.organize_meetup()</pre>
 <!-- Sponsors -->
 <section class="py-xl md:py-2xl bg-surface-container-low border-t border-outline-variant">
   <div class="max-w-container-max mx-auto px-gutter">
-    {# Populate this list when sponsors are confirmed: each item = (name, logo_url, link) #}
-    {% set sponsors = [] %}
+    {% set sponsors = settings.SPONSORS %}
+    {% set placeholder_icon = '/static/building-placeholder.svg' %}
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
       <div>
         <p class="font-label-caps text-on-surface-variant uppercase tracking-widest mb-sm">Backed by the community</p>
@@ -242,9 +242,19 @@ pymug.organize_meetup()</pre>
 
     {% if sponsors|length %}
       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-md">
-        {% for name, logo, link in sponsors %}
-          <a href="{{ link }}" target="_blank" rel="noopener" title="{{ name }}" class="bg-surface-container-lowest border border-outline-variant rounded-xl h-24 flex items-center justify-center p-md grayscale hover:grayscale-0 hover:border-primary transition-all">
-            <img src="{{ logo }}" alt="{{ name }}" class="max-h-full max-w-full opacity-70 hover:opacity-100 transition-opacity">
+        {% for slug, sp in sponsors.items() %}
+          <a href="{{ sp['url'] or '#' }}" {% if sp['url'] %}target="_blank" rel="noopener"{% endif %} title="{{ sp['name'] }}" class="bg-surface-container-lowest border border-outline-variant rounded-xl h-28 flex flex-col items-center justify-center p-md grayscale hover:grayscale-0 hover:border-primary transition-all group relative overflow-hidden">
+            <div class="flex items-center justify-center flex-1 w-full relative">
+              <img src="{{ sp['logo'] or placeholder_icon }}" alt="{{ sp['name'] }}" class="absolute inset-0 w-full h-full object-contain p-sm opacity-70 group-hover:opacity-100 transition-opacity" onerror="this.src='{{ placeholder_icon }}'">
+            </div>
+            <span class="text-[10px] font-bold text-on-surface-variant text-center leading-tight mt-1 px-1">{{ sp['name'] }}</span>
+            {% if sp['types'] %}
+            <div class="flex flex-wrap gap-1 mt-1">
+              {% for t in sp['types'] %}
+              <span class="px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-wider rounded {% if t == 'venue' %}bg-primary-container/10 text-primary{% elif t == 'food' %}bg-tertiary-container/10 text-tertiary{% elif t == 'stickers' %}bg-secondary-container/10 text-secondary{% endif %}">{{ t }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
           </a>
         {% endfor %}
       </div>
