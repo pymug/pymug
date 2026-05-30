@@ -251,7 +251,7 @@ pymug.organize_meetup()</pre>
             {% if sp['types'] %}
             <div class="flex flex-wrap gap-1 mt-1">
               {% for t in sp['types'] %}
-              <span class="px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-wider rounded {% if t == 'venue' %}bg-primary-container/10 text-primary{% elif t == 'food' %}bg-tertiary-container/10 text-tertiary{% elif t == 'stickers' %}bg-secondary-container/10 text-secondary{% endif %}">{{ t }}</span>
+              <span class="px-1.5 py-[1px] text-[8px] font-bold uppercase tracking-wider rounded {% if t == 'venue' %}bg-primary-container/10 text-primary{% elif t == 'food' %}bg-tertiary-container/10 text-tertiary{% elif t == 'stickers' %}bg-secondary-container/10 text-secondary{% elif t == 'training' %}bg-surface-variant text-on-surface-variant{% endif %}">{{ t }}</span>
               {% endfor %}
             </div>
             {% endif %}

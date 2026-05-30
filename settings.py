@@ -1307,7 +1307,13 @@ SPONSORS = {
         "name": "Bazaks LTD",
         "url": "",
         "logo": "/static/sponsor/bazaks-ltd.png",
-        "types": []
+        "types": ["training"]
+    },
+    "dtg-labs": {
+        "name": "DTG Labs",
+        "url": "https://labs.dtghq.com/",
+        "logo": "/static/sponsor/dtg-labs.png",
+        "types": ["training"]
     }
 }
 
