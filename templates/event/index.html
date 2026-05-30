@@ -1,41 +1,72 @@
 {% extends 'base.html' %}
 {% set section = 'event' %}
 {% block head %}
-    <title>Event</title>
+  <title>Events | PyMUG</title>
 {% endblock %}
 {% block body %}
+{% set sess_done = namespace(value=0) %}
+{% set sess_total = namespace(value=0) %}
+{% for ev in events %}
+  {% for s in events[ev]['sessions'] %}
+    {% set sess_total.value = sess_total.value + 1 %}
+    {% if s['presented'] %}{% set sess_done.value = sess_done.value + 1 %}{% endif %}
+  {% endfor %}
+{% endfor %}
 
-{%set sess_count = namespace(value=0) %}
-{%set sess_count_2 = namespace(value=0) %}
-{%set sess_len = namespace(value=0) %}
-{% for event in events %}
-    
-    {% for sess in events[event]['sessions'] %}
-    {%if sess['presented'] %}
-        {% set sess_count.value = sess_count.value + 1 %}
-    {%endif%}
-    
-    {%endfor%}
-    {% set sess_count_2.value = sess_count_2.value + len(events[event]['sessions']) %}
-{%endfor%}
-<div id='posts'>
-    <h2 class="text-center titles">Events ({{ len(events) }}) | Sessions ({{ sess_count.value }} / {{sess_count_2.value}})</h2>
-    {% for event in events %}
-    <a href="/event/{{event}}" class="panel post-link">
-        <div class="tile tile-centered">
-            <div class="tile-icon">
-                <div class="example-tile-icon">
-                    <i class="icon icon-file centered"></i>
-                </div>
-            </div>
-            <div class="tile-content">
-                <div class="tile-title">{{ events[event]['title'] }}</div>
-                <small class="tile-subtitle text-gray">
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-md">
+    <div>
+      <h1 class="font-h1 text-h3 md:text-h2 text-primary mb-sm">Events Archive</h1>
+      <p class="font-body-md md:font-body-lg text-on-surface-variant">{{ len(events) }} events · {{ sess_done.value }} / {{ sess_total.value }} sessions delivered</p>
+    </div>
+  </div>
+</section>
 
-                </small>
+<section class="max-w-container-max mx-auto px-gutter pb-2xl">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+    {% for ev_slug in events %}
+      {% set ev = events[ev_slug] %}
+      {% set ev_total = namespace(value=0) %}
+      {% set ev_done = namespace(value=0) %}
+      {% for s in ev['sessions'] %}
+        {% set ev_total.value = ev_total.value + 1 %}
+        {% if s['presented'] %}{% set ev_done.value = ev_done.value + 1 %}{% endif %}
+      {% endfor %}
+      {% set is_upcoming = ev_slug in upcoming_slugs %}
+      <a href="{{ path }}event/{{ ev_slug }}" class="group bg-surface-container-low border border-outline-variant rounded-xl p-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-md">
+            <div class="bg-surface-container-highest rounded-lg p-sm text-center min-w-[64px]">
+              <span class="material-symbols-outlined text-primary">event</span>
             </div>
+            {% if is_upcoming %}
+              <span class="px-md py-xs bg-tertiary-fixed text-on-tertiary-fixed font-bold text-label-caps rounded-full">UPCOMING</span>
+            {% else %}
+              <span class="px-md py-xs bg-surface-variant text-on-surface-variant font-bold text-label-caps rounded-full">PAST</span>
+            {% endif %}
+          </div>
+          <h3 class="font-h4 text-h4 text-on-surface group-hover:text-primary transition-colors line-clamp-2">{{ ev['title'] }}</h3>
+          {% if ev['date'] %}
+            <p class="text-on-surface-variant text-body-sm mt-sm flex items-center gap-xs">
+              <span class="material-symbols-outlined text-[16px]">calendar_today</span>
+              {{ ev['date'] }}
+            </p>
+          {% endif %}
+          {% if ev['venue'] %}
+            <p class="text-on-surface-variant text-body-sm flex items-center gap-xs">
+              <span class="material-symbols-outlined text-[16px]">location_on</span>
+              {{ ev['venue'] }}
+            </p>
+          {% endif %}
         </div>
-    </a>
+        <div class="mt-lg pt-md border-t border-outline-variant/30 flex justify-between items-center">
+          <span class="font-body-sm text-on-surface-variant">{{ ev_total.value }} session{{ 's' if ev_total.value != 1 }}</span>
+          <span class="inline-flex items-center gap-xs text-primary font-bold text-body-sm">
+            View <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </span>
+        </div>
+      </a>
     {% endfor %}
-</div>
+  </div>
+</section>
 {% endblock %}

@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
 {% set section = 'aim' %}
 {% block head %}
-  <title>Aim</title>
+  <title>Aim | PyMUG</title>
 {% endblock %}
 {% block body %}
-<div id='aim'>
-    <h2 class="text-center titles">The Aim</h2>
-    <div>
-        <ul>
-            <li>Education</li>
-            <li>Ecosystem</li>
-            <li>Events</li>
-        </ul>
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-2xl">
+  <h1 class="font-h1 text-h3 md:text-h2 text-primary mb-md">The Aim</h1>
+  <p class="font-body-md md:font-body-lg text-on-surface-variant max-w-2xl mb-xl">Our mission is built around three pillars that drive everything we do.</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+    {% set aims = [
+      ('Education', 'Empowering Pythonistas through workshops, talks, and learning material.', 'school'),
+      ('Ecosystem', 'Strengthening the Python ecosystem in Mauritius and beyond.', 'hub'),
+      ('Events', 'Organising year-round meetups, topic days, and university coverage.', 'event')
+    ] %}
+    {% for title, desc, icon in aims %}
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-lg hover:shadow-md transition-shadow">
+      <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-md">
+        <span class="material-symbols-outlined">{{ icon }}</span>
+      </div>
+      <h2 class="font-h4 text-h4 text-on-surface mb-xs">{{ title }}</h2>
+      <p class="font-body-md text-on-surface-variant">{{ desc }}</p>
     </div>
-</div>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}

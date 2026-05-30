@@ -1,29 +1,40 @@
 {% extends 'base.html' %}
 {% set section = 'faq' %}
 {% block head %}
-    <title>FaQ</title>
+  <title>FAQs · #{{ tag_name }} | PyMUG</title>
 {% endblock %}
 {% block body %}
-<br>
-<h3>FaQs for tag: {{ tag_name }}</h3>
-{% for faq in faqs %}
-<a href="/faq/{{ faq['slug'] }}" class="panel post-link">
-    <div class="tile tile-centered">
-        <div class="tile-icon">
-            <div class="example-tile-icon">
-                <i class="icon icon-file centered"></i>
-            </div>
-        </div>
-        <div class="tile-content">
-            <div class="tile-title">{{ faq['title'] }}</div>
-            <small class="tile-subtitle text-gray">
-                {% set tags = faq['tags'] %}
-                {% for tag in  tags %}
-                    {{ tag }}{% if (not loop.index == len(tags)) %},{% endif %}
-                {% endfor %}
-            </small>
-        </div>
-    </div>
-</a>
-{% endfor %}
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+  <nav class="flex items-center gap-xs mb-md text-on-surface-variant overflow-x-auto hide-scrollbar whitespace-nowrap">
+    <a href="{{ path }}" class="font-body-sm hover:text-primary">Home</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <a href="{{ path }}faq" class="font-body-sm hover:text-primary">FAQs</a>
+    <span class="material-symbols-outlined text-[16px] text-outline-variant">chevron_right</span>
+    <span class="font-body-sm font-bold text-primary">#{{ tag_name }}</span>
+  </nav>
+  <span class="inline-block px-md py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-caps uppercase mb-sm">Tag</span>
+  <h1 class="font-h1 text-h3 md:text-h2 text-primary">FAQs tagged #{{ tag_name }}</h1>
+  <p class="font-body-md text-on-surface-variant mt-xs">{{ len(faqs) }} answer{{ 's' if len(faqs) != 1 }}</p>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter pb-2xl">
+  <div class="space-y-md max-w-3xl">
+    {% for faq in faqs %}
+    <a href="{{ path }}faq/{{ faq['slug'] }}" class="block group bg-surface-container-lowest border border-outline-variant rounded-xl p-lg hover:shadow-md hover:border-primary/30 transition-all">
+      <div class="flex items-start justify-between gap-md">
+        <h2 class="font-h4 text-h4 text-on-surface group-hover:text-primary transition-colors flex-1">{{ faq['title'] }}</h2>
+        <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+      </div>
+      {% if faq['tags'] %}
+      <div class="flex flex-wrap gap-xs mt-sm">
+        {% set tags = faq['tags'] %}
+        {% for tag in tags %}
+          <span class="px-sm py-xs rounded-full bg-surface-container text-on-surface-variant text-[11px] font-medium">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}

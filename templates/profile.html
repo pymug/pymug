@@ -1,246 +1,152 @@
-<!--
-TODO:
-
-Sometimes the URLs in the links
-menu overlay over link name label
--->
-
 {% extends 'base.html' %}
-{% set section = 'members' %}
+{% set section = 'speakers' %}
 {% set contrib_sessions = user_sessions(info['events'], github_username) %}
 {% block head %}
-    <title>{{ data['meta']['name'] }}</title>
-    <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/atelier-forest-light.min.css">
-    <link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+  <title>{{ data['meta']['name'] }} | PyMUG</title>
 {% endblock %}
 {% block body %}
-    <script src="https://kit.fontawesome.com/87e809e06c.js" crossorigin="anonymous"></script>
-    <style>
-    .avatar.avatar-xl {
-        height: 5rem;
-        width: 5rem;
-        margin-bottom: 15px;
-    }
-    .links-column .menu {
-        border: None;
-        box-shadow: None;
-        background: None;
-    }
-    .menu-badge,
-    .url {
-        cursor: pointer;
-    }
-    .info-title {
-        font-weight: bold;
-    }
-    .url,
-    .info-value {
-        color: #bcc3ce;
-    }
-    .main-cols > .column {
-        padding: .4rem;
-    }
-    .links-column {
-        /* UGLY FIX - FORCE VERTICAL COLUMN SPACING */
-        margin-top: .8rem;
-    }
-    .extra-info .divider {
-        margin-top: .7rem;
-        margin-bottom: .7rem;
-    }
-    .container {
-        margin-top: 8px;
-        margin-bottom: 50px;
-    }
+{% set is_organiser = data['meta']['organiser'] == 'y' %}
+{% set is_speaker = contrib_sessions[1] %}
+{% set is_honorary = data['meta']['honorary'] == 'y' %}
+{% set is_founder = data['meta']['founder'] == 'y' %}
 
-    .main-card{
-        /* PANEL OF PICTURE AND BIO  */
-        padding-top: 15px;
-    }
-    #bio {
-        margin-top: 10px;
-    }
-    .chip-coordinator {
-        /* BADGE OF COORDINATORS OF TRANSLATION REPOS  */
-        background-color: gold;
-        color: black;
-    }
-    .chip-member-transl {
-        /* BADGE OF MEMBERS OF TRANSLATION REPOS  */
-        background-color: skyblue;
-        color: white;
-    }
-    .chip-active {
-        /* BADGE OF ACTIVE MEMBERS  */
-        background-color: seagreen;
-        color: white;
-    }
-    .chip-retired {
-        /* BADGE OF RETIRED MEMBERS  */
-        background-color: darkred;
-        color: white;
-    }
-    .avatar-founder {
-        /* ADD GOLD BORDER TO FOUNDERS PROFILE PICTURE  */
-        border:5px solid gold;
-        -webkit-border-radius: 500px;
-        -moz-border-radius: 500px;
-        background: transparent;
-    }
-    .main-cols-container {
-        /* DIV OF THREE PANELS  */
-        background-color: #e2e8f0;
-        border-radius: 4px;
-        padding: 15px;
-    }
-    .main-cols-container .panel {
-        transition: .8s;
-        background-color: white;
-        box-shadow: 0 .05rem .2rem rgba(48,55,66,.2);
-    }
-
-    .link-name {
-        /* SOCIAL LINK NAME  */
-        font-weight: bold;
-    }
-    </style>
-    <h2 class="text-center titles">User profile</h2>
-    <div class="container main-cols-container">
-        <div class="columns main-cols">
-            <div class="column col-5 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <!-- MAIN CARD -->
-                <div class="columns">
-                    <div class="column col-12">
-                        <div class="panel main-card">
-                            <div class="panel-header text-center">
-                                    <figure class="avatar avatar-xl {% if data['meta']['founder'] == 'y' %}avatar-founder{% endif %}">
-                                    <img class="s-circle" src="https://avatars.githubusercontent.com/{{ github_username }}">
-                                </figure>
-                                <div class="panel-title h5 mt-10">
-                                    <b>{{ data['meta']['name'] }}</b> <br>
-                                    <!-- badges -->
-                                    {% if data['meta']['organiser'] == 'y' %}
-                                        <span title="Organiser"><i style="color: #5cd150; font-size: 16px;" class="fa fa-shield-alt"></i></span> 
-                                    {% endif %}
-                                    {% if contrib_sessions[1] %}
-                                        <span title="Speaker"><i style="color: #5cd150; font-size: 16px;" class="fa fa-comment"></i></span>
-                                    {%endif%}
-                                    {% if data['meta']['honorary'] == 'y' %}
-                                        <span title="Honorary member"><i style="color: #5cd150; font-size: 16px;" class="fa fa-award"></i></span>
-                                    {% endif %}
-                                </div>
-                                <div class="panel-subtitle" id="bio">
-                                    {% if len(info['profiles'][github_username]['html']) %}
-                                        {{ info['profiles'][github_username]['html'] }}
-                                    {% else %}
-                                        {{ github_username }} prefers not to say too much
-                                    {% endif %}
-                                </div>
-                                <div class="panel-footer">
-                                    {% if info['profiles'][github_username]['founder'] == 'y' %}
-                                        <span class="chip chip-coordinator">
-                                            Founder
-                                        </span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% if data['meta']['links'] %}
-                        <div class="column col-12 links-column">
-                            <div class="panel">
-                                <ul class="menu">
-                                    {% for social in data['meta']['links'] %}
-                                        {% set url = data['meta']['links'][social] %}
-                                        <li class="menu-item">
-                                            <a href="{{ url }}">
-                                                <div class="link-name">
-                                                    <i class="icon icon-link"></i>&nbsp;
-                                                    {{ social }}
-                                                </div>
-                                                <div class="menu-badge url">
-
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="divider"></li>
-
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div>
-                    {% else %}
-                    <!-- GITHUB PROFILE AS DEFAULT LINK -->
-                        <div class="column col-12 links-column">
-                            <div class="panel">
-                                <ul class="menu">
-                                    <li class="menu-item" style="padding-bottom: 8px;">
-                                        <a href="https://github.com/{{ github_username }}">
-                                            <div class="link-name">
-                                                <i class="fa-brands fa-github"></i>&nbsp;
-                                                Github
-                                            </div>
-                                            <div class="menu-badge url" style="padding-bottom: 8px;">
-                                                https://github.com/{{ github_username }}
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div> 
-                    {% endif %}
-
-                    {% if data['meta']['skills'] %}
-                        <div class="column col-12 links-column">
-                            <div class="panel">
-                                <ul class="menu" style="padding: 15px">
-                                    <h3>Skills</h3>
-                                    <table>
-                                        <tbody>
-                                            
-                                        
-                                    {% for skill in data['meta']['skills'] %}
-                                        <tr>
-                                            <td>
-                                                <a href="#">{{ parse_skill(skill)[0] }}</a>
-                                            </td>
-                                            <td>
-                                                {{ parse_skill(skill)[1] }}
-                                            </td>
-                                        </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                    </table>
-                                </ul>
-                            </div>
-                        </div>
-                    {% endif %}
-                </div>
-            </div> 
-            <div class="column col-7 col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="panel extra-info">
-                    <div class="panel-header">
-                        <div class="panel-title" align="center"><h4>Contributions</h4></div>
-                    </div>
-                    <div class="panel-body">
-                        {% for session in contrib_sessions[0] %}
-                            {% for sess in session['sessions']%}
-                                <a href="/event/{{session['slug']}}"><b>{{sess['title']}}</b></a>
-
-                                {% if sess['presented'] %}<i class="fa fa-check" style="color: #00e155" title="presented"></i>{% else %} <i class="fa fa-times" style="color: #e10025" title="not presented"></i> {%endif%}
-
-
-                                {% if sess['remote'] %}<i class="fa fa-wifi" title="remote"></i>{% endif %}
-
-                                <br>
-                            {% endfor %}
-                        {% endfor %}
-
-                        <br><br>
-                    </div>
-                </div>
-            </div>
+<!-- Profile Hero -->
+<section class="relative">
+  <div class="h-48 md:h-64 w-full bg-gradient-to-r from-primary to-surface-tint overflow-hidden"></div>
+  <div class="max-w-container-max mx-auto px-gutter -mt-20 md:-mt-24 relative z-10">
+    <div class="flex flex-col md:flex-row md:items-end gap-lg">
+      <div class="relative shrink-0">
+        <div class="w-32 h-32 md:w-40 md:h-40 rounded-2xl border-4 border-surface bg-surface-container overflow-hidden shadow-lg {% if is_founder %}ring-4 ring-secondary-container{% endif %}">
+          <img alt="{{ data['meta']['name'] }}" src="https://avatars.githubusercontent.com/{{ github_username }}" class="w-full h-full object-cover">
         </div>
+        {% if is_organiser %}
+        <div class="absolute -bottom-2 -right-2 bg-tertiary text-on-tertiary p-2 rounded-lg border-2 border-surface flex items-center justify-center">
+          <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+        </div>
+        {% endif %}
+      </div>
+      <div class="flex-1 pb-base">
+        <h1 class="font-h2 text-h3 md:text-h2 text-white mb-xs">{{ data['meta']['name'] }}</h1>
+        <p class="font-code text-code text-white/70 font-medium">@{{ github_username }}</p>
+        <div class="flex flex-wrap items-center gap-xs mt-md">
+          {% if is_founder %}
+            <span class="px-md py-xs bg-secondary-container text-on-secondary-container rounded-full font-label-caps uppercase">Founder</span>
+          {% endif %}
+          {% if is_organiser %}
+            <span class="px-md py-xs bg-tertiary-container/10 text-tertiary border border-tertiary-container/20 rounded-full font-label-caps uppercase">Organiser</span>
+          {% endif %}
+          {% if is_speaker %}
+            <span class="px-md py-xs bg-primary-container/10 text-primary border border-primary-container/20 rounded-full font-label-caps uppercase">Speaker</span>
+          {% endif %}
+          {% if is_honorary %}
+            <span class="px-md py-xs bg-secondary/10 text-secondary border border-secondary/20 rounded-full font-label-caps uppercase">Honorary</span>
+          {% endif %}
+        </div>
+        <a href="https://github.com/pymug/pymug/tree/master/data/members/{{ github_username }}.md" target="_blank" rel="noopener" class="self-start mt-md inline-flex items-center gap-[3px] px-sm py-[3px] rounded-md border border-outline-variant text-on-surface-variant font-medium text-[11px] hover:bg-surface-container-high hover:text-primary transition-colors shrink-0">
+          <span class="material-symbols-outlined text-[13px]">edit</span>
+          Edit
+        </a>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter mt-xl pb-2xl grid grid-cols-1 lg:grid-cols-12 gap-lg">
+  <!-- Sidebar -->
+  <aside class="lg:col-span-4 space-y-md">
+    <div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant/50">
+      <h3 class="font-h4 text-h4 text-on-surface mb-md">About</h3>
+      <p class="font-body-md text-on-surface-variant">
+        {% if len(info['profiles'][github_username]['html']) %}
+          {{ info['profiles'][github_username]['html'] | safe }}
+        {% else %}
+          {{ github_username }} prefers not to say too much.
+        {% endif %}
+      </p>
+    </div>
+
+    <div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant/50">
+      <h3 class="font-h4 text-h4 text-on-surface mb-md">Links</h3>
+      <ul class="space-y-sm">
+        {% if data['meta']['links'] %}
+          {% for social in data['meta']['links'] %}
+            {% set url = data['meta']['links'][social] %}
+            <li>
+              <a href="{{ url }}" target="_blank" rel="noopener" class="flex items-center justify-between gap-sm p-sm rounded-lg border border-outline-variant hover:border-primary hover:bg-surface-container transition-colors group">
+                <span class="flex items-center gap-sm">
+                  <span class="material-symbols-outlined text-primary text-[20px]">link</span>
+                  <span class="font-body-md font-medium text-on-surface capitalize">{{ social }}</span>
+                </span>
+                <span class="material-symbols-outlined text-on-surface-variant text-[18px] group-hover:translate-x-1 transition-transform">open_in_new</span>
+              </a>
+            </li>
+          {% endfor %}
+        {% else %}
+          <li>
+            <a href="https://github.com/{{ github_username }}" target="_blank" rel="noopener" class="flex items-center justify-between gap-sm p-sm rounded-lg border border-outline-variant hover:border-primary hover:bg-surface-container transition-colors group">
+              <span class="flex items-center gap-sm">
+                <span class="material-symbols-outlined text-primary text-[20px]">code</span>
+                <span class="font-body-md font-medium text-on-surface">GitHub</span>
+              </span>
+              <span class="material-symbols-outlined text-on-surface-variant text-[18px] group-hover:translate-x-1 transition-transform">open_in_new</span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+
+    {% if data['meta']['skills'] %}
+    <div class="bg-surface-container-low p-lg rounded-xl border border-outline-variant/50">
+      <h3 class="font-h4 text-h4 text-on-surface mb-md">Skills</h3>
+      <div class="flex flex-col gap-sm">
+        {% for skill in data['meta']['skills'] %}
+          <div class="flex items-center justify-between gap-sm py-xs border-b border-outline-variant/40 last:border-0">
+            <span class="font-body-md text-on-surface">{{ parse_skill(skill)[0] }}</span>
+            <span class="font-code text-code text-on-surface-variant">{{ parse_skill(skill)[1] }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </aside>
+
+  <!-- Contributions -->
+  <section class="lg:col-span-8">
+    <div class="flex items-center gap-md mb-lg border-b border-outline-variant pb-md">
+      <h2 class="font-h3 text-h4 md:text-h3 text-primary">Contributions</h2>
+      <span class="px-md py-xs rounded-full bg-surface-container-high text-on-surface-variant font-label-caps">{{ contrib_sessions[1] }} session{{ 's' if contrib_sessions[1] != 1 }}</span>
+    </div>
+    {% if contrib_sessions[1] %}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+        {% for session in contrib_sessions[0] %}
+          {% for sess in session['sessions'] %}
+            <a href="{{ path }}event/{{ session['slug'] }}" class="bg-surface-container-low p-lg rounded-xl border border-outline-variant/40 hover:shadow-md hover:border-primary/30 transition-all group flex flex-col justify-between">
+              <div>
+                <div class="flex items-start justify-between gap-sm mb-sm">
+                  <span class="px-md py-xs rounded-full font-label-caps uppercase {% if sess['presented'] %}bg-tertiary-container/10 text-tertiary{% else %}bg-error-container text-on-error-container{% endif %}">
+                    {% if sess['presented'] %}Presented{% else %}Not presented{% endif %}
+                  </span>
+                  {% if sess['remote'] %}
+                  <span class="material-symbols-outlined text-primary text-[18px]" title="Remote session">wifi</span>
+                  {% endif %}
+                </div>
+                <h4 class="font-h4 text-body-lg font-bold text-on-surface group-hover:text-primary transition-colors">{{ sess['title'] }}</h4>
+              </div>
+              <div class="mt-md pt-sm border-t border-outline-variant/30 flex items-center gap-xs text-on-surface-variant">
+                <span class="material-symbols-outlined text-[16px]">event</span>
+                <span class="font-body-sm">View event</span>
+                <span class="material-symbols-outlined text-[16px] ml-auto group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+            </a>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="bg-surface-container-low p-xl rounded-xl border border-outline-variant text-center">
+        <span class="material-symbols-outlined text-on-surface-variant text-[48px]">event_busy</span>
+        <p class="font-body-md text-on-surface-variant mt-sm">No contributions recorded yet.</p>
+      </div>
+    {% endif %}
+  </section>
+</section>
 {% endblock %}

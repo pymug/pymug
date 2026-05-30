@@ -1,11 +1,42 @@
 {% extends 'base.html' %}
 {% set section = 'join' %}
 {% block head %}
-  <title>Join</title>
+  <title>Join | PyMUG</title>
 {% endblock %}
 {% block body %}
-<div id='join'>
-    <h2 class="text-center titles">Join the WG</h2>
-    See how to join the WG <a href="https://github.com/flaskcwg/join-requests/blob/main/README.md">here</a>
-</div>
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-2xl">
+  <div class="text-center mb-xl">
+    <span class="material-symbols-outlined text-[56px] text-primary">group_add</span>
+    <h1 class="font-h1 text-h3 md:text-h2 text-primary mt-md mb-sm">Join PyMUG</h1>
+    <p class="font-body-md md:font-body-lg text-on-surface-variant max-w-2xl mx-auto">Become part of the Python Mauritius User Group and connect with fellow Python enthusiasts.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-lg max-w-4xl mx-auto">
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-xl">
+      <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-md">
+        <span class="material-symbols-outlined">edit_note</span>
+      </div>
+      <h2 class="font-h4 text-h4 text-on-surface mb-sm">1. Submit your info</h2>
+      <p class="font-body-md text-on-surface-variant mb-lg">Fill out the short form so we can know a bit about you and your interest in Python.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScDXNJBDmB2WaB5YgTOZRw-skg6gRgX124o1-Fd15J5Eb7E8w/viewform?usp=preview" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-primary text-on-primary px-lg py-md rounded-lg font-bold hover:scale-105 transition-transform">
+        Fill the form
+        <span class="material-symbols-outlined">open_in_new</span>
+      </a>
+    </div>
+
+    <div class="bg-surface-container-low border border-outline-variant rounded-xl p-xl">
+      <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-md">
+        <span class="material-symbols-outlined">chat</span>
+      </div>
+      <h2 class="font-h4 text-h4 text-on-surface mb-sm">2. Join the WhatsApp group</h2>
+      <p class="font-body-md text-on-surface-variant mb-lg">After submitting your info, you'll receive an invite link to our WhatsApp group where all the discussion happens.</p>
+      <div class="bg-surface-container-high border border-outline-variant rounded-lg p-md">
+        <p class="font-body-sm text-on-surface-variant flex items-center gap-sm">
+          <span class="material-symbols-outlined text-primary text-[20px]">info</span>
+          Expect a response within a few days after submitting the form.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

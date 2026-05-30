@@ -188,9 +188,24 @@ def generate_events():
 
     events = settings.info['events']
     info = settings.info
-    path = '../' 
+    path = '../'
     context = base_context()
     context.update(locals())
+
+    today = datetime.date.today()
+    upcoming_slugs = set()
+    for slug, ev in events.items():
+        d = ev['date']
+        try:
+            dt = datetime.datetime.strptime(d, '%B %d, %Y')
+        except ValueError:
+            try:
+                dt = datetime.datetime.strptime(d, '%B, %Y')
+            except ValueError:
+                continue
+        if dt.date() > today:
+            upcoming_slugs.add(slug)
+    context['upcoming_slugs'] = upcoming_slugs
     
     # for event in events
 
@@ -499,9 +514,14 @@ def generate_menu_pages(args):
     logging.info("Start Generating menu pages...")
 
     generate("index.html", join(settings.OUTPUT_FOLDER, "index.html"), **context)
-    context.update({"path": "../"})
-
     logging.info("Generating index.html...")
+
+    # 404 page lives at site root so GitHub Pages / static hosts can serve it for any unknown URL.
+    # Path stays "/" so its nav links resolve absolutely from whatever URL the user landed on.
+    generate("404.html", join(settings.OUTPUT_FOLDER, "404.html"), **context)
+    logging.info("Generating 404.html...")
+
+    context.update({"path": "../"})
 
     # ensure_output_folder("translations")
 
@@ -530,18 +550,18 @@ def generate_menu_pages(args):
     # )
     
 
-    # ensure_output_folder("join")
-    # logging.info("Generating join.html...")
-    # generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
+    ensure_output_folder("join")
+    logging.info("Generating join.html...")
+    generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
     
 
-    ensure_output_folder("members")
+    ensure_output_folder("speakers")
 
-    logging.info("Generating members.html...")
+    logging.info("Generating speakers page...")
 
     context.update({'user_sessions': settings.user_sessions})
     generate(
-        "members.html", join(settings.OUTPUT_FOLDER, "members", "index.html"), **context
+        "members.html", join(settings.OUTPUT_FOLDER, "speakers", "index.html"), **context
     )
     
 
