@@ -1,5 +1,6 @@
 import datetime
 import logging
+import json
 import os
 import re
 import sys
@@ -186,7 +187,7 @@ def generate_events():
     logging.info("Start Generating events ...")
     ensure_output_folder("event")
 
-    events = settings.info['events']
+    from data.settings.events import events
     info = settings.info
     path = '../'
     context = base_context()
@@ -214,6 +215,10 @@ def generate_events():
             join(settings.OUTPUT_FOLDER, "event", "index.html"),
             **context,
         )
+
+    logging.info("Generating events.json ...")
+    with open(join(settings.OUTPUT_FOLDER, "events.json"), "w", encoding="utf-8") as f:
+        json.dump(events, f, ensure_ascii=False, indent=4)
 
     for event_slug in events:
         context.update({

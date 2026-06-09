@@ -1,4 +1,3 @@
-import json
 import os
 import markdown
 from collections import ChainMap
@@ -65,13 +64,8 @@ for github_username in github_usernames:
     profiles[github_username] = {'html': html, 'meta': metadata}
 
 
-events = {}
-with open("data/events/events.json", "r", encoding="utf-8") as f:
-    events = json.load(f)
-
-SPONSORS = {}
-with open("data/sponsors/sponsors.json", "r", encoding="utf-8") as f:
-    SPONSORS = json.load(f)
+from data.settings.events import events
+from data.settings.sponsors import SPONSORS
 
 info = {
     "head": {
