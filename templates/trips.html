@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% set section = 'trips' %}
+{% block head %}
+  <title>Trips | PyMUG</title>
+  <style>
+    .trip-cover-pycon-us-2026 {
+      background:
+        radial-gradient(circle at 78% 42%, #ffc857 0 17%, transparent 18%),
+        linear-gradient(180deg, #ff6b4a 0%, #f2545b 35%, #7b3f8c 65%, #0b2545 100%);
+    }
+  </style>
+{% endblock %}
+{% block body %}
+<section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+  <h1 class="font-h1 text-h3 md:text-h2 text-primary mb-sm">Trips</h1>
+  <p class="font-body-md md:font-body-lg text-on-surface-variant">Conferences PyMUG members travelled to, and what they brought back · {{ len(trips) }} trip{{ 's' if len(trips) != 1 }}</p>
+</section>
+
+<section class="max-w-container-max mx-auto px-gutter pb-2xl">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+    {% for trip_slug in trips %}
+      {% set trip = trips[trip_slug] %}
+      <a href="{{ path }}trips/{{ trip_slug }}" class="group bg-surface-container-low border border-outline-variant rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col">
+        <div class="trip-cover-{{ trip_slug }} bg-gradient-to-br from-primary to-primary-container h-32 relative">
+          <span class="absolute left-md bottom-md bg-white/90 text-primary px-md py-xs rounded-full font-label-caps">TRIP</span>
+        </div>
+        <div class="p-md flex flex-col flex-1 justify-between gap-md">
+          <div>
+            <h3 class="font-h4 text-h4 text-on-surface group-hover:text-primary transition-colors mb-xs">{{ trip['title'] }}</h3>
+            <p class="font-body-sm text-on-surface-variant">{{ trip['tagline'] }}</p>
+          </div>
+          <div class="space-y-xs font-body-sm text-on-surface-variant">
+            <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span>{{ trip['date'] }}</div>
+            <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px] text-primary">location_on</span>{{ trip['location'] }}</div>
+            <div class="flex items-center gap-xs"><span class="material-symbols-outlined text-[18px] text-primary">groups</span>{{ trip['experiences'] | map(attribute='name') | join(', ') }}</div>
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

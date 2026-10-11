@@ -237,6 +237,60 @@ def generate_events():
         )
 
 
+def load_trip_experiences(trip_slug):
+    trip_path = join("data", "trips", trip_slug)
+    experiences = []
+    for mdfile in os.listdir(trip_path):
+        experience_path = join(trip_path, mdfile)
+        with open(experience_path, encoding="utf-8") as f:
+            text = f.read()
+        md = markdown.Markdown(extensions=["extra", "smarty", "meta"])
+        html = md.convert(text)
+        metadata = md.Meta
+        ensure_meta(["name", "github", "order"], metadata, experience_path)
+        experiences.append(
+            {
+                "name": metadata["name"][0],
+                "github": metadata["github"][0],
+                "order": int(metadata["order"][0]),
+                "content": html,
+            }
+        )
+    experiences.sort(key=lambda x: x["order"])
+    return experiences
+
+
+def generate_trips():
+    logging.info("Start Generating trips ...")
+    ensure_output_folder("trips")
+
+    from data.settings.trips import trips
+
+    for trip_slug in trips:
+        validate_slug(trip_slug, "data/settings/trips.py")
+        trips[trip_slug]["experiences"] = load_trip_experiences(trip_slug)
+
+    context.update({"trips": trips, "path": "../"})
+    generate(
+        "trips.html", join(settings.OUTPUT_FOLDER, "trips", "index.html"), **context
+    )
+    logging.info("Generating trips/index.html...")
+
+    for trip_slug in trips:
+        trip = trips[trip_slug]
+        ensure_output_folder(f"trips/{trip_slug}")
+        context.update(
+            {"trip": trip, "experiences": trip["experiences"], "path": "../../"}
+        )
+        generate(
+            trip["template"],
+            join(settings.OUTPUT_FOLDER, "trips", trip_slug, "index.html"),
+            **context,
+        )
+        logging.info(f"Generating trips/{trip_slug}...")
+    logging.info("Generating trips is done")
+
+
 def generate_profiles():
     logging.info("Start Generating profiles ...")
 
@@ -555,36 +609,6 @@ def generate_menu_pages(args):
     # )
     
 
-    ensure_output_folder("trips")
-    ensure_output_folder("trips/pycon-us-2026")
-    logging.info("Generating trips/pycon-us-2026...")
-    trip_path = join("data", "trips", "pycon-us-2026")
-    experiences = []
-    for mdfile in os.listdir(trip_path):
-        experience_path = join(trip_path, mdfile)
-        with open(experience_path, encoding="utf-8") as f:
-            text = f.read()
-        md = markdown.Markdown(extensions=["extra", "smarty", "meta"])
-        html = md.convert(text)
-        metadata = md.Meta
-        ensure_meta(["name", "github", "order"], metadata, experience_path)
-        experiences.append(
-            {
-                "name": metadata["name"][0],
-                "github": metadata["github"][0],
-                "order": int(metadata["order"][0]),
-                "content": html,
-            }
-        )
-    experiences.sort(key=lambda x: x["order"])
-    context.update({"path": "../../", "experiences": experiences})
-    generate(
-        "pycon_us_2026.html",
-        join(settings.OUTPUT_FOLDER, "trips", "pycon-us-2026", "index.html"),
-        **context,
-    )
-    context.update({"path": "../"})
-
     ensure_output_folder("join")
     logging.info("Generating join.html...")
     generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)
@@ -615,6 +639,7 @@ def main(args):
         generate_blog_posts()
         # generate_resources()
         generate_events()
+        generate_trips()
         generate_faq()
         logging.info(f"generated folders: {folder_count} files: {file_count}")
 
