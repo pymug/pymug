@@ -558,7 +558,26 @@ def generate_menu_pages(args):
     ensure_output_folder("trips")
     ensure_output_folder("trips/pycon-us-2026")
     logging.info("Generating trips/pycon-us-2026...")
-    context.update({"path": "../../"})
+    trip_path = join("data", "trips", "pycon-us-2026")
+    experiences = []
+    for mdfile in os.listdir(trip_path):
+        experience_path = join(trip_path, mdfile)
+        with open(experience_path, encoding="utf-8") as f:
+            text = f.read()
+        md = markdown.Markdown(extensions=["extra", "smarty", "meta"])
+        html = md.convert(text)
+        metadata = md.Meta
+        ensure_meta(["name", "github", "order"], metadata, experience_path)
+        experiences.append(
+            {
+                "name": metadata["name"][0],
+                "github": metadata["github"][0],
+                "order": int(metadata["order"][0]),
+                "content": html,
+            }
+        )
+    experiences.sort(key=lambda x: x["order"])
+    context.update({"path": "../../", "experiences": experiences})
     generate(
         "pycon_us_2026.html",
         join(settings.OUTPUT_FOLDER, "trips", "pycon-us-2026", "index.html"),
