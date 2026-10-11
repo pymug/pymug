@@ -894,6 +894,213 @@ pymug.organize_meetup()</pre>
   </div>
 </section>
 
+<!-- Testimonials: swipeable card stack -->
+
+<section class="py-xl md:py-2xl max-w-container-max mx-auto px-gutter overflow-hidden">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+    <div class="space-y-md">
+      <p class="font-label-caps text-on-surface-variant uppercase tracking-widest">In their own words</p>
+      <h2 class="font-h2 text-h3 md:text-h2 text-primary">Member Stories</h2>
+      <p class="font-body-lg text-on-surface-variant max-w-lg">
+        PyMUG members travel, volunteer and speak at Python conferences around the world. Swipe through what they had to say.
+      </p>
+      <p class="hidden lg:flex items-center gap-sm font-body-sm text-on-surface-variant">
+        <span class="material-symbols-outlined text-[20px]">swipe</span>
+        Drag a card left or right, use the buttons, or the arrow keys.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <div id="tstack" tabindex="0" aria-roledescription="carousel" aria-label="Member stories" class="tstack relative w-full max-w-[400px] h-[400px] outline-none">
+        
+        <article class="tcard absolute inset-0 bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-xl p-lg flex flex-col select-none" aria-label="Story 1 of 5">
+          <span class="tstamp tstamp-like">LIKE</span>
+          <span class="tstamp tstamp-nope">NOPE</span>
+          <span class="material-symbols-outlined text-secondary-container leading-none" style="font-size: 48px; font-variation-settings: 'FILL' 1;">format_quote</span>
+          <p class="font-body-lg text-on-surface flex-1 mt-sm overflow-hidden">PyCon US was an amazing experience for me. It was my first time visiting the United States, and everyone I met was very welcoming. I got to meet people from many different Python communities and even had the chance to talk with some well-known members of the Python world.</p>
+          <footer class="flex items-center gap-md pt-md mt-md border-t border-outline-variant/50">
+            
+            <span class="w-12 h-12 rounded-full bg-primary-container text-on-primary inline-flex items-center justify-center font-h4 text-h4">N</span>
+            
+            <div>
+              <div class="font-h4 text-[20px] text-primary leading-tight">Nythenzio</div>
+              <div class="font-body-sm text-on-surface-variant">PyCon US 2026</div>
+            </div>
+          </footer>
+        </article>
+        
+        <article class="tcard absolute inset-0 bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-xl p-lg flex flex-col select-none" aria-label="Story 2 of 5">
+          <span class="tstamp tstamp-like">LIKE</span>
+          <span class="tstamp tstamp-nope">NOPE</span>
+          <span class="material-symbols-outlined text-secondary-container leading-none" style="font-size: 48px; font-variation-settings: 'FILL' 1;">format_quote</span>
+          <p class="font-body-lg text-on-surface flex-1 mt-sm overflow-hidden">From May 13–19, 2026, I attended PyCon US 2026 in Long Beach, California. As a developer from Mauritius, this was a remarkable opportunity to connect with the global Python community and contribute to the conference.</p>
+          <footer class="flex items-center gap-md pt-md mt-md border-t border-outline-variant/50">
+            
+            <img src="https://avatars.githubusercontent.com/waliidd" alt="" draggable="false" class="w-12 h-12 rounded-full object-cover">
+            
+            <div>
+              <div class="font-h4 text-[20px] text-primary leading-tight">Waliid</div>
+              <div class="font-body-sm text-on-surface-variant">PyCon US 2026</div>
+            </div>
+          </footer>
+        </article>
+        
+        <article class="tcard absolute inset-0 bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-xl p-lg flex flex-col select-none" aria-label="Story 3 of 5">
+          <span class="tstamp tstamp-like">LIKE</span>
+          <span class="tstamp tstamp-nope">NOPE</span>
+          <span class="material-symbols-outlined text-secondary-container leading-none" style="font-size: 48px; font-variation-settings: 'FILL' 1;">format_quote</span>
+          <p class="font-body-lg text-on-surface flex-1 mt-sm overflow-hidden">PyMUG, the Mauritius Python User Group, is a great place for people to get started with Python and become part of the community. The meetups are welcoming and give everyone a chance to learn, share ideas, and contribute.</p>
+          <footer class="flex items-center gap-md pt-md mt-md border-t border-outline-variant/50">
+            
+            <span class="w-12 h-12 rounded-full bg-primary-container text-on-primary inline-flex items-center justify-center font-h4 text-h4">N</span>
+            
+            <div>
+              <div class="font-h4 text-[20px] text-primary leading-tight">Nythenzio</div>
+              <div class="font-body-sm text-on-surface-variant">PyCon US 2026</div>
+            </div>
+          </footer>
+        </article>
+        
+        <article class="tcard absolute inset-0 bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-xl p-lg flex flex-col select-none" aria-label="Story 4 of 5">
+          <span class="tstamp tstamp-like">LIKE</span>
+          <span class="tstamp tstamp-nope">NOPE</span>
+          <span class="material-symbols-outlined text-secondary-container leading-none" style="font-size: 48px; font-variation-settings: 'FILL' 1;">format_quote</span>
+          <p class="font-body-lg text-on-surface flex-1 mt-sm overflow-hidden">I attended tutorials, sponsor presentations, the main conference tracks, and the job fair. Every talk was engaging and thoughtfully prepared. The atmosphere was very welcoming, with attendees from all backgrounds united by their passion for Python.</p>
+          <footer class="flex items-center gap-md pt-md mt-md border-t border-outline-variant/50">
+            
+            <img src="https://avatars.githubusercontent.com/waliidd" alt="" draggable="false" class="w-12 h-12 rounded-full object-cover">
+            
+            <div>
+              <div class="font-h4 text-[20px] text-primary leading-tight">Waliid</div>
+              <div class="font-body-sm text-on-surface-variant">PyCon US 2026</div>
+            </div>
+          </footer>
+        </article>
+        
+        <article class="tcard absolute inset-0 bg-surface-container-lowest rounded-2xl border border-outline-variant shadow-xl p-lg flex flex-col select-none" aria-label="Story 5 of 5">
+          <span class="tstamp tstamp-like">LIKE</span>
+          <span class="tstamp tstamp-nope">NOPE</span>
+          <span class="material-symbols-outlined text-secondary-container leading-none" style="font-size: 48px; font-variation-settings: 'FILL' 1;">format_quote</span>
+          <p class="font-body-lg text-on-surface flex-1 mt-sm overflow-hidden">After PyCon, I visited Apple and Google headquarters in Silicon Valley. Walking through these iconic campuses was a dream come true and an unforgettable experience.</p>
+          <footer class="flex items-center gap-md pt-md mt-md border-t border-outline-variant/50">
+            
+            <img src="https://avatars.githubusercontent.com/waliidd" alt="" draggable="false" class="w-12 h-12 rounded-full object-cover">
+            
+            <div>
+              <div class="font-h4 text-[20px] text-primary leading-tight">Waliid</div>
+              <div class="font-body-sm text-on-surface-variant">PyCon US 2026</div>
+            </div>
+          </footer>
+        </article>
+        
+      </div>
+
+      <div class="flex items-center gap-lg mt-xl">
+        <button type="button" id="tnope" aria-label="Pass on this story" class="w-14 h-14 rounded-full bg-surface-container-lowest border border-outline-variant shadow-md text-error inline-flex items-center justify-center hover:scale-110 active:scale-95 transition-transform">
+          <span class="material-symbols-outlined text-[30px]">close</span>
+        </button>
+        <span id="tcount" class="font-body-sm text-on-surface-variant min-w-[48px] text-center">1 / 5</span>
+        <button type="button" id="tlike" aria-label="Like this story" class="w-14 h-14 rounded-full bg-surface-container-lowest border border-outline-variant shadow-md text-tertiary inline-flex items-center justify-center hover:scale-110 active:scale-95 transition-transform">
+          <span class="material-symbols-outlined text-[30px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .tcard { touch-action: pan-y; cursor: grab; transition: transform .35s ease, opacity .35s ease; will-change: transform; }
+  .tcard.dragging { transition: none; cursor: grabbing; }
+  .tstamp {
+    position: absolute; top: 28px; padding: 2px 12px; border: 4px solid; border-radius: 8px;
+    font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 28px; letter-spacing: .08em;
+    opacity: 0; pointer-events: none;
+  }
+  .tstamp-like { left: 24px; color: #004038; border-color: #004038; transform: rotate(-14deg); }
+  .tstamp-nope { right: 24px; color: #ba1a1a; border-color: #ba1a1a; transform: rotate(14deg); }
+</style>
+<script>
+  (function () {
+    var stack = document.getElementById('tstack');
+    if (!stack) return;
+    var cards = Array.prototype.slice.call(stack.querySelectorAll('.tcard'));
+    var count = document.getElementById('tcount');
+    var total = cards.length;
+    var seen = 0;
+    var busy = false;
+
+    function layout() {
+      cards.forEach(function (card, i) {
+        var depth = Math.min(i, 3);
+        card.style.zIndex = total - i;
+        card.style.opacity = i > 2 ? 0 : 1;
+        card.style.transform = 'translateY(' + depth * 24 + 'px) scale(' + (1 - depth * 0.05) + ')';
+        card.style.pointerEvents = i === 0 ? 'auto' : 'none';
+        card.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+        stamps(card, 0);
+      });
+      count.textContent = (seen % total + 1) + ' / ' + total;
+    }
+
+    function stamps(card, dx) {
+      card.querySelector('.tstamp-like').style.opacity = Math.max(0, Math.min(1, dx / 100));
+      card.querySelector('.tstamp-nope').style.opacity = Math.max(0, Math.min(1, -dx / 100));
+    }
+
+    function fling(dir) {
+      if (busy) return;
+      busy = true;
+      var card = cards[0];
+      card.classList.remove('dragging');
+      stamps(card, dir * 100);
+      card.style.transform = 'translateX(' + dir * (stack.offsetWidth * 1.6) + 'px) rotate(' + dir * 30 + 'deg)';
+      card.style.opacity = 0;
+      setTimeout(function () {
+        cards.push(cards.shift());
+        seen++;
+        // Park the card at the back of the stack without animating across.
+        card.style.transition = 'none';
+        layout();
+        void card.offsetWidth;
+        card.style.transition = '';
+        busy = false;
+      }, 350);
+    }
+
+    var startX = 0, dx = 0, dragging = false;
+    stack.addEventListener('pointerdown', function (e) {
+      var card = cards[0];
+      if (busy || !card.contains(e.target)) return;
+      dragging = true; startX = e.clientX; dx = 0;
+      card.classList.add('dragging');
+      card.setPointerCapture(e.pointerId);
+    });
+    stack.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      dx = e.clientX - startX;
+      cards[0].style.transform = 'translateX(' + dx + 'px) rotate(' + dx * 0.06 + 'deg)';
+      stamps(cards[0], dx);
+    });
+    function release() {
+      if (!dragging) return;
+      dragging = false;
+      if (Math.abs(dx) > 100) { fling(dx > 0 ? 1 : -1); }
+      else { cards[0].classList.remove('dragging'); layout(); }
+    }
+    stack.addEventListener('pointerup', release);
+    stack.addEventListener('pointercancel', release);
+
+    document.getElementById('tlike').addEventListener('click', function () { fling(1); });
+    document.getElementById('tnope').addEventListener('click', function () { fling(-1); });
+    stack.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); fling(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); fling(-1); }
+    });
+
+    layout();
+  })();
+</script>
+
+
 <!-- About / Mailing list -->
 <section class="py-xl md:py-2xl max-w-container-max mx-auto px-gutter">
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
