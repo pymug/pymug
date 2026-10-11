@@ -555,6 +555,17 @@ def generate_menu_pages(args):
     # )
     
 
+    ensure_output_folder("trips")
+    ensure_output_folder("trips/pycon-us-2026")
+    logging.info("Generating trips/pycon-us-2026...")
+    context.update({"path": "../../"})
+    generate(
+        "pycon_us_2026.html",
+        join(settings.OUTPUT_FOLDER, "trips", "pycon-us-2026", "index.html"),
+        **context,
+    )
+    context.update({"path": "../"})
+
     ensure_output_folder("join")
     logging.info("Generating join.html...")
     generate("join.html", join(settings.OUTPUT_FOLDER, "join", "index.html"), **context)

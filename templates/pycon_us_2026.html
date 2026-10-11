@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% set section = 'trips' %}
+{% set experiences = [
+  {
+    'name': 'Nythenzio',
+    'github': '',
+    'sections': [
+      ('', [
+        'PyCon US was an amazing experience for me. It was my first time visiting the United States, and everyone I met was very welcoming. I got to meet people from many different Python communities and even had the chance to talk with some well-known members of the Python world. Volunteering at the conference made the experience even more special, as I was able to help the event while meeting people from all over the world. I also attended many interesting talks, including one about building a PDF generator using Python generators.',
+        'PyMUG, the Mauritius Python User Group, is a great place for people to get started with Python and become part of the community. The meetups are welcoming and give everyone a chance to learn, share ideas, and contribute. They also help people build confidence by speaking, presenting, and taking part in community projects and larger events like PyCon US.'
+      ])
+    ]
+  },
+  {
+    'name': 'Waliid',
+    'github': 'waliidd',
+    'sections': [
+      ('My PyCon US 2026 Experience', [
+        'From May 13–19, 2026, I attended PyCon US 2026 in Long Beach, California. As a developer from Mauritius, this was a remarkable opportunity to connect with the global Python community and contribute to the conference.'
+      ]),
+      ("Session Host for Emma Smith's Talk", [
+        'I served as a session host for "Rust for CPython: Making Python Safer and Robust for Everyone," presented by Emma Smith. My role involved introducing the talk and managing the live Q&A with the microphone. This hands-on involvement allowed me to contribute meaningfully to the conference experience while deepening my understanding of how Rust can address critical security concerns in CPython.'
+      ]),
+      ('The Conference Experience', [
+        'I attended tutorials, sponsor presentations, the main conference tracks, and the job fair. Every talk was engaging and thoughtfully prepared. The atmosphere was very welcoming, with attendees from all backgrounds united by their passion for Python.'
+      ]),
+      ('Company Booths and a Standout Discovery', [
+        'One of the highlights was exploring the expo floor, where companies like Cesium Astro impressed me with their innovative work and amazing teams. Many organizations were showcasing their products. These interactions fostered meaningful conversations about projects and conference experience.'
+      ]),
+      ('Silicon Valley', [
+        'After PyCon, I visited Apple and Google headquarters in Silicon Valley. Walking through these iconic campuses was a dream come true and an unforgettable experience.'
+      ])
+    ]
+  }
+] %}
+{% block head %}
+  <title>PyCon US 2026 | PyMUG</title>
+  <style>
+    /* PyCon US 2026, Long Beach: coastal sunset, palms and Pacific waves */
+    .lb {
+      --lb-navy: #0b2545;
+      --lb-ocean: #13a89e;
+      --lb-coral: #ff6b4a;
+      --lb-rose: #f2545b;
+      --lb-sun: #ffc857;
+      --lb-sand: #fff4e0;
+    }
+    .lb-hero {
+      background: linear-gradient(180deg, var(--lb-coral) 0%, var(--lb-rose) 28%, #7b3f8c 58%, var(--lb-navy) 100%);
+    }
+    /* Retro striped sunset */
+    .lb-sun {
+      border-radius: 9999px;
+      background:
+        repeating-linear-gradient(180deg, transparent 0 58%, var(--lb-rose) 58% 62%, transparent 62% 68%, var(--lb-rose) 68% 73%, transparent 73% 80%, var(--lb-rose) 80% 86%, transparent 86% 100%),
+        linear-gradient(180deg, #ffe08a 0%, var(--lb-sun) 45%, #ff9a5a 100%);
+      box-shadow: 0 0 80px rgba(255, 200, 87, 0.55);
+    }
+    .lb-stamp {
+      border: 2px dashed rgba(255, 255, 255, 0.7);
+      transform: rotate(-4deg);
+    }
+    .lb-script { font-family: 'Pacifico', cursive; }
+    .lb-body {
+      background-color: var(--lb-sand);
+      background-image: radial-gradient(rgba(19, 168, 158, 0.08) 1.5px, transparent 1.5px);
+      background-size: 22px 22px;
+    }
+    .lb-card { border-top: 6px solid var(--lb-ocean); }
+    .lb-card:nth-of-type(even) { border-top-color: var(--lb-coral); }
+    .lb-heading { color: var(--lb-navy); }
+    .lb-accent { color: var(--lb-ocean); }
+    .lb-wave-mark { color: var(--lb-coral); }
+    .lb-avatar { background: linear-gradient(135deg, var(--lb-coral), var(--lb-ocean)); }
+    .lb-btn { background: var(--lb-navy); color: #fff; }
+    .lb-btn:hover { background: var(--lb-ocean); }
+    .lb-strip {
+      background: repeating-linear-gradient(90deg, var(--lb-coral) 0 40px, var(--lb-sun) 40px 80px, var(--lb-ocean) 80px 120px, var(--lb-navy) 120px 160px);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<div class="lb">
+  <section class="lb-hero relative overflow-hidden text-white">
+    <div class="lb-sun absolute top-24 -right-6 w-32 h-32 opacity-50 md:opacity-100 md:top-10 md:right-[6%] md:w-72 md:h-72"></div>
+
+    <!-- Palm tree silhouettes -->
+    <svg class="absolute bottom-10 md:bottom-16 right-0 h-56 md:h-80 text-[#0b2545] opacity-90" viewBox="0 0 300 320" fill="currentColor" aria-hidden="true">
+      <path d="M200 320 C204 250 210 180 226 110 L232 112 C218 182 214 252 212 320 Z"/>
+      <path d="M229 108 C200 80 160 78 128 96 C164 90 196 98 224 116 Z"/>
+      <path d="M229 108 C214 70 186 48 150 44 C182 60 204 82 222 114 Z"/>
+      <path d="M229 108 C240 70 266 48 298 46 C270 62 250 84 236 116 Z"/>
+      <path d="M229 108 C262 92 292 100 300 124 C282 110 260 108 234 116 Z"/>
+      <path d="M229 108 C220 132 196 150 170 156 C194 140 212 126 224 106 Z"/>
+      <path d="M96 320 C98 270 102 222 112 176 L117 177 C108 224 106 272 106 320 Z"/>
+      <path d="M115 174 C94 154 66 152 44 164 C70 160 92 166 112 180 Z"/>
+      <path d="M115 174 C106 146 86 132 60 130 C84 142 98 158 110 180 Z"/>
+      <path d="M115 174 C124 148 142 134 166 134 C146 144 132 160 120 180 Z"/>
+      <path d="M115 174 C136 164 158 170 164 186 C150 178 136 176 118 180 Z"/>
+    </svg>
+
+    <div class="relative max-w-container-max mx-auto px-gutter pt-lg pb-2xl">
+      <nav class="flex items-center gap-xs mb-xl text-white/80 overflow-x-auto hide-scrollbar whitespace-nowrap">
+        <a href="{{ path }}" class="font-body-sm hover:text-white">Home</a>
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        <span class="font-body-sm font-bold text-white truncate">PyCon US 2026</span>
+      </nav>
+
+      <div class="lb-stamp inline-block px-md py-sm rounded-lg mb-md">
+        <span class="lb-script text-[22px] md:text-[28px] leading-none">Greetings from Long Beach!</span>
+      </div>
+
+      <div class="flex flex-wrap gap-md items-center mb-md">
+        <div class="flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px]">calendar_today</span>
+          <span class="font-body-sm">May 13 - 19, 2026</span>
+        </div>
+        <div class="flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px]">location_on</span>
+          <span class="font-body-sm">Long Beach, California, USA</span>
+        </div>
+      </div>
+      <h1 class="font-h1 text-h2 md:text-h1 mb-sm leading-tight">PyCon US 2026</h1>
+      <p class="font-body-lg text-white/90 max-w-xl mb-lg">Mauritian Pythonistas at the biggest Python conference in the world</p>
+      <div class="flex flex-wrap gap-sm">
+        {% for exp in experiences %}
+        <a href="#{{ exp['name'] | lower }}" class="inline-flex items-center gap-xs bg-white/15 hover:bg-white/25 backdrop-blur rounded-full pl-xs pr-md py-xs transition-colors">
+          {% if exp['github'] %}
+          <img src="https://avatars.githubusercontent.com/{{ exp['github'] }}" alt="{{ exp['name'] }}" class="w-7 h-7 rounded-full object-cover">
+          {% else %}
+          <span class="lb-avatar w-7 h-7 rounded-full inline-flex items-center justify-center font-bold text-[13px]">{{ exp['name'][0] }}</span>
+          {% endif %}
+          <span class="font-body-sm font-medium">{{ exp['name'] }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <svg class="relative block w-full h-12 md:h-20 text-[#13a89e]" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" fill-opacity="0.55" d="M0,56 C240,104 480,8 720,40 C960,72 1200,112 1440,64 L1440,120 L0,120 Z"></path>
+      <path fill="#fff4e0" d="M0,88 C200,56 420,120 720,92 C1000,66 1220,100 1440,84 L1440,120 L0,120 Z"></path>
+    </svg>
+  </section>
+
+  <div class="lb-body">
+    <section class="max-w-container-max mx-auto px-gutter pt-md pb-2xl grid grid-cols-1 lg:grid-cols-12 gap-lg">
+      <div class="lg:col-span-8 space-y-lg">
+        <p class="font-body-lg text-on-surface-variant">Members of PyMUG travelled to Long Beach to attend, volunteer and host sessions at PyCon US 2026. Here is how it went, in their own words.</p>
+        {% for exp in experiences %}
+        <article id="{{ exp['name'] | lower }}" class="lb-card bg-white rounded-xl p-lg shadow-sm scroll-mt-24">
+          <header class="flex items-center gap-md mb-md">
+            {% if exp['github'] %}
+            <img src="https://avatars.githubusercontent.com/{{ exp['github'] }}" alt="{{ exp['name'] }}" class="w-14 h-14 rounded-full object-cover">
+            {% else %}
+            <span class="lb-avatar w-14 h-14 rounded-full inline-flex items-center justify-center text-white font-h4 text-h4">{{ exp['name'][0] }}</span>
+            {% endif %}
+            <div>
+              <h2 class="lb-heading font-h3 text-h4 md:text-h3 leading-tight">{{ exp['name'] }}</h2>
+              {% if exp['github'] %}<a href="https://github.com/{{ exp['github'] }}" target="_blank" rel="noopener" class="font-code text-[12px] text-on-surface-variant hover:underline">@{{ exp['github'] }}</a>{% endif %}
+            </div>
+          </header>
+          <div class="space-y-md">
+            {% for heading, paragraphs in exp['sections'] %}
+            <div>
+              {% if heading %}
+              <h3 class="lb-heading font-h4 text-[20px] font-semibold mb-sm flex items-center gap-sm">
+                <span class="material-symbols-outlined lb-wave-mark text-[22px]">waves</span>{{ heading }}
+              </h3>
+              {% endif %}
+              {% for para in paragraphs %}
+              <p class="font-body-md text-on-surface mb-sm leading-relaxed">{{ para }}</p>
+              {% endfor %}
+            </div>
+            {% endfor %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+      <aside class="lg:col-span-4">
+        <div class="bg-white rounded-xl shadow-sm overflow-hidden lg:sticky lg:top-24">
+          <div class="lb-strip h-2"></div>
+          <div class="p-lg">
+            <h4 class="lb-heading font-h4 text-h4 mb-md">Trip Info</h4>
+            <div class="space-y-sm">
+              <div class="flex items-start gap-sm">
+                <span class="material-symbols-outlined lb-accent mt-[2px]">calendar_today</span>
+                <div>
+                  <div class="font-label-caps text-on-surface-variant uppercase">Dates</div>
+                  <div class="font-body-md text-on-surface font-medium">May 13 - 19, 2026</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-sm">
+                <span class="material-symbols-outlined lb-accent mt-[2px]">location_on</span>
+                <div>
+                  <div class="font-label-caps text-on-surface-variant uppercase">Location</div>
+                  <div class="font-body-md text-on-surface font-medium">Long Beach Convention Center, California</div>
+                </div>
+              </div>
+              <div class="flex items-start gap-sm">
+                <span class="material-symbols-outlined lb-accent mt-[2px]">groups</span>
+                <div>
+                  <div class="font-label-caps text-on-surface-variant uppercase">PyMUG members</div>
+                  <div class="font-body-md text-on-surface font-medium">{{ experiences | map(attribute='name') | join(', ') }}</div>
+                </div>
+              </div>
+            </div>
+            <a href="https://us.pycon.org/2026/" target="_blank" rel="noopener" class="lb-btn mt-md w-full inline-flex items-center justify-center gap-sm font-bold py-md rounded-lg transition-colors">
+              Conference website
+              <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </div>
+</div>
+{% endblock %}
