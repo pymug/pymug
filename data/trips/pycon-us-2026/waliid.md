@@ -21,3 +21,11 @@ One of the highlights was exploring the expo floor, where companies like Cesium 
 ## Silicon Valley
 
 After PyCon, I visited Apple and Google headquarters in Silicon Valley. Walking through these iconic campuses was a dream come true and an unforgettable experience.
+
+## PyMUG Involvement in This Success
+
+I am grateful to PyMUG for the community, learning opportunities, and connections that have supported my journey, and to Abdur Rahmaan for his encouragement and support throughout this process and during the trip. His dedicated work with PyMUG has helped the community gain recognition internationally and create opportunities for developers in Mauritius to connect with the wider Python ecosystem.
+
+This experience reinforced the importance of local technical communities in helping developers connect with the wider world, share knowledge, and pursue opportunities beyond their immediate surroundings.
+
+I look forward to bringing what I have learned back to the local community, continuing to contribute to PyMUG, and encouraging other developers in Mauritius to engage with the international Python community.
