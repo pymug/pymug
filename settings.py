@@ -66,6 +66,7 @@ for github_username in github_usernames:
 
 from data.settings.events import events
 from data.settings.sponsors import SPONSORS
+from data.settings.testimonials import TESTIMONIALS
 
 info = {
     "head": {
