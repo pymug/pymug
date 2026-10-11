@@ -101,7 +101,7 @@
       <p class="font-body-lg text-white/90 max-w-xl mb-lg">Mauritian Pythonistas at the biggest Python conference in the world</p>
       <div class="flex flex-wrap gap-sm">
         {% for exp in experiences %}
-        <a href="#{{ exp['name'] | lower }}" class="inline-flex items-center gap-xs bg-white/15 hover:bg-white/25 backdrop-blur rounded-full pl-xs pr-md py-xs transition-colors">
+        <a href="#{{ exp['name'] | lower | replace(' ', '-') }}" class="inline-flex items-center gap-xs bg-white/15 hover:bg-white/25 backdrop-blur rounded-full pl-xs pr-md py-xs transition-colors">
           {% if exp['github'] %}
           <img src="https://avatars.githubusercontent.com/{{ exp['github'] }}" alt="{{ exp['name'] }}" class="w-7 h-7 rounded-full object-cover">
           {% else %}
@@ -124,7 +124,7 @@
       <div class="lg:col-span-8 space-y-lg">
         <p class="font-body-lg text-on-surface-variant">Members of PyMUG travelled to Long Beach to attend, volunteer and host sessions at PyCon US 2026. Here is how it went, in their own words.</p>
         {% for exp in experiences %}
-        <article id="{{ exp['name'] | lower }}" class="lb-card bg-white rounded-xl p-lg shadow-sm scroll-mt-24">
+        <article id="{{ exp['name'] | lower | replace(' ', '-') }}" class="lb-card bg-white rounded-xl p-lg shadow-sm scroll-mt-24">
           <header class="flex items-center gap-md mb-md">
             {% if exp['github'] %}
             <img src="https://avatars.githubusercontent.com/{{ exp['github'] }}" alt="{{ exp['name'] }}" class="w-14 h-14 rounded-full object-cover">
@@ -137,7 +137,11 @@
             </div>
           </header>
           <div class="lb-story font-body-md text-on-surface">
+            {% if exp['content'] %}
             {{ exp['content'] | safe }}
+            {% else %}
+            <p class="italic text-on-surface-variant">Their PyCon US story is coming soon.</p>
+            {% endif %}
           </div>
         </article>
         {% endfor %}
