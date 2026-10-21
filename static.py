@@ -291,6 +291,33 @@ def generate_trips():
     logging.info("Generating trips is done")
 
 
+def load_hacktoberfest_projects():
+    """Project list for the Hacktoberfest page, kept as JSON so it stays editable."""
+    data_path = join("data", "hacktoberfest2026", "data.json")
+    with open(data_path, encoding="utf-8") as f:
+        data = json.load(f)
+    projects = data.get("projects", [])
+    for project in projects:
+        ensure_meta(
+            ["name", "description", "url", "language", "difficulty"],
+            project,
+            data_path,
+        )
+    return projects
+
+
+def generate_hacktoberfest():
+    logging.info("Start Generating hacktoberfest2026 ...")
+    ensure_output_folder("hacktoberfest2026")
+    context.update({"projects": load_hacktoberfest_projects(), "path": "../"})
+    generate(
+        "hacktoberfest2026.html",
+        join(settings.OUTPUT_FOLDER, "hacktoberfest2026", "index.html"),
+        **context,
+    )
+    logging.info("Generating hacktoberfest2026/index.html...")
+
+
 def generate_profiles():
     logging.info("Start Generating profiles ...")
 
@@ -627,6 +654,8 @@ def generate_menu_pages(args):
     # ensure_output_folder("aim")
     # generate("aim.html", join(settings.OUTPUT_FOLDER, "aim", "index.html"), **context)
     # logging.info("Generating aim.html...")
+
+    generate_hacktoberfest()
 
     logging.info("Generating menu pages done")
 
