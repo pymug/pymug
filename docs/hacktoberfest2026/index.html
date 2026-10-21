@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Python events in Mauritius">
+<meta name="keywords" content="python, mauritius, community">
+<meta name="author" content="Python Community">
+<meta name="theme-color" content="#111">
+<link rel="icon" href="/static/logo/pymug_new.svg">
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-error-container": "#93000a",
+          "secondary-fixed-dim": "#ecc228",
+          "on-secondary-fixed": "#231b00",
+          "surface-variant": "#dae3f1",
+          "on-secondary-container": "#715b00",
+          "on-background": "#131c26",
+          "tertiary-fixed-dim": "#4fdbc8",
+          "surface-dim": "#d2dbe9",
+          "secondary-fixed": "#ffe082",
+          "inverse-surface": "#28313c",
+          "surface-container-lowest": "#ffffff",
+          "on-tertiary-fixed": "#00201c",
+          "primary-container": "#1e5180",
+          "on-primary": "#ffffff",
+          "secondary-container": "#fed33a",
+          "error": "#ba1a1a",
+          "on-primary-fixed": "#001d36",
+          "on-tertiary-fixed-variant": "#005048",
+          "tertiary-container": "#005950",
+          "on-secondary-fixed-variant": "#564500",
+          "surface-container": "#e6eefd",
+          "surface": "#f8f9ff",
+          "on-surface": "#131c26",
+          "outline": "#727780",
+          "tertiary": "#004038",
+          "on-tertiary": "#ffffff",
+          "on-tertiary-container": "#48d5c2",
+          "primary-fixed": "#d1e4ff",
+          "primary": "#003a64",
+          "surface-container-low": "#eef4ff",
+          "primary-fixed-dim": "#9ecaff",
+          "tertiary-fixed": "#71f8e4",
+          "inverse-on-surface": "#e9f1ff",
+          "on-surface-variant": "#42474f",
+          "on-primary-container": "#97c4fa",
+          "background": "#f8f9ff",
+          "outline-variant": "#c2c7d0",
+          "secondary": "#725c00",
+          "surface-container-high": "#e0e9f7",
+          "surface-bright": "#f8f9ff",
+          "inverse-primary": "#9ecaff",
+          "on-primary-fixed-variant": "#124978",
+          "error-container": "#ffdad6",
+          "surface-tint": "#316191",
+          "on-secondary": "#ffffff",
+          "on-error": "#ffffff",
+          "surface-container-highest": "#dae3f1"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        spacing: {
+          "base": "4px",
+          "xs": "4px",
+          "sm": "8px",
+          "md": "16px",
+          "lg": "24px",
+          "xl": "48px",
+          "2xl": "64px",
+          "gutter": "24px",
+          "container-max": "1280px"
+        },
+        fontFamily: {
+          "body-lg": ["Inter"],
+          "body-md": ["Inter"],
+          "body-sm": ["Inter"],
+          "h1": ["Space Grotesk"],
+          "h2": ["Space Grotesk"],
+          "h3": ["Space Grotesk"],
+          "h4": ["Space Grotesk"],
+          "label-caps": ["Space Grotesk"],
+          "code": ["JetBrains Mono"]
+        },
+        fontSize: {
+          "h1": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "h2": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "h3": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+          "h4": ["24px", { "lineHeight": "1.4", "fontWeight": "500" }],
+          "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+          "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+          "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+          "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+          "code": ["14px", { "lineHeight": "1.7", "fontWeight": "400" }]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+}
+
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Markdown content styling for blog/faq posts */
+.prose {
+  color: #131c26;
+  line-height: 1.7;
+}
+.prose p { margin-bottom: 1em; }
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #003a64;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+}
+.prose h2 { font-size: 28px; }
+.prose h3 { font-size: 22px; }
+.prose h4 { font-size: 18px; }
+.prose ul, .prose ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+.prose ul { list-style-type: disc; }
+.prose ol { list-style-type: decimal; }
+.prose li { margin-bottom: 0.4em; }
+.prose a {
+  color: #003a64;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose a:hover { color: #1e5180; }
+.prose blockquote {
+  border-left: 4px solid #1e5180;
+  padding: 12px 20px;
+  margin: 1.2em 0;
+  background-color: #eef4ff;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #42474f;
+}
+.prose code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  background-color: #e0e9f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #003a64;
+}
+.prose pre {
+  background-color: #131c26;
+  color: #d1e4ff;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 1.2em 0;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.prose pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.prose img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 1em 0;
+  border: 1px solid #c2c7d0;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid #c2c7d0;
+  margin: 2em 0;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+.prose th, .prose td {
+  border: 1px solid #c2c7d0;
+  padding: 8px 12px;
+  text-align: left;
+}
+.prose th {
+  background-color: #e6eefd;
+  font-weight: 600;
+}
+
+/* Footnote tweaks for raw_html event content */
+.event-content { color: #42474f; }
+.event-content a { color: #003a64; text-decoration: underline; }
+.event-content h1, .event-content h2, .event-content h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #003a64;
+  margin: 1em 0 0.5em;
+}
+
+/* Smooth scroll padding for sticky topnav */
+html { scroll-padding-top: 80px; }
+</style>
+    
+  <title>Hacktoberfest 2026 | PyMUG</title>
+  <style>
+    /* Hacktoberfest 2026: night sky, marigold orange, leaf green, grape purple */
+    .hf {
+      --hf-night: #14162b;
+      --hf-ink: #1d1a3d;
+      --hf-orange: #ff6b2c;
+      --hf-amber: #ffb020;
+      --hf-leaf: #31c48d;
+      --hf-grape: #7b5cff;
+      --hf-cream: #fff6ec;
+    }
+    .hf-hero {
+      background:
+        radial-gradient(900px 420px at 12% -10%, rgba(123, 92, 255, 0.55), transparent 60%),
+        radial-gradient(760px 400px at 92% 8%, rgba(255, 107, 44, 0.42), transparent 62%),
+        radial-gradient(700px 480px at 60% 110%, rgba(49, 196, 141, 0.3), transparent 60%),
+        linear-gradient(165deg, var(--hf-ink) 0%, var(--hf-night) 60%, #0f221f 100%);
+    }
+    .hf-grid {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+    .hf-title {
+      background: linear-gradient(94deg, var(--hf-orange) 0%, var(--hf-amber) 45%, var(--hf-leaf) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* Prefixed with .hf so these win over the Tailwind `border` utility regardless of style order. */
+    .hf .hf-pill {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+    .hf .hf-card {
+      border: 1px solid #c2c7d0;
+      border-top: 4px solid var(--hf-orange);
+    }
+    .hf .hf-card:nth-of-type(2) { border-top-color: var(--hf-amber); }
+    .hf .hf-card:nth-of-type(3) { border-top-color: var(--hf-leaf); }
+    .hf .hf-card:nth-of-type(4) { border-top-color: var(--hf-grape); }
+    .hf-body {
+      background-color: var(--hf-cream);
+      background-image: radial-gradient(rgba(255, 107, 44, 0.09) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+    .hf-leafling { animation: hf-float 7s ease-in-out infinite; }
+    .hf-leafling-2 { animation: hf-float 9s ease-in-out infinite reverse; }
+    @keyframes hf-float {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-14px) rotate(6deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hf-leafling, .hf-leafling-2 { animation: none; }
+    }
+  </style>
+
+  </head>
+  <body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container">
+    
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant shadow-sm">
+  <nav class="flex justify-between items-center h-16 max-w-container-max mx-auto px-gutter">
+    <a href="../" class="flex items-center gap-sm">
+      <img src="/static/logo/pymug_new.svg" alt="PyMUG logo" class="w-8 h-8">
+      <span class="font-h4 text-h4 font-bold text-primary">PyMUG</span>
+    </a>
+    <div class="hidden md:flex items-center gap-lg">
+      
+        
+          <a href="../" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">About</a>
+        
+      
+        
+          <a href="../event" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Events</a>
+        
+      
+        
+          <a href="../trips" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Trips</a>
+        
+      
+        
+          <a href="../speakers" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Speakers</a>
+        
+      
+        
+          <a href="../blog" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Blog</a>
+        
+      
+        
+          <a href="../resources" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Resources</a>
+        
+      
+        
+          <a href="../faq" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">FAQs</a>
+        
+      
+        
+          <a href="../join" class="font-body-sm text-body-sm text-on-surface-variant font-medium hover:text-primary transition-colors">Join</a>
+        
+      
+    </div>
+    <div class="flex items-center gap-sm">
+      <a href="https://www.meetup.com/pymauritius/" target="_blank" rel="noopener" class="hidden md:inline-flex bg-secondary-container text-on-secondary-container px-md py-sm rounded-lg font-bold text-body-sm hover:scale-95 active:scale-90 transition-transform duration-150">Join Meetup</a>
+      <button id="mobile-menu-toggle" aria-label="Open menu" class="md:hidden p-2 text-on-surface-variant hover:text-primary transition-colors active:scale-90">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+    <div class="px-gutter py-md flex flex-col gap-xs">
+      
+        
+          <a href="../" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">About</a>
+        
+      
+        
+          <a href="../event" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Events</a>
+        
+      
+        
+          <a href="../trips" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Trips</a>
+        
+      
+        
+          <a href="../speakers" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Speakers</a>
+        
+      
+        
+          <a href="../blog" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Blog</a>
+        
+      
+        
+          <a href="../resources" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Resources</a>
+        
+      
+        
+          <a href="../faq" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">FAQs</a>
+        
+      
+        
+          <a href="../join" class="px-md py-sm rounded-lg text-on-surface-variant font-medium text-body-md hover:bg-surface-container-high">Join</a>
+        
+      
+      <a href="https://www.meetup.com/pymauritius/" target="_blank" rel="noopener" class="mt-sm bg-secondary-container text-on-secondary-container text-center px-md py-sm rounded-lg font-bold text-body-md">Join Meetup</a>
+    </div>
+  </div>
+</header>
+<script>
+  (function () {
+    var btn = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
+      btn.addEventListener('click', function () {
+        menu.classList.toggle('hidden');
+      });
+    }
+  })();
+</script>
+    <main class="flex-1 pt-16 pb-24 md:pb-0">
+      
+<div class="hf">
+  <!-- Hero -->
+  <section class="hf-hero relative overflow-hidden text-white">
+    <div class="hf-grid absolute inset-0 opacity-40"></div>
+
+    <!-- Falling leaves -->
+    <svg class="hf-leafling absolute top-20 left-[6%] w-10 h-10 text-[#ffb020] opacity-80 hidden md:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c5 0 9 3.6 9 8.5 0 5.4-4.6 9.5-9 11.5-4.4-2-9-6.1-9-11.5C3 5.6 7 2 12 2zm0 3.2c-2.6 0-4.7 2-4.7 4.6 0 1.6.8 3 2.1 3.9L12 20l2.6-6.3c1.3-.9 2.1-2.3 2.1-3.9 0-2.6-2.1-4.6-4.7-4.6z"/></svg>
+    <svg class="hf-leafling-2 absolute top-40 right-[8%] w-8 h-8 text-[#31c48d] opacity-80 hidden md:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c5 0 9 3.6 9 8.5 0 5.4-4.6 9.5-9 11.5-4.4-2-9-6.1-9-11.5C3 5.6 7 2 12 2zm0 3.2c-2.6 0-4.7 2-4.7 4.6 0 1.6.8 3 2.1 3.9L12 20l2.6-6.3c1.3-.9 2.1-2.3 2.1-3.9 0-2.6-2.1-4.6-4.7-4.6z"/></svg>
+
+    <div class="relative max-w-container-max mx-auto px-gutter pt-lg pb-2xl">
+      <nav class="flex items-center gap-xs mb-lg text-white/70 overflow-x-auto hide-scrollbar whitespace-nowrap">
+        <a href="../" class="font-body-sm hover:text-white">Home</a>
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        <span class="font-body-sm font-bold text-white truncate">Hacktoberfest 2026</span>
+      </nav>
+
+      <span class="inline-flex items-center gap-xs hf-pill rounded-full px-md py-xs mb-md font-label-caps uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[16px]">eco</span>
+        October 2026 · Open Source Month
+      </span>
+
+      <h1 class="font-h1 text-h2 md:text-h1 leading-tight mb-sm">
+        Hacktoberfest <span class="hf-title">2026</span>
+      </h1>
+      <p class="font-body-lg text-white/85 max-w-xl mb-lg">
+        One month, one pull request at a time. PyMUG is gathering Mauritian Pythonistas to contribute to open source together — beginners very much included.
+      </p>
+
+      <div class="flex flex-wrap gap-sm mb-lg">
+        <div class="hf-pill rounded-lg px-md py-sm flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-[#ffb020]">calendar_today</span>
+          <span class="font-body-sm">Saturday, 31 October 2026</span>
+        </div>
+        <div class="hf-pill rounded-lg px-md py-sm flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-[#31c48d]">groups</span>
+          <span class="font-body-sm">Hosted by PyMUG · Mauritius + online</span>
+        </div>
+        <div class="hf-pill rounded-lg px-md py-sm flex items-center gap-xs" id="hf-countdown-pill" hidden>
+          <span class="material-symbols-outlined text-[18px] text-[#ff6b2c]">hourglass_top</span>
+          <span class="font-body-sm" id="hf-countdown"></span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-md">
+        <a href="https://forms.gle/hkn8snRH2deBtws96" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-[#ff6b2c] hover:bg-[#ff813f] text-white font-bold text-body-md px-lg py-md rounded-lg shadow-lg hover:shadow-xl active:scale-95 transition-all">
+          Add a project
+          <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+        </a>
+        <a href="https://www.meetup.com/pymauritius/events/312511638/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener" class="inline-flex items-center gap-sm border-[1.5px] border-white/60 text-white hover:bg-white/10 font-bold text-body-md px-lg py-md rounded-lg active:scale-95 transition-all">
+          RSVP on Meetup
+          <span class="material-symbols-outlined text-[20px]">event_available</span>
+        </a>
+      </div>
+    </div>
+
+    <svg class="relative block w-full h-10 md:h-16 text-[#fff6ec]" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0,64 C220,104 460,24 720,52 C980,80 1220,110 1440,70 L1440,100 L0,100 Z"></path>
+    </svg>
+  </section>
+
+  <div class="hf-body">
+    <!-- Event announcement -->
+    <section class="max-w-container-max mx-auto px-gutter pt-lg">
+      <div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden grid grid-cols-1 md:grid-cols-12">
+        <div class="md:col-span-3 bg-gradient-to-br from-[#ff6b2c] to-[#ffb020] text-white p-lg flex md:flex-col items-center md:items-start justify-center gap-md">
+          <div class="text-center md:text-left">
+            <div class="font-label-caps uppercase tracking-widest opacity-90">Saturday</div>
+            <div class="font-h1 text-h1 leading-none">31</div>
+            <div class="font-h4 text-h4">October 2026</div>
+          </div>
+        </div>
+        <div class="md:col-span-9 p-lg flex flex-col md:flex-row md:items-center justify-between gap-md">
+          <div>
+            <div class="font-label-caps uppercase tracking-widest text-[#ff6b2c] mb-xs">The gathering</div>
+            <h2 class="font-h3 text-h4 md:text-h3 text-primary mb-xs">Hacktoberfest with PyMUG</h2>
+            <p class="font-body-md text-on-surface-variant max-w-2xl">
+              Bring a laptop, pick a project from the list below and open your first pull request of the month — or your fiftieth. We will share beginner-friendly issues, pair up on fixes and celebrate every merged contribution.
+            </p>
+            <p class="font-body-sm text-on-surface-variant mt-xs flex items-center gap-xs">
+              <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+              Venue and timings are published on the Meetup event page.
+            </p>
+          </div>
+          <a href="https://www.meetup.com/pymauritius/events/312511638/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center justify-center gap-sm bg-primary text-on-primary font-bold px-lg py-md rounded-lg hover:bg-primary-container transition-colors">
+            RSVP for 31 Oct
+            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+      <h2 class="font-h2 text-h3 md:text-h2 text-primary mb-xs">How it works</h2>
+      <p class="font-body-md text-on-surface-variant mb-lg max-w-2xl">Four small steps, and you are a Hacktoberfest contributor.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#ff6b2c] text-[32px]">how_to_reg</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">1. Register</h3>
+          <p class="font-body-sm text-on-surface-variant">Sign up through the PyMUG form so we know you are in and can send you the details.</p>
+        </div>
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#ffb020] text-[32px]">search</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">2. Pick a project</h3>
+          <p class="font-body-sm text-on-surface-variant">Choose one of the projects below and pick up an issue — most repos welcome small, focused pull requests.</p>
+        </div>
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#31c48d] text-[32px]">merge_type</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">3. Open a pull request</h3>
+          <p class="font-body-sm text-on-surface-variant">Fix, document, test or translate. Quality beats size — one honest PR counts.</p>
+        </div>
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#7b5cff] text-[32px]">celebration</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">4. Celebrate</h3>
+          <p class="font-body-sm text-on-surface-variant">Join us on Saturday, 31 October to share what you shipped and collect your swag.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="max-w-container-max mx-auto px-gutter pb-lg">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+        <div>
+          <h2 class="font-h2 text-h3 md:text-h2 text-primary mb-xs">Projects to work on</h2>
+          <p class="font-body-md text-on-surface-variant max-w-2xl">A curated shortlist for Hacktoberfest 2026 — 3 projects to sink your first PR into.</p>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+        
+        <article class="bg-white rounded-xl border border-outline-variant shadow-sm p-lg flex flex-col hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+          <div class="flex items-start justify-between gap-sm mb-sm">
+            <span class="w-11 h-11 rounded-lg bg-[#ff6b2c]/10 text-[#ff6b2c] inline-flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+            </span>
+            <span class="font-code text-[12px] bg-surface-container-high text-on-surface-variant rounded-full px-sm py-xs">Python</span>
+          </div>
+          <h3 class="font-h4 text-h4 text-primary mb-xs">angel-claw</h3>
+          <p class="font-body-sm text-on-surface-variant flex-1">A lean, compatible, Python-based OpenClaw, downloaded 14k times from PyPI. Agents, tools, docs and bug fixes all welcome in a fast-moving codebase.</p>
+
+          <div class="flex flex-wrap items-center gap-xs mt-md">
+            <span class="font-label-caps uppercase text-[12px] leading-none rounded-full px-sm py-xs bg-[#7b5cff]/15 text-[#5a3fd6]">intermediate</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">ai-agents</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">openclaw</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">pypi</span>
+            
+          </div>
+
+          <div class="flex flex-wrap gap-sm mt-md pt-md border-t border-outline-variant/60">
+            <a href="https://github.com/Abdur-rahmaanJ/angel-claw" target="_blank" rel="noopener" class="inline-flex items-center gap-xs bg-primary text-on-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary-container transition-colors">
+              Repository
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+            
+            <a href="https://github.com/Abdur-rahmaanJ/angel-claw/issues" target="_blank" rel="noopener" class="inline-flex items-center gap-xs border border-primary text-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary/5 transition-colors">
+              Open issues
+            </a>
+            
+          </div>
+        </article>
+        
+        <article class="bg-white rounded-xl border border-outline-variant shadow-sm p-lg flex flex-col hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+          <div class="flex items-start justify-between gap-sm mb-sm">
+            <span class="w-11 h-11 rounded-lg bg-[#ff6b2c]/10 text-[#ff6b2c] inline-flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+            </span>
+            <span class="font-code text-[12px] bg-surface-container-high text-on-surface-variant rounded-full px-sm py-xs">Python</span>
+          </div>
+          <h3 class="font-h4 text-h4 text-primary mb-xs">meteomoris</h3>
+          <p class="font-body-sm text-on-surface-variant flex-1">The Mauritian weather library, downloaded 78k+ times: conditions, forecasts and warnings for the island. Room for new endpoints, tests and docs.</p>
+
+          <div class="flex flex-wrap items-center gap-xs mt-md">
+            <span class="font-label-caps uppercase text-[12px] leading-none rounded-full px-sm py-xs bg-[#31c48d]/15 text-[#0f7a56]">beginner</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">mauritius</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">weather</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">api</span>
+            
+          </div>
+
+          <div class="flex flex-wrap gap-sm mt-md pt-md border-t border-outline-variant/60">
+            <a href="https://github.com/Abdur-rahmaanJ/meteomoris" target="_blank" rel="noopener" class="inline-flex items-center gap-xs bg-primary text-on-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary-container transition-colors">
+              Repository
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+            
+            <a href="https://github.com/Abdur-rahmaanJ/meteomoris/issues" target="_blank" rel="noopener" class="inline-flex items-center gap-xs border border-primary text-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary/5 transition-colors">
+              Open issues
+            </a>
+            
+          </div>
+        </article>
+        
+        <article class="bg-white rounded-xl border border-outline-variant shadow-sm p-lg flex flex-col hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+          <div class="flex items-start justify-between gap-sm mb-sm">
+            <span class="w-11 h-11 rounded-lg bg-[#ff6b2c]/10 text-[#ff6b2c] inline-flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+            </span>
+            <span class="font-code text-[12px] bg-surface-container-high text-on-surface-variant rounded-full px-sm py-xs">Python</span>
+          </div>
+          <h3 class="font-h4 text-h4 text-primary mb-xs">finance-mauritius</h3>
+          <p class="font-body-sm text-on-surface-variant flex-1">Helper functions for Mauritian banks and institutions - turn MCB statements into polars DataFrames, export to Excel, and work with MRA data.</p>
+
+          <div class="flex flex-wrap items-center gap-xs mt-md">
+            <span class="font-label-caps uppercase text-[12px] leading-none rounded-full px-sm py-xs bg-[#7b5cff]/15 text-[#5a3fd6]">intermediate</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">mauritius</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">finance</span>
+            
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">polars</span>
+            
+          </div>
+
+          <div class="flex flex-wrap gap-sm mt-md pt-md border-t border-outline-variant/60">
+            <a href="https://github.com/Abdur-rahmaanJ/finance-mauritius" target="_blank" rel="noopener" class="inline-flex items-center gap-xs bg-primary text-on-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary-container transition-colors">
+              Repository
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+            
+            <a href="https://github.com/Abdur-rahmaanJ/finance-mauritius/issues" target="_blank" rel="noopener" class="inline-flex items-center gap-xs border border-primary text-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary/5 transition-colors">
+              Open issues
+            </a>
+            
+          </div>
+        </article>
+        
+      </div>
+
+    </section>
+
+    <!-- Registration CTA -->
+    <section class="max-w-container-max mx-auto px-gutter pb-2xl">
+      <div class="hf-hero rounded-2xl overflow-hidden relative text-white p-xl md:p-2xl text-center">
+        <div class="hf-grid absolute inset-0 opacity-30"></div>
+        <div class="relative">
+          <span class="material-symbols-outlined text-[44px] text-[#ffb020]">redeem</span>
+          <h2 class="font-h2 text-h3 md:text-h2 mb-sm">Ready to contribute?</h2>
+          <p class="font-body-lg text-white/85 max-w-xl mx-auto mb-lg">Registration takes a minute. Do it now, then meet us on Saturday, 31 October 2026.</p>
+          <div class="flex flex-wrap justify-center gap-md">
+            <a href="https://forms.gle/hkn8snRH2deBtws96" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-[#ff6b2c] hover:bg-[#ff813f] text-white font-bold px-lg py-md rounded-lg shadow-lg active:scale-95 transition-all">
+              Add your project
+              <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+            </a>
+            <a href="https://www.meetup.com/pymauritius/events/312511638/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener" class="inline-flex items-center gap-sm border-[1.5px] border-white/60 hover:bg-white/10 font-bold px-lg py-md rounded-lg active:scale-95 transition-all">
+              RSVP on Meetup
+              <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var target = new Date('2026-10-31T00:00:00+04:00');
+    var pill = document.getElementById('hf-countdown-pill');
+    var label = document.getElementById('hf-countdown');
+    if (!pill || !label) return;
+    var days = Math.ceil((target - new Date()) / 86400000);
+    if (days > 1) { label.textContent = days + ' days to go'; pill.hidden = false; }
+    else if (days === 1) { label.textContent = 'Tomorrow!'; pill.hidden = false; }
+    else if (days >= -1) { label.textContent = "It's happening"; pill.hidden = false; }
+  })();
+</script>
+
+    </main>
+    <footer class="bg-surface-container-high w-full py-xl border-t border-outline-variant">
+  <div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-2 gap-lg">
+    <div class="space-y-md">
+      <div class="flex items-center gap-sm">
+        <img src="/static/logo/pymug_new.svg" alt="PyMUG logo" class="w-8 h-8">
+        <span class="font-h4 text-h4 font-bold text-primary">PyMUG</span>
+      </div>
+      <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">
+        The Python Mauritius User Group is the local Python user group of Mauritius — providing opportunities to upskill in Python and ease industry adoption of Python-related technologies.
+      </p>
+      <div class="flex gap-md pt-xs">
+        <a href="https://github.com/pymug" aria-label="GitHub" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">code</span>
+        </a>
+        <a href="https://twitter.com/pymugdotcom" aria-label="Twitter" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">alternate_email</span>
+        </a>
+        <a href="https://www.linkedin.com/company/pymug/" aria-label="LinkedIn" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">groups</span>
+        </a>
+        <a href="https://www.meetup.com/pymauritius/" aria-label="Meetup" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">event</span>
+        </a>
+        <a href="https://www.facebook.com/pymug/" aria-label="Facebook" class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary transition-colors">
+          <span class="material-symbols-outlined">public</span>
+        </a>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-md md:justify-items-end">
+      <div class="flex flex-col gap-sm">
+        <h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-xs">Community</h4>
+        <a href="https://github.com/pymug" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">Edit on GitHub</a>
+        <a href="https://mail.python.org/mailman3/lists/pymug.python.org/" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">Mailing List</a>
+        <a href="mailto:pymug@python.org" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">pymug@python.org</a>
+      </div>
+      <div class="flex flex-col gap-sm">
+        <h4 class="font-label-caps text-label-caps text-on-surface uppercase mb-xs">Reports</h4>
+        <a href="/static/reports/pymug_2019_report.pdf" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">2019 Report</a>
+        <a href="/static/reports/pymug_end_of_year_2020_v2.pdf" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors">2020 Report</a>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto px-gutter mt-xl pt-md border-t border-outline-variant/50 flex flex-col md:flex-row justify-between gap-sm">
+    <p class="font-body-sm text-body-sm text-on-surface-variant">© Python Mauritius User Group (PyMUG)</p>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">Built using <a href="https://pypi.org/project/jamstack/" class="hover:text-primary underline">jamstack</a></p>
+  </div>
+</footer>
+    
+<nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/95 backdrop-blur-md border-t border-outline-variant shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
+  <div class="flex justify-around items-center h-16 px-md">
+    
+      
+      <a href="../" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >home</span>
+        <span class="text-[10px] font-label-caps">Home</span>
+      </a>
+    
+      
+      <a href="../event" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >calendar_month</span>
+        <span class="text-[10px] font-label-caps">Events</span>
+      </a>
+    
+      
+      <a href="../speakers" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >groups</span>
+        <span class="text-[10px] font-label-caps">Speakers</span>
+      </a>
+    
+      
+      <a href="../blog" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >article</span>
+        <span class="text-[10px] font-label-caps">Blog</span>
+      </a>
+    
+      
+      <a href="../faq" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >help</span>
+        <span class="text-[10px] font-label-caps">FAQs</span>
+      </a>
+    
+      
+      <a href="../join" class="flex flex-col items-center justify-center gap-1 text-on-surface-variant font-medium transition-colors">
+        <span class="material-symbols-outlined" >group_add</span>
+        <span class="text-[10px] font-label-caps">Join</span>
+      </a>
+    
+  </div>
+</nav>
+  </body>
+</html>
