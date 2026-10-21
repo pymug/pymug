@@ -1,0 +1,33 @@
+{
+    "note": "Hacktoberfest 2026 project list. The page at /hacktoberfest2026 renders whatever is in this file - add or remove projects here and rebuild.",
+    "year": 2026,
+    "projects": [
+        {
+            "name": "angel-claw",
+            "description": "A lean, compatible, Python-based OpenClaw, downloaded 14k times from PyPI. Agents, tools, docs and bug fixes all welcome in a fast-moving codebase.",
+            "url": "https://github.com/Abdur-rahmaanJ/angel-claw",
+            "issues_url": "https://github.com/Abdur-rahmaanJ/angel-claw/issues",
+            "language": "Python",
+            "difficulty": "intermediate",
+            "tags": ["ai-agents", "openclaw", "pypi"]
+        },
+        {
+            "name": "meteomoris",
+            "description": "The Mauritian weather library, downloaded 78k+ times: conditions, forecasts and warnings for the island. Room for new endpoints, tests and docs.",
+            "url": "https://github.com/Abdur-rahmaanJ/meteomoris",
+            "issues_url": "https://github.com/Abdur-rahmaanJ/meteomoris/issues",
+            "language": "Python",
+            "difficulty": "beginner",
+            "tags": ["mauritius", "weather", "api"]
+        },
+        {
+            "name": "finance-mauritius",
+            "description": "Helper functions for Mauritian banks and institutions - turn MCB statements into polars DataFrames, export to Excel, and work with MRA data.",
+            "url": "https://github.com/Abdur-rahmaanJ/finance-mauritius",
+            "issues_url": "https://github.com/Abdur-rahmaanJ/finance-mauritius/issues",
+            "language": "Python",
+            "difficulty": "intermediate",
+            "tags": ["mauritius", "finance", "polars"]
+        }
+    ]
+}

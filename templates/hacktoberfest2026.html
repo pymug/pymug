@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% set section = 'hacktoberfest' %}
+{% block head %}
+  <title>Hacktoberfest 2026 | PyMUG</title>
+  <style>
+    /* Hacktoberfest 2026: night sky, marigold orange, leaf green, grape purple */
+    .hf {
+      --hf-night: #14162b;
+      --hf-ink: #1d1a3d;
+      --hf-orange: #ff6b2c;
+      --hf-amber: #ffb020;
+      --hf-leaf: #31c48d;
+      --hf-grape: #7b5cff;
+      --hf-cream: #fff6ec;
+    }
+    .hf-hero {
+      background:
+        radial-gradient(900px 420px at 12% -10%, rgba(123, 92, 255, 0.55), transparent 60%),
+        radial-gradient(760px 400px at 92% 8%, rgba(255, 107, 44, 0.42), transparent 62%),
+        radial-gradient(700px 480px at 60% 110%, rgba(49, 196, 141, 0.3), transparent 60%),
+        linear-gradient(165deg, var(--hf-ink) 0%, var(--hf-night) 60%, #0f221f 100%);
+    }
+    .hf-grid {
+      background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+    .hf-title {
+      background: linear-gradient(94deg, var(--hf-orange) 0%, var(--hf-amber) 45%, var(--hf-leaf) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* Prefixed with .hf so these win over the Tailwind `border` utility regardless of style order. */
+    .hf .hf-pill {
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+    .hf .hf-card {
+      border: 1px solid #c2c7d0;
+      border-top: 4px solid var(--hf-orange);
+    }
+    .hf .hf-card:nth-of-type(2) { border-top-color: var(--hf-amber); }
+    .hf .hf-card:nth-of-type(3) { border-top-color: var(--hf-leaf); }
+    .hf .hf-card:nth-of-type(4) { border-top-color: var(--hf-grape); }
+    .hf-body {
+      background-color: var(--hf-cream);
+      background-image: radial-gradient(rgba(255, 107, 44, 0.09) 1.5px, transparent 1.5px);
+      background-size: 24px 24px;
+    }
+    .hf-leafling { animation: hf-float 7s ease-in-out infinite; }
+    .hf-leafling-2 { animation: hf-float 9s ease-in-out infinite reverse; }
+    @keyframes hf-float {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-14px) rotate(6deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hf-leafling, .hf-leafling-2 { animation: none; }
+    }
+  </style>
+{% endblock %}
+{% block body %}
+<div class="hf">
+  <!-- Hero -->
+  <section class="hf-hero relative overflow-hidden text-white">
+    <div class="hf-grid absolute inset-0 opacity-40"></div>
+
+    <!-- Falling leaves -->
+    <svg class="hf-leafling absolute top-20 left-[6%] w-10 h-10 text-[#ffb020] opacity-80 hidden md:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c5 0 9 3.6 9 8.5 0 5.4-4.6 9.5-9 11.5-4.4-2-9-6.1-9-11.5C3 5.6 7 2 12 2zm0 3.2c-2.6 0-4.7 2-4.7 4.6 0 1.6.8 3 2.1 3.9L12 20l2.6-6.3c1.3-.9 2.1-2.3 2.1-3.9 0-2.6-2.1-4.6-4.7-4.6z"/></svg>
+    <svg class="hf-leafling-2 absolute top-40 right-[8%] w-8 h-8 text-[#31c48d] opacity-80 hidden md:block" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c5 0 9 3.6 9 8.5 0 5.4-4.6 9.5-9 11.5-4.4-2-9-6.1-9-11.5C3 5.6 7 2 12 2zm0 3.2c-2.6 0-4.7 2-4.7 4.6 0 1.6.8 3 2.1 3.9L12 20l2.6-6.3c1.3-.9 2.1-2.3 2.1-3.9 0-2.6-2.1-4.6-4.7-4.6z"/></svg>
+
+    <div class="relative max-w-container-max mx-auto px-gutter pt-lg pb-2xl">
+      <nav class="flex items-center gap-xs mb-lg text-white/70 overflow-x-auto hide-scrollbar whitespace-nowrap">
+        <a href="{{ path }}" class="font-body-sm hover:text-white">Home</a>
+        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+        <span class="font-body-sm font-bold text-white truncate">Hacktoberfest 2026</span>
+      </nav>
+
+      <span class="inline-flex items-center gap-xs hf-pill rounded-full px-md py-xs mb-md font-label-caps uppercase tracking-wider">
+        <span class="material-symbols-outlined text-[16px]">eco</span>
+        October 2026 · Open Source Month
+      </span>
+
+      <h1 class="font-h1 text-h2 md:text-h1 leading-tight mb-sm">
+        Hacktoberfest <span class="hf-title">2026</span>
+      </h1>
+      <p class="font-body-lg text-white/85 max-w-xl mb-lg">
+        One month, one pull request at a time. PyMUG is gathering Mauritian Pythonistas to contribute to open source together — beginners very much included.
+      </p>
+
+      <div class="flex flex-wrap gap-sm mb-lg">
+        <div class="hf-pill rounded-lg px-md py-sm flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-[#ffb020]">calendar_today</span>
+          <span class="font-body-sm">Saturday, 31 October 2026</span>
+        </div>
+        <div class="hf-pill rounded-lg px-md py-sm flex items-center gap-xs">
+          <span class="material-symbols-outlined text-[18px] text-[#31c48d]">groups</span>
+          <span class="font-body-sm">Hosted by PyMUG · Mauritius + online</span>
+        </div>
+        <div class="hf-pill rounded-lg px-md py-sm flex items-center gap-xs" id="hf-countdown-pill" hidden>
+          <span class="material-symbols-outlined text-[18px] text-[#ff6b2c]">hourglass_top</span>
+          <span class="font-body-sm" id="hf-countdown"></span>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-md">
+        <a href="https://forms.gle/hkn8snRH2deBtws96" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-[#ff6b2c] hover:bg-[#ff813f] text-white font-bold text-body-md px-lg py-md rounded-lg shadow-lg hover:shadow-xl active:scale-95 transition-all">
+          Add a project
+          <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+        </a>
+        <a href="https://www.meetup.com/pymauritius/events/312511638/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener" class="inline-flex items-center gap-sm border-[1.5px] border-white/60 text-white hover:bg-white/10 font-bold text-body-md px-lg py-md rounded-lg active:scale-95 transition-all">
+          RSVP on Meetup
+          <span class="material-symbols-outlined text-[20px]">event_available</span>
+        </a>
+      </div>
+    </div>
+
+    <svg class="relative block w-full h-10 md:h-16 text-[#fff6ec]" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0,64 C220,104 460,24 720,52 C980,80 1220,110 1440,70 L1440,100 L0,100 Z"></path>
+    </svg>
+  </section>
+
+  <div class="hf-body">
+    <!-- Event announcement -->
+    <section class="max-w-container-max mx-auto px-gutter pt-lg">
+      <div class="bg-white rounded-xl shadow-sm border border-outline-variant overflow-hidden grid grid-cols-1 md:grid-cols-12">
+        <div class="md:col-span-3 bg-gradient-to-br from-[#ff6b2c] to-[#ffb020] text-white p-lg flex md:flex-col items-center md:items-start justify-center gap-md">
+          <div class="text-center md:text-left">
+            <div class="font-label-caps uppercase tracking-widest opacity-90">Saturday</div>
+            <div class="font-h1 text-h1 leading-none">31</div>
+            <div class="font-h4 text-h4">October 2026</div>
+          </div>
+        </div>
+        <div class="md:col-span-9 p-lg flex flex-col md:flex-row md:items-center justify-between gap-md">
+          <div>
+            <div class="font-label-caps uppercase tracking-widest text-[#ff6b2c] mb-xs">The gathering</div>
+            <h2 class="font-h3 text-h4 md:text-h3 text-primary mb-xs">Hacktoberfest with PyMUG</h2>
+            <p class="font-body-md text-on-surface-variant max-w-2xl">
+              Bring a laptop, pick a project from the list below and open your first pull request of the month — or your fiftieth. We will share beginner-friendly issues, pair up on fixes and celebrate every merged contribution.
+            </p>
+            <p class="font-body-sm text-on-surface-variant mt-xs flex items-center gap-xs">
+              <span class="material-symbols-outlined text-[16px] text-primary">location_on</span>
+              Venue and timings are published on the Meetup event page.
+            </p>
+          </div>
+          <a href="https://www.meetup.com/pymauritius/events/312511638/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center justify-center gap-sm bg-primary text-on-primary font-bold px-lg py-md rounded-lg hover:bg-primary-container transition-colors">
+            RSVP for 31 Oct
+            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="max-w-container-max mx-auto px-gutter pt-xl pb-lg">
+      <h2 class="font-h2 text-h3 md:text-h2 text-primary mb-xs">How it works</h2>
+      <p class="font-body-md text-on-surface-variant mb-lg max-w-2xl">Four small steps, and you are a Hacktoberfest contributor.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#ff6b2c] text-[32px]">how_to_reg</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">1. Register</h3>
+          <p class="font-body-sm text-on-surface-variant">Sign up through the PyMUG form so we know you are in and can send you the details.</p>
+        </div>
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#ffb020] text-[32px]">search</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">2. Pick a project</h3>
+          <p class="font-body-sm text-on-surface-variant">Choose one of the projects below and pick up an issue — most repos welcome small, focused pull requests.</p>
+        </div>
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#31c48d] text-[32px]">merge_type</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">3. Open a pull request</h3>
+          <p class="font-body-sm text-on-surface-variant">Fix, document, test or translate. Quality beats size — one honest PR counts.</p>
+        </div>
+        <div class="hf-card bg-white rounded-xl p-md border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-[#7b5cff] text-[32px]">celebration</span>
+          <h3 class="font-h4 text-h4 text-primary mt-sm mb-xs">4. Celebrate</h3>
+          <p class="font-body-sm text-on-surface-variant">Join us on Saturday, 31 October to share what you shipped and collect your swag.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="max-w-container-max mx-auto px-gutter pb-lg">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-lg">
+        <div>
+          <h2 class="font-h2 text-h3 md:text-h2 text-primary mb-xs">Projects to work on</h2>
+          <p class="font-body-md text-on-surface-variant max-w-2xl">A curated shortlist for Hacktoberfest 2026 — {{ len(projects) }} project{{ 's' if len(projects) != 1 }} to sink your first PR into.</p>
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+        {% for project in projects %}
+        <article class="bg-white rounded-xl border border-outline-variant shadow-sm p-lg flex flex-col hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+          <div class="flex items-start justify-between gap-sm mb-sm">
+            <span class="w-11 h-11 rounded-lg bg-[#ff6b2c]/10 text-[#ff6b2c] inline-flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">deployed_code</span>
+            </span>
+            <span class="font-code text-[12px] bg-surface-container-high text-on-surface-variant rounded-full px-sm py-xs">{{ project['language'] }}</span>
+          </div>
+          <h3 class="font-h4 text-h4 text-primary mb-xs">{{ project['name'] }}</h3>
+          <p class="font-body-sm text-on-surface-variant flex-1">{{ project['description'] }}</p>
+
+          <div class="flex flex-wrap items-center gap-xs mt-md">
+            <span class="font-label-caps uppercase text-[12px] leading-none rounded-full px-sm py-xs {{ 'bg-[#31c48d]/15 text-[#0f7a56]' if project['difficulty'] == 'beginner' else 'bg-[#7b5cff]/15 text-[#5a3fd6]' }}">{{ project['difficulty'] }}</span>
+            {% for tag in project.get('tags', []) %}
+            <span class="font-body-sm text-[12px] leading-none text-on-surface-variant bg-surface-container-low rounded-full px-sm py-xs">{{ tag }}</span>
+            {% endfor %}
+          </div>
+
+          <div class="flex flex-wrap gap-sm mt-md pt-md border-t border-outline-variant/60">
+            <a href="{{ project['url'] }}" target="_blank" rel="noopener" class="inline-flex items-center gap-xs bg-primary text-on-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary-container transition-colors">
+              Repository
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+            {% if project.get('issues_url') %}
+            <a href="{{ project['issues_url'] }}" target="_blank" rel="noopener" class="inline-flex items-center gap-xs border border-primary text-primary font-bold text-body-sm px-md py-sm rounded-lg hover:bg-primary/5 transition-colors">
+              Open issues
+            </a>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+    </section>
+
+    <!-- Registration CTA -->
+    <section class="max-w-container-max mx-auto px-gutter pb-2xl">
+      <div class="hf-hero rounded-2xl overflow-hidden relative text-white p-xl md:p-2xl text-center">
+        <div class="hf-grid absolute inset-0 opacity-30"></div>
+        <div class="relative">
+          <span class="material-symbols-outlined text-[44px] text-[#ffb020]">redeem</span>
+          <h2 class="font-h2 text-h3 md:text-h2 mb-sm">Ready to contribute?</h2>
+          <p class="font-body-lg text-white/85 max-w-xl mx-auto mb-lg">Registration takes a minute. Do it now, then meet us on Saturday, 31 October 2026.</p>
+          <div class="flex flex-wrap justify-center gap-md">
+            <a href="https://forms.gle/hkn8snRH2deBtws96" target="_blank" rel="noopener" class="inline-flex items-center gap-sm bg-[#ff6b2c] hover:bg-[#ff813f] text-white font-bold px-lg py-md rounded-lg shadow-lg active:scale-95 transition-all">
+              Add your project
+              <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+            </a>
+            <a href="https://www.meetup.com/pymauritius/events/312511638/?eventOrigin=group_upcoming_events" target="_blank" rel="noopener" class="inline-flex items-center gap-sm border-[1.5px] border-white/60 hover:bg-white/10 font-bold px-lg py-md rounded-lg active:scale-95 transition-all">
+              RSVP on Meetup
+              <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var target = new Date('2026-10-31T00:00:00+04:00');
+    var pill = document.getElementById('hf-countdown-pill');
+    var label = document.getElementById('hf-countdown');
+    if (!pill || !label) return;
+    var days = Math.ceil((target - new Date()) / 86400000);
+    if (days > 1) { label.textContent = days + ' days to go'; pill.hidden = false; }
+    else if (days === 1) { label.textContent = 'Tomorrow!'; pill.hidden = false; }
+    else if (days >= -1) { label.textContent = "It's happening"; pill.hidden = false; }
+  })();
+</script>
+{% endblock %}
